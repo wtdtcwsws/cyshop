@@ -43,7 +43,8 @@
                 </div>
             </div>
             <div class="m-2 row">
-                 <img src="${root}/static/image/shiliu.jpg" class="d-block m-0 col-2 p-0" alt="图片无法加载" style="width: 50px;height: 50px"/>
+                <%--------------------------记得循环缩略图--------------------------%>
+                <img src="${root}/static/image/shiliu.jpg" class="d-block m-0 col-2 p-0" alt="图片无法加载" style="width: 50px;height: 50px"/>
             </div>
         </div>
         <div class="col-md-6">
@@ -78,9 +79,11 @@
                 </dl>
                 <div class="row">
                     <div class="col-6 pl-5">
+                        <%--------------------------添加跳转的地址--------------------------%>
                         <a class="text-muted" href=""><button type="button" class="btn btn-outline-danger">立即购买</button></a>
                     </div>
                     <div class="col-6">
+                        <%--------------------------添加跳转的地址--------------------------%>
                         <a class="text-muted" href=""><button type="button" class="btn btn-danger">加入购物车</button></a>
                     </div>
                 </div>
