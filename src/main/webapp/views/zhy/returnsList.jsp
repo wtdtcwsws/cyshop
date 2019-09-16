@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="animated  fadeIn">
 	<h4>退货/款列表<small class="text-muted"> 商城所有退货/款单索引及管理</small></h4>
 	<hr>
