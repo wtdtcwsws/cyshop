@@ -158,7 +158,7 @@
 											</a>
 										</li>
 										<li class="nav-item ">
-											<a class="nav-link" href="wt/catalog.html"><i class="nav-icon icon-puzzle"></i>商品分类
+											<a class="nav-link" href="wt/catalog.jsp"><i class="nav-icon icon-puzzle"></i>商品分类
 											<span class="badge badge-success">new</span>
 											</a>
 										</li>
