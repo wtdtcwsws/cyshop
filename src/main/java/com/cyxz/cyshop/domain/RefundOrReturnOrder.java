@@ -15,6 +15,7 @@ import java.util.Date;
 public class RefundOrReturnOrder implements Serializable {
     private String id;
     private String member_id;
+    private String spu_name;
     private String order_id;
     private Date creat_time;
     private BigDecimal count;
@@ -31,6 +32,12 @@ public class RefundOrReturnOrder implements Serializable {
     }
     public void setMember_id(String member_id) {
         this.member_id = member_id;
+    }
+    public String getSpu_name() {
+        return spu_name;
+    }
+    public void setSpu_name(String spu_name) {
+        this.spu_name = spu_name;
     }
     public String getOrder_id() {
         return order_id;
@@ -67,6 +74,7 @@ public class RefundOrReturnOrder implements Serializable {
         return "RefundOrReturnOrder{" +
                 "id='" + id + '\'' +
                 ", member_id='" + member_id + '\'' +
+                ", spu_name='" + spu_name + '\'' +
                 ", order_id='" + order_id + '\'' +
                 ", creat_time=" + creat_time +
                 ", count=" + count +
