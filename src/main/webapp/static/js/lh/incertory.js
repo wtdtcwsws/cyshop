@@ -1,41 +1,44 @@
 (function(){
-	// 得到修改库存按钮
-	var inventoryButton = document.getElementById('btn-inventory');
-	// 得到库存数量的标签
-	var inventoryText = document.getElementById('inventory');
-	// 得到未修改的库存数量
-	var inventoryTextIndex = inventoryText.innerText;
-	
-	// 当点击修改库存按钮时的事件
-	inventoryButton.onclick = function(){
-		// 在存放库存数量的标签中覆盖修改的标签
-		// 添加新库存输入框
-		inventoryText.innerHTML = '<input type="text" class="form-control d-inline-block mr-2" placeholder="新的库存数量" style="width:110px;height:40px;font-size:13px">' 
-		// 添加确认按钮
-		+ '<button id="inventory-yes" class="btn btn-sm btn-success mr-1" type="submit">'
-		+ '<i class="fa fa-dot-circle-o"></i>'
-		+ '<font style="vertical-align: inherit;"><font style="vertical-align: inherit;">确定</font></font>'
-		+ '</button>' 
-		// 添加取消按钮
-		+ '<button id="inventory-no" class="btn btn-sm btn-danger" type="reset">'
-		+ '<i class="fa fa-ban"></i>'
-		+ '<font style="vertical-align: inherit;"><font style="vertical-align: inherit;">取消</font></font>'
-		+ '</button>';
-		
-		// 得到修改库存的按钮
-		var inventoryYes = document.getElementById('inventory-yes');
-		// 得到取消修改库存的按钮
-		var inventoryNo = document.getElementById('inventory-no');
-		// 当点击确认修改库存按钮时的事件
-		inventoryYes.onclick = function(){
-			console.log('进行修改库存数的操作');
-		}
-		// 当点击取消修改库存按钮时的事件
-		inventoryNo.onclick = function(){
-			inventoryText.innerHTML = inventoryTextIndex;
-		}
-		
-	};
+
+	$('[data-click="btn-inventory"]').click(function () {
+
+        // 得到修改库存按钮
+        var inventoryButton = $(this);
+        // 得到库存数量的所在的TD
+        var inventoryTD = inventoryButton.closest('td').siblings('[data-column="stocks"]').children('[data-column="stock"]');
+        // 得到未修改的库存数量
+        var inventoryTextIndex = inventoryTD.text();
+        // 创建文本框用于输入内容
+		inventoryTD.html('<input data-column="new-stock" type="text" class="form-control d-inline-block mr-2" placeholder="新的库存数量" style="width:110px;height:40px;font-size:13px">'
+            // 添加确认按钮
+            + '<button data-click="inventory-yes" class="btn btn-sm btn-success mr-1" type="submit">'
+            + '<i class="fa fa-dot-circle-o"></i>'
+            + '<font style="vertical-align: inherit;"><font style="vertical-align: inherit;">确定</font></font>'
+            + '</button>'
+            // 添加取消按钮
+            + '<button data-click="inventory-no" class="btn btn-sm btn-danger" type="reset">'
+            + '<i class="fa fa-ban"></i>'
+            + '<font style="vertical-align: inherit;"><font style="vertical-align: inherit;">取消</font></font>'
+            + '</button>');
+        inventoryTD.find('[data-click="inventory-yes"]').click(function () {
+            // 获取用户输入信息，进行判断
+            var newStock =  $('[data-column="new-stock"]').val();
+            if(/^[0-9]+$/.test(newStock)){
+
+            }else {
+                $(inventoryTD).siblings('[data-column="hint"]').text("输入值不合规定，请重新输入！(只允许输入正整数)");
+            }
+
+        });
+        inventoryTD.find('[data-click="inventory-no"]').click(function () {
+            inventoryTD.html(inventoryTextIndex);
+            // 启用修改库存按钮，重新生成功能
+            $(inventoryTD).siblings('[data-column="hint"]').empty();
+            $('[data-click="btn-inventory"]').attr('disabled', false);
+        });
+        // 禁用修改库存按钮，防止多次点击出现的BUG
+        $(this).attr('disabled', true);
+    });
 	
 }) ();
 

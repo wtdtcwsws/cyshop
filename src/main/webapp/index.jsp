@@ -163,7 +163,7 @@
 											</a>
 										</li>
 										<li class="nav-item ">
-											<a class="nav-link" href="lh/goods-inventory.html"><i class="nav-icon icon-puzzle"></i>库存管理
+											<a class="nav-link" href="lh/goods-inventory.jsp"><i class="nav-icon icon-puzzle"></i>库存管理
 											</a>
 										</li>
 										<li class="nav-item ">
@@ -212,7 +212,7 @@
 									</a>
 									<ul class="nav-dropdown-items">
 										<li class="nav-item nav-dropdown">
-											<a class="nav-link" href="lh/member.html"><i class="nav-icon icon-puzzle"></i>会员列表
+											<a class="nav-link" href="lh/member.jsp"><i class="nav-icon icon-puzzle"></i>会员列表
 											</a>
 										</li>
 										<li class="nav-item nav-dropdown">
