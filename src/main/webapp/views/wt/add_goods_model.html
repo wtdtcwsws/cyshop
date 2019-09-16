@@ -1,0 +1,209 @@
+<div class="animated fadeIn">
+	<div class="row">
+		<div class="col-1">
+			<!-- 返回 -->
+			<a class="btn  btn-primary " style="margin-bottom: 15px ;border-radius:50%;" role="button" href="wt/goods_model.html"
+			 data-toggle="ajaxLoad" data-target="#ui-view"><i class="fa fa-arrow-left"></i></a>
+		</div>
+		<div class="col-8">
+			<h4>商品模型添加 <small class="text-muted"> 模型添加 </small></h4>
+		</div>
+	</div>
+	<form class="form-horizontal" action="" method="post">
+		<div class="card">
+			<div class="card-header">
+				商品模型
+				<small>列表</small>
+			</div>
+
+			<div class="card-body">
+				<div class="card">
+					<div class="card-header">
+						<strong>商品模型添加</strong></div>
+					<div class="card-body ">
+
+						<div class="form-group row">
+							<label class="col-md-2 col-form-label offset-1 text-right" for="name"><i class="text-danger " style="font: bold 14px/20px tahoma, verdana;">*</i>
+								商品模型名称 </label>
+							<div class="col-md-4">
+								<input class="form-control" id="name" type="text" name="model_name">
+								<span class="help-block offset-1">商品模型名称 </span>
+							</div>
+						</div>
+						<hr>
+						<div class="form-group row">
+							<label class="col-md-2 col-form-label offset-1 text-right" for="name"><i class="text-danger " style="font: bold 14px/20px tahoma, verdana;">*</i>
+								三级分类 </label>
+							<div class="col-md-4">
+								<select class="form-control form-control-sm col-4 " id="select3" name="catalog1">
+									<!-- 循环三级分类 -->
+									<option value="1">特产 食品 保健</option>
+									<option value="2">大家电 小家电</option>
+									<option value="3">电脑 手机 数码</option>
+									<option value="4">服装 鞋靴 箱包</option>
+								</select>
+								<span class="help-block offset-1">一级分类</span>
+							</div>
+						</div>
+						<hr>
+						<div class="form-group row">
+
+							<table class="table table-responsive-sm col-8 offset-2">
+								<thead>
+									<tr>
+										<th>编号</th>
+										<th>属性</th>
+										<th>操作</th>
+
+									</tr>
+
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											<button class="btn  btn-outline-primary btn-sm" type="button" data-toggle="modal" data-target="#add-attri"><i class="fa fa-plus"></i>添加</button>
+											<div class="modal fade" id="add-attri" tabindex="-1" role="dialog"  style="display: none;"
+											 aria-hidden="true">
+												<div class="modal-dialog" role="document">
+													<div class="modal-content">
+														<div class="modal-header">
+															<h4 class="modal-title">添加属性</h4>
+															<button class="close" type="button" data-dismiss="modal" aria-label="Close">
+																<span aria-hidden="true">×</span>
+															</button>
+														</div>
+														<form action="#">
+														<div class="modal-body">
+															<div class="form-group row">
+																<label class="col-md-2 col-form-label offset-1 text-right" for="name"><i class="text-danger " style="font: bold 14px/20px tahoma, verdana;">*</i>
+																	属性 </label>
+																<div class="col-md-4">
+																	<input class="form-control" id="name" type="text" name="attri">
+																	<span class="help-block offset-1">属性添加</span>
+																</div>
+															</div>
+														</div>
+														<div class="modal-footer">
+															<button class="btn btn-secondary" type="button" data-dismiss="modal">取消</button>
+															<input class="btn btn-primary" type="submit" value="确定">
+														</div>
+														</form>
+													</div>
+													<!-- /.modal-content-->
+												</div>
+												<!-- /.modal-dialog-->
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>颜色</td>
+										<td>
+											<a href="waddroleManage.html" class="btn  btn-outline-primary btn-sm" data-toggle="modal" data-target="#smallModal"
+											 role="button"><i class="fa fa-trash" data-toggle="modal" data-target="#smallModal"></i>删除</a>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+
+						</div>
+						<hr>
+						<div class="form-group row">
+							<table class="table table-responsive-sm col-8 offset-2">
+								<thead>
+									<tr>
+										<th>编号</th>
+										<th>属性编号</th>
+										<th>属性值</th>
+										<th>操作</th>
+
+									</tr>
+
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											<button class="btn  btn-outline-primary btn-sm" type="button" data-toggle="modal" data-target="#add-attri-value"><i class="fa fa-plus"></i>添加</button>
+											<div class="modal fade" id="add-attri-value" tabindex="-1" role="dialog"  style="display: none;"
+											 aria-hidden="true">
+												<div class="modal-dialog" role="document">
+													<div class="modal-content">
+														<div class="modal-header">
+															<h4 class="modal-title">添加属性值</h4>
+															<button class="close" type="button" data-dismiss="modal" aria-label="Close">
+																<span aria-hidden="true">×</span>
+															</button>
+														</div>
+														<form action="#">
+														<div class="modal-body">
+															<div class="form-group row">
+																<label class="col-md-2 col-form-label offset-1 text-right" for="name"><i class="text-danger " style="font: bold 14px/20px tahoma, verdana;">*</i>
+																	属性 </label>
+																<div class="col">
+																	<select class="form-control form-control-sm col-4 " id="select3" name="attri">
+																		<!-- 循环属性名 -->
+																		<option value="1">颜色</option>
+																		<option value="2">内存</option>
+																	</select>
+																	<span class="help-block offset-1">属性选择</span>
+																</div>
+															</div>
+															<hr>
+															<div class="form-group row">
+																<label class="col-md-3 col-form-label  text-right" for="name"><i class="text-danger " style="font: bold 14px/20px tahoma, verdana;">*</i>
+																	属性值 </label>
+																<div class="col">
+																	<input class="form-control" id="name" type="text" name="attri">
+																	<span class="help-block offset-1">属性值添加</span>
+																</div>
+															</div>
+														</div>
+														<div class="modal-footer">
+															<button class="btn btn-secondary" type="button" data-dismiss="modal">取消</button>
+															<input class="btn btn-primary" type="submit" value="确定">
+														</div>
+														</form>
+													</div>
+													<!-- /.modal-content-->
+												</div>
+												<!-- /.modal-dialog-->
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>1</td>
+										<td>红色 </td>
+										<td>
+
+											<a href="waddroleManage.html" class="btn  btn-outline-primary btn-sm" data-toggle="modal" data-target="#smallModal"
+											 role="button"><i class="fa fa-trash" data-toggle="modal" data-target="#smallModal"></i>删除</a>
+										</td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td>1</td>
+										<td>银色 </td>
+										<td>
+
+
+											<a href="waddroleManage.html" class="btn  btn-outline-primary btn-sm" data-toggle="modal" data-target="#smallModal"
+											 role="button"><i class="fa fa-trash" data-toggle="modal" data-target="#smallModal"></i>删除</a>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="card-footer ">
+						<div class="offset-3">
+							<!-- 改为submit -->
+							<a class="btn  btn-primary" role="button" href="wt/goods_model.html" data-toggle="ajaxLoad" data-target="#ui-view">确认提交</a>
+						</div>
+					</div>
+	</form>
+
+</div>
+</div>
+</div>
+</div>
