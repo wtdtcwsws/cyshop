@@ -1,4 +1,56 @@
+<%--<%@ page import="com.cyxz.cyshop.service.RefundOrReturnItemService" %>--%>
+<%--<%@ page import="com.cyxz.cyshop.service.impl.RefundOrReturnItemServiceImpl" %>--%>
+<%--<%@ page import="com.cyxz.cyshop.domain.RefundOrReturnItem" %>--%>
+<%--<%@ page import="java.util.List" %>--%>
+<%--<%@ page import="com.cyxz.cyshop.service.RefundOrReturnOrderService" %>--%>
+<%--<%@ page import="com.cyxz.cyshop.service.impl.RefundOrReturnOrderServiceImpl" %>--%>
+<%--<%@ page import="com.cyxz.cyshop.domain.RefundOrReturnOrder" %>--%>
+<%--<%@ page import="com.cyxz.cyshop.viewobject.RefundOrReturnItemVO" %>--%>
+<%--<%@ page import="java.util.ArrayList" %>--%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%--<%--%>
+    <%--RefundOrReturnItemService refundOrReturnItemService = new RefundOrReturnItemServiceImpl();--%>
+    <%--System.out.println(2);--%>
+    <%--List<RefundOrReturnItem> refundOrReturnItemReturnIds = refundOrReturnItemService.findReturnIdList();--%>
+    <%--System.out.println(3);--%>
+    <%--RefundOrReturnOrderService refundOrReturnOrderService = new RefundOrReturnOrderServiceImpl();--%>
+    <%--System.out.println(4);--%>
+    <%--RefundOrReturnOrder refundOrReturnOrder;--%>
+    <%--System.out.println(5);--%>
+    <%--RefundOrReturnItem refundOrReturnItem;--%>
+    <%--System.out.println(6);--%>
+    <%--List<RefundOrReturnItemVO> refundOrReturnItemVOs = new ArrayList<RefundOrReturnItemVO>();--%>
+    <%--System.out.println(7);--%>
+    <%--for (int i = 0;i<refundOrReturnItemReturnIds.size();i++){--%>
+        <%--RefundOrReturnItemVO refundOrReturnItemVO = new RefundOrReturnItemVO();--%>
+        <%--refundOrReturnOrder = refundOrReturnOrderService.selectOne(refundOrReturnItemReturnIds.get(i).getReturn_id());--%>
+        <%--refundOrReturnItem = refundOrReturnItemService.findRefundOrReturnItem(refundOrReturnOrder.getId());--%>
+        <%--refundOrReturnItemVO.setId(refundOrReturnOrder.getId());--%>
+        <%--// 订单号--%>
+        <%--refundOrReturnItemVO.setOrderId(refundOrReturnOrder.getOrder_id());--%>
+        <%--// 商品名称--%>
+        <%--refundOrReturnItemVO.setSpuName(refundOrReturnOrder.getSpu_name());--%>
+        <%--// 购买数量--%>
+        <%--refundOrReturnItemVO.setNums(refundOrReturnItem.getNums());--%>
+        <%--// 购买金额--%>
+        <%--refundOrReturnItemVO.setCount(refundOrReturnOrder.getCount());--%>
+        <%--// 用户名，这里差一个menber的Service方法--%>
+        <%--refundOrReturnItemVO.setMemberName("小白"+ i + "号");--%>
+        <%--// 创建事件--%>
+        <%--refundOrReturnItemVO.setCreatTime(refundOrReturnOrder.getCreat_time());--%>
+        <%--// 退货款原因--%>
+        <%--refundOrReturnItemVO.setReason(refundOrReturnOrder.getReason());--%>
+        <%--// 退货款状态--%>
+        <%--refundOrReturnItemVO.setStatus(refundOrReturnOrder.getStatus());--%>
+        <%--refundOrReturnItemVOs.add(refundOrReturnItemVO);--%>
+    <%--}--%>
+    <%--session.setAttribute("refundOrReturnItemVOs",refundOrReturnItemVOs);--%>
+<%--%>--%>
+
+
 <div class="animated  fadeIn">
 	<h4>退货/款列表<small class="text-muted"> 商城所有退货/款单索引及管理</small></h4>
 	<hr>
@@ -32,6 +84,7 @@
 			<table class="table table-responsive-sm table-bordered text-center">
 				<thead>
 					<tr>
+						<th>编号</th>
 						<th>订单编号</th>
 						<th>商品名称</th>
 						<th>商品数量(个)</th>
@@ -44,32 +97,59 @@
 					</tr>
 				</thead>
 				<tbody>
+					<c:forEach var="refundOrReturnItem" items="${refundOrReturnItemVOs}" varStatus="status">
 					<tr>
 						<td>
-							13654181312
+							${refundOrReturnItem.id}
 						</td>
-						<td>仙人球多肉植物组合</td>
-						<td>1</td>
-						<td>200</td>
-						<td>admin</td>
-						<td>2019.09.12</td>
 						<td>
-							质量太差，不想要了
+							${refundOrReturnItem.orderId}
+						</td>
+						<td>${refundOrReturnItem.spuName}</td>
+						<td>${refundOrReturnItem.nums}</td>
+						<td>${refundOrReturnItem.count}</td>
+						<td>${refundOrReturnItem.memberName}</td>
+						<td>${refundOrReturnItem.creatTime}</td>
+						<td>
+								${refundOrReturnItem.reason}
 						</td>
 						<td class="pt-1 pb-1">
-							<select class="custom-select">
-								<option value="-1">已撤销</option>
-								<option selected value="0">未处理</option>
-								<option value="1">已通过</option>
-								<option value="2">已完成</option>
+							<select class="custom-select" data-id="${refundOrReturnItem.id}" data-value="${refundOrReturnItem.id}">
+							<c:choose>
+								<c:when test="${refundOrReturnItem.status eq '-1'}">
+									<option selected value="-1">已撤销</option>
+									<option value="0">未处理</option>
+									<option value="1">已通过</option>
+									<option value="2">已完成</option>
+								</c:when>
+								<c:when test="${refundOrReturnItem.status eq '1'}">
+									<option value="-1">已撤销</option>
+									<option value="0">未处理</option>
+									<option selected value="1">已通过</option>
+									<option value="2">已完成</option>
+								</c:when>
+								<c:when test="${refundOrReturnItem.status eq '2'}">
+									<option value="-1">已撤销</option>
+									<option value="0">未处理</option>
+									<option value="1">已通过</option>
+									<option selected value="2">已完成</option>
+								</c:when>
+								<c:otherwise>
+										<option value="-1">已撤销</option>
+										<option selected value="0">未处理</option>
+										<option value="1">已通过</option>
+										<option value="2">已完成</option>
+								</c:otherwise>
+							</c:choose>
 							</select>
 						</td>
 						<td class="pt-1 pb-1">
-							<a class="btn btn-light btn-sm" data-toggle="ajaxLoad" data-target="#ui-view" role="button" href="zhy/returnDetails.html">
-								查看详情
+							<a class="btn btn-light btn-sm" data-toggle="ajaxLoad" data-target="#ui-view" role="button" href="refundOrReturnOrder?method=lookReturnOrder&OI=${status.index} ">
+                                查看详情
 							</a>
 						</td>
 					</tr>
+					</c:forEach>
 				</tbody>
 			</table>
 			<nav aria-label="Page navigation example">
@@ -88,3 +168,4 @@
 		</div>
 	</div>
 </div>
+<script src="${root}/static/js/zhy/returnListStatus-ajax.js"></script>
