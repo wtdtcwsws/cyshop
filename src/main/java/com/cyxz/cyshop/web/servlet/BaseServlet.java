@@ -87,6 +87,7 @@ public class BaseServlet extends HttpServlet {
             }
 
         } catch (Exception e) {
+            e.printStackTrace();
             throw new RuntimeException("在" + this.getClass() + "没有找到名字为" + methodParam + "的方法");
         }
 
