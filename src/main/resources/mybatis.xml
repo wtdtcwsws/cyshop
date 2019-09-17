@@ -16,5 +16,7 @@
     </environments>
 <mappers>
     <mapper resource="member.xml"/>
+    <mapper resource="sku.xml"/>
 </mappers>
+
 </configuration>

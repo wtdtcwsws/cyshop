@@ -1,4 +1,7 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <div class="card">
+
 	<div class="card-header p-0">
 		<div class="alert alert-danger alert-dismissible m-0" role="alert">
 		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -101,27 +104,27 @@
         <form>
 			
           <div class="form-group">
-            <label for="recipient-name" class="control-label">账号：</label>
+            <labelclass="control-label">账号：</label>
             <input type="text" class="form-control" id="modal-account">
           </div>
           <div class="form-group">
-            <label for="message-text" class="control-label">密码：</label>
+            <label class="control-label">密码：</label>
             <input type="password" class="form-control" id="modal-password">
           </div>
 		  <div class="form-group">
-		    <label for="message-text" class="control-label">姓名：</label>
+		    <label class="control-label">姓名：</label>
 			<input type="text" class="form-control" id="modal-name">
 		  </div>
 		  <div class="form-group">
-		    <label for="message-text" class="control-label">会员等级：</label>
+		    <label class="control-label">会员等级：</label>
 			<input type="text" class="form-control" id="modal-level">
 		  </div>
 		  <div class="form-group">
-		    <label for="message-text" class="control-label">手机号码：</label>
+		    <label class="control-label">手机号码：</label>
 			<input type="text" class="form-control" id="modal-phone">
 		  </div>
 		  <div class="form-group">
-		    <label for="message-text" class="control-label">会员状态：</label>
+		    <label class="control-label">会员状态：</label>
 			<input type="text" class="form-control" disabled="disabled" placeholder="默认为激活状态,如需修改请在列表界面修改">
 		  </div>
 		  
@@ -133,6 +136,7 @@
       </div>
     </div>
   </div>
+
 </div>
 
-<script src="js/lh/member.js"></script>
+<script src="${root}/static/js/lh/member.js"></script>

@@ -1,5 +1,22 @@
+<%@ page import="com.cyxz.cyshop.service.SkuService" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.cyxz.cyshop.domain.CommoditySku" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%
+	SkuService skuService = new SkuService();
+	List<CommoditySku> commoditySkus = skuService.selectSku();
+
+
+
+
+
+
+%>
+
 
 <div class="card">
+
 	<div class="card-header p-0">
 		<div class="alert alert-danger alert-dismissible m-0" role="alert">
 		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -18,33 +35,52 @@
 		</div>	
 		<!-- 表主体下面表格部分	 -->
 		<div class="mt-2">
-		  <table class="table table-responsive-sm table-bordered text-center">
+		  <table class="table table-responsive-sm table-bordered text-center table-hover">
 			<thead>
 			  <tr>
 				<th>编号</th>
 				<th>商品名</th>
-				<th>商品sku编号</th>
+				<th>商品sku ID</th>
 				<th>商品描述</th>
-				<th>商品库存量</th>
+				<th>价格</th>
+				<th>库存量</th>
 				<th>编辑/操作</th>
 			  </tr>
 			</thead>
 			<!-- 表格内容 -->
 			<tbody>
-				
+
+			<%
+				int num = 0;
+				String nums;
+				for (CommoditySku sku : commoditySkus){
+				    num++;
+				    nums = "cy000" + num;
+			%>
+
 			  <tr>
-				<td>1</td>
-				<td>华为荣耀7</td>
-				<td>1</td>
-				<td>红色 128G</td>
-				<td id="inventory">455</td>
+				<td><%=nums %></td>
+				<td><%=sku.getDescription() %></td>
+				<td><%=sku.getId() %></td>
+				<td>暂时未知</td>
+				<td><%=sku.getPrice() %></td>
+				<td data-column="stocks">
+					<div data-column="stock">
+						<%=sku.getStock() %>
+					</div>
+					<div data-column="hint" style="color: red;font-size: 13px">
+
+					</div>
+				</td>
 				<td>
-					<button class="btn btn-primary" type="button" id="btn-inventory">
+					<button class="btn btn-primary" type="button" data-click="btn-inventory">
 						<i class="fa fa-pencil mr-1"></i>修改商品库存
 					</button>
 				</td>
 			  </tr>
-			  
+
+			  <%}%>
+
 			</tbody>
 			
 		  </table>
@@ -77,4 +113,4 @@
 	
 </div>
 
-<script src="js/lh/incertory.js"></script>
+<script src="${root}/static/js/lh/incertory.js"></script>

@@ -15,6 +15,7 @@ import org.apache.ibatis.session.SqlSession;
  */
 public class MemberService {
     public static void main(String[] args) {
+
         SqlSession sqlSession = null;
         sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
         MemberMapper MemberMapper = sqlSession.getMapper(MemberMapper.class);
@@ -22,9 +23,11 @@ public class MemberService {
         Member member = MemberMapper.getMember(1);
         Member member2 = MemberMapper.getMember(2);
         String phone = MemberMapper.getMemberId(1);
-        System.out.println(member);
-        System.out.println(member2);
-        System.out.println(phone);
+
+//        System.out.println(member);
+//        System.out.println(member2);
+//        System.out.println(phone);
+
         sqlSession.close();
 
     }
