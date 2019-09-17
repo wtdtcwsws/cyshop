@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="animated  fadeIn">
 	<h4>订单详细 <small class="text-muted"> 订单详细信息展示</small></h4>
 	<hr>
@@ -10,7 +11,7 @@
 			</div>
 		</div>
 		<div class="align-items-end">
-			<a class="btn  btn-outline-primary btn-sm" data-toggle="ajaxLoad" data-target="#ui-view" role="button" href="gy/order-list.html">返回订单列表</a>
+			<a class="btn  btn-outline-primary btn-sm" data-toggle="ajaxLoad" data-target="#ui-view" role="button" href="/gy/order-list.html">返回订单列表</a>
 		</div>
 		<div class="card-body">
 			<table  class="table table-responsive-sm table-bordered text-left">

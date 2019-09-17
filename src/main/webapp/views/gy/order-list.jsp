@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="animated  fadeIn">
 	<h4>订单列表 <small class="text-muted"> 订单列表展示</small></h4>
 	<hr>
@@ -26,7 +28,7 @@
 						<th></th>
 						<th>宝贝</th>
 						<th>单价</th>
-						<th>数量</th>
+						<th>邮费</th>
 						<th>商品操作</th>
 						<th>实付款</th>
 						<th>交易状态</th>
@@ -43,32 +45,59 @@
 							</a>
 						</td>
 					</tr>
-					<tr>
-						<td>
-							<input class="btn  btn-outline-primary btn-sm" type="checkbox"value="">
-						</td>
-						<td>
-							<img />
-							<span>魏无羡、美女组合</span>
-						</td>
-						<td>15.50</td>
-						<td>2</td>
-						<td>
-						<div>违规举报</div>
-						<div>退运费险</div>
-						</td>
-						<td>15.50</td>
-						<td>
-							<div>等待卖家付款</div>
-							<a data-toggle="ajaxLoad" data-target="#ui-view" role="button" href="gy/order-detail.html">订单详情</a>
-						</td>
-						<td>
-							<div>立即付款</div>
-							<div>找朋友帮忙付</div>
-							<div>取消订单</div>
-							<div>再次购买</div>
-						</td>
-					</tr>
+					<c:forEach var="order" items="${orders}">
+						<tr>
+							<td>
+								<input class="btn  btn-outline-primary btn-sm" type="checkbox"value="">
+							</td>
+							<td>
+								<img />
+								<span>魏无羡、美女组合</span>
+							</td>
+							<td>${order.total_price}</td>
+							<%--这里判断下邮费，空的话默认是0，非空的话就是邮费数目--%>
+							<c:choose>
+								<c:when test="${order.post_price==null}">
+									<td>0</td>
+								</c:when>
+								<c:otherwise>
+									<td>${order.post_price}</td>
+								</c:otherwise>
+							</c:choose>
+							<td>
+								<div>违规举报</div>
+								<div>退运费险</div>
+							</td>
+							<td>${order.payment}</td>
+							<td>
+								<%--这里要判断订单状态以显示不同的内容--%>
+								<c:choose>
+									<c:when test="${order.status==0}">
+										<div>已取消</div>
+									</c:when>
+									<c:when test="${order.status==1}">
+										<div>未付款</div>
+									</c:when>
+									<c:when test="${order.status==2}">
+										<div>已付款</div>
+									</c:when>
+									<c:when test="${order.status==3}">
+										<div>已发货</div>
+									</c:when>
+									<c:when test="${order.status==4}">
+										<div>已收货</div>
+									</c:when>
+								</c:choose>
+									<a data-toggle="ajaxLoad" data-target="#ui-view" role="button" href="gy/order-detail.html?order_id=${order.id}">订单详情</a>
+							</td>
+							<td>
+								<div>立即付款</div>
+								<div>找朋友帮忙付</div>
+								<div>取消订单</div>
+								<div>再次购买</div>
+							</td>
+						</tr>
+					</c:forEach>
 					
 					
 				</tbody>
