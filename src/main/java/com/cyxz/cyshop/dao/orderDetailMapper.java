@@ -1,8 +1,8 @@
 package com.cyxz.cyshop.dao;
 
 import com.cyxz.cyshop.domain.OrderItem;
-
 import java.util.List;
+
 
 /**
  * @author 高勇
@@ -11,5 +11,5 @@ import java.util.List;
  * @place 西部国际金融中心
  */
 public interface orderDetailMapper {
-    List<OrderItem> findBySkuID(String sku_id);
+    List<OrderItem> findByOderID(String order_id);
 }
