@@ -4,12 +4,14 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cyxz.cyshop.dao.MemberMapper">
 
-    <select id="getMember" parameterType="Integer" resultType="com.cyxz.cyshop.domain.Member">
-        select  `id`,`name`,`phone` from member where `id` = #{id}
+    <select id="getMember" resultType="com.cyxz.cyshop.domain.Member">
+        select  * from member
     </select>
 
-    <select id="getMemberId" parameterType="Integer" resultType="String">
-        select  `phone` from member where `id` = #{id}
-    </select>
+    <insert id="getInsertMember" parameterType="com.cyxz.cyshop.domain.Member">
+
+        insert into member (`id`,`level_id`,`account`,`password`,`name`,`status`,`phone`) values (default,#{level_id},#{account},#{password},#{name},default,#{phone})
+
+    </insert>
 
 </mapper>

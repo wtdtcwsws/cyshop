@@ -8,7 +8,7 @@
             <transactionManager type="JDBC"></transactionManager>
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://39.107.85.109:3306/cyshop"/>
+                <property name="url" value="jdbc:mysql://39.107.85.109:3306/cyshop?characterEncoding=UTF-8"/>
                 <property name="username" value="cyshop"/>
                 <property name="password" value=""/>
             </dataSource>
@@ -16,9 +16,6 @@
     </environments>
 <mappers>
     <mapper resource="member.xml"/>
-    <mapper resource="catalog.xml"/>
     <mapper resource="sku.xml"/>
-        <mapper resource="member.xml"/>
-        <mapper resource="order.xml"/>
     </mappers>
 </configuration>

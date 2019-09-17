@@ -1,55 +1,40 @@
 (function (){
-	// 获取模态框中填入的信息
-	var modalAccount = document.getElementById('modal-account').value;
-	var modalPassword = document.getElementById('modal-password').innerText;
-	var modalName = document.getElementById('modal-name').innerText;
-	var modalLevel = document.getElementById('modal-level').innerText;
-	var modalPhone = document.getElementById('modal-phone').innerText;
-
-	// 获取表格中的编号
-	var memberId = document.getElementById('member-id').nodeType;
-	var memberValue = memberId + 1;
-	// 获取模态框的编号标签
-	var modalId = document.getElementById('modal-id');
-	modalId.innerText = memberValue;
-		
 	// 获取模态框中的添加按钮
-	var modalButton = document.getElementById('modal-button');
-	
-	// 获取页面中的表格的id，用于添加信息
-	var memberTable = document.getElementById('member-table');
-	
-	
-	
+	var modalButton = $('[data-js="modal-button"]');
+
 	// 点击添加按钮产生的事件
-	modalButton.onclick = function(){
-		console.log(modalAccount);
-		console.log(modalPassword);
-		var memberTr = document.createElement("tr");
-		
-		memberTr.innerHTML =		
-		+ '<td>' + memberValue + '</td>' 
-		+ '<td>' + modalAccount + '</td>'
-		+ '<td>' + modalPassword + '</td>' 
-		+ '<td>' + modalName + '</td>' 
-		+ '<td>' + modalLevel + '</td>' 
-		+ '<td>' + modalPhone + '</td>' 
-		+ '<td>'
-		+ '<label class="switch switch-label switch-success">'
-		+ '<input class="switch-input" type="checkbox" checked>'
-		+ '<span class="switch-slider" data-checked="✓" data-unchecked="✕"></span>'
-		+ '</label>'
-		+ '</td>'
-		+ '<td>'
-		+ '<button class="btn btn-danger" type="button" style="height: 30px;width: 100px;">'
-		+ '<i class="fa fa-trash mr-1">删除</i>'
-		+ '</button>'
-		+ '</td>';
-		
-		memberTable.appendChild(memberTr);
-			
-		
-	}
-	
-	
+	modalButton.click(function () {
+
+        // 获取模态框中填入的信息
+        var modalAccount = $('[data-js="account"]').val();
+        var modalPassword = $('[data-js="password"]').val();
+        var modalName = $('[data-js="name"]').val();
+        var modalLevel = $('[data-js="level"]').val();
+        var modalPhone = $('[data-js="phone"]').val();
+
+		$.ajax({
+			url:'/insert/member',
+			data:{
+				account:modalAccount,
+				password:modalPassword,
+				name:modalName,
+                levelId:modalLevel,
+                phone:modalPhone
+			},
+			success:function (f) {
+				// 请求成功后的前端处理代码
+
+				if(f){
+                    modalButton.attr('data-dismiss','modal');
+                    alert("添加成功！");
+				}else {
+                    alert("添加失败！");
+				}
+
+            }
+		});
+
+
+    });
+
 }) ();

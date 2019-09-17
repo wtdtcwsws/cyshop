@@ -5,9 +5,21 @@
 <mapper namespace="com.cyxz.cyshop.dao.SkuMapper">
 
     <select id="getSku" resultType="com.cyxz.cyshop.domain.CommoditySku">
-
         select * from commodity_sku
-
     </select>
+
+    <!--<update id="setSkuStock" parameterType="com.cyxz.cyshop.domain.CommoditySku">-->
+    <!--update commodity_sku-->
+    <!--<trim prefix="set" suffixOverrides=",">-->
+    <!--<if test="stock != null">stock=#{stock},</if>-->
+    <!--</trim>-->
+    <!--where `id` = #{id}-->
+    <!--</update>-->
+    <update id="setSkuStock" parameterType="com.cyxz.cyshop.domain.CommoditySku">
+
+        update commodity_sku set `stock` = #{stock} where `id` = #{id}
+
+    </update>
+
 
 </mapper>
