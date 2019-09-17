@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cyxz.cyshop.dao.orderMapper">
+    <select id="getOrderByMemberId" parameterType="String" resultType="com.cyxz.cyshop.domain.Order">
+        select `id`,`creat_time`,`total_price`,`discounts`,`payment`,`status` from `order` where `member_id` =
+        #{memberId}
+    </select>
+</mapper>
