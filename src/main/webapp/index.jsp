@@ -172,11 +172,11 @@
 										</li>
 									
 										<li class="nav-item ">
-											<a class="nav-link" href="lz/z-comment-list.html"><i class="nav-icon icon-puzzle"></i>评论列表
+											<a class="nav-link" href="lz/z-comment-list.jsp"><i class="nav-icon icon-puzzle"></i>评论列表
 											</a>
 										</li>
 										<li class="nav-item ">
-											<a class="nav-link" href="lz/z-comment-list2.html"><i class="nav-icon icon-puzzle"></i>评论列表2
+											<a class="nav-link" href="lz/z-comment-list2.jsp"><i class="nav-icon icon-puzzle"></i>评论列表2
 											</a>
 										</li>
 										
