@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <div class="animated fadeIn">
 	<div class="row">
@@ -35,7 +36,9 @@
 					</div>
 					<label class="col-md-2 col-form-label text-right" >申请日期：</label>
 					<div class="col-md-3">
-						<label class="col-form-label">${refundOrReturnItemVO.getCreatTime()}</label>
+						<label class="col-form-label">
+							<f:formatDate value="${refundOrReturnItemVO.getCreatTime()}" pattern="yyyy/MM/dd"/>
+						</label>
 					</div>
 				</div>
 				<div class="form-group row">

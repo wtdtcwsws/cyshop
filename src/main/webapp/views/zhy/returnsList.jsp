@@ -1,55 +1,6 @@
-<%--<%@ page import="com.cyxz.cyshop.service.RefundOrReturnItemService" %>--%>
-<%--<%@ page import="com.cyxz.cyshop.service.impl.RefundOrReturnItemServiceImpl" %>--%>
-<%--<%@ page import="com.cyxz.cyshop.domain.RefundOrReturnItem" %>--%>
-<%--<%@ page import="java.util.List" %>--%>
-<%--<%@ page import="com.cyxz.cyshop.service.RefundOrReturnOrderService" %>--%>
-<%--<%@ page import="com.cyxz.cyshop.service.impl.RefundOrReturnOrderServiceImpl" %>--%>
-<%--<%@ page import="com.cyxz.cyshop.domain.RefundOrReturnOrder" %>--%>
-<%--<%@ page import="com.cyxz.cyshop.viewobject.RefundOrReturnItemVO" %>--%>
-<%--<%@ page import="java.util.ArrayList" %>--%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
-<%--<%--%>
-    <%--RefundOrReturnItemService refundOrReturnItemService = new RefundOrReturnItemServiceImpl();--%>
-    <%--System.out.println(2);--%>
-    <%--List<RefundOrReturnItem> refundOrReturnItemReturnIds = refundOrReturnItemService.findReturnIdList();--%>
-    <%--System.out.println(3);--%>
-    <%--RefundOrReturnOrderService refundOrReturnOrderService = new RefundOrReturnOrderServiceImpl();--%>
-    <%--System.out.println(4);--%>
-    <%--RefundOrReturnOrder refundOrReturnOrder;--%>
-    <%--System.out.println(5);--%>
-    <%--RefundOrReturnItem refundOrReturnItem;--%>
-    <%--System.out.println(6);--%>
-    <%--List<RefundOrReturnItemVO> refundOrReturnItemVOs = new ArrayList<RefundOrReturnItemVO>();--%>
-    <%--System.out.println(7);--%>
-    <%--for (int i = 0;i<refundOrReturnItemReturnIds.size();i++){--%>
-        <%--RefundOrReturnItemVO refundOrReturnItemVO = new RefundOrReturnItemVO();--%>
-        <%--refundOrReturnOrder = refundOrReturnOrderService.selectOne(refundOrReturnItemReturnIds.get(i).getReturn_id());--%>
-        <%--refundOrReturnItem = refundOrReturnItemService.findRefundOrReturnItem(refundOrReturnOrder.getId());--%>
-        <%--refundOrReturnItemVO.setId(refundOrReturnOrder.getId());--%>
-        <%--// 订单号--%>
-        <%--refundOrReturnItemVO.setOrderId(refundOrReturnOrder.getOrder_id());--%>
-        <%--// 商品名称--%>
-        <%--refundOrReturnItemVO.setSpuName(refundOrReturnOrder.getSpu_name());--%>
-        <%--// 购买数量--%>
-        <%--refundOrReturnItemVO.setNums(refundOrReturnItem.getNums());--%>
-        <%--// 购买金额--%>
-        <%--refundOrReturnItemVO.setCount(refundOrReturnOrder.getCount());--%>
-        <%--// 用户名，这里差一个menber的Service方法--%>
-        <%--refundOrReturnItemVO.setMemberName("小白"+ i + "号");--%>
-        <%--// 创建事件--%>
-        <%--refundOrReturnItemVO.setCreatTime(refundOrReturnOrder.getCreat_time());--%>
-        <%--// 退货款原因--%>
-        <%--refundOrReturnItemVO.setReason(refundOrReturnOrder.getReason());--%>
-        <%--// 退货款状态--%>
-        <%--refundOrReturnItemVO.setStatus(refundOrReturnOrder.getStatus());--%>
-        <%--refundOrReturnItemVOs.add(refundOrReturnItemVO);--%>
-    <%--}--%>
-    <%--session.setAttribute("refundOrReturnItemVOs",refundOrReturnItemVOs);--%>
-<%--%>--%>
-
+<%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <div class="animated  fadeIn">
 	<h4>退货/款列表<small class="text-muted"> 商城所有退货/款单索引及管理</small></h4>
@@ -109,7 +60,9 @@
 						<td>${refundOrReturnItem.nums}</td>
 						<td>${refundOrReturnItem.count}</td>
 						<td>${refundOrReturnItem.memberName}</td>
-						<td>${refundOrReturnItem.creatTime}</td>
+						<td>
+							<f:formatDate value="${refundOrReturnItem.creatTime}" pattern="yyyy/MM/dd"/>
+						</td>
 						<td>
 								${refundOrReturnItem.reason}
 						</td>
