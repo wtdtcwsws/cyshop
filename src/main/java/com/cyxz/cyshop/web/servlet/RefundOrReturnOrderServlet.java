@@ -29,38 +29,19 @@ public class RefundOrReturnOrderServlet extends BaseServlet {
     public void lookReturnOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         String OI = request.getParameter("OI");
-        int oI = Integer.parseInt(OI);
-        int orderId = oI + 1;
         List<RefundOrReturnItemVO> returnItemVOs = (List<RefundOrReturnItemVO>)session.getAttribute("refundOrReturnItemVOs");
         session.removeAttribute("refundOrReturnItemVOs");
-        RefundOrReturnItemVO refundOrReturnItemVO = new RefundOrReturnItemVO();
-        int i = 0;
-        for (RefundOrReturnItemVO rORIVO : returnItemVOs) {
-            int rIVOID = Integer.parseInt(returnItemVOs.get(i).getId());
-            if(orderId == rIVOID){
-                refundOrReturnItemVO.setId(rORIVO.getId());
-                refundOrReturnItemVO.setOrderId(rORIVO.getOrderId());
-                refundOrReturnItemVO.setMemberName(rORIVO.getMemberName());
-                refundOrReturnItemVO.setSpuName(rORIVO.getSpuName());
-                refundOrReturnItemVO.setCreatTime(rORIVO.getCreatTime());
-                refundOrReturnItemVO.setNums(rORIVO.getNums());
-                refundOrReturnItemVO.setCount(rORIVO.getCount());
-                refundOrReturnItemVO.setReason(rORIVO.getReason());
-                refundOrReturnItemVO.setStatus(rORIVO.getStatus());
-            }
-            i++;
-        }
+        RefundOrReturnOrderService refundOrReturnOrderService = new RefundOrReturnOrderServiceImpl();
+        RefundOrReturnItemVO refundOrReturnItemVO = refundOrReturnOrderService.showReturnOrder(OI,returnItemVOs);
         request.setAttribute("refundOrReturnItemVO",refundOrReturnItemVO);
         request.getRequestDispatcher("/views/zhy/returnDetails.jsp").forward(request, response);
     }
+
     public void updateStatus(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String ROI = request.getParameter("ROI");
-        String value = request.getParameter("value1");
+        String id = request.getParameter("ROI");
+        String status = request.getParameter("value1");
         RefundOrReturnOrderService refundOrReturnOrderService = new RefundOrReturnOrderServiceImpl();
-        RefundOrReturnOrder refundOrReturnOrder = new RefundOrReturnOrder();
-        refundOrReturnOrder.setStatus(value);
-        refundOrReturnOrder.setId(ROI);
-        int row = refundOrReturnOrderService.updateStatus(refundOrReturnOrder);
+        int row = refundOrReturnOrderService.updateReturnOrderStatus(id,status);
         if(row > 0){
             request.getRequestDispatcher("/views/refundOrReturnItem?method=findReturnItem").forward(request, response);
         }else{

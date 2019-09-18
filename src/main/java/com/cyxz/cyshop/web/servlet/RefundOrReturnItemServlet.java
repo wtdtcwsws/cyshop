@@ -32,44 +32,20 @@ public class RefundOrReturnItemServlet extends BaseServlet {
     public void findReturnItem(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         HttpSession session = request.getSession();
         RefundOrReturnItemService refundOrReturnItemService = new RefundOrReturnItemServiceImpl();
-        List<RefundOrReturnItem> refundOrReturnItemReturnIds = refundOrReturnItemService.findReturnIdList();
-        RefundOrReturnOrderService refundOrReturnOrderService = new RefundOrReturnOrderServiceImpl();
-        List<RefundOrReturnItemVO> refundOrReturnItemVOs = new ArrayList<RefundOrReturnItemVO>();
-        for (int i = 0;i<refundOrReturnItemReturnIds.size();i++){
-            RefundOrReturnItemVO refundOrReturnItemVO = new RefundOrReturnItemVO();
-            RefundOrReturnOrder refundOrReturnOrder = refundOrReturnOrderService.selectOne(refundOrReturnItemReturnIds.get(i).getReturn_id());
-            RefundOrReturnItem refundOrReturnItem = refundOrReturnItemService.findRefundOrReturnItem(refundOrReturnOrder.getId());
-            refundOrReturnItemVO.setId(refundOrReturnOrder.getId());
-            // 订单号
-            refundOrReturnItemVO.setOrderId(refundOrReturnOrder.getOrder_id());
-            // 商品名称
-            refundOrReturnItemVO.setSpuName(refundOrReturnOrder.getSpu_name());
-            // 购买数量
-            refundOrReturnItemVO.setNums(refundOrReturnItem.getNums());
-            // 购买金额
-            refundOrReturnItemVO.setCount(refundOrReturnOrder.getCount());
-            // 用户名，这里差一个menber的Service方法
-            refundOrReturnItemVO.setMemberName("小白"+ i + "号");
-            // 创建事件
-            refundOrReturnItemVO.setCreatTime(refundOrReturnOrder.getCreat_time());
-            // 退货款原因
-            refundOrReturnItemVO.setReason(refundOrReturnOrder.getReason());
-            // 退货款状态
-            refundOrReturnItemVO.setStatus(refundOrReturnOrder.getStatus());
-            System.out.println(10);
-            refundOrReturnItemVOs.add(refundOrReturnItemVO);
-        }
+        List<RefundOrReturnItemVO> refundOrReturnItemVOs = refundOrReturnItemService.assembling();
         session.setAttribute("refundOrReturnItemVOs",refundOrReturnItemVOs);
         response.sendRedirect("/views/zhy/returnsList.jsp");
     }
 
     public void updateItemStatus(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        HttpSession session = request.getSession();
         String id = request.getParameter("id");
-        String value = request.getParameter("value");
-        RefundOrReturnOrderService refundOrReturnOrderService = new RefundOrReturnOrderServiceImpl();
-        RefundOrReturnOrder refundOrReturnOrder = new RefundOrReturnOrder();
-        refundOrReturnOrder.setStatus(value);
-        refundOrReturnOrder.setId(id);
-        int row = refundOrReturnOrderService.updateStatus(refundOrReturnOrder);
+        String status = request.getParameter("value");
+        RefundOrReturnItemService refundOrReturnItemService = new RefundOrReturnItemServiceImpl();
+        boolean valid = refundOrReturnItemService.updateStatus(id,status);
+        if (valid){
+            List<RefundOrReturnItemVO> refundOrReturnItemVOs = refundOrReturnItemService.assembling();
+            session.setAttribute("refundOrReturnItemVOs",refundOrReturnItemVOs);
+        }
     }
 }

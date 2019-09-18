@@ -1,6 +1,8 @@
 package com.cyxz.cyshop.service;
 
 import com.cyxz.cyshop.domain.RefundOrReturnItem;
+import com.cyxz.cyshop.domain.RefundOrReturnOrder;
+import com.cyxz.cyshop.viewobject.RefundOrReturnItemVO;
 
 import java.util.List;
 
@@ -15,4 +17,6 @@ import java.util.List;
 public interface RefundOrReturnItemService {
     List<RefundOrReturnItem> findReturnIdList();
     RefundOrReturnItem findRefundOrReturnItem(String return_id);
+    List<RefundOrReturnItemVO> assembling();
+    boolean updateStatus(String id, String Status);
 }

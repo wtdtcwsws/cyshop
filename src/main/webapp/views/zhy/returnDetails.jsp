@@ -4,7 +4,7 @@
 <div class="animated fadeIn">
 	<div class="row">
 		<div class="pl-3">
-			<a class="btn  btn-primary " style="margin-bottom: 15px ;border-radius:50%;" role="button" href="/refundOrReturnItem" data-toggle="ajaxLoad" data-target="#ui-view"><i class="fa fa-arrow-left"></i></a>
+			<a class="btn  btn-primary " style="margin-bottom: 15px ;border-radius:50%;" role="button" href="refundOrReturnItem?method=findReturnItem" data-toggle="ajaxLoad" data-target="#ui-view"><i class="fa fa-arrow-left"></i></a>
 		</div>
 		<div class="col-8">
 			<h4 >退货/款详情</h4>
