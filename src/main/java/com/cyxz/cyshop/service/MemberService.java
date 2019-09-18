@@ -5,6 +5,8 @@ import com.cyxz.cyshop.domain.Member;
 import com.cyxz.cyshop.util.MyBatisUtil;
 import org.apache.ibatis.session.SqlSession;
 
+import java.util.List;
+
 
 /**
  * @version 1.0.0
@@ -14,23 +16,31 @@ import org.apache.ibatis.session.SqlSession;
  * @date 2019/9/160:59
  */
 public class MemberService {
-    public static void main(String[] args) {
 
+    // 获取所有member的方法
+    public List<Member> selectMember() {
         SqlSession sqlSession = null;
         sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
-        MemberMapper MemberMapper = sqlSession.getMapper(MemberMapper.class);
+        MemberMapper memberMapper = sqlSession.getMapper(MemberMapper.class);
+        List<Member> allMember = memberMapper.getMember();
+        sqlSession.close();
+        return allMember;
+    }
 
-        Member member = MemberMapper.getMember(1);
-        Member member2 = MemberMapper.getMember(2);
-        String phone = MemberMapper.getMemberId(1);
+    // 插入数据到member的方法
+    public Integer insertMember(Member member) {
+        SqlSession sqlSession = null;
+        sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
+        MemberMapper memberMapper = sqlSession.getMapper(MemberMapper.class);
 
-//        System.out.println(member);
-//        System.out.println(member2);
-//        System.out.println(phone);
+        Integer num = memberMapper.getInsertMember(member);
+
+        if(num > 0){
+            sqlSession.commit();
+        }
 
         sqlSession.close();
 
+        return num;
     }
-
-
 }

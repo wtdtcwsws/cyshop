@@ -193,7 +193,8 @@
 										
 									
 										<li class="nav-item ">
-											<a class="nav-link" href="zhy/returnsList.jsp"><i class="nav-icon icon-puzzle"></i>退款单
+											<a class="nav-link" href="refundOrReturnItem?method=findReturnItem">
+                                                <i class="nav-icon icon-puzzle"></i>退款单
 											</a>
 										</li>
 									</ul>
