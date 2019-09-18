@@ -88,7 +88,7 @@
 										<div>已收货</div>
 									</c:when>
 								</c:choose>
-									<a data-toggle="ajaxLoad" data-target="#ui-view" role="button" href="gy/order-detail.html?order_id=${order.id}">订单详情</a>
+									<a data-toggle="ajaxLoad" data-target="#ui-view" role="button" href="gy/order-detail.html?order_id=${order.id}&&status=${order.status}">订单详情</a>
 							</td>
 							<td>
 								<div>立即付款</div>

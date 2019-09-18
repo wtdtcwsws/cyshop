@@ -193,7 +193,8 @@
 										
 									
 										<li class="nav-item ">
-											<a class="nav-link" href="zhy/returnsList.html"><i class="nav-icon icon-puzzle"></i>退款单
+											<a class="nav-link" href="refundOrReturnItem?method=findReturnItem">
+                                                <i class="nav-icon icon-puzzle"></i>退款单
 											</a>
 										</li>
 									</ul>
@@ -607,6 +608,10 @@
 		<script src="static/js/ajaxLoad-additional.js" type="text/javascript" charset="utf-8"></script>
 		<script>
 			$('#ui-view').ajaxLoad();
+            $(document).on('click','.sidebar-nav .nav-link[href*="?"]',function () {
+                $(this).addClass('active');
+                $(this).closest('.nav-dropdown').addClass('open');
+            });
 			$(document).ajaxComplete(function() {
 				Pace.restart()
 			});

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="animated  fadeIn">
 	<h4>订单详细 <small class="text-muted"> 订单详细信息展示</small></h4>
@@ -50,10 +51,7 @@
 							<span>魏无羡</span>
 						</td>
 						<td>15.50</td>
-						<td>2</td>
-						<td>
-						</td>
-						<td rowspan="3"class="text-center">未付款</td>
+						<td class="text-center">未付款</td>
 					</tr>
 					<tr>
 						<td>
@@ -65,16 +63,18 @@
 						<td>
 						</td>
 					</tr>
-					<tr>
-						<td>
-							<img />
-							<span>姜云飞</span>
-						</td>
-						<td>15.50</td>
-						<td>2</td>
-						<td>
-						</td>
-					</tr>
+					<%--循环演示商品详细信息--%>
+					<c:forEach var="view" items="${views}">
+						<tr>
+							<td>
+								<img />
+								<span>${view.sku}</span>
+							</td>
+							<td>${view.price}</td>
+							<td>${view.num}</td>
+							<td>${view.status}</td>
+						</tr>
+					</c:forEach>
 				</tbody>
 			</table>
 			<div class="row">
