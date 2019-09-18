@@ -10,7 +10,7 @@ public class orderListView {
     String sku;//商品
     String price;//单价
     String num;//购买数量
-    String status;//订单状态
+    Integer status;//订单状态
     String orderId;//订单号
 
     public String getOrderId() {
@@ -45,11 +45,11 @@ public class orderListView {
         this.num = num;
     }
 
-    public String getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 

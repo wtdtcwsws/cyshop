@@ -23,15 +23,5 @@ public class SkuService {
         return commoditySku;
     }
 
-//    public static void main(String[] args){
-//        SkuService skuServices = new SkuService();
-//
-//        List<CommoditySku> commoditySkus = skuServices.selectSku();
-//
-//        for (CommoditySku i : commoditySkus){
-//            System.out.println(i);
-//        }
-//
-//    }
 
 }

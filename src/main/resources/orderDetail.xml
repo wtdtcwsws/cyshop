@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cyxz.cyshop.dao.orderDetailMapper">
     <select id="findByOderID" parameterType="String" resultType="com.cyxz.cyshop.domain.OrderItem">
-        select `c.description`,`c.price`,`o.nums`,`discounts`,`payment`,`status` from `order_item`  where `order_id` =
+        select * from `order_item`  where `order_id` =
         #{order_id}
     </select>
 </mapper>

@@ -28,8 +28,7 @@ public class orderDetailServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String order_id = req.getParameter("order_id");
         String status = req.getParameter("status");
-        SqlSession sqlSession = null;
-        sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
+        SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
         orderDetailMapper detailMapper = sqlSession.getMapper(orderDetailMapper.class);
         CommoditySkuMapper skulMapper = sqlSession.getMapper(CommoditySkuMapper.class);
 //        新建一个aryy来装组装好的展示数据
@@ -41,30 +40,17 @@ public class orderDetailServlet extends HttpServlet {
             orderview.setNum(item.getNums().toString());//商品购买数量
             //商品名字和单价
             String sku_id = item.getSku_id();//拿到商品的skuid
-            orderview.setSku(skulMapper.findBySkuId(sku_id).getDescription());//从根据skuid在sku表拿出的sku名称属性塞到对象属性里面
+            orderview.setSku(skulMapper.findBySkuId(sku_id).getName());//从根据skuid在sku表拿出的sku名称属性塞到对象属性里面
             orderview.setPrice(skulMapper.findBySkuId(sku_id).getPrice().toString());//拿出价格是数字tostring成字符串
             //商品订单状态
-            switch (status){
-                case "0":
-                    orderview.setStatus("已取消");
-                    break;
-                case "1":
-                    orderview.setStatus("未付款");
-                    break;
-                case "2":
-                    orderview.setStatus("已付款");
-                    break;
-                case "3":
-                    orderview.setStatus("已发货");
-                    break;
-                case "4":
-                    orderview.setStatus("已收货");
-                    break;
-            }
+            orderview.setStatus(Integer.parseInt(status));
             views.add(orderview);//把对象塞到列表里面
         }
         req.setAttribute("views",views);//把列表放进request对象转发
+
+        System.out.println("进入前置");
         req.getRequestDispatcher("/views/gy/order-detail.jsp").forward(req,resp);
+        sqlSession.close();
     }
 
     @Override
