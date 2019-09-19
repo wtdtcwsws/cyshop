@@ -1,5 +1,13 @@
+<%@ page import="com.cyxz.cyshop.service.MemberService" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.cyxz.cyshop.domain.Member" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+<%
+	MemberService memberService = new MemberService();
+	List<Member> members = memberService.selectMember();
+
+%>
 <div class="card">
 
 	<div class="card-header p-0">
@@ -25,7 +33,7 @@
 		</div>	
 		<!-- 表主体下面表格部分	 -->
 		<div class="mt-2">
-			<table class="table table-bordered text-center table-danger">
+			<table class="table table-bordered text-center table-hover">
 				<thead>
 				  <tr>
 					<th>编号</th>
@@ -39,15 +47,17 @@
 				  </tr>
 				</thead>
 				<!-- 表格内容 -->
-				<tbody id="member-table">
-					
+				<tbody>
+					<%
+						for(Member member : members){
+					%>
 					<tr>
-						<td id="member-id">1</td>
-						<td>admin</td>
-						<td>123456</td>
-						<td>管理员</td>
-						<td>0</td>
-						<td>21345634543</td>
+						<td><%=member.getId()%></td>
+						<td><%=member.getAccount()%></td>
+						<td><%=member.getPassword()%></td>
+						<td><%=member.getName()%></td>
+						<td><%=member.getLevel_id()%></td>
+						<td><%=member.getPhone()%></td>
 						<td>
 							<label class="switch switch-label switch-success">
 								<input class="switch-input" type="checkbox" checked>
@@ -60,7 +70,7 @@
 							</button>
 						</td>
 					</tr>
-				  
+				  <%}%>
 				</tbody>
 			</table>
 		  <!-- 表格下部分分页条 -->
@@ -97,42 +107,38 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-		<h4 class="modal-title" id="exampleModalLabel">新增会员信息<span class="ml-3 font-sm" style="color: #004CD6;">编号为：<i id="modal-id">1</i></span></h4>
+		<h4 class="modal-title" id="exampleModalLabel">新增会员信息<span class="ml-3 font-sm" style="color: #004CD6;">编号为：<i>1</i></span></h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
       <div class="modal-body">
-        <form>
-			
           <div class="form-group">
-            <labelclass="control-label">账号：</label>
-            <input type="text" class="form-control" id="modal-account">
+            <label class="control-label">账号：</label>
+            <input type="text" class="form-control" data-js="account">
           </div>
           <div class="form-group">
             <label class="control-label">密码：</label>
-            <input type="password" class="form-control" id="modal-password">
+            <input type="password" class="form-control" data-js="password">
           </div>
 		  <div class="form-group">
 		    <label class="control-label">姓名：</label>
-			<input type="text" class="form-control" id="modal-name">
+			<input type="text" class="form-control" data-js="name">
 		  </div>
 		  <div class="form-group">
 		    <label class="control-label">会员等级：</label>
-			<input type="text" class="form-control" id="modal-level">
+			<input type="text" class="form-control" data-js="level">
 		  </div>
 		  <div class="form-group">
 		    <label class="control-label">手机号码：</label>
-			<input type="text" class="form-control" id="modal-phone">
+			<input type="text" class="form-control" data-js="phone">
 		  </div>
 		  <div class="form-group">
 		    <label class="control-label">会员状态：</label>
 			<input type="text" class="form-control" disabled="disabled" placeholder="默认为激活状态,如需修改请在列表界面修改">
 		  </div>
-		  
-        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-        <button type="button" class="btn btn-primary" id="modal-button">添加</button>
+        <button type="button" class="btn btn-primary" id="modal-button" data-js="modal-button">添加</button>
       </div>
     </div>
   </div>

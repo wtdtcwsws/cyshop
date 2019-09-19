@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cyxz.cyshop.dao.RefundOrReturnOrderMapper">
+    <select id="getRefundOrReturnOrder" parameterType="String" resultType="com.cyxz.cyshop.domain.RefundOrReturnOrder">
+        select  `id`,`member_id`,`spu_name`,`order_id`,`creat_time`,`count`,`reason`,`status` from refund_or_return_order where `id` = #{id}
+    </select>
+    <update id="updateStatus" parameterType="com.cyxz.cyshop.domain.RefundOrReturnOrder" >
+        update refund_or_return_order set `status` = #{status} where `id` = #{id}
+    </update>
+</mapper>

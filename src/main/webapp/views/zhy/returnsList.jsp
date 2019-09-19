@@ -1,4 +1,7 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <div class="animated  fadeIn">
 	<h4>退货/款列表<small class="text-muted"> 商城所有退货/款单索引及管理</small></h4>
 	<hr>
@@ -32,6 +35,7 @@
 			<table class="table table-responsive-sm table-bordered text-center">
 				<thead>
 					<tr>
+						<th>编号</th>
 						<th>订单编号</th>
 						<th>商品名称</th>
 						<th>商品数量(个)</th>
@@ -44,32 +48,61 @@
 					</tr>
 				</thead>
 				<tbody>
+					<c:forEach var="refundOrReturnItem" items="${refundOrReturnItemVOs}" varStatus="status">
 					<tr>
 						<td>
-							13654181312
+							${refundOrReturnItem.id}
 						</td>
-						<td>仙人球多肉植物组合</td>
-						<td>1</td>
-						<td>200</td>
-						<td>admin</td>
-						<td>2019.09.12</td>
 						<td>
-							质量太差，不想要了
+							${refundOrReturnItem.orderId}
+						</td>
+						<td>${refundOrReturnItem.spuName}</td>
+						<td>${refundOrReturnItem.nums}</td>
+						<td>${refundOrReturnItem.count}</td>
+						<td>${refundOrReturnItem.memberName}</td>
+						<td>
+							<f:formatDate value="${refundOrReturnItem.creatTime}" pattern="yyyy/MM/dd"/>
+						</td>
+						<td>
+								${refundOrReturnItem.reason}
 						</td>
 						<td class="pt-1 pb-1">
-							<select class="custom-select">
-								<option value="-1">已撤销</option>
-								<option selected value="0">未处理</option>
-								<option value="1">已通过</option>
-								<option value="2">已完成</option>
+							<select class="custom-select" data-id="${refundOrReturnItem.id}" data-value="${refundOrReturnItem.id}">
+							<c:choose>
+								<c:when test="${refundOrReturnItem.status eq '-1'}">
+									<option selected value="-1">已撤销</option>
+									<option value="0">未处理</option>
+									<option value="1">已通过</option>
+									<option value="2">已完成</option>
+								</c:when>
+								<c:when test="${refundOrReturnItem.status eq '1'}">
+									<option value="-1">已撤销</option>
+									<option value="0">未处理</option>
+									<option selected value="1">已通过</option>
+									<option value="2">已完成</option>
+								</c:when>
+								<c:when test="${refundOrReturnItem.status eq '2'}">
+									<option value="-1">已撤销</option>
+									<option value="0">未处理</option>
+									<option value="1">已通过</option>
+									<option selected value="2">已完成</option>
+								</c:when>
+								<c:otherwise>
+										<option value="-1">已撤销</option>
+										<option selected value="0">未处理</option>
+										<option value="1">已通过</option>
+										<option value="2">已完成</option>
+								</c:otherwise>
+							</c:choose>
 							</select>
 						</td>
 						<td class="pt-1 pb-1">
-							<a class="btn btn-light btn-sm" data-toggle="ajaxLoad" data-target="#ui-view" role="button" href="zhy/returnDetails.html">
-								查看详情
+							<a class="btn btn-light btn-sm" data-toggle="ajaxLoad" data-target="#ui-view" role="button" href="refundOrReturnOrder?method=lookReturnOrder&OI=${status.index} ">
+                                查看详情
 							</a>
 						</td>
 					</tr>
+					</c:forEach>
 				</tbody>
 			</table>
 			<nav aria-label="Page navigation example">
@@ -88,3 +121,4 @@
 		</div>
 	</div>
 </div>
+<script src="${root}/static/js/zhy/returnListStatus-ajax.js"></script>
