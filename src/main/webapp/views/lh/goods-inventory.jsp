@@ -1,20 +1,12 @@
 <%@ page import="com.cyxz.cyshop.service.SkuService" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.cyxz.cyshop.domain.CommoditySku" %>
-<%@ page import="javafx.scene.web.WebView" %>
+<%@ page import="com.cyxz.cyshop.domain.Sku" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
-	// 解决POST请求的中文乱码
-	request.setCharacterEncoding("UTF-8");
-	response.setCharacterEncoding("UTF-8");
-
 
 	SkuService skuService = new SkuService();
-	List<CommoditySku> commoditySkus = skuService.selectSku();
-
-
-
+	List<Sku> commodity = skuService.selectSku();
 
 %>
 
@@ -58,14 +50,14 @@
 			<%
 				int num = 0;
 				String nums;
-				for (CommoditySku sku : commoditySkus){
+				for (Sku sku : commodity){
 				    num++;
 				    nums = "cy000" + num;
 			%>
 			  <tr>
 				<td><%=nums %></td>
-				<td><%=sku.getDescription() %></td>
-				<td data-column="id"><%=sku.getId() %></td>
+				<td><%=sku.getName() %></td>
+				<td data-column="id"><%=sku.getModel_id() %></td>
 				<td>暂时未知</td>
 				<td><%=sku.getPrice() %></td>
 				<td data-column="stocks">

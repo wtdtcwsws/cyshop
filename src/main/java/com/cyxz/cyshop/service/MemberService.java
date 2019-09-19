@@ -43,4 +43,20 @@ public class MemberService {
 
         return num;
     }
+
+    // 删除member数据的方法
+    public int deleteMember(int id){
+
+        SqlSession sqlSession = null;
+        sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
+        MemberMapper memberMapper = sqlSession.getMapper(MemberMapper.class);
+
+        int num = memberMapper.getDeleteMember(id);
+
+        if(num > 0){
+            sqlSession.commit();
+        }
+
+        return num;
+    }
 }

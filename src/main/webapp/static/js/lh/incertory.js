@@ -21,26 +21,43 @@
             + '<font style="vertical-align: inherit;"><font style="vertical-align: inherit;">取消</font></font>'
             + '</button>');
         inventoryTD.find('[data-click="inventory-yes"]').click(function () {
-            // 获取用户输入信息，进行判断
+            // 获取用户输入信息
             var newStock =  $('[data-column="new-stock"]').val();
             //获取对应数据的编号id
             var id = inventoryButton.closest('td').siblings('[data-column="id"]').text();
-
+            // 对用户输入的新库存数进行判断
             if(/^[0-9]+$/.test(newStock)){
-
-                console.log(newStock);
-                console.log(id);
-
+                // 判断成功后使用ajax对数据库进行操作
+                $.ajax({
+                    url:'/update/stock',
+                    data:{
+                        newStock:newStock,
+                        id:id
+                    },
+                    success:function (f) {
+                        if (f){
+                            alert("库存修改成功！");
+                            // 清空提示div中的内容
+                            $(inventoryTD).siblings('[data-column="hint"]').empty();
+                            //将新的库存数量进行覆盖
+                            inventoryTD.html(newStock);
+                            // 重新启用修改库存按钮
+                            $('[data-click="btn-inventory"]').attr('disabled', false);
+                        } else {
+                            alert("库存修改失败！");
+                        }
+                    }
+                });
             }else {
                 $(inventoryTD).siblings('[data-column="hint"]').text("输入值不合规定，请重新输入！(只允许输入正整数)");
             }
         });
         // 点击取消按钮产生的事件
         inventoryTD.find('[data-click="inventory-no"]').click(function () {
-            inventoryTD.html(inventoryTextIndex);
-            // 启用修改库存按钮，重新生成功能
             // 清空提示div中的内容
             $(inventoryTD).siblings('[data-column="hint"]').empty();
+            // 点击取消后将原有的库存数量覆盖修改文本框
+            inventoryTD.html(inventoryTextIndex);
             // 重新启用修改库存按钮
             $('[data-click="btn-inventory"]').attr('disabled', false);
         });

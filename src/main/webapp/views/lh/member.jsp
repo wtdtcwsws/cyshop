@@ -52,7 +52,7 @@
 						for(Member member : members){
 					%>
 					<tr>
-						<td><%=member.getId()%></td>
+						<td data-js="ids"><%=member.getId()%></td>
 						<td><%=member.getAccount()%></td>
 						<td><%=member.getPassword()%></td>
 						<td><%=member.getName()%></td>
@@ -65,7 +65,7 @@
 							</label>
 						</td>
 						<td>
-							<button class="btn btn-danger" type="button" style="height: 30px;width: 100px;">
+							<button class="btn btn-danger" type="button" style="height: 30px;width: 100px;" data-js="delete">
 								<i class="fa fa-trash mr-1"></i>删除
 							</button>
 						</td>
@@ -137,8 +137,8 @@
 		  </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-        <button type="button" class="btn btn-primary" id="modal-button" data-js="modal-button">添加</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" data-js="button-no">取消</button>
+        <button type="button" class="btn btn-primary" id="modal-button" data-js="modal-button" data-dismiss="modal">添加</button>
       </div>
     </div>
   </div>

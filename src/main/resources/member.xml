@@ -14,4 +14,10 @@
 
     </insert>
 
+    <delete id="getDeleteMember" parameterType="Integer">
+
+        delete from member where `id`=#{id}
+
+    </delete>
+
 </mapper>

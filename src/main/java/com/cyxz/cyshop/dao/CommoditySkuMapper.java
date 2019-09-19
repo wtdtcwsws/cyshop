@@ -1,6 +1,6 @@
 package com.cyxz.cyshop.dao;
 
-import com.cyxz.cyshop.domain.CommoditySku;
+import com.cyxz.cyshop.domain.Sku;
 
 /**
  * @author 高勇
@@ -9,5 +9,5 @@ import com.cyxz.cyshop.domain.CommoditySku;
  * @place 西部国际金融中心
  */
 public interface CommoditySkuMapper {
-    CommoditySku findBySkuId(String sku_id);
+    Sku findBySkuId(String sku_id);
 }
