@@ -1,16 +1,10 @@
 package com.cyxz.cyshop.service;
 
-import com.cyxz.cyshop.dao.CommoditySkuMapper;
-import com.cyxz.cyshop.dao.orderDetailMapper;
-import com.cyxz.cyshop.dao.orderMapper;
-import com.cyxz.cyshop.domain.CommoditySku;
-import com.cyxz.cyshop.domain.Order;
-import com.cyxz.cyshop.domain.OrderItem;
+import com.cyxz.cyshop.dao.MemberMapper;
+import com.cyxz.cyshop.domain.Member;
 import com.cyxz.cyshop.util.MyBatisUtil;
-import com.cyxz.cyshop.viewobject.orderListView;
 import org.apache.ibatis.session.SqlSession;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -22,15 +16,31 @@ import java.util.List;
  * @date 2019/9/160:59
  */
 public class MemberService {
-    public static void main(String[] args) {
 
-        SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
-        orderMapper orderMapper = sqlSession.getMapper(orderMapper.class);
-        int order = orderMapper.updateOrder("2");
-        System.out.println(order);
+    // 获取所有member的方法
+    public List<Member> selectMember() {
+        SqlSession sqlSession = null;
+        sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
+        MemberMapper memberMapper = sqlSession.getMapper(MemberMapper.class);
+        List<Member> allMember = memberMapper.getMember();
         sqlSession.close();
-
+        return allMember;
     }
 
+    // 插入数据到member的方法
+    public Integer insertMember(Member member) {
+        SqlSession sqlSession = null;
+        sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
+        MemberMapper memberMapper = sqlSession.getMapper(MemberMapper.class);
 
+        Integer num = memberMapper.getInsertMember(member);
+
+        if(num > 0){
+            sqlSession.commit();
+        }
+
+        sqlSession.close();
+
+        return num;
+    }
 }

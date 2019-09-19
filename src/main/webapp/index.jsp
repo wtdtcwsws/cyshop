@@ -136,7 +136,7 @@
 				<nav class="sidebar-nav">
 					<ul class="nav ">
 						<li class="nav-item">
-							<a class="nav-link" href="main.html">
+							<a class="nav-link" href="main.jsp">
 								<i class="nav-icon cui-home"></i> TP主页
 								<span class="badge badge-primary">NEW</span>
 							</a>
@@ -154,7 +154,7 @@
 										<i class="nav-icon cui-cart"></i> 商品</a>
 									<ul class="nav-dropdown-items">
 										<li class="nav-item ">
-											<a class="nav-link" href="wt/goods-list.html"><i class="nav-icon icon-puzzle"></i>商品列表
+											<a class="nav-link" href="wt/goods-list.jsp"><i class="nav-icon icon-puzzle"></i>商品列表
 											</a>
 										</li>
 										<li class="nav-item ">
@@ -167,16 +167,16 @@
 											</a>
 										</li>
 										<li class="nav-item ">
-											<a class="nav-link" href="wt/goods_model.html"><i class="nav-icon icon-puzzle"></i>商品模型
+											<a class="nav-link" href="wt/goods_model.jsp"><i class="nav-icon icon-puzzle"></i>商品模型
 											</a>
 										</li>
 									
 										<li class="nav-item ">
-											<a class="nav-link" href="lz/z-comment-list.html"><i class="nav-icon icon-puzzle"></i>评论列表
+											<a class="nav-link" href="lz/z-comment-list.jsp"><i class="nav-icon icon-puzzle"></i>评论列表
 											</a>
 										</li>
 										<li class="nav-item ">
-											<a class="nav-link" href="lz/z-comment-list2.html"><i class="nav-icon icon-puzzle"></i>评论列表2
+											<a class="nav-link" href="lz/z-comment-list2.jsp"><i class="nav-icon icon-puzzle"></i>评论列表2
 											</a>
 										</li>
 										
@@ -193,7 +193,8 @@
 										
 									
 										<li class="nav-item ">
-											<a class="nav-link" href="zhy/returnsList.html"><i class="nav-icon icon-puzzle"></i>退款单
+											<a class="nav-link" href="refundOrReturnItem?method=findReturnItem">
+                                                <i class="nav-icon icon-puzzle"></i>退款单
 											</a>
 										</li>
 									</ul>
@@ -216,7 +217,7 @@
 											</a>
 										</li>
 										<li class="nav-item nav-dropdown">
-											<a class="nav-link" href="Lz_VipLevel.html"><i class="nav-icon icon-puzzle"></i>会员等级
+											<a class="nav-link" href="Lz_VipLevel.jsp"><i class="nav-icon icon-puzzle"></i>会员等级
 											</a>
 										</li>
 									</ul>
@@ -227,15 +228,15 @@
 									</a>
 									<ul class="nav-dropdown-items">
 										<li class="nav-item nav-dropdown">
-											<a class="nav-link" href="Lz_Vip_top-up-record.html"><i class="nav-icon icon-puzzle"></i>充值记录
+											<a class="nav-link" href="Lz_Vip_top-up-record.jsp"><i class="nav-icon icon-puzzle"></i>充值记录
 											</a>
 										</li>
 										<li class="nav-item nav-dropdown">
-											<a class="nav-link" href="Lz_Vip_WithdrawalApplication.html"><i class="nav-icon icon-puzzle"></i>提现申请
+											<a class="nav-link" href="Lz_Vip_WithdrawalApplication.jsp"><i class="nav-icon icon-puzzle"></i>提现申请
 											</a>
 										</li>
 										<li class="nav-item nav-dropdown">
-											<a class="nav-link" href="Lz_Vip_WithdrawalSetUpThe.html"><i class="nav-icon icon-puzzle"></i>提现设置
+											<a class="nav-link" href="Lz_Vip_WithdrawalSetUpThe.jsp"><i class="nav-icon icon-puzzle"></i>提现设置
 											</a>
 										</li>
 									</ul>
@@ -254,11 +255,11 @@
 											</a>
 											<ul class="nav-dropdown-items">
 												<li class="nav-item nav-dropdown">
-													<a class="nav-link" href="表格模板.html"><i class="nav-icon icon-puzzle"></i>表格
+													<a class="nav-link" href="表格模板.jsp"><i class="nav-icon icon-puzzle"></i>表格
 													</a>
 												</li>
 												<li class="nav-item nav-dropdown">
-													<a class="nav-link" href="表单模板.html"><i class="nav-icon icon-puzzle"></i>表单
+													<a class="nav-link" href="表单模板.jsp"><i class="nav-icon icon-puzzle"></i>表单
 													</a>
 												</li>
 											</ul>
@@ -276,7 +277,7 @@
 											</a>
 											<ul class="nav-dropdown-items">
 												<li class="nav-item nav-dropdown">
-													<a class="nav-link" href="test/test.html"><i class="nav-icon icon-puzzle"></i>测试
+													<a class="nav-link" href="test/test.jsp"><i class="nav-icon icon-puzzle"></i>测试
 													</a>
 												</li>
 												
@@ -334,7 +335,7 @@
 							</div>
 							<div class="list-group-item list-group-item-accent-info">
 								<div class="avatar float-right">
-									<img class="img-avatar" src="img/avatars/4.jpg" alt="admin@bootstrapmaster.com">
+									<img class="img-avatar" src="static/image/avatars/4.jpg" alt="admin@bootstrapmaster.com">
 								</div>
 								<div>Skype with
 									<strong>Megan</strong>
@@ -355,19 +356,19 @@
 									<i class="icon-home"></i>  creativeLabs HQ</small>
 								<div class="avatars-stack mt-2">
 									<div class="avatar avatar-xs">
-										<img class="img-avatar" src="img/avatars/2.jpg" alt="admin@bootstrapmaster.com">
+										<img class="img-avatar" src="static/image/avatars/2.jpg" alt="admin@bootstrapmaster.com">
 									</div>
 									<div class="avatar avatar-xs">
-										<img class="img-avatar" src="img/avatars/3.jpg" alt="admin@bootstrapmaster.com">
+										<img class="img-avatar" src="static/image/avatars/3.jpg" alt="admin@bootstrapmaster.com">
 									</div>
 									<div class="avatar avatar-xs">
-										<img class="img-avatar" src="img/avatars/4.jpg" alt="admin@bootstrapmaster.com">
+										<img class="img-avatar" src="static/image/avatars/4.jpg" alt="admin@bootstrapmaster.com">
 									</div>
 									<div class="avatar avatar-xs">
-										<img class="img-avatar" src="img/avatars/5.jpg" alt="admin@bootstrapmaster.com">
+										<img class="img-avatar" src="static/image/avatars/5.jpg" alt="admin@bootstrapmaster.com">
 									</div>
 									<div class="avatar avatar-xs">
-										<img class="img-avatar" src="img/avatars/6.jpg" alt="admin@bootstrapmaster.com">
+										<img class="img-avatar" src="static/image/avatars/6.jpg" alt="admin@bootstrapmaster.com">
 									</div>
 								</div>
 							</div>
@@ -389,25 +390,25 @@
 									<i class="icon-home"></i>  creativeLabs HQ</small>
 								<div class="avatars-stack mt-2">
 									<div class="avatar avatar-xs">
-										<img class="img-avatar" src="img/avatars/2.jpg" alt="admin@bootstrapmaster.com">
+										<img class="img-avatar" src="static/image/avatars/2.jpg" alt="admin@bootstrapmaster.com">
 									</div>
 									<div class="avatar avatar-xs">
-										<img class="img-avatar" src="img/avatars/3.jpg" alt="admin@bootstrapmaster.com">
+										<img class="img-avatar" src="static/image/avatars/3.jpg" alt="admin@bootstrapmaster.com">
 									</div>
 									<div class="avatar avatar-xs">
-										<img class="img-avatar" src="img/avatars/4.jpg" alt="admin@bootstrapmaster.com">
+										<img class="img-avatar" src="static/image/avatars/4.jpg" alt="admin@bootstrapmaster.com">
 									</div>
 									<div class="avatar avatar-xs">
-										<img class="img-avatar" src="img/avatars/5.jpg" alt="admin@bootstrapmaster.com">
+										<img class="img-avatar" src="static/image/avatars/5.jpg" alt="admin@bootstrapmaster.com">
 									</div>
 									<div class="avatar avatar-xs">
-										<img class="img-avatar" src="img/avatars/6.jpg" alt="admin@bootstrapmaster.com">
+										<img class="img-avatar" src="static/image/avatars/6.jpg" alt="admin@bootstrapmaster.com">
 									</div>
 									<div class="avatar avatar-xs">
-										<img class="img-avatar" src="img/avatars/7.jpg" alt="admin@bootstrapmaster.com">
+										<img class="img-avatar" src="static/image/avatars/7.jpg" alt="admin@bootstrapmaster.com">
 									</div>
 									<div class="avatar avatar-xs">
-										<img class="img-avatar" src="img/avatars/8.jpg" alt="admin@bootstrapmaster.com">
+										<img class="img-avatar" src="static/image/avatars/8.jpg" alt="admin@bootstrapmaster.com">
 									</div>
 								</div>
 							</div>
@@ -417,7 +418,7 @@
 						<div class="message">
 							<div class="py-3 pb-5 mr-3 float-left">
 								<div class="avatar">
-									<img class="img-avatar" src="img/avatars/7.jpg" alt="admin@bootstrapmaster.com">
+									<img class="img-avatar" src="static/image/avatars/7.jpg" alt="admin@bootstrapmaster.com">
 									<span class="avatar-status badge-success"></span>
 								</div>
 							</div>
@@ -433,7 +434,7 @@
 						<div class="message">
 							<div class="py-3 pb-5 mr-3 float-left">
 								<div class="avatar">
-									<img class="img-avatar" src="img/avatars/7.jpg" alt="admin@bootstrapmaster.com">
+									<img class="img-avatar" src="static/image/avatars/7.jpg" alt="admin@bootstrapmaster.com">
 									<span class="avatar-status badge-success"></span>
 								</div>
 							</div>

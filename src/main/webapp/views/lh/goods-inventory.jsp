@@ -1,13 +1,17 @@
 <%@ page import="com.cyxz.cyshop.service.SkuService" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.cyxz.cyshop.domain.CommoditySku" %>
+<%@ page import="javafx.scene.web.WebView" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
+	// 解决POST请求的中文乱码
+	request.setCharacterEncoding("UTF-8");
+	response.setCharacterEncoding("UTF-8");
+
+
 	SkuService skuService = new SkuService();
 	List<CommoditySku> commoditySkus = skuService.selectSku();
-
-
 
 
 
@@ -24,6 +28,7 @@
 		</div>
 	</div>
 	<div class="card-body">
+
 		<!-- 表主体上面查询部分 -->
 		<div class="row">
 			<div class="col-4">
@@ -48,8 +53,8 @@
 			  </tr>
 			</thead>
 			<!-- 表格内容 -->
+		  <form>
 			<tbody>
-
 			<%
 				int num = 0;
 				String nums;
@@ -57,11 +62,10 @@
 				    num++;
 				    nums = "cy000" + num;
 			%>
-
 			  <tr>
 				<td><%=nums %></td>
 				<td><%=sku.getDescription() %></td>
-				<td><%=sku.getId() %></td>
+				<td data-column="id"><%=sku.getId() %></td>
 				<td>暂时未知</td>
 				<td><%=sku.getPrice() %></td>
 				<td data-column="stocks">
@@ -78,11 +82,9 @@
 					</button>
 				</td>
 			  </tr>
-
 			  <%}%>
-
 			</tbody>
-			
+		</form>
 		  </table>
 		  <!-- 表格下部分分页条 -->
 		  <div class="pull-right">

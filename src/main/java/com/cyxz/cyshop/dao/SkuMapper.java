@@ -8,4 +8,6 @@ public interface SkuMapper {
 
     List<CommoditySku> getSku();
 
+    Integer setSkuStock(Integer stock,Integer id);
+
 }

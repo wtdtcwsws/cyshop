@@ -1,22 +1,30 @@
 package com.cyxz.cyshop.domain;
 
+import java.awt.peer.DialogPeer;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
- * @author 高勇
+ * @author zhy
  * @version 1.0.0
- * @date 2019/9/18
- * @time14:37
- * @place 西部国际金融中心
+ * @function TODO
+ * @date 2019年9月4日下午3:01:42
+ * @place 工作地点
+ * @remarks TODO
  */
-public class Sku {
+public class Sku implements Serializable {
     private String id;
     private String name;
     private BigDecimal price;
-    private int stock;
-    private int model_id;
-    private int spu_id;
+    private Integer stock;
+    private String model_id;
+    private String spu_id;
     private String description;
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 
     public String getId() {
         return id;
@@ -42,27 +50,27 @@ public class Sku {
         this.price = price;
     }
 
-    public int getStock() {
+    public Integer getStock() {
         return stock;
     }
 
-    public void setStock(int stock) {
+    public void setStock(Integer stock) {
         this.stock = stock;
     }
 
-    public int getModel_id() {
+    public String getModel_id() {
         return model_id;
     }
 
-    public void setModel_id(int model_id) {
+    public void setModel_id(String model_id) {
         this.model_id = model_id;
     }
 
-    public int getSpu_id() {
+    public String getSpu_id() {
         return spu_id;
     }
 
-    public void setSpu_id(int spu_id) {
+    public void setSpu_id(String spu_id) {
         this.spu_id = spu_id;
     }
 
