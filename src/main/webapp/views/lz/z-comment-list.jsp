@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="animated  fadeIn">
 	<h4>评论管理 <small class="text-muted"> 商城所有评论及管理</small></h4>
 	<hr>
@@ -11,7 +12,7 @@
 				</div>
 
 			</div>
-			</<di>
+			</div>
 		</div>
 		<div class="card-body">
 
@@ -78,7 +79,7 @@
 															</font>
 														</span>
 													</div>
-													<input class="form-control" id="username3" type="text" name="username3" autocomplete="name">
+													<input class="form-control" id="username1" type="text" name="username3" autocomplete="name">
 
 												</div>
 												<div class="input-group col-4">
@@ -89,7 +90,7 @@
 															</font>
 														</span>
 													</div>
-													<input class="form-control" id="username3" type="text" name="username3" autocomplete="name">
+													<input class="form-control" id="username2" type="text" name="username3" autocomplete="name">
 
 												</div>
 											</div>
@@ -103,7 +104,7 @@
 															</font>
 														</span>
 													</div>
-													<select class="form-control form-control" id="select3" name="select3">
+													<select class="form-control form-control" id="select1" name="select3">
 														<option value="0">
 															<font style="vertical-align: inherit;">
 																<font style="vertical-align: inherit;">全部评论</font>
@@ -137,7 +138,7 @@
 															</font>
 														</span>
 													</div>
-													<select class="form-control form-control" id="select3" name="select3">
+													<select class="form-control form-control" id="select2" name="select3">
 														<option value="0">
 															<font style="vertical-align: inherit;">
 																<font style="vertical-align: inherit;">全部星级</font>
@@ -225,7 +226,7 @@
 															</font>
 														</span>
 													</div>
-													<select class="form-control form-control" id="select3" name="select3">
+													<select class="form-control form-control" id="select4" name="select3">
 														<option value="0">
 															<font style="vertical-align: inherit;">
 																<font style="vertical-align: inherit;">全部</font>
@@ -258,7 +259,7 @@
 															</font>
 														</span>
 													</div>
-													<input class="form-control" id="username3" type="text" name="username3" autocomplete="name">
+													<input class="form-control" id="username4" type="text" name="username3" autocomplete="name">
 
 												</div>
 
@@ -274,7 +275,7 @@
 															</font>
 														</span>
 													</div>
-													<select class="form-control form-control" id="select3" name="select3">
+													<select class="form-control form-control" id="select5" name="select3">
 														<option value="0">
 															<font style="vertical-align: inherit;">
 																<font style="vertical-align: inherit;">全部</font>
