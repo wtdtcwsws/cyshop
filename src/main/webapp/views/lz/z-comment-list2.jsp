@@ -1,3 +1,16 @@
+<%@ page import="com.cyxz.cyshop.service.CommentService" %>
+<%@ page import="com.cyxz.cyshop.domain.Comment" %>
+<%@ page import="java.util.List" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+	CommentService commentService;
+	commentService = new CommentService();
+	Comment comment1s = commentService.getCommentByid("2");
+	List<Comment> comments = commentService.getComments();
+
+%>
+
+
 <div class="animated  fadeIn">
 	<h4>评论管理 <small class="text-muted"> 商城所有评论及管理</small></h4>
 	<hr>
@@ -41,20 +54,56 @@
 							</a>
 						</td> -->
 					</tr>
+					<% for (Comment com:comments) {
 
+					%>
 					<tr>
 						<td>
-							<span>苏格拉底</span>
+							<span><%=com.getMember_name()%></span>
 						</td>
-						<td>23421231312312312312312312312321</td>
-						<td>仙人球多肉植物组合</td>
-						<td>2019-09-12 14:38</td>
+						<td><%= com.getContent()%></td>
+						<td><%= com.getSku_id()%></td>
+						<td><%= com.getPublish_time()%></td>
+
+
+
+							<%
+								if (com.getHide()==0){
+							%>
+
+
 						<td>
 							<label class="switch switch-label switch-pill switch-success switch-sm mb-0">
-								<input class="switch-input small " type="checkbox">
+								<input class="switch-input small " type="checkbox" >
 								<span class="switch-slider" data-checked="是" data-unchecked="否"></span>
 							</label>
 						</td>
+						<%
+
+							}
+
+								else{
+							%>
+						<td>
+							<label class="switch switch-label switch-pill switch-success switch-sm mb-0">
+							<input class="switch-input small " type="checkbox" checked>
+							<span class="switch-slider" data-checked="是" data-unchecked="否"></span>
+						</label>
+						</td>
+
+
+						<%
+
+							}
+							%>
+
+
+
+							<%--<label class="switch switch-label switch-pill switch-success switch-sm mb-0">--%>
+								<%--<input class="switch-input small " type="checkbox" >--%>
+								<%--<span class="switch-slider" data-checked="是" data-unchecked="否"></span>--%>
+							<%--</label>--%>
+
 						<td>
 							<!-- Default dropright button -->
 							<div class="btn-group dropright ">
@@ -71,7 +120,7 @@
 						</td>
 						
 					</tr>
-					
+					<%}%>
 				</tbody>
 			</table>
 			<ul class="pagination">

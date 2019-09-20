@@ -21,24 +21,34 @@ import java.util.List;
  * @remarks TODO
  */
 public class RefundOrReturnItemServiceImpl implements RefundOrReturnItemService {
+
+    static SqlSession sqlSession = null;
+    static RefundOrReturnItemMapper refundOrReturnItemMapper = null;
+
+    public static RefundOrReturnItemMapper getMapper(){
+        if(sqlSession== null || refundOrReturnItemMapper==null){
+            sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
+            RefundOrReturnItemMapper refundOrReturnItemMapper = sqlSession.getMapper(RefundOrReturnItemMapper.class);
+            return refundOrReturnItemMapper;
+        }
+        return refundOrReturnItemMapper;
+    }
+
     @Override
     public List<RefundOrReturnItem> findReturnIdList() {
-        SqlSession sqlSession = null;
-        sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
-        RefundOrReturnItemMapper refundOrReturnItemMapper = sqlSession.getMapper(RefundOrReturnItemMapper.class);
+        RefundOrReturnItemMapper refundOrReturnItemMapper = RefundOrReturnItemServiceImpl.getMapper();
         List<RefundOrReturnItem> refundOrReturnItemReturnIds = refundOrReturnItemMapper.foundALL();
         sqlSession.commit();
+        sqlSession.close();
         return refundOrReturnItemReturnIds;
     }
 
     @Override
     public RefundOrReturnItem findRefundOrReturnItem(String return_id) {
-        SqlSession sqlSession = null;
-        sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
-
-        RefundOrReturnItemMapper refundOrReturnItemMapper = sqlSession.getMapper(RefundOrReturnItemMapper.class);
+        RefundOrReturnItemMapper refundOrReturnItemMapper = RefundOrReturnItemServiceImpl.getMapper();
         RefundOrReturnItem refundOrReturnItem = refundOrReturnItemMapper.findRefundOrReturnItem(return_id);
         sqlSession.commit();
+        sqlSession.close();
         return refundOrReturnItem;
     }
 
