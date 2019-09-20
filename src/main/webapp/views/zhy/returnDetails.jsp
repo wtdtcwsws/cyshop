@@ -87,6 +87,10 @@
 									<option value="2">已完成</option>
 								</c:otherwise>
 							</c:choose>
+							<%--<option value="-1" <c:if test="${refundOrReturnItemVO.getStatus() eq '-1'}">selected</c:if>>已撤销</option>--%>
+							<%--<option value="0" <c:if test="${refundOrReturnItemVO.getStatus() eq '0'}">selected</c:if>>未处理</option>--%>
+							<%--<option value="1" <c:if test="${refundOrReturnItemVO.getStatus() eq '1'}">selected</c:if>>已通过</option>--%>
+							<%--<option value="2" <c:if test="${refundOrReturnItemVO.getStatus() eq '2'}">selected</c:if>>已完成</option>--%>
 						</select>
 					</div>
 				</div>

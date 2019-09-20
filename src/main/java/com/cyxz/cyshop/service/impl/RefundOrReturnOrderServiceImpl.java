@@ -35,6 +35,7 @@ public class RefundOrReturnOrderServiceImpl implements RefundOrReturnOrderServic
         RefundOrReturnOrderMapper refundOrReturnOrderMapper = sqlSession.getMapper(RefundOrReturnOrderMapper.class);
         int row = refundOrReturnOrderMapper.updateStatus(refundOrReturnOrder);
         sqlSession.commit();
+        sqlSession.close();
         return row;
     }
 
