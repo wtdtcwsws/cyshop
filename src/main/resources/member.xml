@@ -10,7 +10,7 @@
 
     <insert id="getInsertMember" parameterType="com.cyxz.cyshop.domain.Member">
 
-        insert into member (`id`,`level_id`,`account`,`password`,`name`,`status`,`phone`) values (default,#{level_id},#{account},#{password},#{name},default,#{phone})
+        insert into member (`id`,`account`,`password`,`name`,`status`,`phone`) values (default,#{account},#{password},#{name},default,#{phone})
 
     </insert>
 

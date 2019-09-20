@@ -30,14 +30,12 @@
 		}
 		ul .list-group{
 			background-color: rgba(255,255,255,0.3);
-
 		}
 		</style>
 		<!-- Global site tag (gtag.js) - Google Analytics-->
 		<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
 		<script>
 			window.dataLayer = window.dataLayer || [];
-
       function gtag() {
         dataLayer.push(arguments);
       }

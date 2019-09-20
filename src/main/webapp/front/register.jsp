@@ -33,7 +33,7 @@
 
     <!-- Google web fonts
     ============================================ -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <%--<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">--%>
 
     <!-- Libs CSS
     ============================================ -->
@@ -54,6 +54,12 @@
     <link id="color_scheme" href="css/theme.css" rel="stylesheet">
 
     <!-- <link href="css/responsive.css" rel="stylesheet"> -->
+
+    <style>
+        .error{
+            color: red;
+        }
+    </style>
 
 </head>
 
@@ -724,35 +730,26 @@
             <div id="content" class="col-sm-12">
                 <h2 class="title">账号注册</h2>
                 <p>如果您已经在我们这里开设了账户，请点击  <a href="#">登录</a>.</p>
-                <form action="" method="post" enctype="multipart/form-data" class="form-horizontal account-register clearfix">
+
+                <form action="/inserts/members" method="post" class="form-horizontal account-register clearfix">
                     <fieldset id="account">
                         <legend>你的个人资料</legend>
-                        <%--<div class="form-group required" style="display: none;">--%>
-                            <%--<label class="col-sm-2 control-label">Customer Group</label>--%>
-                            <%--<div class="col-sm-10">--%>
-                                <%--<div class="radio">--%>
-                                    <%--<label>--%>
-                                        <%--<input type="radio" name="customer_group_id" value="1" checked="checked"> Default--%>
-                                    <%--</label>--%>
-                                <%--</div>--%>
-                            <%--</div>--%>
-                        <%--</div>--%>
                         <div class="form-group required">
                             <label class="col-sm-2 control-label" for="input-account">账号</label>
                             <div class="col-sm-10">
-                                <input type="text" name="firstname" value="" placeholder="请输入您的登录账号，要求为纯字母组成" id="input-account" class="form-control">
+                                <input type="text" name="account" placeholder="请输入您的登录账号，要求为纯字母组成" id="input-account" class="form-control">
                             </div>
                         </div>
                         <div class="form-group required">
                             <label class="col-sm-2 control-label" for="input-name">名字</label>
                             <div class="col-sm-10">
-                                <input type="text" name="lastname" value="" placeholder="请输入您的真实姓名" id="input-name" class="form-control">
+                                <input type="text" name="name" placeholder="请输入您的真实姓名" id="input-name" class="form-control">
                             </div>
                         </div>
                         <div class="form-group required">
                             <label class="col-sm-2 control-label" for="input-phone">联系电话</label>
                             <div class="col-sm-10">
-                                <input type="tel" name="telephone" value="" placeholder="请输入11位的大陆电话号码" id="input-phone" class="form-control">
+                                <input type="tel" name="phone" placeholder="请输入11位的大陆电话号码" id="input-phone" class="form-control">
                             </div>
                         </div>
                     </fieldset>
@@ -761,13 +758,13 @@
                         <div class="form-group required">
                             <label class="col-sm-2 control-label" for="input-password">密码</label>
                             <div class="col-sm-10">
-                                <input type="password" name="password" value="" placeholder="请输入您的密码，要求为纯数字" id="input-password" class="form-control">
+                                <input type="password" name="password" placeholder="请输入您的密码，要求为纯数字" id="input-password" class="form-control">
                             </div>
                         </div>
                         <div class="form-group required">
                             <label class="col-sm-2 control-label" for="input-confirm">重复密码</label>
                             <div class="col-sm-10">
-                                <input type="password" name="confirm" value="" placeholder="重复密码" id="input-confirm" class="form-control">
+                                <input type="password" name="repetitionpPassword" placeholder="重复密码" id="input-confirm" class="form-control">
                             </div>
                         </div>
                     </fieldset>
@@ -775,7 +772,7 @@
                     <div class="buttons">
                         <div class="pull-right">我已经阅读并同意<a href="#" class="agree"><b>《雏鹰商城用户协议》</b></a>
                             <input class="box-checkbox" type="checkbox" name="agree" value="1"> &nbsp;
-                            <input type="submit" value="提交注册" class="btn btn-primary">
+                            <input type="submit" class="btn btn-primary" value="提交注册" >
                         </div>
                     </div>
                     </fieldset>
@@ -785,6 +782,7 @@
     </div>
     <!-- //Main Container -->
 
+    ${alty}
 
     <!-- Footer Container -->
     <footer class="footer-container type_footer1">
@@ -927,7 +925,10 @@
 <script type="text/javascript" src="js/datetimepicker/moment.js"></script>
 <script type="text/javascript" src="js/datetimepicker/bootstrap-datetimepicker.min.js"></script>
 <script type="text/javascript" src="js/jquery-ui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/jquery-valdation/jquery.validate.js"></script>
 
+<%--个人添加的js--%>
+<script type="text/javascript" src="${root}/front/js/lh/lh-register.js"></script>
 
 <!-- Theme files
 ============================================ -->

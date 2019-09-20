@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.awt.*;
 import java.io.IOException;
 import java.util.List;
 
@@ -27,22 +28,27 @@ public class selectMemberServlet extends HttpServlet {
         // 获取web端用户输入的账号，在数据库中比对，查看是否相等
         // 获取账号
         String account = request.getParameter("account");
+        String password = request.getParameter("password");
         // 获得数据库中的所有账号信息
         MemberService memberService = new MemberService();
         List<Member> members = memberService.selectMember();
         // 将用户输入的数据与数据库中的数据进行比对
-        boolean data = false;
+        boolean num = false;
         for(Member member : members){
-            if (member.getAccount().equals(account)){
-                data = true;
+            if (member.getAccount().equals(account) && member.getPassword().equals(password)){
+                num = true;
                 break;
             }
         }
+
+        System.out.println("打印成功");
+        System.out.println(num);
+
         // 根据结构向客户端响应内容
-        if(data){
-            response.getWriter().write("true");
+        if (num){
+            response.sendRedirect(request.getContextPath() + "/front/register.jsp");
         }else {
-            response.getWriter().write("false");
+            response.sendRedirect(request.getContextPath() + "/front/login.jsp");
         }
 
     }

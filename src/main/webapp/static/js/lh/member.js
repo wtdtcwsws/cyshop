@@ -17,9 +17,7 @@
 		success:function(a) {
 				if(a){
 					alert("删除成功！")
-                    deteleId.parent().remove(
-
-					);
+                    deteleId.parent().remove();
 				}
 		}
 		})
@@ -30,7 +28,6 @@
         var modalAccount = $('[data-js="account"]').val();
         var modalPassword = $('[data-js="password"]').val();
         var modalName = $('[data-js="name"]').val();
-        var modalLevel = $('[data-js="level"]').val();
         var modalPhone = $('[data-js="phone"]').val();
 
 		$.ajax({
@@ -39,13 +36,11 @@
 				account:modalAccount,
 				password:modalPassword,
 				name:modalName,
-                levelId:modalLevel,
                 phone:modalPhone
 			},
 			success:function (f) {
 				if(f){
                     alert("添加成功！");
-
 				}else {
                     alert("添加失败！");
 				}

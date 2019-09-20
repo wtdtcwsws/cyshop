@@ -33,7 +33,7 @@
 
     <!-- Google web fonts
     ============================================ -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <%--<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">--%>
 
     <!-- Libs CSS
     ============================================ -->
@@ -56,11 +56,9 @@
     <!-- <link href="css/responsive.css" rel="stylesheet"> -->
 
     <style>
-
         .error{
             color: red;
         }
-
     </style>
 
 
@@ -746,7 +744,8 @@
                                 </div>
                             </div>
 
-                            <form id="form" enctype="multipart/form-data" autocomplete="off">
+                            <form action="/select/member" id="form" autocomplete="off">
+
                                 <div class="col-sm-6 customer-login">
                                     <div class="well">
                                         <h2><i class="fa fa-file-text-o" aria-hidden="true"></i>用户登录</h2>
@@ -754,20 +753,20 @@
                                         <div class="form-group">
                                             <label class="control-label " for="input-account">账号</label>
                                             <input type="text" name="account" placeholder="请输入用于登录商城的账号" id="input-account" class="form-control" />
-                                            <span></span>
-                                            <span id="valid"></span>
+                                            <span data-js="account"></span>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label " for="input-password">密码</label>
                                             <input type="password" name="password" placeholder="请输入用于登录商城的密码" id="input-password" class="form-control" />
-                                            <span></span>
+                                            <span data-js="password"></span>
                                         </div>
                                     </div>
                                     <div class="bottom-form">
                                         <a href="#" class="forgot">忘记密码？</a>
-                                        <input type="submit" value="登录" class="btn btn-default pull-right" id="login" />
+                                        <input type="submit" data-js="login-button" value="登录" class="btn btn-default pull-right"/>
                                     </div>
                                 </div>
+
                             </form>
 
                         </div>

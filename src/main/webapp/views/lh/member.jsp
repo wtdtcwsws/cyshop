@@ -40,7 +40,6 @@
 					<th>账号</th>
 					<th>密码</th>
 					<th>姓名</th>
-					<th>会员等级</th>
 					<th>手机号码</th>
 					<th>会员状态</th>
 					<th>编辑/操作</th>
@@ -56,7 +55,6 @@
 						<td><%=member.getAccount()%></td>
 						<td><%=member.getPassword()%></td>
 						<td><%=member.getName()%></td>
-						<td><%=member.getLevel_id()%></td>
 						<td><%=member.getPhone()%></td>
 						<td>
 							<label class="switch switch-label switch-success">
@@ -122,10 +120,6 @@
 		  <div class="form-group">
 		    <label class="control-label">姓名：</label>
 			<input type="text" class="form-control" data-js="name">
-		  </div>
-		  <div class="form-group">
-		    <label class="control-label">会员等级：</label>
-			<input type="text" class="form-control" data-js="level">
 		  </div>
 		  <div class="form-group">
 		    <label class="control-label">手机号码：</label>
