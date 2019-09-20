@@ -1,12 +1,12 @@
 package com.cyxz.cyshop.dao;
 
-import com.cyxz.cyshop.domain.CommoditySku;
+import com.cyxz.cyshop.domain.Sku;
 
 import java.util.List;
 
 public interface SkuMapper {
 
-    List<CommoditySku> getSku();
+    List<Sku> getSku();
 
     Integer setSkuStock(Integer stock,Integer id);
 
