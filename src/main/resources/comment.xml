@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cyxz.cyshop.dao.commentMapper">
+<select id="getcomment" parameterType="String" resultType="com.cyxz.cyshop.domain.Comment">
+        select  `id`,`spu_id`,`sku_id`,`content`,`star`,`member_id`,`member_name`,`publish_time`,`hide` from comment where `id` = #{id}
+    </select>
+    <!--<select id="getMemberId" parameterType="Integer" resultType="String">-->
+        <!--select  `phone` from member where `id` = #{id}-->
+    <!--</select>-->
+
+    <select id="getComments"  resultType="com.cyxz.cyshop.domain.Comment">
+        select  `id`,`spu_id`,`sku_id`,`content`,`star`,`member_id`,`member_name`,`publish_time`,`hide` from comment
+    </select>
+</mapper>

@@ -13,10 +13,8 @@ import java.io.Serializable;
 public class MemberAddress implements Serializable {
     private String id;
     private String member_id;
-    private String province;
-    private String city;
-    private String district;
     private String specific_address;
+    private String consignee_name;
     private String phone;
     public String getId() {
         return id;
@@ -30,29 +28,17 @@ public class MemberAddress implements Serializable {
     public void setMember_id(String member_id) {
         this.member_id = member_id;
     }
-    public String getProvince() {
-        return province;
-    }
-    public void setProvince(String province) {
-        this.province = province;
-    }
-    public String getCity() {
-        return city;
-    }
-    public void setCity(String city) {
-        this.city = city;
-    }
-    public String getDistrict() {
-        return district;
-    }
-    public void setDistrict(String district) {
-        this.district = district;
-    }
     public String getSpecific_address() {
         return specific_address;
     }
     public void setSpecific_address(String specific_address) {
         this.specific_address = specific_address;
+    }
+    public String getConsignee_name() {
+        return consignee_name;
+    }
+    public void setConsignee_name(String consignee_name) {
+        this.consignee_name = consignee_name;
     }
     public String getPhone() {
         return phone;
@@ -65,10 +51,8 @@ public class MemberAddress implements Serializable {
         return "MemberAddress{" +
                 "id='" + id + '\'' +
                 ", member_id='" + member_id + '\'' +
-                ", province='" + province + '\'' +
-                ", city='" + city + '\'' +
-                ", district='" + district + '\'' +
                 ", specific_address='" + specific_address + '\'' +
+                ", consignee_name='" + consignee_name + '\'' +
                 ", phone='" + phone + '\'' +
                 '}';
     }
