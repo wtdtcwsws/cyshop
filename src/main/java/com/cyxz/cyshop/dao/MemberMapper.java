@@ -9,6 +9,9 @@ public interface MemberMapper {
     List<Member> getMember();
 
     // 插入数据到member
-    Integer getInsertMember(Member member);
+    int getInsertMember(Member member);
+
+    // 根据id删除member的信息
+    int getDeleteMember(int id);
 
 }
