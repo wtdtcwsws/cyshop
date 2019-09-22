@@ -84,6 +84,12 @@ public class RefundOrReturnItemServiceImpl implements RefundOrReturnItemService 
         return refundOrReturnItemVOs;
     }
 
+    /**
+     * 更新退货款单的状态
+     * @param id
+     * @param status
+     * @return
+     */
     @Override
     public boolean updateStatus(String id, String status) {
         RefundOrReturnOrderService refundOrReturnOrderService = new RefundOrReturnOrderServiceImpl();

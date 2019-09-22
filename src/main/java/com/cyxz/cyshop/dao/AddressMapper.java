@@ -7,4 +7,5 @@ import java.util.List;
 public interface AddressMapper {
     List<MemberAddress> fingAllByMemberId(String id);
     int aAddress(MemberAddress memberAddress);
+    int uAddress(MemberAddress memberAddress);
 }

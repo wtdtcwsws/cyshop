@@ -1,18 +1,10 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: zhy
-  Date: 2019/9/19 0019
-  Time: 16:16
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <html>
 <head>
 
     <!-- Basic page needs
     ============================================ -->
-    <title>Destino - Advanced & High Customizable eCommerce HTML5/CSS3 Theme</title>
+    <title>tyshop</title>
     <meta charset="utf-8">
     <meta name="keywords" content="boostrap, responsive, html5, css3, jquery, theme, multicolor, parallax, retina, business" />
     <meta name="author" content="Magentech">
@@ -720,18 +712,65 @@
     <div class="main-container container">
         <ul class="header-main ">
             <li class="home"><a href="#">Home   </a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-            <li> Checkout</li>
+            <li> payment</li>
         </ul>
 
         <div class="row">
             <!--Middle Part Start-->
             <div id="content" class="col-sm-12">
-                <h2 class="title">订单确认页面</h2>
+                <h2 class="title">支付页面</h2>
                 <div class="so-onepagecheckout ">
-                    <div id="confirmOrder" class="col-right col-sm-12">
+                    <div class="col-right col-sm-12">
 
-                        <%--此处为半截页面--%>
-                        <%@ include file="checkout-Form.jsp" %>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><i class="fa fa-credit-card"></i> 我的收银台</h4>
+                            </div>
+                            <%--------------------------------------------支付表单--------------------------------------------%>
+                            <form id="peymentForm" action="/views/frontOrderItem?method=findAllOrder" method="post">
+                            <div class="panel-body form-row">
+                                <div class="form-group col-md-4">
+                                    <img src="${root}/front/img/xiaozhupeiqi.png">
+                                    <br>
+                                    <label class="control-label" for="confirm_agree">
+                                        <input type="checkbox" checked="checked" value="1" required="" class="validate required" id="confirm_agree" name="confirm agree">
+                                        <span>我已阅读及同意<a class="agree" href="#"><b>《支付条款》</b></a></span> </label>
+                                </div>
+                                <div class="form-group col-md-8"><br>
+                                    <input class="btn btn-outline-secondary " type="button" value="其他支付方式" data-toggle="modal" data-target="#paymentmode">
+                                    <div class="modal fade" id="paymentmode" tabindex="-1" role="dialog" aria-labelledby="paymentmodeLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="paymentmodeLabel">提示</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    暂不支持此功能，请联系开发方购买
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">确定</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <input class="btn btn-outline-secondary " type="button" value="添加快捷/网银付款" data-toggle="modal" data-target="#paymentmode"><br><br><br>
+                                    <label>请输入支付密码:</label><br>
+                                    <input type="text" class="mb-2 mr-sm-2" name="paymentPassword" style="width: 150px;height: 35px">&nbsp;<a href="javascript:;" data-toggle="modal" data-target="#paymentmode">忘记密码？</a><br><br>
+                                    <label>请输入6位数字支付密码</label><br>
+                                </div>
+
+                                <div class="buttons">
+                                    <div >
+                                        &nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" class="btn btn-primary" id="button-confirm" value="确认付款">
+                                    </div>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
 
                     </div>
                 </div>
@@ -892,8 +931,10 @@
 <script type="text/javascript" src="${root}/front/js/themejs/so_megamenu.js"></script>
 <script type="text/javascript" src="${root}/front/js/themejs/addtocart.js"></script>
 <script type="text/javascript" src="${root}/front/themejs/application.js"></script>
-<script type="text/javascript" src="${root}/static/js/zhy/checkForm-ajax.js"></script>
+<script type="text/javascript" src="${root}/static/lib/jquery-validation/jquery.validate.js"></script>
+<script type="text/javascript" src="${root}/static/js/zhy/paymentVerify.js"></script>
 
 </body>
 </html>
+
 

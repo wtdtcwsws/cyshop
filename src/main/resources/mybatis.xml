@@ -24,5 +24,7 @@
         <mapper resource="refundOrReturnItem.xml"/>
         <mapper resource="address.xml"/>
         <!--<mapper resource="sku.xml"/>-->
+        <mapper resource="createOrder.xml"/>
+        <mapper resource="frontOrderItem.xml"/>
     </mappers>
 </configuration>
