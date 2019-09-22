@@ -4,13 +4,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
+
 	SkuService skuService = new SkuService();
-	List<Sku> skuses = skuService.selectSku();
-
-
-
-
-
+	List<Sku> commodity = skuService.selectSku();
 
 %>
 
@@ -54,14 +50,14 @@
 			<%
 				int num = 0;
 				String nums;
-				for (Sku sku : skuses){
+				for (Sku sku : commodity){
 				    num++;
 				    nums = "cy000" + num;
 			%>
 			  <tr>
 				<td><%=nums %></td>
-				<td><%=sku.getDescription() %></td>
-				<td data-column="id"><%=sku.getId() %></td>
+				<td><%=sku.getName() %></td>
+				<td data-column="id"><%=sku.getModel_id() %></td>
 				<td>暂时未知</td>
 				<td><%=sku.getPrice() %></td>
 				<td data-column="stocks">

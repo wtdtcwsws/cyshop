@@ -6,7 +6,7 @@
   Time: 16:16
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <html>
 <head>
 
@@ -728,7 +728,7 @@
             <div id="content" class="col-sm-12">
                 <h2 class="title">订单确认页面</h2>
                 <div class="so-onepagecheckout ">
-                    <div class="col-right col-sm-12">
+                    <div id="confirmOrder" class="col-right col-sm-12">
 
                         <%--此处为半截页面--%>
                         <%@ include file="checkout-Form.jsp" %>
@@ -892,7 +892,6 @@
 <script type="text/javascript" src="${root}/front/js/themejs/so_megamenu.js"></script>
 <script type="text/javascript" src="${root}/front/js/themejs/addtocart.js"></script>
 <script type="text/javascript" src="${root}/front/themejs/application.js"></script>
-
 <script type="text/javascript" src="${root}/static/js/zhy/checkForm-ajax.js"></script>
 
 </body>

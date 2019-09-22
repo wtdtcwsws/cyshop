@@ -2,7 +2,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.cyxz.cyshop.domain.Member" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <%
 	MemberService memberService = new MemberService();
 	List<Member> members = memberService.selectMember();
@@ -40,7 +39,6 @@
 					<th>账号</th>
 					<th>密码</th>
 					<th>姓名</th>
-					<th>会员等级</th>
 					<th>手机号码</th>
 					<th>会员状态</th>
 					<th>编辑/操作</th>
@@ -52,11 +50,10 @@
 						for(Member member : members){
 					%>
 					<tr>
-						<td><%=member.getId()%></td>
+						<td data-js="ids"><%=member.getId()%></td>
 						<td><%=member.getAccount()%></td>
 						<td><%=member.getPassword()%></td>
 						<td><%=member.getName()%></td>
-						<td><%=member.getLevel_id()%></td>
 						<td><%=member.getPhone()%></td>
 						<td>
 							<label class="switch switch-label switch-success">
@@ -65,7 +62,7 @@
 							</label>
 						</td>
 						<td>
-							<button class="btn btn-danger" type="button" style="height: 30px;width: 100px;">
+							<button class="btn btn-danger" type="button" style="height: 30px;width: 100px;" data-js="delete">
 								<i class="fa fa-trash mr-1"></i>删除
 							</button>
 						</td>
@@ -124,10 +121,6 @@
 			<input type="text" class="form-control" data-js="name">
 		  </div>
 		  <div class="form-group">
-		    <label class="control-label">会员等级：</label>
-			<input type="text" class="form-control" data-js="level">
-		  </div>
-		  <div class="form-group">
 		    <label class="control-label">手机号码：</label>
 			<input type="text" class="form-control" data-js="phone">
 		  </div>
@@ -137,8 +130,8 @@
 		  </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-        <button type="button" class="btn btn-primary" id="modal-button" data-js="modal-button">添加</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" data-js="button-no">取消</button>
+        <button type="button" class="btn btn-primary" id="modal-button" data-js="modal-button" data-dismiss="modal">添加</button>
       </div>
     </div>
   </div>

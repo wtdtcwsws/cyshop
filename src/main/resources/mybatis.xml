@@ -23,6 +23,10 @@
         <mapper resource="AddGoods.xml"/>
         <mapper resource="spuList.xml"/>
         <mapper resource="addOrder.xml"/>
-
+        <mapper resource="sku.xml"/>
+        <mapper resource="member.xml"/>
+        <mapper resource="order.xml"/>
+        <mapper resource="orderDetail.xml"/>
+        <mapper resource="refundOrReturnOrder.xml"/>
     </mappers>
 </configuration>

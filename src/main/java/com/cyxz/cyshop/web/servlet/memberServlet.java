@@ -2,10 +2,10 @@ package com.cyxz.cyshop.web.servlet;
 
 import com.cyxz.cyshop.domain.Member;
 import com.cyxz.cyshop.service.MemberService;
-import jdk.nashorn.internal.ir.Labels;
 
 import javax.servlet.ServletException;
 
+import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -42,6 +42,7 @@ public class memberServlet extends HttpServlet {
         // 得到添加数据到member方法
         MemberService memberService = new MemberService();
         Integer data = memberService.insertMember(member);
+
         // 2、验证数据库中是否存在该账号
 
         // 3、根据结构向客户端响应内容

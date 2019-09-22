@@ -2,7 +2,7 @@
     $(function () {
         $("#btn").click(function(){
             $.ajax({
-                url:$('#form').attr("action"),
+                url:$('#creatOrderForm').attr("action"),
                 data:{
                     value1:$('#selectStatus').val()
                 },

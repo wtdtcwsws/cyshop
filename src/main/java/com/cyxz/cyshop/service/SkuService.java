@@ -9,47 +9,30 @@ import java.util.List;
 
 public class SkuService {
 
-
-    public  List<Sku> selectSku(){
+    public List<Sku> selectSku(){
 
         SqlSession sqlSession = null;
         sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
-
         SkuMapper skuMapper = sqlSession.getMapper(SkuMapper.class);
-
-        List<Sku> sku = skuMapper.getSku();
-
+        List<Sku> commoditySku = skuMapper.getSku();
         sqlSession.close();
+        return commoditySku;
 
-        return sku;
     }
 
-    public Integer updateStock(Integer stock,Integer id){
+    public Integer updateStock(Sku sku){
         SqlSession sqlSession = null;
         sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
         SkuMapper skuMapper = sqlSession.getMapper(SkuMapper.class);
 
-        Integer number = skuMapper.setSkuStock(stock,id);
+        Integer number = skuMapper.setSkuStock(sku);
 
         if(number > 0){
             sqlSession.commit();
         }
         sqlSession.close();
+
         return number;
     }
-
-
-
-
-//    public static void main(String[] args){
-//        SkuService skuServices = new SkuService();
-//
-//        List<CommoditySku> commoditySkus = skuServices.selectSku();
-//
-//        for (CommoditySku i : commoditySkus){
-//            System.out.println(i);
-//        }
-//
-//    }
 
 }
