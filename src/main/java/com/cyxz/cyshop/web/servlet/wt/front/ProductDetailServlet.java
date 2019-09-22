@@ -94,7 +94,7 @@ public class ProductDetailServlet extends BaseServlet {
             //组装订单项
             OrderItem orderItem = new OrderItem();
             orderItem.setOrder_id(order_id);
-            orderItem.setNums(Integer.parseInt(count));
+            orderItem.setNums(new BigDecimal(count));
             orderItem.setSku_id(skuId);
 
             int success2=orderService.insertOrderItem(orderItem);
