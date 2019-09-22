@@ -1,11 +1,13 @@
-package com.cyxz.cyshop.web.servlet;
+package com.cyxz.cyshop.web.servlet.wt.back;
 
 import com.cyxz.cyshop.domain.Catalog1;
 import com.cyxz.cyshop.domain.Catalog2;
 import com.cyxz.cyshop.domain.Catalog3;
 import com.cyxz.cyshop.service.CatalogService;
+import com.cyxz.cyshop.web.servlet.BaseServlet;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,13 +17,13 @@ import java.util.List;
 
 /**
  * @version 1.0.0
- * @ClassName AddCatalogServlet
+ * @ClassName CatalogServlet
  * @Description 添加商品分类的后台验证处理
  * @Author Administrator
  * @date 2019/9/1614:25
  */
 @WebServlet("/add/catalog")
-public class AddCatalogServlet extends BaseServlet {
+public class CatalogServlet extends BaseServlet {
     /**
      * 添加一级商品分类
      * @param request
@@ -29,7 +31,7 @@ public class AddCatalogServlet extends BaseServlet {
      * @throws ServletException
      * @throws IOException
      */
-    protected void addCatalog1(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void addCatalog1(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String catalog1Name = request.getParameter("catalog1");
         CatalogService catalogService = new CatalogService();
         // 获取所有一级分类
@@ -47,8 +49,9 @@ public class AddCatalogServlet extends BaseServlet {
             catalogService.insertCatalog1(catalog1);
             // 重新查询一级分类数据
             catalog1s = catalogService.getCatalog1s();
-            // 将第一分类保存在session中
-            request.getSession().setAttribute("catalog1",catalog1s);
+            // 将第一分类保存在application中
+            ServletContext application = this.getServletContext();
+            application.setAttribute("catalog1",catalog1s);
         }else {
             request.setAttribute("error","该分类已存在！");
         }
@@ -62,7 +65,7 @@ public class AddCatalogServlet extends BaseServlet {
      * @throws ServletException
      * @throws IOException
      */
-    protected void addCatalog2(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void addCatalog2(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String catalog1Id = request.getParameter("catalog1Id");
         String catalog2Name = request.getParameter("catalog2");
         CatalogService catalogService = new CatalogService();
@@ -82,8 +85,9 @@ public class AddCatalogServlet extends BaseServlet {
             catalogService.insertCatalog2(catalog2);
             // 重新查询二级分类数据
             catalog2s = catalogService.getCatalog2s();
-            // 将第二分类保存在session中
-            request.getSession().setAttribute("catalog2",catalog2s);
+            ServletContext application = this.getServletContext();
+            // 将第二分类保存在application中
+            application.setAttribute("catalog2",catalog2s);
         }else {
             request.setAttribute("error","该分类已存在！");
         }
@@ -97,7 +101,7 @@ public class AddCatalogServlet extends BaseServlet {
      * @throws ServletException
      * @throws IOException
      */
-    protected void addCatalog3(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void addCatalog3(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String catalog1Id = request.getParameter("catalog1Id");
         String catalog2Id = request.getParameter("catalog2Id");
         String catalog3Name = request.getParameter("catalog3");
@@ -119,14 +123,22 @@ public class AddCatalogServlet extends BaseServlet {
             catalogService.insertCatalog3(catalog3);
             // 重新查询三级分类数据
             catalog3s = catalogService.getCatalog3s();
-            // 将第三分类保存在session中
-            request.getSession().setAttribute("catalog3",catalog3s);
+            ServletContext application = this.getServletContext();
+            // 将第三分类保存在application中
+            application.setAttribute("catalog3",catalog3s);
         }else {
             request.setAttribute("error","该分类已存在！");
         }
         response.sendRedirect(request.getContextPath() + "/#wt/catalog.jsp");
     }
 
+    /**
+     * 根据第一分类id获取第二分类内容
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void getCatalog2s(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         String catalog1Id =  request.getParameter("catalog1Id");
         //使用Jackson工具类
@@ -136,5 +148,26 @@ public class AddCatalogServlet extends BaseServlet {
 
         System.out.println(mapper.writeValueAsString(catalog2s));
         response.getWriter().write(mapper.writeValueAsString(catalog2s));
+    }
+
+    /**
+ * 根据第二分类id获取第三分类内容
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
+    public void getCatalog3s(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+        String catalog2Id =  request.getParameter("catalog2Id");
+        System.out.println("+++++++++++++");
+        System.out.println("二级分类编号"+catalog2Id);
+        System.out.println("+++++++++++++");
+        //使用Jackson工具类
+        ObjectMapper mapper = new ObjectMapper();
+        CatalogService catalogService = new CatalogService();
+        List<Catalog3> catalog3s =  catalogService.getCatalog3s(catalog2Id);
+
+        System.out.println(mapper.writeValueAsString(catalog3s));
+        response.getWriter().write(mapper.writeValueAsString(catalog3s));
     }
 }

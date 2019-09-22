@@ -1,32 +1,29 @@
+// 通过三级分类找到对应的商品模型
 (function () {
-    let $c1 = $('#c1-3');
-    console.log($c1);
-    $('#c1-3').change(
-        function () {
+    let $c3 = $('#c3');
+
+    console.log($c3);
+    $c3.change(function () {
             let $element = $(this);
             $.ajax({
-                url:"/add/catalog?method=getCatalog2s",
+                url:"/add/goods?method=getModelByCatalog",
                 data:{
-                    catalog1Id:$element.val()
+                    catalog3Id:$element.val()
                 },
                 success:function (result) {
-                    let $c3 =   $('#c2-3');
+                    let $model =   $('#model');
 
                     let obj = JSON.parse( result );
                     console.log(obj);
-                    $c3.empty();
+                    $model.empty();
                     for (let variable of obj) {
                         console.log(variable["id"]);
-                        $c3.append(`<option value="${variable['id']}">${variable['name']}</option>`);
+                        $model.append(`<option value="${variable['id']}">${variable['name']}</option>`);
                         console.log(variable);
                     }
-                    // $c3.append("<option value=`i['id']` >i['name']</option>");
-
 
                 }
             })
         }
     );
 })();
-
-

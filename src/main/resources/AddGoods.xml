@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cyxz.cyshop.dao.AddGoodsMapper">
+    <select id="getValue" parameterType="String" resultType="String">
+      SELECT `value` FROM	sku_attri_group g	INNER JOIN ( sku_attri a, sku_attri_value v ) ON ( g.attri_id = a.id and g.attri_value_id = v.id ) WHERE g.model_id = #{arg0} AND `name` =#{arg1}
+    </select>
+    <select id="getAttri" parameterType="String" resultType="String">
+      SELECT `name` FROM	sku_attri_group g INNER JOIN ( sku_attri a, sku_attri_value v ) ON ( g.attri_id = a.id and g.attri_value_id = v.id ) WHERE g.model_id = #{model_id} GROUP BY `name`
+    </select>
+    <insert id="insertSpu" parameterType="com.cyxz.cyshop.domain.Spu" useGeneratedKeys="true" keyProperty="id">
+      insert into spu (`catalog_1_id`,`catalog_2_id`,`catalog_3_id`,`spu_name`,`spu_description`,`hot`)values (#{catalog_1_id},#{catalog_2_id},#{catalog_3_id},#{spu_name},#{spu_description},0)
+    </insert>
+    <insert id="insertSku" parameterType="com.cyxz.cyshop.domain.Sku">
+      insert into sku (`name`,`price`,`stock`,`model_id`,`spu_id`,`description`)values (#{name},#{price},#{stock},#{model_id},#{spu_id},#{description})
+    </insert>
+    <select id="getAllSkus" resultType="com.cyxz.cyshop.domain.Sku">
+      select * from sku
+    </select>
+    <select id="getSkusBySpuId" parameterType="String" resultType="com.cyxz.cyshop.domain.Sku">
+      select * from sku where `spu_id`=#{spu_id}
+    </select>
+    <select id="getSkuById" resultType="com.cyxz.cyshop.domain.Sku" parameterType="String">
+        select * from sku where `id`=#{id}
+    </select>
+    <update id="subtractStock" parameterType="String">
+      update sku set `stock`=#{arg0}
+        where `id`=#{arg1}
+    </update>
+</mapper>

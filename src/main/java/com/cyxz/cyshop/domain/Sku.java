@@ -23,7 +23,15 @@ public class Sku implements Serializable {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Sku{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", stock=" + stock +
+                ", model_id='" + model_id + '\'' +
+                ", spu_id='" + spu_id + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 
     public String getId() {

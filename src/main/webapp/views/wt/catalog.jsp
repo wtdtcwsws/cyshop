@@ -1,19 +1,7 @@
-<%@ page import="com.cyxz.cyshop.service.CatalogService" %>
-<%@ page import="java.util.List" %>
-<%@ page import="com.cyxz.cyshop.domain.Catalog1" %>
-<%@ page import="com.cyxz.cyshop.domain.Catalog2" %>
-<%@ page import="com.cyxz.cyshop.domain.Catalog3" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-    CatalogService catalogService = new CatalogService();
-    List<Catalog1> catalog1s = catalogService.getCatalog1s();
-    session.setAttribute("catalog1",catalog1s);
-    List<Catalog2> catalog2s = catalogService.getCatalog2s();
-    session.setAttribute("catalog2",catalog2s);
-    List<Catalog3> catalog3s = catalogService.getCatalog3s();
-    session.setAttribute("catalog3",catalog3s);
 
-%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <div class="animated fadeIn">
 
     <div class="card">
@@ -26,8 +14,8 @@
             <a class="btn  btn-outline-primary btn-sm" data-toggle="ajaxLoad" data-target="#ui-view" role="button"
                href="wt/add_catalog.jsp"><i class="fa fa-plus"> 添加分类</i></a>
             <hr>
-            <% for (Catalog1 c1 : catalog1s) {%>
-            <div id="catalog1<%=c1.getId()%>" role="tablist">
+            <c:forEach items="${catalog1}" var="c1">
+            <div id="catalog1${c1.id}" role="tablist">
                 <div class="card mb-0 ">
                     <div class="card-header bg-primary " role="tab">
 
@@ -35,97 +23,95 @@
                             <div class="row">
                                 <div class="col">
                                     <!-- href需要循环数据，分类名称需要循环查询 -->
-                                    <a data-toggle="collapse" href="#catalog1_<%=c1.getId()%>"
-                                       class="collapsed text-white"><%=c1.getName()%>
+                                    <a data-toggle="collapse" href="#catalog1_${c1.id}"
+                                       class="collapsed text-white">${c1.name}
                                     </a>
                                 </div>
                                 <div class="col pull-right">
                                     <!-- 删除分类需要循环数据 -->
-                                    <a class="pull-right" href="#" data-level="1" data-id="<%=c1.getId()%>"><i class="fa fa-remove text-white"></i></a>
+                                    <a class="pull-right" href="#" data-level="1" data-id="${c1.id}"><i class="fa fa-remove text-white"></i></a>
                                 </div>
                             </div>
                         </h5>
 
                     </div>
-                    <div class="collapse" id="catalog1_<%=c1.getId()%>" role="tabpanel"
-                         data-parent="#catalog1<%=c1.getId()%>" style="">
+                    <div class="collapse" id="catalog1_${c1.id}" role="tabpanel"
+                         data-parent="#catalog1${c1.id}" style="">
                         <div class="card-body p-0 pl-2">
-                            <%
-                                for (Catalog2 c2 : catalog2s) {
-                                    if (c2.getCatalog_1_id().equals(c1.getId())) {
-                            %>
-                            <!-- 二级分类 -->
-                            <div class="card mb-0 ">
+                        <c:forEach items="${catalog2}" var="c2">
+                            <c:if test="${c1.id==c2.catalog_1_id}">
+
+                                <!-- 二级分类 -->
+                                <div class="card mb-0 ">
                                 <div class="card-header  bg-info " role="tab">
                                     <h5 class="mb-0">
                                         <div class="row">
                                             <div class="col">
                                                 <!-- href需要循环数据，分类名称需要循环查询 -->
-                                                <a data-toggle="collapse" href="#catalog2_<%=c2.getId()%>"
-                                                   class="collapsed text-white"><%=c2.getName()%>
+                                                <a data-toggle="collapse" href="#catalog2_${c2.id}"
+                                                   class="collapsed text-white">${c2.name}
                                                 </a>
                                             </div>
                                             <div class="col pull-right">
                                                 <!-- 删除分类需要循环数据 -->
-                                                <a class="pull-right" href="#" data-level="2" data-id="<%=c2.getId()%>" ><i
+                                                <a class="pull-right" href="#" data-level="2" data-id="${c2.id}"><i
                                                         class="fa fa-remove text-white"></i></a>
                                             </div>
                                         </div>
 
                                     </h5>
                                 </div>
-                                <div class="collapse" id="catalog2_<%=c2.getId()%>" role="tabpanel"
-                                     data-parent="#catalog1_1"
-                                     style="">
-                                    <div class="card-body p-0 pl-2">
-                                        <!-- 三级分类 -->
-                                        <%
-                                            for (Catalog3 c3 : catalog3s) {
-                                                if (c3.getCatalog_2_id().equals(c2.getId())) {
-                                                %>
-                                        <div class="card mb-0 ">
-                                            <div class="card-header  bg-success " role="tab">
-                                                <h5 class="mb-0">
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <!-- href需要循环数据，分类名称需要循环查询 -->
-                                                            <a data-toggle="collapse" href="#catalog3_<%=c3.getId()%>"
-                                                               class="collapsed text-white"><%=c3.getName()%>
-                                                            </a>
-                                                        </div>
-                                                        <div class="col pull-right">
-                                                            <!-- 删除分类需要循环数据 -->
-                                                            <a class="pull-right" href="#" data-level="3" data-id="<%=c3.getId()%>"><i
-                                                                    class="fa fa-remove text-white"></i></a>
-                                                        </div>
-                                                    </div>
+                                <div class="collapse" id="catalog2_${c2.id}" role="tabpanel"
+                                data-parent="#catalog2_${c2.id}"
+                                style="">
+                                <div class="card-body p-0 pl-2">
+                                <!-- 三级分类 -->
+                                    <c:forEach items="${catalog3}" var="c3">
+                                        <c:if test="${c2.id==c3.catalog_2_id}">
 
-                                                </h5>
-                                            </div>
-                                            <div class="collapse" id="catalog3_<%=c3.getId()%>" role="tabpanel"
-                                                 data-parent="#catalog2_<%=c2.getId()%>" style="">
-                                                <div class="card-body p-0 pl-2">
-                                                    <!-- 三级分类 -->
+                                            <div class="card mb-0 ">
+                                                <div class="card-header  bg-success " role="tab">
+                                                    <h5 class="mb-0">
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <!-- href需要循环数据，分类名称需要循环查询 -->
+                                                                <a data-toggle="collapse"
+                                                                   href="#catalog3_${c3.id}"
+                                                                   class="collapsed text-white">${c3.name}
+                                                                </a>
+                                                            </div>
+                                                            <div class="col pull-right">
+                                                                <!-- 删除分类需要循环数据 -->
+                                                                <a class="pull-right" href="#" data-level="3"
+                                                                   data-id="${c3.id}"><i
+                                                                        class="fa fa-remove text-white"></i></a>
+                                                            </div>
+                                                        </div>
+
+                                                    </h5>
+                                                </div>
+                                                <div class="collapse" id="catalog3_${c3.id}" role="tabpanel"
+                                                     data-parent="#catalog2_${c3.id}" style="">
+                                                    <div class="card-body p-0 pl-2">
+                                                        <!-- 三级分类 -->
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <%
-                                                }
-                                            }
-                                        %>
-                                    </div>
-                                </div>
-                            </div>
-                            <%
-                                    }
-                                }
-                            %>
 
+                                        </c:if>
+                                    </c:forEach>
+                                    </div>
+                                    </div>
+                                    </div>
+
+
+                            </c:if>
+                        </c:forEach>
                         </div>
                     </div>
                 </div>
             </div>
-            <% }%>
+            </c:forEach>
         </div>
     </div>
 

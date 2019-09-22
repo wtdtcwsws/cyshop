@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cyxz.cyshop.dao.SkuAttriGroupMapper">
+    <select id="getAllSkuAttriGroup" resultType="com.cyxz.cyshop.domain.SkuAttriGroup">
+      select * from  sku_attri_group
+    </select>
+    <select id="getSkuAttriGroupByModelId" parameterType="String" resultType="com.cyxz.cyshop.domain.SkuAttriGroup">
+      select * from  sku_attri_group WHERE model_id = #{model_id}
+    </select>
+    <insert id="insertAttriGroup" parameterType="com.cyxz.cyshop.domain.SkuAttriGroup">
+      insert into sku_attri_group (`attri_id`,`attri_value_id`,`model_id`)values(#{attri_id},#{attri_value_id},#{model_id})
+    </insert>
+</mapper>

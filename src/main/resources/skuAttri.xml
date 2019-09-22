@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cyxz.cyshop.dao.SkuAttriMapper">
+    <select id="getSkuAttriIdByName" parameterType="String" resultType="String">
+      select id from sku_attri where `name`=#{name}
+    </select>
+    <insert id="insertAttri" parameterType="String">
+      insert into sku_attri (`name`)values (#{name})
+    </insert>
+</mapper>
