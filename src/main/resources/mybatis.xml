@@ -15,14 +15,10 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="catalog.xml"/>
+        <mapper resource="sku.xml"/>
         <mapper resource="member.xml"/>
         <mapper resource="order.xml"/>
         <mapper resource="orderDetail.xml"/>
-        <!--<mapper resource="CommoditySku.xml"/>-->
         <mapper resource="refundOrReturnOrder.xml"/>
-        <mapper resource="refundOrReturnItem.xml"/>
-        <mapper resource="address.xml"/>
-        <!--<mapper resource="sku.xml"/>-->
     </mappers>
 </configuration>

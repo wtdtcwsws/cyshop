@@ -2,7 +2,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.cyxz.cyshop.domain.Member" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <%
 	MemberService memberService = new MemberService();
 	List<Member> members = memberService.selectMember();

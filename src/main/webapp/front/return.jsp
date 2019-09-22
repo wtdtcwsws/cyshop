@@ -1,11 +1,15 @@
+<%@ page import="com.cyxz.cyshop.domain.Sku" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%--
   Created by IntelliJ IDEA.
   User: 罗海
-  Date: 2019/9/19
-  Time: 11:04
+  Date: 2019/9/20
+  Time: 15:05
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +17,7 @@
 
     <!-- Basic page needs
     ============================================ -->
-    <title>账号登录</title>
+    <title>Destino - Advanced & High Customizable eCommerce HTML5/CSS3 Theme</title>
     <meta charset="utf-8">
     <meta name="keywords" content="boostrap, responsive, html5, css3, jquery, theme, multicolor, parallax, retina, business" />
     <meta name="author" content="Magentech">
@@ -55,78 +59,92 @@
 
     <!-- <link href="css/responsive.css" rel="stylesheet"> -->
 
-    <style>
-        .error{
-            color: red;
-        }
-    </style>
-
 
 </head>
 
 <body class="res layout-subpage">
 <div id="wrapper" class="wrapper-full ">
     <!-- Header Container  -->
-    <%@include file="top.jsp"%>
+<%@include file="top.jsp"%>
     <!-- //Header Container  -->
     <!-- Main Container  -->
     <div class="main-container container">
         <ul class="header-main ">
-            <li class="home"><a href="#">主页   </a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-            <li class="home"><a href="#">账户   </a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-            <li>  登录</li>
+            <li class="home"><a href="#">Home   </a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+            <li> Return</li>
         </ul>
 
         <div class="row">
-            <div id="content" class="col-sm-12">
-                <div class="page-login">
+            <!--Middle Part Start-->
+            <div id="content" class="col-sm-9">
+                <h2 class="title">商品退货/款</h2>
+                <p>请详细填写下列表格，以便及时处理退货/款要求。</p>
 
-                    <div class="account-border">
-                        <div class="row">
-                            <div class="col-sm-6 new-customer">
-                                <div class="well">
-                                    <h2><i class="fa fa-file-o" aria-hidden="true"></i>新客户您好！</h2>
-                                    <p>通过创建一个帐户，您将能够更快地购物，了解订单的最新状态，并跟踪您以前的订单。</p>
-                                </div>
-                                <div class="bottom-form">
-                                    <a href="#" class="btn btn-default pull-right">继续</a>
-                                </div>
+                <div class="form-horizontal">
+                    <fieldset>
+                        <legend>订单信息</legend>
+                        <div class="form-group">
+                            <label for="input-lastname" class="col-sm-2 control-label">姓名</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="input-lastname" placeholder="客户姓名" value="${member.name}" name="name" disabled>
                             </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-order-id" class="col-sm-2 control-label">订单编号</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="input-order-id" placeholder="需要退货的订单编号，可在订单中查找" value="${orders.id}" name="order_id" disabled>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">下单时间</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" value="${dateForMat.DateAndDate(orders.creat_time)}" name="time" disabled>
+                            </div>
+                        </div>
+                        <div class="form-group required">
+                            <label for="input-telephone" class="col-sm-2 control-label">联系电话</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="input-telephone" placeholder="客户联系电话" value="${member.phone}" name="phone">
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>需要退货/款的商品信息及原因</legend>
+                        <div class="form-group required">
+                            <label class="col-sm-2 control-label">商品名称</label>
+                            <div class="col-sm-10">
 
-                            <form action="/select/member" id="form" autocomplete="off">
-
-                                <div class="col-sm-6 customer-login">
-                                    <div class="well">
-                                        <h2><i class="fa fa-file-text-o" aria-hidden="true"></i>用户登录</h2>
-                                        <p><strong>我是一名回头客</strong></p>
-                                        <div class="form-group">
-                                            <label class="control-label " for="input-account">账号</label>
-                                            <input type="text" name="account" placeholder="请输入用于登录商城的账号" id="input-account" class="form-control" />
-                                            <span data-js="account"></span>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label " for="input-password">密码</label>
-                                            <input type="password" name="password" placeholder="请输入用于登录商城的密码" id="input-password" class="form-control" />
-                                            <span data-js="password"></span>
+                                <c:forEach var="skuu" items="${skus}">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" data-js="ck" name="shoping-name">${skuu.name}
+                                        </label>
+                                        <div data-js="shuliang">
                                         </div>
                                     </div>
-                                    <div class="bottom-form">
-                                        <a href="#" class="forgot">忘记密码？</a>
-                                        <input type="submit" data-js="login-button" value="登录" class="btn btn-default pull-right"/>
-                                    </div>
-                                </div>
+                                </c:forEach>
 
-                            </form>
+                            </div>
+                        </div>
 
+                        <div class="form-group required">
+                            <label for="input-comment" class="col-sm-2 control-label">退货原因</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" id="input-comment" placeholder="退货原因填写，请详细填写退货原因，以便工作人员更迅速的处理您的请求" rows="10" name="cause"></textarea>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="buttons clearfix">
+                        <div class="pull-left"><a class="btn btn-default buttonGray" href="">返回</a>
+                        </div>
+                        <div class="pull-right">
+                            <button type="button" class="btn btn-primary" data-js="submits">提交</button>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
-    <!-- //Main Container -->
-
 </div>
 <!-- Social widgets -->
 <%@include file="down.jsp"%>
@@ -145,10 +163,9 @@
 <script type="text/javascript" src="js/datetimepicker/moment.js"></script>
 <script type="text/javascript" src="js/datetimepicker/bootstrap-datetimepicker.min.js"></script>
 <script type="text/javascript" src="js/jquery-ui/jquery-ui.min.js"></script>
-<script type="text/javascript" src="js/jquery-valdation/jquery.validate.js"></script>
 
-<%--个人添加的JavaScript--%>
-<script type="text/javascript" src="${root}/front/js/lh/lh-login.js"></script>
+<script src="js/lh/lh-return.js"></script>
+
 
 <!-- Theme files
 ============================================ -->
@@ -157,8 +174,6 @@
 <script type="text/javascript" src="js/themejs/so_megamenu.js"></script>
 <script type="text/javascript" src="js/themejs/addtocart.js"></script>
 <script type="text/javascript" src="js/themejs/application.js"></script>
-
-
 
 </body>
 </html>
