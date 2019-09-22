@@ -1,13 +1,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%--
   Created by IntelliJ IDEA.
-  User: zhy
-  Date: 2019/9/19 0019
-  Time: 16:16
+  User: Administrator
+  Date: 2019/9/22 0022
+  Time: 18:07
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
-<html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html lang="en">
 <head>
 
     <!-- Basic page needs
@@ -24,11 +25,11 @@
 
     <!-- Favicon
     ============================================ -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="${root}/front/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="${root}/front/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="${root}/front/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="${root}/front/ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="${root}/front/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="ico/favicon.png">
 
     <!-- Google web fonts
     ============================================ -->
@@ -37,31 +38,23 @@
     <!-- Libs CSS
     ============================================ -->
     <link rel="stylesheet" href="http://cdn.bootstrapmb.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link href="${root}/front/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="${root}/front/js/datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet">
-    <link href="${root}/front/js/owl-carousel/owl.carousel.css" rel="stylesheet">
-    <%--------------------------------------%>
-    <link href="${root}/front/js/owl-carousel/assets/owl.theme.default.min.css" rel="stylesheet">
-
-    <link href="${root}/front/css/themecss/lib.css" rel="stylesheet">
-    <link href="${root}/front/js/jquery-ui/jquery-ui.min.css" rel="stylesheet">
+    <link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="js/datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <link href="js/owl-carousel/owl.carousel.css" rel="stylesheet">
+    <link href="css/themecss/lib.css" rel="stylesheet">
+    <link href="js/jquery-ui/jquery-ui.min.css" rel="stylesheet">
 
     <!-- Theme CSS
     ============================================ -->
-    <link href="${root}/front/css/themecss/so_megamenu.css" rel="stylesheet">
-    <link href="${root}/front/css/themecss/so-categories.css" rel="stylesheet">
-    <link href="${root}/front/css/themecss/so-listing-tabs.css" rel="stylesheet">
-    <link href="${root}/front/css/footer1.css" rel="stylesheet">
-    <link href="${root}/front/css/header1.css" rel="stylesheet">
-    <link href="${root}/front/css/checkout.css" rel="stylesheet">
-    <link id="color_scheme" href="${root}/front/css/theme.css" rel="stylesheet">
-
-    <%------------------------------%>
-    <link href="${root}/front/css/footer1.css" rel="stylesheet">
-    <link href="${root}/front/css/header1.css" rel="stylesheet">
+    <link href="css/themecss/so_megamenu.css" rel="stylesheet">
+    <link href="css/themecss/so-categories.css" rel="stylesheet">
+    <link href="css/themecss/so-listing-tabs.css" rel="stylesheet">
+    <link href="css/footer1.css" rel="stylesheet">
+    <link href="css/header1.css" rel="stylesheet">
+    <link href="css/checkout.css" rel="stylesheet">
+    <link id="color_scheme" href="css/theme.css" rel="stylesheet">
 
     <!-- <link href="css/responsive.css" rel="stylesheet"> -->
-
 
 
 </head>
@@ -90,13 +83,13 @@
                         <div class="form-group languages-block ">
                             <form action="index.html" method="post" enctype="multipart/form-data" id="bt-language">
                                 <a class="btn btn-xs dropdown-toggle" data-toggle="dropdown">
-                                    <img src="${root}/front/img/demo/flags/gb.png" alt="English" title="English">
+                                    <img src="img/demo/flags/gb.png" alt="English" title="English">
                                     <span class="hidden-xs">English</span>
                                     <span class="fa fa-angle-down"></span>
                                 </a>
                                 <ul class="dropdown-menu" >
-                                    <li><a href="index.php"><img class="image_flag" src="${root}/front/img/demo/flags/gb.png" alt="English" title="English"> English </a></li>
-                                    <li> <a href="html_width_RTL/index.php"> <img class="image_flag" src="${root}/front/img/demo/flags/lb.png" alt="Arabic" title="Arabic"> Arabic </a> </li>
+                                    <li><a href="index.php"><img class="image_flag" src="img/demo/flags/gb.png" alt="English" title="English"> English </a></li>
+                                    <li> <a href="html_width_RTL/index.php"> <img class="image_flag" src="img/demo/flags/lb.png" alt="Arabic" title="Arabic"> Arabic </a> </li>
                                 </ul>
                             </form>
                         </div>
@@ -121,7 +114,7 @@
                 <div class="row">
                     <!-- Logo -->
                     <div class="navbar-logo col-md-3 col-sm-12 col-xs-7">
-                        <a href="index.php"><img src="${root}/front/img/demo/logo/logo.png" title="Your Store" alt="Your Store"></a>
+                        <a href="index.php"><img src="img/demo/logo/logo.png" title="Your Store" alt="Your Store"></a>
                     </div>
                     <!-- //end Logo -->
 
@@ -164,7 +157,7 @@
                                         <tbody>
                                         <tr>
                                             <td class="text-center" style="width:70px">
-                                                <a href="product.html"> <img src="${root}/front/img/demo/shop/product/35.jpg" style="width:70px" alt="Filet Mign" title="Filet Mign" class="preview"> </a>
+                                                <a href="product.html"> <img src="img/demo/shop/product/35.jpg" style="width:70px" alt="Filet Mign" title="Filet Mign" class="preview"> </a>
                                             </td>
                                             <td class="text-left"> <a class="cart_product_name" href="product.html">Filet Mign</a> </td>
                                             <td class="text-center"> x1 </td>
@@ -178,7 +171,7 @@
                                         </tr>
                                         <tr>
                                             <td class="text-center" style="width:70px">
-                                                <a href="product.html"> <img src="${root}/front/img/demo/shop/product/141.jpg" style="width:70px" alt="Canon EOS 5D" title="Canon EOS 5D" class="preview"> </a>
+                                                <a href="product.html"> <img src="img/demo/shop/product/141.jpg" style="width:70px" alt="Canon EOS 5D" title="Canon EOS 5D" class="preview"> </a>
                                             </td>
                                             <td class="text-left"> <a class="cart_product_name" href="product.html">Canon EOS 5D</a> </td>
                                             <td class="text-center"> x1 </td>
@@ -266,7 +259,7 @@
                                                                     <div class="col-md-3">
                                                                         <a href="index.php" class="image-link">
 																				<span class="thumbnail">
-																					<img class="img-responsive img-border" src="${root}/front/img/demo/feature/home-1.jpg" alt="">
+																					<img class="img-responsive img-border" src="img/demo/feature/home-1.jpg" alt="">
 																					<span class="btn btn-default">Read More</span>
 																				</span>
                                                                             <h3 class="figcaption">Home page - (Default)</h3>
@@ -276,7 +269,7 @@
                                                                     <div class="col-md-3">
                                                                         <a href="home2.php" class="image-link">
 																				<span class="thumbnail">
-																					<img class="img-responsive img-border" src="${root}/front/img/demo/feature/home-2.jpg" alt="">
+																					<img class="img-responsive img-border" src="img/demo/feature/home-2.jpg" alt="">
 																					<span class="btn btn-default">Read More</span>
 																				</span>
                                                                             <h3 class="figcaption">Home page - Layout 2</h3>
@@ -286,7 +279,7 @@
                                                                     <div class="col-md-3">
                                                                         <a href="home3.php" class="image-link">
 																				<span class="thumbnail">
-																					<img class="img-responsive img-border" src="${root}/front/img/demo/feature/home-3.jpg" alt="">
+																					<img class="img-responsive img-border" src="img/demo/feature/home-3.jpg" alt="">
 																					<span class="btn btn-default">Read More</span>
 																				</span>
                                                                             <h3 class="figcaption">Home page - Layout 3</h3>
@@ -296,7 +289,7 @@
                                                                     <div class="col-md-3">
                                                                         <a href="home4.php" class="image-link">
 																				<span class="thumbnail">
-																					<img class="img-responsive img-border" src="${root}/front/img/demo/feature/home-4.jpg" alt="">
+																					<img class="img-responsive img-border" src="img/demo/feature/home-4.jpg" alt="">
 																					<span class="btn btn-default">Read More</span>
 																				</span>
                                                                             <h3 class="figcaption">Home page - Layout 4</h3>
@@ -307,7 +300,7 @@
                                                                     <div class="col-md-3">
                                                                         <a href="home5.php" class="image-link">
 																				<span class="thumbnail">
-																					<img class="img-responsive img-border" src="${root}/front/img/demo/feature/home-5.jpg" alt="">
+																					<img class="img-responsive img-border" src="img/demo/feature/home-5.jpg" alt="">
 																					<span class="btn btn-default">Read More</span>
 																				</span>
                                                                             <h3 class="figcaption">Home page - Layout 5</h3>
@@ -316,7 +309,7 @@
                                                                     <div class="col-md-3">
                                                                         <a href="home6.php" class="image-link">
 																				<span class="thumbnail">
-																					<img class="img-responsive img-border" src="${root}/front/img/demo/feature/home-6.jpg" alt="">
+																					<img class="img-responsive img-border" src="img/demo/feature/home-6.jpg" alt="">
 																					<span class="btn btn-default">Read More</span>
 																				</span>
                                                                             <h3 class="figcaption">Home page - Layout 6</h3>
@@ -325,7 +318,7 @@
                                                                     <div class="col-md-3">
                                                                         <a href="home7.php" class="image-link">
 																				<span class="thumbnail">
-																					<img class="img-responsive img-border" src="${root}/front/img/demo/feature/home-7.jpg" alt="">
+																					<img class="img-responsive img-border" src="img/demo/feature/home-7.jpg" alt="">
 																					<span class="btn btn-default">Read More</span>
 																				</span>
                                                                             <h3 class="figcaption">Home page - Layout 7</h3>
@@ -334,7 +327,7 @@
                                                                     <div class="col-md-3">
                                                                         <a href="home8.php" class="image-link">
 																				<span class="thumbnail">
-																					<img class="img-responsive img-border" src="${root}/front/img/demo/feature/home-8.jpg" alt="">
+																					<img class="img-responsive img-border" src="img/demo/feature/home-8.jpg" alt="">
 																					<span class="btn btn-default">Read More</span>
 																				</span>
                                                                             <h3 class="figcaption">Home page - Layout 8</h3>
@@ -345,7 +338,7 @@
                                                                     <div class="col-md-3">
                                                                         <a href="home9.php" class="image-link">
 																				<span class="thumbnail">
-																					<img class="img-responsive img-border" src="${root}/front/img/demo/feature/home-9.jpg" alt="">
+																					<img class="img-responsive img-border" src="img/demo/feature/home-9.jpg" alt="">
 																					<span class="btn btn-default">Read More</span>
 																				</span>
                                                                             <h3 class="figcaption">Home page - Layout 9</h3>
@@ -354,7 +347,7 @@
                                                                     <div class="col-md-3">
                                                                         <a href="home10.php" class="image-link">
 																				<span class="thumbnail">
-																					<img class="img-responsive img-border" src="${root}/front/img/demo/feature/home-10.jpg" alt="">
+																					<img class="img-responsive img-border" src="img/demo/feature/home-10.jpg" alt="">
 																					<span class="btn btn-default">Read More</span>
 																				</span>
                                                                             <h3 class="figcaption">Home page - Layout 10</h3>
@@ -363,7 +356,7 @@
                                                                     <div class="col-md-3">
                                                                         <a href="home11.php" class="image-link">
 																				<span class="thumbnail">
-																					<img class="img-responsive img-border" src="${root}/front/img/demo/feature/home-11.jpg" alt="">
+																					<img class="img-responsive img-border" src="img/demo/feature/home-11.jpg" alt="">
 																					<span class="btn btn-default">Read More</span>
 																				</span>
                                                                             <h3 class="figcaption">Home page - Layout 11</h3>
@@ -485,16 +478,16 @@
                                                                     <div class="col-sm-12">
                                                                         <div class="row">
                                                                             <div class="col-md-3 img img1">
-                                                                                <a href="#"><img src="${root}/front/img/demo/cms/img1.jpg" alt="banner1"></a>
+                                                                                <a href="#"><img src="img/demo/cms/img1.jpg" alt="banner1"></a>
                                                                             </div>
                                                                             <div class="col-md-3 img img2">
-                                                                                <a href="#"><img src="${root}/front/img/demo/cms/img2.jpg" alt="banner2"></a>
+                                                                                <a href="#"><img src="img/demo/cms/img2.jpg" alt="banner2"></a>
                                                                             </div>
                                                                             <div class="col-md-3 img img3">
-                                                                                <a href="#"><img src="${root}/front/img/demo/cms/img3.jpg" alt="banner3"></a>
+                                                                                <a href="#"><img src="img/demo/cms/img3.jpg" alt="banner3"></a>
                                                                             </div>
                                                                             <div class="col-md-3 img img4">
-                                                                                <a href="#"><img src="${root}/front/img/demo/cms/img4.jpg" alt="banner4"></a>
+                                                                                <a href="#"><img src="img/demo/cms/img4.jpg" alt="banner4"></a>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -628,7 +621,7 @@
                                                                             <div class="col-sm-12 list-product">
                                                                                 <div class="product-thumb">
                                                                                     <div class="image pull-left">
-                                                                                        <a href="#"><img src="${root}/front/img/demo/shop/product/35.jpg" width="80" alt="Filet Mign" title="Filet Mign" class="img-responsive"></a>
+                                                                                        <a href="#"><img src="img/demo/shop/product/35.jpg" width="80" alt="Filet Mign" title="Filet Mign" class="img-responsive"></a>
                                                                                     </div>
                                                                                     <div class="caption">
                                                                                         <h4><a href="#">Filet Mign</a></h4>
@@ -646,7 +639,7 @@
                                                                             <div class="col-sm-12 list-product">
                                                                                 <div class="product-thumb">
                                                                                     <div class="image pull-left">
-                                                                                        <a href="#"><img src="${root}/front/img/demo/shop/product/W1.jpg" width="80" alt="Dail Lulpa" title="Dail Lulpa" class="img-responsive"></a>
+                                                                                        <a href="#"><img src="img/demo/shop/product/W1.jpg" width="80" alt="Dail Lulpa" title="Dail Lulpa" class="img-responsive"></a>
                                                                                     </div>
                                                                                     <div class="caption">
                                                                                         <h4><a href="#">Dail Lulpa</a></h4>
@@ -664,7 +657,7 @@
                                                                             <div class="col-sm-12 list-product">
                                                                                 <div class="product-thumb">
                                                                                     <div class="image pull-left">
-                                                                                        <a href="#"><img src="${root}/front/img/demo/shop/product/141.jpg" width="80" alt="Canon EOS 5D" title="Canon EOS 5D" class="img-responsive"></a>
+                                                                                        <a href="#"><img src="img/demo/shop/product/141.jpg" width="80" alt="Canon EOS 5D" title="Canon EOS 5D" class="img-responsive"></a>
                                                                                     </div>
                                                                                     <div class="caption">
                                                                                         <h4><a href="#">Canon EOS 5D</a></h4>
@@ -685,6 +678,8 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
+
+
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -697,7 +692,10 @@
                                                             <span class="label"></span>
                                                         </a>
                                                     </li>
+
+
                                                 </ul>
+
                                             </div>
                                         </div>
                                     </div>
@@ -709,6 +707,7 @@
 
                 </div>
             </div>
+
         </div>
 
         <!-- Navbar switcher -->
@@ -720,27 +719,77 @@
     <div class="main-container container">
         <ul class="header-main ">
             <li class="home"><a href="#">Home   </a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-            <li> Checkout</li>
+            <li> Shopping Cart</li>
         </ul>
-
         <div class="row">
             <!--Middle Part Start-->
             <div id="content" class="col-sm-12">
-                <h2 class="title">订单确认页面</h2>
-                <div class="so-onepagecheckout ">
-                    <div id="confirmOrder" class="col-right col-sm-12">
+                <h2 class="title">我的订单</h2>
+                <div class="table-responsive form-group">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <td class="text-center">商品名称</td>
+                            <td class="text-center">下单时间</td>
+                            <td class="text-center">金额</td>
+                            <td class="text-center">状态</td>
+                            <td class="text-center">操作</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach var="orderItemVO" items="${orderItemVOs}" varStatus="status">
+                        <tr>
+                            <td class="text-center">
+                                <%--<a href="product.html"></a>--%>
+                                ${orderItemVO.getSpu_name()}
+                            </td>
+                            <td class="text-center">
+                                <%--<a href="product.html">Emasa rumas gacem</a>--%>
+                                <f:formatDate value="${orderItemVO.getCreat_time()}" pattern="yyyy/MM/dd"/>
+                                <br />
+                            </td>
+                            <td class="text-center">
+                                    ${orderItemVO.getPayment()}
+                            </td>
+                            <td class="text-center" >
+                                    ${orderItemVO.getStatus()}
+                            </td>
+                            <td class="text-center">
+                                <select class="custom-select" data-id="${status.index}">
+                                    <option>退款</option>
+                                    <option selected>详情</option>
+                                    <option>备注</option>
+                                    <option>删除</option>
+                                </select>
+                            </td>
+                        </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">首页</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">尾页</a>
+                            </li>
+                        </ul>
+                    </nav>
 
-                        <%--此处为半截页面--%>
-                        <%@ include file="checkout-Form.jsp" %>
-
-                    </div>
                 </div>
+
+
             </div>
             <!--Middle Part End -->
 
         </div>
     </div>
     <!-- //Main Container -->
+
 
     <!-- Footer Container -->
     <footer class="footer-container type_footer1">
@@ -760,10 +809,10 @@
                             </div>
                             <div class="share-icon">
                                 <ul>
-                                    <li class="facebook"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                    <li class="twitter"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                    <li class="google"><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                                    <li class="skype"><a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a></li>
+                                    <li class="facebook"><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li class="twitter"><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                    <li class="google"><a href=""><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                    <li class="skype"><a href=""><i class="fa fa-skype" aria-hidden="true"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -847,17 +896,17 @@
             <div class="footer-bottom-header">
                 <div class="col-xs-12 col-sm-12 col-md-5 download">
                     <h3>Download Our App</h3>
-                    <a href="#"><img src="${root}/front/img/demo/download/app.jpg" alt=""></a>
-                    <a href="#"><img src="${root}/front/img/demo/download/ggplay.jpg" alt=""></a>
+                    <a href=""><img src="img/demo/download/app.jpg" alt=""></a>
+                    <a href=""><img src="img/demo/download/ggplay.jpg" alt=""></a>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-7 pay">
                     <ul>
-                        <li><img src="${root}/front/img/demo/payment/visa.jpg" alt=""></li>
-                        <li><img src="${root}/front/img/demo/payment/meastro.jpg" alt=""></li>
-                        <li><img src="${root}/front/img/demo/payment/paypal.jpg" alt=""></li>
-                        <li><img src="${root}/front/img/demo/payment/union.jpg" alt=""></li>
-                        <li><img src="${root}/front/img/demo/payment/cirrus.jpg" alt=""></li>
-                        <li><img src="${root}/front/img/demo/payment/ebay.jpg" alt=""></li>
+                        <li><img src="img/demo/payment/visa.jpg" alt=""></li>
+                        <li><img src="img/demo/payment/meastro.jpg" alt=""></li>
+                        <li><img src="img/demo/payment/paypal.jpg" alt=""></li>
+                        <li><img src="img/demo/payment/union.jpg" alt=""></li>
+                        <li><img src="img/demo/payment/cirrus.jpg" alt=""></li>
+                        <li><img src="img/demo/payment/ebay.jpg" alt=""></li>
                     </ul>
                 </div>
             </div>
@@ -869,31 +918,28 @@
     </div>
 </div>	<!-- End Social widgets -->
 
-
 <!-- Include Libs & Plugins
 	============================================ -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script type="text/javascript" src="${root}/front/js/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
 <script type="text/javascript" src="http://cdn.bootstrapmb.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="${root}/front/js/owl-carousel/owl.carousel.js"></script>
-<script type="text/javascript" src="${root}/front/js/themejs/libs.js"></script>
-<script type="text/javascript" src="${root}/front/js/unveil/jquery.unveil.js"></script>
-<script type="text/javascript" src="${root}/front/js/countdown/jquery.countdown.min.js"></script>
-<script type="text/javascript" src="${root}/front/js/dcjqaccordion/jquery.dcjqaccordion.2.8.min.js"></script>
-<script type="text/javascript" src="${root}/front/js/datetimepicker/moment.js"></script>
-<script type="text/javascript" src="${root}/front/js/datetimepicker/bootstrap-datetimepicker.min.js"></script>
-<script type="text/javascript" src="${root}/front/js/jquery-ui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/owl-carousel/owl.carousel.js"></script>
+<script type="text/javascript" src="js/themejs/libs.js"></script>
+<script type="text/javascript" src="js/unveil/jquery.unveil.js"></script>
+<script type="text/javascript" src="js/countdown/jquery.countdown.min.js"></script>
+<script type="text/javascript" src="js/dcjqaccordion/jquery.dcjqaccordion.2.8.min.js"></script>
+<script type="text/javascript" src="js/datetimepicker/moment.js"></script>
+<script type="text/javascript" src="js/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui/jquery-ui.min.js"></script>
 
 
 <!-- Theme files
 ============================================ -->
 
 
-<script type="text/javascript" src="${root}/front/js/themejs/so_megamenu.js"></script>
-<script type="text/javascript" src="${root}/front/js/themejs/addtocart.js"></script>
-<script type="text/javascript" src="${root}/front/themejs/application.js"></script>
-<script type="text/javascript" src="${root}/static/js/zhy/checkForm-ajax.js"></script>
+<script type="text/javascript" src="js/themejs/so_megamenu.js"></script>
+<script type="text/javascript" src="js/themejs/addtocart.js"></script>
+<script type="text/javascript" src="js/themejs/application.js"></script>
 
 </body>
 </html>
-

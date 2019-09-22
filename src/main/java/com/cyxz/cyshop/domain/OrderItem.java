@@ -1,6 +1,7 @@
 package com.cyxz.cyshop.domain;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 /**
  * @author zhy
@@ -14,7 +15,7 @@ public class OrderItem implements Serializable {
     private String id;
     private String order_id;
     private String sku_id;
-    private Integer nums;
+    private BigDecimal nums;
     public String getId() {
         return id;
     }
@@ -33,10 +34,10 @@ public class OrderItem implements Serializable {
     public void setSku_id(String sku_id) {
         this.sku_id = sku_id;
     }
-    public Integer getNums() {
+    public BigDecimal getNums() {
         return nums;
     }
-    public void setNums(Integer nums) {
+    public void setNums(BigDecimal nums) {
         this.nums = nums;
     }
     @Override
