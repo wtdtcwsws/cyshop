@@ -1,4 +1,5 @@
-<%--网页的上半部分使用--%>
+<%@ page import="java.util.List" %>
+<%@ page import="com.cyxz.cyshop.domain.Member" %><%--网页的上半部分使用--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +43,9 @@
     <link id="color_scheme" href="css/theme.css" rel="stylesheet">
 
     <!-- <link href="css/responsive.css" rel="stylesheet"> -->
-
+<%
+    Member  member = (Member) session.getAttribute("login-info");
+%>
 </head>
 
 <body class="res layout-subpage">
@@ -65,8 +68,16 @@
                         <div class="tabBlock1" id="TabBlock-1">
                             <ul class="top-link list-inline">
                                 <li class="wishlist hidden-xs"><a href="#" id="wishlist-total" class="top-link-wishlist" title="Welcome Customer!"><span>雏鹰商城欢迎您！</span></a></li>
-                                <li class="signin"><a href="login.jsp" class="top-link-checkout" title="Sign In"><span>登录</span></a></li>
-                                <li class="register"><a href="register.jsp" title="Register"><span>注册</span></a></li>
+                                <%
+                                    if(member == null){
+                                %>
+                                <li class="signin"><a href="login.html" class="top-link-checkout" title="Sign In"><span>登录</span></a></li>
+                               <%
+                                   }else{
+                               %>
+                                <li class="signin"><span><%=member.getName()%>用户已登录</span></li>
+                                <%}%>
+                                <li class="register"><a href="register.html" title="Register"><span>注册</span></a></li>
                             </ul>
                         </div>
                     </div>

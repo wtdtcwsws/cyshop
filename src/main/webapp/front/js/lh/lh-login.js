@@ -27,46 +27,4 @@
         }
     });
 
-
-
-
-    // $('[data-js="login-button"]').click(function () {
-    //     var account = $('[name="account"]');
-    //     var password = $('[name="password"]');
-    //
-    //     // 获取错误信息标签
-    //     var accountError = $('[data-js="account"]');
-    //     var passwordError = $('[data-js="password"]');
-    //
-    //     $.ajax({
-    //         url: '/select/member',
-    //
-    //         data:{
-    //             account: account,
-    //             password: password
-    //         },
-    //
-    //         success: function (result) {
-    //             if(result == "feikong"){
-    //                 accountError.html('账号不能为空');
-    //                 passwordError.html('密码不能为空');
-    //             }else if(result == "denglu"){
-    //                 alert("登录成功！")
-    //             }else if(result == "cuowu"){
-    //                 accountError.html('账号或者密码错误，请重新输入！');
-    //                 passwordError.empty();
-    //             }
-    //         }
-    //
-    //     });
-
-
-    // })
-
-
-
-
-
-
-
 }) ();
