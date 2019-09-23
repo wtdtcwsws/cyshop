@@ -17,5 +17,17 @@
     <listener>
         <listener-class>com.cyxz.cyshop.web.listener.ContextPathListener</listener-class>
     </listener>
+    <listener>
+        <listener-class>com.cyxz.cyshop.web.listener.LoadCatalogListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>com.cyxz.cyshop.web.listener.LoadSkuModelListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>com.cyxz.cyshop.web.listener.LoadSpuListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>com.cyxz.cyshop.web.listener.LoadSkuListener</listener-class>
+    </listener>
 
 </web-app>

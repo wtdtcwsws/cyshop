@@ -8,6 +8,6 @@ public interface SkuMapper {
 
     List<Sku> getSku();
 
-    Integer setSkuStock(Integer stock,Integer id);
+    Integer setSkuStock(Sku sku);
 
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cyxz.cyshop.dao.SkuModelMapper">
+    <select id="getAllModel" resultType="com.cyxz.cyshop.domain.SkuModel">
+      select * from sku_model
+    </select>
+    <insert id="insertModel" parameterType="com.cyxz.cyshop.domain.SkuModel">
+      insert into sku_model (`name`,`catalog3_id`)values(#{name},#{catalog3_id})
+    </insert>
+    <select id="getModelIdByName" parameterType="String" resultType="String">
+      select max(id) from sku_model WHERE `name`=#{name}
+    </select>
+    <select id="getModelByCatalog3Id" parameterType="String" resultType="com.cyxz.cyshop.domain.SkuModel">
+      select * from sku_model where `catalog3_id`=#{catalog3_id}
+    </select>
+</mapper>

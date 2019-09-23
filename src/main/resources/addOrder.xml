@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cyxz.cyshop.dao.AddOrderMapper">
+    <insert id="addOrder" parameterType="com.cyxz.cyshop.domain.Order" useGeneratedKeys="true" keyProperty="id">
+      insert into `order`(`member_id`,`member_address_id`,`creat_time`,`pay_time`,`total_price`,`discounts`,`post_price`,`payment`,`payment_way_id`,`status`)
+      values (#{member_id},#{member_address_id},now(),#{pay_time},#{total_price},#{discounts},#{post_price},#{payment},#{payment_way_id},#{status})
+    </insert>
+    <insert id="addOrderItem" parameterType="com.cyxz.cyshop.domain.Order">
+      insert into `order_item` (`order_id`,`sku_id`,`nums`)values (#{order_id},#{sku_id},#{nums})
+    </insert>
+
+</mapper>

@@ -110,6 +110,22 @@ public class CatalogService {
     }
 
     /**
+     * 根据第二分类id获取第三分类内容
+     * @param catalog2Id
+     * @return
+     */
+    public List<Catalog3> getCatalog3s(String catalog2Id) {
+        List<Catalog3> catalog3s = getCatalog3s();
+        List<Catalog3> subCatalog3s = new ArrayList<>();
+
+        for (Catalog3 c3 : catalog3s) {
+            if (c3.getCatalog_2_id().equals(catalog2Id)) {
+                subCatalog3s.add(c3);
+            }
+        }
+        return subCatalog3s;
+    }
+    /**
      * 按id删除一级分类
      * @param id
      */
@@ -159,4 +175,6 @@ public class CatalogService {
         }
         sqlSession.close();
     }
+
+
 }
