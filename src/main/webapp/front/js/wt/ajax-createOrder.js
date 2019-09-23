@@ -19,7 +19,10 @@
 
             },
             success:function (result) {
-                alert(result);
+                if (result) {
+                    alert("success!");
+                }
+
             }
 
         })

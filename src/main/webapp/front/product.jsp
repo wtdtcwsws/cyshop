@@ -80,7 +80,7 @@
     <!-- Main Container  -->
     <div class="main-container container">
         <ul class="header-main type-1">
-            <li class="home"><a href="/front/index.html">首页<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+            <li class="home"><a href="/front/index.jsp">首页<i class="fa fa-angle-right" aria-hidden="true"></i></a>
             </li>
             <li class="home"><a>${spu_detail.spu_description}<i class="fa fa-angle-right" aria-hidden="true"></i></a>
             </li>
