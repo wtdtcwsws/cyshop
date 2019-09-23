@@ -12,17 +12,26 @@ import java.util.Date;
  * @remarks TODO
  */
 public class OrderItemVO {
-    private String spu_name;
+    private String id;
+    private String name;
     private Date creat_time;
     private BigDecimal payment;
     private String status;
 
-    public String getSpu_name() {
-        return spu_name;
+    public String getId() {
+        return id;
     }
 
-    public void setSpu_name(String spu_name) {
-        this.spu_name = spu_name;
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Date getCreat_time() {
@@ -52,7 +61,8 @@ public class OrderItemVO {
     @Override
     public String toString() {
         return "OrderItemVO{" +
-                "spu_name='" + spu_name + '\'' +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
                 ", creat_time=" + creat_time +
                 ", payment=" + payment +
                 ", status='" + status + '\'' +

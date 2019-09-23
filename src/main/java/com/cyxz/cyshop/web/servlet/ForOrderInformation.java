@@ -29,10 +29,10 @@ import java.util.Map;
 public class ForOrderInformation extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String memberId = "5";//这里要捞到member的id
         SimpleDateFormat formatDate = new SimpleDateFormat("yyyy年MM月dd日 HH时mm分ss秒");//得到一个格式化实体
         Map map = new HashMap();
-        String orderId ="3";//这里暂时用一下这个id，前端页面传数据过来启用下面那句
-//        String orderId = req.getParameter("id");//订单id也要捞出来，由前端的页面扔过来
+        String orderId = req.getParameter("id");//订单id也要捞出来，由前端的页面扔过来
         SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
         orderMapper order_mapper = sqlSession.getMapper(orderMapper.class);//订单列表mapper
         AddressMapper add_mapper = sqlSession.getMapper(AddressMapper.class);//地址列表mapper
@@ -55,7 +55,7 @@ public class ForOrderInformation extends HttpServlet {
             Sku sku = sku_mapper.findBySkuId(s.getSku_id());//根据订单详细中的skuid找到sku
             Spu spu = spu_mapper.findById(sku.getSpu_id());//查找到sku对应的spu
             vo.setName(spu.getSpu_name());//设置名称，也即是spu名称
-            vo.setModel(sku.getName()+"/"+sku.getDescription());//设置型号也就是sku名字
+            vo.setModel(sku.getName());//设置型号也就是sku名字
             vo.setNum(s.getNums().toString());//设置数量
             vo.setPrice(sku.getPrice().toString());//设置单价
             vo.setTotal(order.getPayment().toString());//设置合计

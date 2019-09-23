@@ -1,23 +1,29 @@
-// 购买sku
+// 下单
 (function () {
-    let $buy = $('[data-buy]');
+    let $order = $('[data-order]');
 
-    $buy.click(function () {
+    $order.click(function () {
+        let $sku_name = $('[data-spu-name]').val();
         let $quantity = $('[data-quantity]').val();
         let $sku = $('[data-sku]').val();
         let $price = $('[data-price]').text();
         let $stock = $('[data-stock]').text();
         console.log($price);
         $.ajax({
-            url: '/product?method=buy',
+            url: '/views/checkout?method=showConfirmOrder',
             data:{
                 count:$quantity,
                 sku_id:$sku,
                 price:$price,
                 stock:$stock
+
             },
             success:function (result) {
-                alert(result);
+                // if (result) {
+                //     alert("success!");
+                // }
+                window.location.href = result;
+
             }
 
         })

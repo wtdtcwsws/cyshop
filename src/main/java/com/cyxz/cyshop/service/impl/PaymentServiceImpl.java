@@ -27,6 +27,8 @@ public class PaymentServiceImpl implements PaymentService {
         String id = paymentMapper.findNewOrderforId();
         //  第二步，根据id修改订单状态
         int row = paymentMapper.updateOrderStatus(id);
+        sqlSession.commit();
+        sqlSession.close();
         return row;
     }
 }
