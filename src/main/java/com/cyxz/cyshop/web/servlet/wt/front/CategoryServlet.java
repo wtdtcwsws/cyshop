@@ -1,6 +1,9 @@
 package com.cyxz.cyshop.web.servlet.wt.front;
 
+import com.cyxz.cyshop.domain.Catalog3;
 import com.cyxz.cyshop.domain.Spu;
+import com.cyxz.cyshop.service.CatalogService;
+import com.cyxz.cyshop.service.SpuListService;
 import com.cyxz.cyshop.web.servlet.BaseServlet;
 import org.apache.taglibs.standard.tag.el.core.ForEachTag;
 
@@ -30,7 +33,10 @@ public class CategoryServlet extends BaseServlet {
     public void category(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //TODO 高勇首页三级分类跳转
         String navi3 = request.getParameter("navi3");
+        CatalogService catalogService = new CatalogService();
+        Catalog3 catalog3 =  catalogService.getCatalog3ById(navi3);
         request.getSession().setAttribute("navi3",navi3);
+        request.getSession().setAttribute("catalog3name",catalog3.getName());
         response.sendRedirect(request.getContextPath()+"/front/category.jsp");
 
     }

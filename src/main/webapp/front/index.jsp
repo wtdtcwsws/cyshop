@@ -60,7 +60,7 @@
 
     <!-- Header Container引入网页头部文件  -->
 
-    <%@include file="/front/header/headerIndex.jsp" %>
+    <%@include file="top.jsp" %>
     <!-- //Header Container  -->
 
     <!-- Block Spotlight1  -->
@@ -94,99 +94,11 @@
                                         </button>
 
                                     </div>
-                                    <div class="vertical-wrapper " style="display: block;">
+                                    <div class="vertical-wrapper " >
                                         <span id="remove-verticalmenu" class="fa fa-times"></span>
                                         <div class="megamenu-pattern">
                                             <div class="container">
                                                 <ul class="megamenu">
-
-
-                                                    <%--手工代码区--%>
-                                                    <%--<c:forEach var="c1" items="${c1s}">--%>
-                                                    <%--<li class="item-vertical style1 with-sub-menu hover">--%>
-                                                    <%--<p class="close-menu"></p>--%>
-                                                    <%--<a href="#" class="clearfix">--%>
-
-                                                    <%--<span>${c1.name}</span>--%>
-
-                                                    <%--</a>--%>
-                                                    <%--<div class="sub-menu" data-subwidth="100" style="width: 900px; display: none; right: 0px;">--%>
-                                                    <%--<div class="content" style="display: none;">--%>
-                                                    <%--<div class="row">--%>
-                                                    <%--<div class="col-sm-12">--%>
-                                                    <%--<div class="row">--%>
-                                                    <%--<div class="col-lg-4 col-sm-6 static-menu">--%>
-                                                    <%--<div class="menu">--%>
-                                                    <%--<ul>--%>
-                                                    <%--<li>--%>
-                                                    <%--<c:forEach var="c2" items="${c2s}">--%>
-                                                    <%--<c:if test="${c1.id==c2.catalog_1_id}">--%>
-                                                    <%--<a href="#" class="main-menu">c2.name</a>--%>
-                                                    <%--<ul>--%>
-                                                    <%--<c:forEach var="c3" items="${c3s}">--%>
-                                                    <%--<c:if test="${c2.id==c3.catalog_2_id}">--%>
-                                                    <%--<li><a href="#">${c3s.name}</a></li>--%>
-                                                    <%--</c:if>--%>
-                                                    <%--</c:forEach>--%>
-                                                    <%--</ul>--%>
-                                                    <%--</c:if>--%>
-                                                    <%--</c:forEach>--%>
-                                                    <%--</li>--%>
-                                                    <%--<li>--%>
-                                                    <%--<a href="#" class="main-menu">Cables &amp; Connectors</a>--%>
-                                                    <%--<ul>--%>
-                                                    <%--<li><a href="#">Cameras &amp; Photo</a></li>--%>
-                                                    <%--<li><a href="#">Electronics</a></li>--%>
-                                                    <%--<li><a href="#">Outdoor &amp; Traveling</a></li>--%>
-                                                    <%--</ul>--%>
-                                                    <%--</li>--%>
-                                                    <%--</ul>--%>
-                                                    <%--</div>--%>
-                                                    <%--</div>--%>
-                                                    <%--<div class="col-lg-4 col-sm-6  static-menu">--%>
-                                                    <%--<div class="menu">--%>
-                                                    <%--<ul>--%>
-                                                    <%--<li>--%>
-                                                    <%--<a href="#" class="main-menu">Camping &amp; Hiking</a>--%>
-                                                    <%--<ul>--%>
-                                                    <%--<li><a href="#">Earings</a></li>--%>
-                                                    <%--<li><a href="#">Shaving &amp; Hair Removal</a></li>--%>
-                                                    <%--<li><a href="#">Salon &amp; Spa Equipment</a></li>--%>
-                                                    <%--</ul>--%>
-                                                    <%--</li>--%>
-                                                    <%--<li>--%>
-                                                    <%--<a href="#" class="main-menu">Smartphone &amp; Tablets</a>--%>
-                                                    <%--<ul>--%>
-                                                    <%--<li><a href="#">Sports &amp; Outdoors</a></li>--%>
-                                                    <%--<li><a href="#">Bath &amp; Body</a></li>--%>
-                                                    <%--<li><a href="#">Gadgets &amp; Auto Parts</a></li>--%>
-                                                    <%--</ul>--%>
-                                                    <%--</li>--%>
-                                                    <%--</ul>--%>
-                                                    <%--</div>--%>
-                                                    <%--</div>--%>
-                                                    <%--<div class="col-lg-4 col-sm-6 static-menu">--%>
-                                                    <%--<div class="menu">--%>
-                                                    <%--<ul>--%>
-                                                    <%--<li>--%>
-                                                    <%--<a href="#" class="main-menu">Bags, Holiday Supplies</a>--%>
-                                                    <%--<ul>--%>
-                                                    <%--<li><a href="#" onclick="window.location = '18_46';">Battereries &amp; Chargers</a></li>--%>
-                                                    <%--<li><a href="#" onclick="window.location = '24_64';">Bath &amp; Body</a></li>--%>
-                                                    <%--<li><a href="#" onclick="window.location = '18_45';">Headphones, Headsets</a></li>--%>
-                                                    <%--<li><a href="#" onclick="window.location = '18_30';">Home Audio</a></li>--%>
-                                                    <%--</ul>--%>
-                                                    <%--</li>--%>
-                                                    <%--</ul>--%>
-                                                    <%--</div>--%>
-                                                    <%--</div>--%>
-                                                    <%--</div>--%>
-                                                    <%--</div>--%>
-                                                    <%--</div>--%>
-                                                    <%--</div>--%>
-                                                    <%--</div>--%>
-                                                    <%--</li>--%>
-
 
                                                     <%--三级分类导航--%>
                                                     <c:forEach var="c1" items="${catalog1}">
@@ -212,7 +124,7 @@
                                                                                                 <c:if test="${c2.catalog_1_id==c1.id}">
 
                                                                                                     <li>
-                                                                                                        <a href="#"
+                                                                                                        <a href="javaScript:;"
                                                                                                            class="main-menu">${c2.name}</a>
                                                                                                         <ul>
                                                                                                             <c:forEach

@@ -18,4 +18,6 @@ public interface CatalogMapepr {
     int deleteCatalog1(String id);
     int deleteCatalog2(String id);
     int deleteCatalog3(String id);
+
+    Catalog3 getCatalog3ById(String catalog3Id);
 }

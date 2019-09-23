@@ -31,4 +31,7 @@
     <delete id="deleteCatalog3" parameterType="String">
       delete from catalog_3 where `id`=#{id}
     </delete>
+    <select id="getCatalog3ById" parameterType="String" resultType="com.cyxz.cyshop.domain.Catalog3">
+      select  * from catalog_3 where `id`=#{id}
+    </select>
 </mapper>
