@@ -32,7 +32,7 @@ public class ForOrderInformation extends HttpServlet {
         String memberId = "5";//这里要捞到member的id
         SimpleDateFormat formatDate = new SimpleDateFormat("yyyy年MM月dd日 HH时mm分ss秒");//得到一个格式化实体
         Map map = new HashMap();
-        String orderId = "2";//订单id也要捞出来，由前端的页面扔过来
+        String orderId = req.getParameter("id");//订单id也要捞出来，由前端的页面扔过来
         SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
         orderMapper order_mapper = sqlSession.getMapper(orderMapper.class);//订单列表mapper
         AddressMapper add_mapper = sqlSession.getMapper(AddressMapper.class);//地址列表mapper

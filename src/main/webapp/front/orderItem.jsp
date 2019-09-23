@@ -92,7 +92,7 @@
                         <tr>
                             <td class="text-center">
                                 <%--<a href="product.html"></a>--%>
-                                ${orderItemVO.getSpu_name()}
+                                ${orderItemVO.getName()}
                             </td>
                             <td class="text-center">
                                 <%--<a href="product.html">Emasa rumas gacem</a>--%>
@@ -106,13 +106,23 @@
                                     ${orderItemVO.getStatus()}
                             </td>
                             <td class="text-center">
-                                <select class="custom-select" data-id="${status.index}">
-                                    <option selected>选择操作</option>
-                                    <a><option value="-1">退款</option></a>
-                                    <a href="/front/OrderInfo&id=${orderItemVO.getId()}"><option value="0">详情</option></a>
-                                    <a><option value="1">备注</option></a>
-                                    <a><option value="2">删除</option></a>
-                                </select>
+                                <%--<select class="custom-select" data-id="${status.index}">--%>
+                                    <%--<option selected>选择操作</option>--%>
+                                    <%--<a><option value="-1">退款</option></a>--%>
+                                    <%--<option value="0"><a href="/front/OrderInfo&id=${orderItemVO.getId()}">详情</a></option>--%>
+                                    <%--<a><option value="1">备注</option></a>--%>
+                                    <%--<a><option value="2">删除</option></a>--%>
+                                <%--</select>--%>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">选择操作
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="/front/OrderInfo?id=${orderItemVO.getId()}">详情</a></li>
+                                        <li><a href="#">退款</a></li>
+                                        <li><a href="#">删除</a></li>
+                                    </ul>
+                                </div>
                             </td>
                         </tr>
                         </c:forEach>
