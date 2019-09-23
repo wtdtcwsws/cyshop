@@ -67,17 +67,19 @@
                     <div class="header-top-right collapsed-block text-right  col-sm-6 col-xs-6 compact-hidden">
                         <div class="tabBlock1" id="TabBlock-1">
                             <ul class="top-link list-inline">
-                                <li class="wishlist hidden-xs"><a href="#" id="wishlist-total" class="top-link-wishlist" title="Welcome Customer!"><span>雏鹰商城欢迎您！</span></a></li>
+
                                 <%
                                     if(member == null){
                                 %>
                                 <li class="signin"><a href="login.html" class="top-link-checkout" title="Sign In"><span>登录</span></a></li>
+                                <li class="register"><a href="register.html" title="Register"><span>注册</span></a></li>
                                <%
                                    }else{
                                %>
-                                <li class="signin"><span><%=member.getName()%>用户已登录</span></li>
+                                <li class="signin"><span> <strong><%=member.getName()%></strong> 您好！</span></li>
+                                <li class="register"><span>退出</span></li>
                                 <%}%>
-                                <li class="register"><a href="register.html" title="Register"><span>注册</span></a></li>
+
                             </ul>
                         </div>
                     </div>
@@ -116,11 +118,11 @@
                         </div>
                         <!--cart-->
                         <div id="cart" class=" btn-group btn-shopping-cart">
-                            <a data-loading-text="Loading..." class="top_cart dropdown-toggle" data-toggle="dropdown">
+                            <a class="top_cart dropdown-toggle"  href="/views/frontOrderItem?method=findAllOrder">
                                 <div class="shopcart">
                                     <span class="handle pull-left"></span>
                                     <span class="number-shopping-cart">2</span>
-                                    <span class="title">购物车</span>
+                                    <span class="title">我的订单</span>
                                     <p class="text-shopping-cart cart-total-full"> $0.00 </p>
                                 </div>
                             </a>
