@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -29,6 +30,7 @@ public class ForOrderInformation extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String memberId = "5";//这里要捞到member的id
+        SimpleDateFormat formatDate = new SimpleDateFormat("yyyy年MM月dd日 HH时mm分ss秒");//得到一个格式化实体
         Map map = new HashMap();
         String orderId = "2";//订单id也要捞出来，由前端的页面扔过来
         SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
@@ -39,7 +41,8 @@ public class ForOrderInformation extends HttpServlet {
         SpuMapper spu_mapper = sqlSession.getMapper(SpuMapper.class);//sku的mapper
         Order order = order_mapper.getOrderByOrderId(orderId);//找到对应的order
         map.put("id", order.getId());
-        map.put("date", order.getCreat_time());
+        String date = formatDate.format(order.getCreat_time());//格式化得到的时间
+        map.put("date", date);
         map.put("status", order.getStatus());
         map.put("money", order.getPayment());
         MemberAddress add = add_mapper.findById(order.getMember_address_id());//根据order的地址编码找到对应的地址
