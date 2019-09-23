@@ -29,6 +29,13 @@ import java.util.List;
 @WebServlet("/views/refundOrReturnItem")
 public class RefundOrReturnItemServlet extends BaseServlet {
 
+    /**
+     * 查找退款单列表
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void findReturnItem(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         HttpSession session = request.getSession();
         RefundOrReturnItemService refundOrReturnItemService = new RefundOrReturnItemServiceImpl();
@@ -37,6 +44,13 @@ public class RefundOrReturnItemServlet extends BaseServlet {
         response.sendRedirect("/views/zhy/returnsList.jsp");
     }
 
+    /**
+     * 更新列表的订单状态
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void updateItemStatus(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         HttpSession session = request.getSession();
         String id = request.getParameter("id");

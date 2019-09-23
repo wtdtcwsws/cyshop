@@ -28,5 +28,6 @@
         <mapper resource="order.xml"/>
         <mapper resource="orderDetail.xml"/>
         <mapper resource="refundOrReturnOrder.xml"/>
+        <mapper resource="payment.xml"/>
     </mappers>
 </configuration>
