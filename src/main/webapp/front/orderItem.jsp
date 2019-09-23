@@ -128,7 +128,7 @@
                                     </button>
                                     <ul class="dropdown-menu" role="menu">
                                         <li><a href="/front/OrderInfo?id=${orderItemVO.getId()}">详情</a></li>
-                                        <li><a href="#">退款</a></li>
+                                        <li><a href="/indect/return?id=${orderItemVO.getId()}">退货/款</a></li>
                                         <li><a href="#">删除</a></li>
                                     </ul>
                                 </div>
