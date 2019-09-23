@@ -1,5 +1,6 @@
 package com.cyxz.cyshop.web.servlet;
 
+import com.cyxz.cyshop.common.PageBean;
 import com.cyxz.cyshop.dao.SkuMapper;
 import com.cyxz.cyshop.dao.orderDetailMapper;
 import com.cyxz.cyshop.dao.orderMapper;
@@ -31,7 +32,40 @@ public class orderServlet extends HttpServlet {
         orderMapper orderMapper = sqlSession.getMapper(orderMapper.class);
         orderDetailMapper detailMapper = sqlSession.getMapper(orderDetailMapper.class);
        SkuMapper skulMapper = sqlSession.getMapper(SkuMapper.class);
-        List<Order> orders = orderMapper.selectAll();//捞出order数据
+        List<Order> orders = orderMapper.selectAll();//捞出order数据,原始的全部捞出来
+
+
+
+
+
+
+        /**
+         * 根据分页的数据条数，当前页码，每页显示的条数，数据总条数构建分页需要的数据
+         *
+         * @param rows      分页显示的数据
+         * @param pageIndex 当前显示的页码
+         * @param pageSize  每页显示的条数
+         * @param total     数据总条数
+         */
+        //获得页数
+//        String str_pageindex = req.getParameter("pageindex");
+//        int pageindex = 1;
+//        if(!(str_pageindex==null)){
+//            pageindex = Integer.parseInt(str_pageindex);
+//        }
+//        //设置每页显示条数
+//       int pageSize =  5;
+//        //总数据要查出来
+//        int total = orderMapper.getCount();
+//        List<Order> orders = orderMapper.selectView(pageindex-1,pageSize);//捞出order数据，这里只捞显示数据
+//        PageBean  PBean = new PageBean(orders,pageindex,pageSize,total);
+//        req.setAttribute("PBean",PBean);
+
+
+
+
+
+
         List<OrderView> orderViews = new ArrayList<OrderView>();//用来保存展示对象
 //        这里需要组装页面展示对象
         for (Order order:orders) {

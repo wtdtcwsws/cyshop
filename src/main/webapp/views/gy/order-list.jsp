@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <div class="animated  fadeIn">
     <h4>订单列表
         <small class="text-muted"> 订单列表展示</small>
@@ -84,18 +84,22 @@
         </a>
         <ul class="pagination">
             <li class="page-item">
-                <a class="page-link" href="#">上一页</a>
+                <a class="page-link" href="javascript:;">上一页</a>
             </li>
-            <li class="page-item active">
-                <a class="page-link" href="#">1</a>
+            <li class="page-item active mr-1">
+                <a class="page-link index" data-index = "1" href="javascript:;">1</a>
+            </li>
+            <li class="page-item  mr-1">
+                <a class="page-link index" data-index = "2" href="javascript:;">2</a>
+            </li>
+            <li class="page-item   mr-1">
+                <a class="page-link index" data-index = "3" href="javascript:;">3</a>
             </li>
             <li class="page-item">
-                <a class="page-link" href="#">2</a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="#">下一页</a>
+                <a class="page-link" href="javascript:;">下一页</a>
             </li>
         </ul>
     </div>
 </div>
 </div>
+<%--<script src="static/js/gy/list.js"></script>--%>

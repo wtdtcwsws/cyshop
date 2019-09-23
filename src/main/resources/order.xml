@@ -12,6 +12,13 @@
     <select id="selectAll" resultType="com.cyxz.cyshop.domain.Order">
         select  * from `order`
     </select>
+    <!--翻页语句-->
+    <select id="selectView" resultType="com.cyxz.cyshop.domain.Order">
+        select  * from `order` limit #{arg0},#{arg1}
+    </select>
+    <select id="getCount" resultType="int" >
+        select  count(*) from `order`
+    </select>
     <update id="updateOrder" parameterType="String" >
       update `order` set `status`=3  where `id`=#{id}
     </update>

@@ -69,7 +69,7 @@
     <!-- Main Container  -->
     <div class="main-container container">
         <ul class="header-main ">
-            <li class="home"><a href="#">首页   </a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+            <li class="home"><a href="${root}/front/index.jsp">首页   </a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
             <li> 订单信息</li>
         </ul>
 
@@ -118,11 +118,11 @@
                         <td class="text-left">四川省
                             <br>成都市
                             <br>锦江区
-                            <br>${add.specific_address}4
+                            <br>${add.specific_address}
                             </td>
                         <td class="text-left">
-                            姓名：${add.consignee_name}5
-                            <br>手机：${add.phone}6</td>
+                            姓名：${add.consignee_name}
+                            <br>手机：${add.phone}</td>
                     </tr>
                     </tbody>
                 </table>
@@ -146,7 +146,8 @@
                                 <td class="text-right">${ov.num}</td>
                                 <td class="text-right">￥${ov.price}</td>
                                     <%--<td class="text-right">￥9600</td>--%>
-                                <td style="white-space: nowrap;" class="text-right"> <a class="btn btn-primary" title="" data-toggle="tooltip" href="#" data-original-title="付款"><i class="fa fa-money"></i></a>
+                                <td style="white-space: nowrap;" class="text-right">
+                                    <%--<a class="btn btn-primary" title="" data-toggle="tooltip" href="#" data-original-title="付款"><i class="fa fa-money"></i></a>--%>
                                     <a class="btn btn-primary" title="" data-toggle="tooltip" href="#" data-original-title="再次购买"><i class="fa fa-shopping-cart"></i></a>
                                     <a class="btn btn-danger" title="" data-toggle="tooltip" href="return.html" data-original-title="退货"><i class="fa fa-reply"></i></a>
                                 </td>

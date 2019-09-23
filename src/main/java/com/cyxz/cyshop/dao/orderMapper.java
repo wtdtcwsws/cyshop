@@ -18,4 +18,8 @@ public interface orderMapper {
     int cancelOrder(String id);
     int delOrder(String id);
     int delOrderItem(String id);
+
+    int getCount();//获得总订单条数
+
+    List<Order> selectView(int limit, int pageSize);
 }
