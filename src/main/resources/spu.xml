@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cyxz.cyshop.dao.SpuMapper">
+    <select id="findById" parameterType="String" resultType="com.cyxz.cyshop.domain.Spu">
+        select * from `spu` where `id` =
+        #{id}
+    </select>
+</mapper>

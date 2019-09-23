@@ -177,4 +177,9 @@ public class CatalogService {
     }
 
 
+    public Catalog3 getCatalog3ById(String catalog3Id) {
+        CatalogMapepr catalog1Mapper = CatalogService.getMapper();
+        Catalog3 catalog3 = catalog1Mapper.getCatalog3ById(catalog3Id);
+        return catalog3;
+    }
 }

@@ -185,7 +185,7 @@
 										<i class="nav-icon cui-note"></i> 订单</a>
 									<ul class="nav-dropdown-items">
 										<li class="nav-item ">
-											<a class="nav-link" href="gy/order-list.jsp"><i class="nav-icon icon-puzzle"></i>订单列表
+											<a class="nav-link" href="orderServlet/order"><i class="nav-icon icon-puzzle"></i>订单列表
 											</a>
 										</li>
 										

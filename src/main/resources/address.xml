@@ -9,6 +9,9 @@
     <insert id="aAddress" parameterType="com.cyxz.cyshop.domain.MemberAddress">
         insert into `member_address` (member_id,specific_address,consignee_name,phone) values(#{member_id},#{specific_address},#{consignee_name},#{phone})
     </insert>
+    <select id="findById" parameterType="String" resultType="com.cyxz.cyshop.domain.MemberAddress">
+        select * from `member_address` where `id` = #{id}
+    </select>
     <update id="uAddress" parameterType="com.cyxz.cyshop.domain.MemberAddress">
         update `member_address` set `specific_address` = #{specific_address},`consignee_name` = #{consignee_name},`phone` = #{phone} where `id` = #{id}
     </update>

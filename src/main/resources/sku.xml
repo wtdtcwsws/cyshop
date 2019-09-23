@@ -11,5 +11,8 @@
     <update id="setSkuStock" parameterType="com.cyxz.cyshop.domain.Sku">
         update sku set `stock` = #{stock} where `id` = #{id}
     </update>
+    <select id="findBySkuId" resultType="com.cyxz.cyshop.domain.Sku">
+        select * from sku where `id` = #{id}
+    </select>
 
 </mapper>
