@@ -69,15 +69,9 @@ public class ProductDetailServlet extends BaseServlet {
             BigDecimal totalPrice = price.multiply(new BigDecimal(count));
             Member account = (Member)request.getSession().getAttribute("login-info");
             if (account == null) {
-//            response.getWriter().write("请先登录账号！");
-                account = new Member();
-                account.setName("管理员");
-                account.setAccount("admin");
-                account.setPassword("123123");
-                account.setPhone("13800001234");
-                account.setId("32");
-                account.setStatus("1");
-                account.setLevel_id("0");
+
+                response.getWriter().write(request.getContextPath()+"/front/login.jsp");
+                return;
             }
             //创建订单
             OrderService orderService = new OrderService();
