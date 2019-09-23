@@ -26,6 +26,13 @@ import java.util.List;
 @WebServlet("/views/refundOrReturnOrder")
 public class RefundOrReturnOrderServlet extends BaseServlet {
 
+    /**
+     * 查看退款单
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void lookReturnOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         String OI = request.getParameter("OI");
@@ -37,6 +44,13 @@ public class RefundOrReturnOrderServlet extends BaseServlet {
         request.getRequestDispatcher("/views/zhy/returnDetails.jsp").forward(request, response);
     }
 
+    /**
+     * 更新退款单状态
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void updateStatus(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id = request.getParameter("ROI");
         String status = request.getParameter("value1");

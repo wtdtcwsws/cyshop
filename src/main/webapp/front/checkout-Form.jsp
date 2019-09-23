@@ -98,7 +98,7 @@
                     <c:forEach var="memberAddress" items="${memberAddressess}" varStatus="status">
                         <div class="radio">
                             <label>
-                                <input type="radio" checked="checked" data-addressId="${status.index}" value="${memberAddresses.getId()}">
+                                <input type="radio" checked="checked" name="address" data-addressId="${status.index}" value="${memberAddresses.getId()}">
                                     <%--数据库查出来的地址和名字--%>
                                 <i class="fa fa-street-view">&nbsp;&nbsp;</i>${memberAddress.getSpecific_address()} ${memberAddress.getConsignee_name()} 收</label>
                             <a class="pull-right" data-toggle="modal" data-target="#exampleModal${memberAddress.getId()}">修改本地址</a>
