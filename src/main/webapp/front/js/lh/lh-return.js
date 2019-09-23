@@ -11,16 +11,12 @@ $('[data-js="ck"]').click(function () {
 
     $('[data-js="submits"]').click(function () {
 
-        // var orderId = $('[name="order_id"]');
-        // var time = $('[name="time"]');
         var cause= $('[name="cause"]').val();
         console.log(cause)
 
         $.ajax({
             url:"/submit/return",
             data:{
-                // orderId: orderId,
-                // time: time,
                 cause: cause
             },
             success: function (result) {

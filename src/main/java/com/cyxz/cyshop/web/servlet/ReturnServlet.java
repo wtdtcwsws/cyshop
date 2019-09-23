@@ -23,6 +23,7 @@ import com.cyxz.cyshop.dao.orderDetailMapper;
 import java.util.ArrayList;
 import com.cyxz.cyshop.service.SkuService;
 import com.cyxz.cyshop.web.util.DateForMat;
+import sun.awt.geom.AreaOp;
 
 /**
  * 罗海
@@ -36,26 +37,28 @@ public class ReturnServlet extends HttpServlet {
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        HttpSession session = request.getSession();
         DateForMat dateForMat = new DateForMat();
-        MemberService memberService = new MemberService();
         // 需要获得四个信息，第一个该会员信息，第二个该订单项的信息，第三个该订单信息，第四个通过订单信息找到的订单中的商品信息
-        Order order = new Order();
-        OrderItem orderItem = new OrderItem();
-        Sku sku = new Sku();
+        String orderId = request.getParameter("id");
+        Member member = (Member) session.getAttribute("login-info");
+        System.out.println(orderId);
 
         SqlSession sqlSession = null;
         sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
         orderMapper orderMappers = sqlSession.getMapper(orderMapper.class);
-        List<Order> orderAll = orderMappers.getOrderByMemberId("2");
+        List<Order> orderAll = orderMappers.getOrderByMemberId(member.getId());
+
 
         // 用来使用的对象或者集合
-        Member member = new Member();
-        List<Member> members = memberService.selectMember();
+
+
+        System.out.println("罗海");
         Order orders = orderAll.get(0);
-        List<OrderItem> orderItems = new ArrayList<OrderItem>();
+        System.out.println(orders);
         List<Sku> skus = new ArrayList<Sku>();
 
+        List<OrderItem> orderItems = new ArrayList<OrderItem>();
         orderDetailMapper orderDetailMappers = sqlSession.getMapper(orderDetailMapper.class);
         List<OrderItem> orderDetailAll = orderDetailMappers.findByOderID(orders.getId());
         SkuService skuService = new SkuService();
@@ -65,6 +68,7 @@ public class ReturnServlet extends HttpServlet {
         for(OrderItem orderItem1 : orderDetailAll){
             orderItems.add(orderItem1);
         }
+
         for (Sku sku1 : skuAll){
             for(OrderItem orderitem2 : orderItems){
                 if (sku1.getId().equals(orderitem2.getSku_id())){
@@ -72,21 +76,17 @@ public class ReturnServlet extends HttpServlet {
                 }
             }
         }
-        for (Member mem : members){
-            if(mem.getId().equals("2")){
-                member = mem;
-                break;
-            }
-        }
-//******************************************************************************************************//
-        HttpSession sessions = request.getSession();
-        sessions.setAttribute("member",member);
-        sessions.setAttribute("members",members);
-        sessions.setAttribute("orders",orders);
-        sessions.setAttribute("orderItems",orderItems);
-        sessions.setAttribute("skus",skus);
-        sessions.setAttribute("dateForMat",dateForMat);
 
-        response.sendRedirect(request.getContextPath() + "/front/return.jsp");
+        System.out.println(member);
+        System.out.println(orders);
+        System.out.println(skus);
+
+//******************************************************************************************************//
+        session.setAttribute("member",member);
+        session.setAttribute("orders",orders);
+        session.setAttribute("skus",skus);
+        session.setAttribute("dateForMat",dateForMat);
+
+        response.sendRedirect(request.getContextPath() + "/views/frontOrderItem?method=findAllOrder");
     }
 }

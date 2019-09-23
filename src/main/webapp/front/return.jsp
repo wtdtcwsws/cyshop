@@ -7,7 +7,7 @@
   Time: 15:05
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 
 
 
@@ -135,7 +135,7 @@
                         </div>
                     </fieldset>
                     <div class="buttons clearfix">
-                        <div class="pull-left"><a class="btn btn-default buttonGray" href="">返回</a>
+                        <div class="pull-left"><a class="btn btn-default buttonGray" href="/views/frontOrderItem?method=findAllOrder">返回</a>
                         </div>
                         <div class="pull-right">
                             <button type="button" class="btn btn-primary" data-js="submits">提交</button>
