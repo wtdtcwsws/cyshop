@@ -13,7 +13,7 @@ import java.util.Date;
  */
 public class OrderItemVO {
     private String id;
-    private String spu_name;
+    private String name;
     private Date creat_time;
     private BigDecimal payment;
     private String status;
@@ -26,12 +26,12 @@ public class OrderItemVO {
         this.id = id;
     }
 
-    public String getSpu_name() {
-        return spu_name;
+    public String getName() {
+        return name;
     }
 
-    public void setSpu_name(String spu_name) {
-        this.spu_name = spu_name;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Date getCreat_time() {
@@ -62,7 +62,7 @@ public class OrderItemVO {
     public String toString() {
         return "OrderItemVO{" +
                 "id='" + id + '\'' +
-                ", spu_name='" + spu_name + '\'' +
+                ", name='" + name + '\'' +
                 ", creat_time=" + creat_time +
                 ", payment=" + payment +
                 ", status='" + status + '\'' +
