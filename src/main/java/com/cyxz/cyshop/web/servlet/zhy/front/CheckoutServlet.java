@@ -103,7 +103,8 @@ public class CheckoutServlet extends BaseServlet {
         HttpSession session = request.getSession();
         Member member = (Member)session.getAttribute("login-info");
         if(member == null){
-            response.sendRedirect(request.getContextPath()+"/front/orderItem.jsp");
+            response.getWriter().write(request.getContextPath()+"/front/login.jsp");
+            return;
         }
         List<MemberAddress> memberAddressess = this.findAlladdress(request,response);
 //        购物车进入的方式

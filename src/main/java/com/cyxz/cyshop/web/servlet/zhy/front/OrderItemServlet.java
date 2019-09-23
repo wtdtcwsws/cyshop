@@ -38,7 +38,8 @@ public class OrderItemServlet extends BaseServlet {
         FrontOrderItemService frontOrderItemService = new FrontOrderItemServiceImpl();
         Member member = (Member)session.getAttribute("login-info");
         if(member == null){
-            response.sendRedirect(request.getContextPath()+"/front/orderItem.jsp");
+            response.sendRedirect(request.getContextPath()+"/front/login.jsp");
+            return;
         }
         List<OrderItemVO> orderItemVOs = frontOrderItemService.findAllOrder(member.getId());
         session.setAttribute("orderItemVOs",orderItemVOs);
