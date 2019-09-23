@@ -135,7 +135,7 @@
 
                             <div class="content-product-right col-md-6 col-sm-12 col-xs-12">
                                 <div class="title-product">
-                                    <h1>${spu_detail.spu_name}</h1>
+                                    <h1 data-spu-name>${spu_detail.spu_name}</h1>
                                 </div>
                                 <!-- Review -->
                                 <div class="box-review form-group">
@@ -153,7 +153,7 @@
                                 <div class="product-box-desc">
                                     <select data-sku class="form-control form-control-sm col">
                                         <c:forEach var="sku" items="${spu_skus}">
-                                            <option value="${sku.id}">${sku.description}</option>
+                                            <option  value="${sku.id}">${sku.description}</option>
                                         </c:forEach>
                                     </select>
                                 </div>
@@ -191,6 +191,12 @@
                                             <input data-buy type="button" class="btn btn-block btn-danger"
                                                    data-toggle="tooltip" title="立即下单" value="立即下单"
                                                    data-loading-text="Loading..." id="button-cart"
+                                                   class="btn btn-mega btn-lg">
+                                        </div>
+                                        <div class="row " style="margin-top: 50px">
+                                            <input data-order type="button" class="btn btn-block btn-primary"
+                                                   data-toggle="tooltip" title="付款" value="去付款"
+                                                   data-loading-text="Loading..." id="button-order"
                                                    class="btn btn-mega btn-lg">
                                         </div>
 
@@ -1014,5 +1020,6 @@
 
 <script src="js/wt/ajax-selectSku.js"></script>
 <script src="js/wt/ajax-buySku.js"></script>
+<script src="js/wt/ajax-createOrder.js"></script>
 </body>
 </html>
