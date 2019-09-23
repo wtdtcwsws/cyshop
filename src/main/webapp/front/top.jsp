@@ -77,7 +77,7 @@
                                    }else{
                                %>
                                 <li class="signin"><span> <strong><%=member.getName()%></strong> 您好！</span></li>
-                                <li class="register"><a href="${root}/out" >退出</a></li>
+                                <li class="register"><a href="/out" >退出</a></li>
                                 <%}%>
 
                             </ul>
