@@ -190,7 +190,9 @@
                             <td class="text-right"><b>合计</b>
                             </td>
                             <td class="text-right">￥${map.money}</td>
-                            <td></td>
+                            <td class="text-left">
+                                <a class="btn btn-primary" title="" data-toggle="tooltip" href="/front/payment2.jsp" data-original-title="付款"><i class="fa fa-money"></i></a>
+                            </td>
                         </tr>
                         </tfoot>
                     </table>
