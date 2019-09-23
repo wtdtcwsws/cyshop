@@ -60,4 +60,12 @@ public class OrderItemServlet extends BaseServlet {
         int row = paymentService.updateOrderStatus();
         this.findAllOrder(request,response);
     }
+
+    public void updateOrderStatus2(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        PaymentService paymentService = new PaymentServiceImpl();
+        String payId =(String)session.getAttribute("payId");
+        int row = paymentService.updateOrderStatus2(payId);
+        this.findAllOrder(request,response);
+    }
 }

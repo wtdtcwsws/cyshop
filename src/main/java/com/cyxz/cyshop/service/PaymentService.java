@@ -6,4 +6,6 @@ public interface PaymentService {
      * @return
      */
     int updateOrderStatus();
+
+    int updateOrderStatus2(String payId);
 }

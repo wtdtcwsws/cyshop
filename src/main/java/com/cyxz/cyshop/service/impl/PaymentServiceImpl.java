@@ -31,4 +31,15 @@ public class PaymentServiceImpl implements PaymentService {
         sqlSession.close();
         return row;
     }
+
+    @Override
+    public int updateOrderStatus2(String payId) {
+        SqlSession sqlSession = null;
+        sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
+        PaymentMapper paymentMapper = sqlSession.getMapper(PaymentMapper.class);
+        int row = paymentMapper.updateOrderStatus(payId);
+        sqlSession.commit();
+        sqlSession.close();
+        return row;
+    }
 }

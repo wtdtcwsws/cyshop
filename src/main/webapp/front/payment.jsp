@@ -66,8 +66,8 @@
     <!-- Main Container  -->
     <div class="main-container container">
         <ul class="header-main ">
-            <li class="home"><a href="#">Home   </a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-            <li> payment</li>
+            <li class="home"><a href="${root}/front/index.jsp">主页   </a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+            <li> 支付页面</li>
         </ul>
 
         <div class="row">
