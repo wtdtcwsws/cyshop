@@ -111,6 +111,7 @@ public class CheckoutServlet extends BaseServlet {
         String setId = request.getParameter("sku_id");
         AddSkuService addSkuService = new AddSkuService();
         Sku sku= addSkuService.getSkuById(setId);
+        session.setAttribute("setId",setId);
         confirmOrderVO.setSpu_name(sku.getName());
         List<String> sku_name = new ArrayList<String>();
         sku_name.add(sku.getDescription());
@@ -258,7 +259,8 @@ public class CheckoutServlet extends BaseServlet {
         OrderItem orderItem = new OrderItem();
         orderItem.setOrder_id(order.getId());
 //        此处Sku_id需要前面页面给的数据
-        orderItem.setSku_id("2");
+        String setId = (String)session.getAttribute("setId");
+        orderItem.setSku_id(setId);
         orderItem.setNums(confirmOrderVO.getNums());
         int OrderItemCreatevalid = checkoutService.insertOrderItem(orderItem);
         response.sendRedirect("/front/payment.jsp");

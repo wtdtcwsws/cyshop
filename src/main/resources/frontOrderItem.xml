@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cyxz.cyshop.dao.FrontOrderItemMapper">
     <select id="findAllOrder" parameterType="String" resultType="com.cyxz.cyshop.viewobject.OrderItemVO">
-        select o.`id`,spu.`spu_name`,o.`creat_time`,o.`payment`,o.`status` from `order` as o,`spu` as spu where o.`member_id` = #{member_id} and spu.`id` in (select `spu_id` from `sku` where `id` in (select `sku_id` from `order_item` where `order_id` in (select `id` from `order` where `member_id` = #{member_id})))
+        select o.id,o.creat_time,o.payment,o.`status`,sku.`name` from `order` o inner join (`order_item` oi,`sku`) on (o.id = oi.order_id and sku.id = oi.sku_id) where o.member_id = #{member_id}
     </select>
 
 </mapper>
