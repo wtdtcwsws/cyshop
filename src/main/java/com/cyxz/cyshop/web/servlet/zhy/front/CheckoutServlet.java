@@ -101,6 +101,11 @@ public class CheckoutServlet extends BaseServlet {
      */
     public void showConfirmOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
+        Member member = (Member)session.getAttribute("login-info");
+        if(member == null){
+            response.getWriter().write(request.getContextPath()+"/front/login.jsp");
+            return;
+        }
         List<MemberAddress> memberAddressess = this.findAlladdress(request,response);
 //        购物车进入的方式
 //        ConfirmOrderVO confirmOrderVO = this.receiveOrderMessage(request,response);

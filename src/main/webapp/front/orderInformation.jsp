@@ -219,7 +219,7 @@
                     <%--</tbody>--%>
                 <%--</table>--%>
                 <div class="buttons clearfix">
-                    <div class="pull-right"><a class="btn btn-primary" href="#">继续购买</a>
+                    <div class="pull-right"><a class="btn btn-primary" href="${root}/front/index.jsp">继续购买</a>
                     </div>
                 </div>
 
