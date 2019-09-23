@@ -74,7 +74,7 @@
     <!-- Main Container  -->
     <div class="main-container container">
         <ul class="header-main ">
-            <li class="home"><a href="#">主页   </a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+            <li class="home"><a href="${root}/front/index.jsp">主页   </a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
             <li> 订单确认</li>
         </ul>
 
