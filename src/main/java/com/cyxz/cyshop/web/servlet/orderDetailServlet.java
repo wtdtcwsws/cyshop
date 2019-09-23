@@ -1,8 +1,9 @@
 package com.cyxz.cyshop.web.servlet;
 
-import com.cyxz.cyshop.dao.CommoditySkuMapper;
+import com.cyxz.cyshop.dao.SkuMapper;
 import com.cyxz.cyshop.dao.orderDetailMapper;
 import com.cyxz.cyshop.domain.OrderItem;
+import com.cyxz.cyshop.domain.Sku;
 import com.cyxz.cyshop.util.MyBatisUtil;
 import com.cyxz.cyshop.viewobject.orderListView;
 import org.apache.ibatis.session.SqlSession;
@@ -27,10 +28,11 @@ public class orderDetailServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String order_id = req.getParameter("order_id");
+        req.setAttribute("id",order_id);
         String status = req.getParameter("status");
         SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
         orderDetailMapper detailMapper = sqlSession.getMapper(orderDetailMapper.class);
-        CommoditySkuMapper skulMapper = sqlSession.getMapper(CommoditySkuMapper.class);
+        SkuMapper skulMapper = sqlSession.getMapper(SkuMapper.class);
 //        新建一个aryy来装组装好的展示数据
         List<orderListView> views = new ArrayList<>();
         List<OrderItem> orderItems = detailMapper.findByOderID(order_id);
@@ -40,8 +42,9 @@ public class orderDetailServlet extends HttpServlet {
             orderview.setNum(item.getNums().toString());//商品购买数量
             //商品名字和单价
             String sku_id = item.getSku_id();//拿到商品的skuid
-            orderview.setSku(skulMapper.findBySkuId(sku_id).getName());//从根据skuid在sku表拿出的sku名称属性塞到对象属性里面
-            orderview.setPrice(skulMapper.findBySkuId(sku_id).getPrice().toString());//拿出价格是数字tostring成字符串
+            Sku sku =skulMapper.findBySkuId(sku_id);
+            orderview.setSku(sku.getName());//从根据skuid在sku表拿出的sku名称属性塞到对象属性里面
+            orderview.setPrice(sku.getPrice().toString());//拿出价格是数字tostring成字符串
             //商品订单状态
             orderview.setStatus(Integer.parseInt(status));
             views.add(orderview);//把对象塞到列表里面

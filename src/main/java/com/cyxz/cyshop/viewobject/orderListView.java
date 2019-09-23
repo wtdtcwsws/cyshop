@@ -1,12 +1,14 @@
 package com.cyxz.cyshop.viewobject;
 
+import java.io.Serializable;
+
 /**
  * @author 高勇
  * @version 1.0.0
  * @date 2019/9/1711:08
  * @place 西部国际金融中心
  */
-public class orderListView {
+public class orderListView  implements Serializable {
     String sku;//商品
     String price;//单价
     String num;//购买数量

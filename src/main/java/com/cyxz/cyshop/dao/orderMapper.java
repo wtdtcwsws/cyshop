@@ -12,6 +12,10 @@ import java.util.List;
  */
 public interface orderMapper {
     List<Order> getOrderByMemberId(String memberId);
+    Order getOrderByOrderId(String orderId);
     List<Order> selectAll();
     int updateOrder(String id);
+    int cancelOrder(String id);
+    int delOrder(String id);
+    int delOrderItem(String id);
 }

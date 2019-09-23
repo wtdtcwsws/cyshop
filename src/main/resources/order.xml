@@ -6,10 +6,22 @@
     <select id="getOrderByMemberId" parameterType="String" resultType="com.cyxz.cyshop.domain.Order">
         select * from `order` where `member_id` = #{memberId}
     </select>
+    <select id="getOrderByOrderId" parameterType="String" resultType="com.cyxz.cyshop.domain.Order">
+        select * from `order` where `id` = #{id}
+    </select>
     <select id="selectAll" resultType="com.cyxz.cyshop.domain.Order">
         select  * from `order`
     </select>
     <update id="updateOrder" parameterType="String" >
       update `order` set `status`=3  where `id`=#{id}
     </update>
+    <update id="cancelOrder" parameterType="String" >
+      update `order` set `status`=0  where `id`=#{id}
+    </update>
+    <delete id="delOrderItem" parameterType="String" >
+      delete from `order_item`  where `order_id`=#{id}
+    </delete>
+    <delete id="delOrder" parameterType="String" >
+      delete from `order`  where `id`=#{id}
+    </delete>
 </mapper>

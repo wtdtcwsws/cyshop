@@ -1,5 +1,6 @@
 package com.cyxz.cyshop.viewobject;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
@@ -10,7 +11,7 @@ import java.math.BigDecimal;
  * @time10:16
  * @place 西部国际金融中心
  */
-public class OrderView {
+public class OrderView  implements Serializable {
     private String productName;
     private BigDecimal total_price;
     private BigDecimal post_price;

@@ -1,7 +1,6 @@
 package com.cyxz.cyshop.web.servlet;
 
-import com.cyxz.cyshop.dao.CommoditySkuMapper;
-import com.cyxz.cyshop.dao.MemberMapper;
+import com.cyxz.cyshop.dao.SkuMapper;
 import com.cyxz.cyshop.dao.orderDetailMapper;
 import com.cyxz.cyshop.dao.orderMapper;
 import com.cyxz.cyshop.domain.*;
@@ -27,10 +26,11 @@ import java.util.List;
 public class orderServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("进入order的servlet");
         SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
         orderMapper orderMapper = sqlSession.getMapper(orderMapper.class);
         orderDetailMapper detailMapper = sqlSession.getMapper(orderDetailMapper.class);
-        CommoditySkuMapper skulMapper = sqlSession.getMapper(CommoditySkuMapper.class);
+       SkuMapper skulMapper = sqlSession.getMapper(SkuMapper.class);
         List<Order> orders = orderMapper.selectAll();//捞出order数据
         List<OrderView> orderViews = new ArrayList<OrderView>();//用来保存展示对象
 //        这里需要组装页面展示对象

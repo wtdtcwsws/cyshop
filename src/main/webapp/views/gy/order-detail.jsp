@@ -36,11 +36,11 @@
                 </tr>
                 </thead>
                 <tbody>
+                <tr>
+                    <td colspan="5" class="text-left">订单号：${id}</td>
+                </tr>
                 <%--循环演示商品详细信息--%>
                 <c:forEach var="view" items="${views}">
-                    <tr>
-                        <td colspan="5" class="text-left">订单号：${view.orderId}</td>
-                    </tr>
                     <tr>
                         <td>
                             <img/>
@@ -70,14 +70,16 @@
                         <td>
                             <c:choose>
                                 <c:when test="${view.status==2}">
-                                    <div><a  class="sure" style="color: red" href="javascript:;" data-url="${root}/views/do-ajax" data-totol="${view.orderId}">确认发货</a></div>
+                                    <div><a class="sure" style="color: red" href="javascript:;"  data-totol="${view.orderId}">确认发货</a></div>
+                                    <div><a class="cancel" href="javascript:;"  data-totol="${view.orderId}">取消订单</a></div>
+                                    <div><a  class="del" href="javascript:;"  data-totol="${view.orderId}">删除订单</a></div>
                                 </c:when>
-                                <c:when test="${view.status==4}">
-                                    <div><a href="#" >删除订单</a></div>
+                                <c:when test="${view.status==4||view.status==0}">
+                                    <div><a  class="del" href="javascript:;"  data-totol="${view.orderId}">删除订单</a></div>
                                 </c:when>
                                 <c:otherwise>
-                                    <div><a href="#">取消订单</a></div>
-                                    <div><a href="#">删除订单</a></div>
+                                    <div><a class="cancel" href="javascript:;"  data-totol="${view.orderId}">取消订单</a></div>
+                                    <div><a  class="del" href="javascript:;"  data-totol="${view.orderId}">删除订单</a></div>
                                 </c:otherwise>
                             </c:choose>
                         </td>
