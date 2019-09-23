@@ -10,7 +10,7 @@
         let $stock = $('[data-stock]').text();
         console.log($price);
         $.ajax({
-            url: '/views/checkout?method=receiveOrderMessage',
+            url: '/views/checkout?method=showConfirmOrder',
             data:{
                 count:$quantity,
                 sku_id:$sku,
