@@ -103,16 +103,25 @@
                                     ${orderItemVO.getPayment()}
                             </td>
                             <td class="text-center" >
-                                    ${orderItemVO.getStatus()}
+                                <c:choose>
+                                    <c:when test="${orderItemVO.getStatus() eq '0'}">
+                                        已取消
+                                    </c:when>
+                                    <c:when test="${orderItemVO.getStatus() eq '1'}">
+                                        未付款
+                                    </c:when>
+                                    <c:when test="${orderItemVO.getStatus() eq '2'}">
+                                        已付款
+                                    </c:when>
+                                    <c:when test="${orderItemVO.getStatus() eq '3'}">
+                                        已发货
+                                    </c:when>
+                                    <c:otherwise>
+                                        已收货
+                                    </c:otherwise>
+                                </c:choose>
                             </td>
                             <td class="text-center">
-                                <%--<select class="custom-select" data-id="${status.index}">--%>
-                                    <%--<option selected>选择操作</option>--%>
-                                    <%--<a><option value="-1">退款</option></a>--%>
-                                    <%--<option value="0"><a href="/front/OrderInfo&id=${orderItemVO.getId()}">详情</a></option>--%>
-                                    <%--<a><option value="1">备注</option></a>--%>
-                                    <%--<a><option value="2">删除</option></a>--%>
-                                <%--</select>--%>
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">选择操作
                                         <span class="caret"></span>
