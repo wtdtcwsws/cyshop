@@ -30,8 +30,8 @@ public class CategoryServlet extends BaseServlet {
     public void category(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //TODO 高勇首页三级分类跳转
         String navi3 = request.getParameter("navi3");
-        request.setAttribute("navi3",navi3);
-        request.getRequestDispatcher("/front/category.jsp").forward(request, response);
+        request.getSession().setAttribute("navi3",navi3);
+        response.sendRedirect(request.getContextPath()+"/front/category.jsp");
 
     }
 }

@@ -1,13 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2019/9/19
-  Time: 12:25
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 
 <!DOCTYPE html>
@@ -18,9 +10,10 @@
     ============================================ -->
     <title>网上商城</title>
     <meta charset="utf-8">
-    <meta name="keywords" content="boostrap, responsive, html5, css3, jquery, theme, multicolor, parallax, retina, business" />
+    <meta name="keywords"
+          content="boostrap, responsive, html5, css3, jquery, theme, multicolor, parallax, retina, business"/>
     <meta name="author" content="Magentech">
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow"/>
 
     <!-- Mobile specific metas
     ============================================ -->
@@ -33,7 +26,6 @@
 
     <!-- Google web fonts
     ============================================ -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
 
     <!-- Libs CSS
     ============================================ -->
@@ -56,21 +48,19 @@
     <link href="${root}/front/css/footer1.css" rel="stylesheet">
     <link href="${root}/front/css/header1.css" rel="stylesheet">
     <link id="color_scheme" href="${root}/front/css/theme.css" rel="stylesheet">
-<%--自己家的文件--%>
+    <%--自己家的文件--%>
 
 </head>
 
 <body class="common-home res layout-home1">
 
 
-
 <div id="wrapper" class="wrapper-full banners-effect-7">
-
 
 
     <!-- Header Container引入网页头部文件  -->
 
-    <%@include file="/front/header/headerIndex.jsp"%>
+    <%@include file="/front/header/headerIndex.jsp" %>
     <!-- //Header Container  -->
 
     <!-- Block Spotlight1  -->
@@ -98,7 +88,8 @@
                                         </div>
                                     </div>
                                     <div class="navbar-header">
-                                        <button   id="show-verticalmenu" data-toggle="collapse" class="navbar-toggle fa fa-list-alt">
+                                        <button id="show-verticalmenu" data-toggle="collapse"
+                                                class="navbar-toggle fa fa-list-alt">
 
                                         </button>
 
@@ -110,444 +101,145 @@
                                                 <ul class="megamenu">
 
 
-
-
-
-
-
-
-
                                                     <%--手工代码区--%>
                                                     <%--<c:forEach var="c1" items="${c1s}">--%>
-                                                        <%--<li class="item-vertical style1 with-sub-menu hover">--%>
-                                                            <%--<p class="close-menu"></p>--%>
-                                                            <%--<a href="#" class="clearfix">--%>
+                                                    <%--<li class="item-vertical style1 with-sub-menu hover">--%>
+                                                    <%--<p class="close-menu"></p>--%>
+                                                    <%--<a href="#" class="clearfix">--%>
 
-                                                                <%--<span>${c1.name}</span>--%>
+                                                    <%--<span>${c1.name}</span>--%>
 
-                                                            <%--</a>--%>
-                                                            <%--<div class="sub-menu" data-subwidth="100" style="width: 900px; display: none; right: 0px;">--%>
-                                                                <%--<div class="content" style="display: none;">--%>
-                                                                    <%--<div class="row">--%>
-                                                                        <%--<div class="col-sm-12">--%>
-                                                                            <%--<div class="row">--%>
-                                                                                <%--<div class="col-lg-4 col-sm-6 static-menu">--%>
-                                                                                    <%--<div class="menu">--%>
-                                                                                        <%--<ul>--%>
-                                                                                            <%--<li>--%>
-                                                                                                <%--<c:forEach var="c2" items="${c2s}">--%>
-                                                                                                   <%--<c:if test="${c1.id==c2.catalog_1_id}">--%>
-                                                                                                <%--<a href="#" class="main-menu">c2.name</a>--%>
-                                                                                                <%--<ul>--%>
-                                                                                                    <%--<c:forEach var="c3" items="${c3s}">--%>
-                                                                                                    <%--<c:if test="${c2.id==c3.catalog_2_id}">--%>
-                                                                                                    <%--<li><a href="#">${c3s.name}</a></li>--%>
-                                                                                                    <%--</c:if>--%>
-                                                                                                    <%--</c:forEach>--%>
-                                                                                                <%--</ul>--%>
-                                                                                                   <%--</c:if>--%>
-                                                                                                <%--</c:forEach>--%>
-                                                                                            <%--</li>--%>
-                                                                                            <%--<li>--%>
-                                                                                                <%--<a href="#" class="main-menu">Cables &amp; Connectors</a>--%>
-                                                                                                <%--<ul>--%>
-                                                                                                    <%--<li><a href="#">Cameras &amp; Photo</a></li>--%>
-                                                                                                    <%--<li><a href="#">Electronics</a></li>--%>
-                                                                                                    <%--<li><a href="#">Outdoor &amp; Traveling</a></li>--%>
-                                                                                                <%--</ul>--%>
-                                                                                            <%--</li>--%>
-                                                                                        <%--</ul>--%>
-                                                                                    <%--</div>--%>
-                                                                                <%--</div>--%>
-                                                                                <%--<div class="col-lg-4 col-sm-6  static-menu">--%>
-                                                                                    <%--<div class="menu">--%>
-                                                                                        <%--<ul>--%>
-                                                                                            <%--<li>--%>
-                                                                                                <%--<a href="#" class="main-menu">Camping &amp; Hiking</a>--%>
-                                                                                                <%--<ul>--%>
-                                                                                                    <%--<li><a href="#">Earings</a></li>--%>
-                                                                                                    <%--<li><a href="#">Shaving &amp; Hair Removal</a></li>--%>
-                                                                                                    <%--<li><a href="#">Salon &amp; Spa Equipment</a></li>--%>
-                                                                                                <%--</ul>--%>
-                                                                                            <%--</li>--%>
-                                                                                            <%--<li>--%>
-                                                                                                <%--<a href="#" class="main-menu">Smartphone &amp; Tablets</a>--%>
-                                                                                                <%--<ul>--%>
-                                                                                                    <%--<li><a href="#">Sports &amp; Outdoors</a></li>--%>
-                                                                                                    <%--<li><a href="#">Bath &amp; Body</a></li>--%>
-                                                                                                    <%--<li><a href="#">Gadgets &amp; Auto Parts</a></li>--%>
-                                                                                                <%--</ul>--%>
-                                                                                            <%--</li>--%>
-                                                                                        <%--</ul>--%>
-                                                                                    <%--</div>--%>
-                                                                                <%--</div>--%>
-                                                                                <%--<div class="col-lg-4 col-sm-6 static-menu">--%>
-                                                                                    <%--<div class="menu">--%>
-                                                                                        <%--<ul>--%>
-                                                                                            <%--<li>--%>
-                                                                                                <%--<a href="#" class="main-menu">Bags, Holiday Supplies</a>--%>
-                                                                                                <%--<ul>--%>
-                                                                                                    <%--<li><a href="#" onclick="window.location = '18_46';">Battereries &amp; Chargers</a></li>--%>
-                                                                                                    <%--<li><a href="#" onclick="window.location = '24_64';">Bath &amp; Body</a></li>--%>
-                                                                                                    <%--<li><a href="#" onclick="window.location = '18_45';">Headphones, Headsets</a></li>--%>
-                                                                                                    <%--<li><a href="#" onclick="window.location = '18_30';">Home Audio</a></li>--%>
-                                                                                                <%--</ul>--%>
-                                                                                            <%--</li>--%>
-                                                                                        <%--</ul>--%>
-                                                                                    <%--</div>--%>
-                                                                                <%--</div>--%>
-                                                                            <%--</div>--%>
-                                                                        <%--</div>--%>
-                                                                    <%--</div>--%>
-                                                                <%--</div>--%>
-                                                            <%--</div>--%>
-                                                        <%--</li>--%>
-
+                                                    <%--</a>--%>
+                                                    <%--<div class="sub-menu" data-subwidth="100" style="width: 900px; display: none; right: 0px;">--%>
+                                                    <%--<div class="content" style="display: none;">--%>
+                                                    <%--<div class="row">--%>
+                                                    <%--<div class="col-sm-12">--%>
+                                                    <%--<div class="row">--%>
+                                                    <%--<div class="col-lg-4 col-sm-6 static-menu">--%>
+                                                    <%--<div class="menu">--%>
+                                                    <%--<ul>--%>
+                                                    <%--<li>--%>
+                                                    <%--<c:forEach var="c2" items="${c2s}">--%>
+                                                    <%--<c:if test="${c1.id==c2.catalog_1_id}">--%>
+                                                    <%--<a href="#" class="main-menu">c2.name</a>--%>
+                                                    <%--<ul>--%>
+                                                    <%--<c:forEach var="c3" items="${c3s}">--%>
+                                                    <%--<c:if test="${c2.id==c3.catalog_2_id}">--%>
+                                                    <%--<li><a href="#">${c3s.name}</a></li>--%>
+                                                    <%--</c:if>--%>
                                                     <%--</c:forEach>--%>
+                                                    <%--</ul>--%>
+                                                    <%--</c:if>--%>
+                                                    <%--</c:forEach>--%>
+                                                    <%--</li>--%>
+                                                    <%--<li>--%>
+                                                    <%--<a href="#" class="main-menu">Cables &amp; Connectors</a>--%>
+                                                    <%--<ul>--%>
+                                                    <%--<li><a href="#">Cameras &amp; Photo</a></li>--%>
+                                                    <%--<li><a href="#">Electronics</a></li>--%>
+                                                    <%--<li><a href="#">Outdoor &amp; Traveling</a></li>--%>
+                                                    <%--</ul>--%>
+                                                    <%--</li>--%>
+                                                    <%--</ul>--%>
+                                                    <%--</div>--%>
+                                                    <%--</div>--%>
+                                                    <%--<div class="col-lg-4 col-sm-6  static-menu">--%>
+                                                    <%--<div class="menu">--%>
+                                                    <%--<ul>--%>
+                                                    <%--<li>--%>
+                                                    <%--<a href="#" class="main-menu">Camping &amp; Hiking</a>--%>
+                                                    <%--<ul>--%>
+                                                    <%--<li><a href="#">Earings</a></li>--%>
+                                                    <%--<li><a href="#">Shaving &amp; Hair Removal</a></li>--%>
+                                                    <%--<li><a href="#">Salon &amp; Spa Equipment</a></li>--%>
+                                                    <%--</ul>--%>
+                                                    <%--</li>--%>
+                                                    <%--<li>--%>
+                                                    <%--<a href="#" class="main-menu">Smartphone &amp; Tablets</a>--%>
+                                                    <%--<ul>--%>
+                                                    <%--<li><a href="#">Sports &amp; Outdoors</a></li>--%>
+                                                    <%--<li><a href="#">Bath &amp; Body</a></li>--%>
+                                                    <%--<li><a href="#">Gadgets &amp; Auto Parts</a></li>--%>
+                                                    <%--</ul>--%>
+                                                    <%--</li>--%>
+                                                    <%--</ul>--%>
+                                                    <%--</div>--%>
+                                                    <%--</div>--%>
+                                                    <%--<div class="col-lg-4 col-sm-6 static-menu">--%>
+                                                    <%--<div class="menu">--%>
+                                                    <%--<ul>--%>
+                                                    <%--<li>--%>
+                                                    <%--<a href="#" class="main-menu">Bags, Holiday Supplies</a>--%>
+                                                    <%--<ul>--%>
+                                                    <%--<li><a href="#" onclick="window.location = '18_46';">Battereries &amp; Chargers</a></li>--%>
+                                                    <%--<li><a href="#" onclick="window.location = '24_64';">Bath &amp; Body</a></li>--%>
+                                                    <%--<li><a href="#" onclick="window.location = '18_45';">Headphones, Headsets</a></li>--%>
+                                                    <%--<li><a href="#" onclick="window.location = '18_30';">Home Audio</a></li>--%>
+                                                    <%--</ul>--%>
+                                                    <%--</li>--%>
+                                                    <%--</ul>--%>
+                                                    <%--</div>--%>
+                                                    <%--</div>--%>
+                                                    <%--</div>--%>
+                                                    <%--</div>--%>
+                                                    <%--</div>--%>
+                                                    <%--</div>--%>
+                                                    <%--</div>--%>
+                                                    <%--</li>--%>
 
 
+                                                    <%--三级分类导航--%>
+                                                    <c:forEach var="c1" items="${catalog1}">
 
+                                                        <li class="item-vertical style1 with-sub-menu hover">
+                                                            <p class="close-menu"></p>
+                                                            <a href="#" class="clearfix">
 
+                                                                <span>${c1.name}</span>
 
+                                                            </a>
+                                                            <div class="sub-menu" data-subwidth="100"
+                                                                 style="width: 900px; display: none; right: 0px;">
+                                                                <div class="content" style="display: none;">
+                                                                    <div class="row">
+                                                                        <div class="col-sm-12">
+                                                                            <div class="row">
+                                                                                <div class="col-lg-4 col-sm-6 static-menu">
+                                                                                    <div class="menu">
+                                                                                        <ul>
+                                                                                            <c:forEach var="c2"
+                                                                                                       items="${catalog2}">
+                                                                                                <c:if test="${c2.catalog_1_id==c1.id}">
 
+                                                                                                    <li>
+                                                                                                        <a href="#"
+                                                                                                           class="main-menu">${c2.name}</a>
+                                                                                                        <ul>
+                                                                                                            <c:forEach
+                                                                                                                    var="c3"
+                                                                                                                    items="${catalog3}">
+                                                                                                                <c:if test="${c3.catalog_2_id==c2.id}">
+                                                                                                                    <li>
+                                                                                                                        <a href="/category/list?method=category&navi3=${c3.id}">${c3.name}</a>
+                                                                                                                    </li>
 
-
-
-
-
-
-
-
-
-                                                    <%--原始代码区--%>
-                                                    <li class="item-vertical style1 with-sub-menu hover">
-                                                        <p class="close-menu"></p>
-                                                        <a href="#" class="clearfix">
-
-                                                            <span>手机通讯</span>
-
-                                                        </a>
-                                                        <div class="sub-menu" data-subwidth="100" style="width: 900px; display: none; right: 0px;">
-                                                            <div class="content" style="display: none;">
-                                                                <div class="row">
-                                                                    <div class="col-sm-12">
-                                                                        <div class="row">
-                                                                            <div class="col-lg-4 col-sm-6 static-menu">
-                                                                                <div class="menu">
-                                                                                    <ul>
-                                                                                        <li>
-                                                                                            <a href="#" class="main-menu">Apparel</a>
-                                                                                            <ul>
-                                                                                                <li><a href="#">Accessories for Tablet PC</a></li>
-                                                                                                <li><a href="#">Accessories for i Pad</a></li>
-                                                                                                <li><a href="#">Accessories for iPhone</a></li>
-                                                                                                <li><a href="#">Bags, Holiday Supplies</a></li>
-                                                                                                <li><a href="#">Car Alarms and Security</a></li>
-                                                                                                <li><a href="#">Car Audio &amp; Speakers</a></li>
-                                                                                            </ul>
-                                                                                        </li>
-                                                                                        <li>
-                                                                                            <a href="#" class="main-menu">Cables &amp; Connectors</a>
-                                                                                            <ul>
-                                                                                                <li><a href="#">Cameras &amp; Photo</a></li>
-                                                                                                <li><a href="#">Electronics</a></li>
-                                                                                                <li><a href="#">Outdoor &amp; Traveling</a></li>
-                                                                                            </ul>
-                                                                                        </li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-lg-4 col-sm-6  static-menu">
-                                                                                <div class="menu">
-                                                                                    <ul>
-                                                                                        <li>
-                                                                                            <a href="#" class="main-menu">Camping &amp; Hiking</a>
-                                                                                            <ul>
-                                                                                                <li><a href="#">Earings</a></li>
-                                                                                                <li><a href="#">Shaving &amp; Hair Removal</a></li>
-                                                                                                <li><a href="#">Salon &amp; Spa Equipment</a></li>
-                                                                                            </ul>
-                                                                                        </li>
-                                                                                        <li>
-                                                                                            <a href="#" class="main-menu">Smartphone &amp; Tablets</a>
-                                                                                            <ul>
-                                                                                                <li><a href="#">Sports &amp; Outdoors</a></li>
-                                                                                                <li><a href="#">Bath &amp; Body</a></li>
-                                                                                                <li><a href="#">Gadgets &amp; Auto Parts</a></li>
-                                                                                            </ul>
-                                                                                        </li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-lg-4 col-sm-6 static-menu">
-                                                                                <div class="menu">
-                                                                                    <ul>
-                                                                                        <li>
-                                                                                            <a href="#" class="main-menu">Bags, Holiday Supplies</a>
-                                                                                            <ul>
-                                                                                                <li><a href="#" onclick="window.location = '18_46';">Battereries &amp; Chargers</a></li>
-                                                                                                <li><a href="#" onclick="window.location = '24_64';">Bath &amp; Body</a></li>
-                                                                                                <li><a href="#" onclick="window.location = '18_45';">Headphones, Headsets</a></li>
-                                                                                                <li><a href="#" onclick="window.location = '18_30';">Home Audio</a></li>
-                                                                                            </ul>
-                                                                                        </li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="item-vertical">
-                                                        <p class="close-menu"></p>
-                                                        <a href="#" class="clearfix">
-
-                                                            <span>Electronic</span>
-
-                                                        </a>
-                                                    </li>
-                                                    <li class="item-vertical with-sub-menu hover">
-                                                        <p class="close-menu"></p>
-                                                        <a href="#" class="clearfix">
-
-                                                            <span>Health &amp; Beauty</span>
-
-                                                        </a>
-                                                        <div class="sub-menu" data-subwidth="100" style="width: 900px; display: none; right: 0px;">
-                                                            <div class="content" style="display: none;">
-                                                                <div class="row">
-                                                                    <div class="col-md-12">
-                                                                        <div class="row">
-                                                                            <div class="col-lg-4 col-sm-6 static-menu">
-                                                                                <div class="menu">
-                                                                                    <ul>
-                                                                                        <li>
-                                                                                            <a href="#" class="main-menu">Car Alarms and Security</a>
-                                                                                            <ul>
-                                                                                                <li><a href="#">Car Audio &amp; Speakers</a></li>
-                                                                                                <li><a href="#">Gadgets &amp; Auto Parts</a></li>
-                                                                                                <li><a href="#">Gadgets &amp; Auto Parts</a></li>
-                                                                                                <li><a href="#">Headphones, Headsets</a></li>
-                                                                                            </ul>
-                                                                                        </li>
-                                                                                        <li>
-                                                                                            <a href="24" onclick="window.location = '24';" class="main-menu">Health &amp; Beauty</a>
-                                                                                            <ul>
-                                                                                                <li>
-                                                                                                    <a href="#">Home Audio</a>
-                                                                                                </li>
-                                                                                                <li>
-                                                                                                    <a href="#">Helicopters &amp; Parts</a>
-                                                                                                </li>
-                                                                                                <li>
-                                                                                                    <a href="#">Outdoor &amp; Traveling</a>
-                                                                                                </li>
-                                                                                                <li>
-                                                                                                    <a href="#">Toys &amp; Hobbies</a>
-                                                                                                </li>
-                                                                                            </ul>
-                                                                                        </li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-lg-4 col-sm-6  static-menu">
-                                                                                <div class="menu">
-                                                                                    <ul>
-                                                                                        <li>
-                                                                                            <a href="#" class="main-menu">Electronics</a>
-                                                                                            <ul>
-                                                                                                <li>
-                                                                                                    <a href="#">Earings</a>
-                                                                                                </li>
-                                                                                                <li>
-                                                                                                    <a href="#">Salon &amp; Spa Equipment</a>
-                                                                                                </li>
-                                                                                                <li>
-                                                                                                    <a href="#">Shaving &amp; Hair Removal</a>
-                                                                                                </li>
-                                                                                                <li>
-                                                                                                    <a href="#">Smartphone &amp; Tablets</a>
-                                                                                                </li>
-                                                                                            </ul>
-                                                                                        </li>
-                                                                                        <li>
-                                                                                            <a href="#" class="main-menu">Sports &amp; Outdoors</a>
-                                                                                            <ul>
-                                                                                                <li>
-                                                                                                    <a href="#">Flashlights &amp; Lamps</a>
-                                                                                                </li>
-                                                                                                <li>
-                                                                                                    <a href="#">Fragrances</a>
-                                                                                                </li>
-                                                                                                <li>
-                                                                                                    <a href="#">Fishing</a>
-                                                                                                </li>
-                                                                                                <li>
-                                                                                                    <a href="#">FPV System &amp; Parts</a>
-                                                                                                </li>
-                                                                                            </ul>
-                                                                                        </li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-lg-4 col-sm-6  static-menu">
-                                                                                <div class="menu">
-                                                                                    <ul>
-                                                                                        <li>
-                                                                                            <a href="#" class="main-menu">More Car Accessories</a>
-                                                                                            <ul>
-                                                                                                <li>
-                                                                                                    <a href="#">Lighter &amp; Cigar Supplies</a>
-                                                                                                </li>
-                                                                                                <li>
-                                                                                                    <a href="#">Mp3 Players &amp; Accessories</a>
-                                                                                                </li>
-                                                                                                <li>
-                                                                                                    <a href="#">Men Watches</a>
-                                                                                                </li>
-                                                                                                <li>
-                                                                                                    <a href="#">Mobile Accessories</a>
-                                                                                                </li>
-                                                                                            </ul>
-                                                                                        </li>
-                                                                                        <li>
-                                                                                            <a href="#" class="main-menu">Gadgets &amp; Auto Parts</a>
-                                                                                            <ul>
-                                                                                                <li>
-                                                                                                    <a href="#">Gift &amp; Lifestyle Gadgets</a>
-                                                                                                </li>
-                                                                                                <li>
-                                                                                                    <a href="#">Gift for Man</a>
-                                                                                                </li>
-                                                                                                <li>
-                                                                                                    <a href="#">Gift for Woman</a>
-                                                                                                </li>
-                                                                                                <li>
-                                                                                                    <a href="#">Gift for Woman</a>
-                                                                                                </li>
-                                                                                            </ul>
-                                                                                        </li>
-                                                                                    </ul>
+                                                                                                                </c:if>
+                                                                                                            </c:forEach>
+                                                                                                        </ul>
+                                                                                                    </li>
+                                                                                                </c:if>
+                                                                                            </c:forEach>
+                                                                                        </ul>
+                                                                                    </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="item-vertical css-menu with-sub-menu hover">
-                                                        <p class="close-menu"></p>
-                                                        <a href="#" class="clearfix">
+                                                        </li>
+                                                    </c:forEach>
 
-
-                                                            <span>Smartphone &amp; Tablets</span>
-
-                                                        </a>
-                                                        <div class="sub-menu" data-subwidth="30" style="width: 270px; display: none; right: 0px;">
-                                                            <div class="content" style="display: none;">
-                                                                <div class="row">
-                                                                    <div class="col-sm-12">
-                                                                        <div class="row">
-                                                                            <div class="col-sm-12 hover-menu">
-                                                                                <div class="menu">
-                                                                                    <ul>
-                                                                                        <li>
-                                                                                            <a href="#" class="main-menu">Headphones, Headsets</a>
-                                                                                        </li>
-                                                                                        <li>
-                                                                                            <a href="#" class="main-menu">Home Audio</a>
-                                                                                        </li>
-                                                                                        <li>
-                                                                                            <a href="#" class="main-menu">Health &amp; Beauty</a>
-                                                                                        </li>
-                                                                                        <li>
-                                                                                            <a href="#" class="main-menu">Helicopters &amp; Parts</a>
-                                                                                        </li>
-                                                                                        <li>
-                                                                                            <a href="#" class="main-menu">Helicopters &amp; Parts</a>
-                                                                                        </li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="item-vertical">
-                                                        <p class="close-menu"></p>
-                                                        <a href="#" class="clearfix">
-
-                                                            <span>Flashlights &amp; Lamps</span>
-
-                                                        </a>
-                                                    </li>
-                                                    <li class="item-vertical">
-                                                        <p class="close-menu"></p>
-                                                        <a href="#" class="clearfix">
-
-                                                            <span>Camera &amp; Photo</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="item-vertical">
-                                                        <p class="close-menu"></p>
-                                                        <a href="#" class="clearfix">
-
-                                                            <span>Smartphone &amp; Tablets</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="item-vertical" style="display: none;">
-                                                        <p class="close-menu"></p>
-                                                        <a href="#" class="clearfix">
-
-                                                            <span>Outdoor &amp; Traveling Supplies</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="item-vertical" style="display: none;">
-                                                        <p class="close-menu"></p>
-
-                                                        <a href="#" class="clearfix">
-
-                                                            <span>Health &amp; Beauty</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="item-vertical" style="display: none;">
-                                                        <p class="close-menu"></p>
-                                                        <a href="#" class="clearfix">
-
-                                                            <span>Toys &amp; Hobbies </span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="item-vertical" style="display: none;">
-                                                        <p class="close-menu"></p>
-                                                        <a href="#" class="clearfix">
-
-                                                            <span>Jewelry &amp; Watches</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="item-vertical" style="display: none;">
-                                                        <p class="close-menu"></p>
-                                                        <a href="#" class="clearfix">
-
-                                                            <span>Bags, Holiday Supplies</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="item-vertical" style="display: none;">
-                                                        <p class="close-menu"></p>
-
-                                                        <a href="#" class="clearfix">
-
-                                                            <span>More Car Accessories</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="loadmore">
-                                                        <i class="fa fa-plus-square-o"></i>
-                                                        <span class="more-view">More Categories</span>
-                                                    </li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -562,7 +254,8 @@
 
                 <div id="yt_header_right" class="col-sm-12 col-md-9 col-lg-9 ">
                     <div class="slider-container ">
-                        <div class="owl-carousel owl-slider-1 owl" data-dots="yes" data-nav="yes" data-loop="yes" data-items_xs="1" data-items_sm="1" data-items_md="1" data-margin="0" >
+                        <div class="owl-carousel owl-slider-1 owl" data-dots="yes" data-nav="yes" data-loop="yes"
+                             data-items_xs="1" data-items_sm="1" data-items_md="1" data-margin="0">
                             <div class="img-slider">
                                 <a href="#"><img src="${root}/front/img/demo/slider/slider-1.jpg" alt=""></a>
                             </div>
@@ -627,20 +320,31 @@
                     <hr>
                     <hr>
 
-                    <div class="owl-carousel owl-dead-week" data-dots="yes" data-nav="yes" data-loop="yes" data-items_xs="1" data-items_sm="2" data-items_md="2" data-margin="15" >
+                    <div class="owl-carousel owl-dead-week" data-dots="yes" data-nav="yes" data-loop="yes"
+                         data-items_xs="1" data-items_sm="2" data-items_md="2" data-margin="15">
                         <div class="product-layout ">
                             <div class="product-item-container">
                                 <div class=" left-block col-lg-6 col-md-6 col-sm-12  col-xs-12">
                                     <div class="product-image-container  second_img ">
-                                        <a href="${root}/front/product.html" class="product-img"><img src="${root}/front/img/demo/shop/product/product-1.jpg" alt=""></a>
+                                        <a href="${root}/front/product.html" class="product-img"><img
+                                                src="${root}/front/img/demo/shop/product/product-1.jpg" alt=""></a>
                                         <!--Sale Label-->
                                         <span class="sale">-20%</span>
 
                                         <div class="hover">
                                             <ul>
-                                                <li class="icon-heart"><a class="wishlist"   data-toggle="tooltip" title="" onclick="wishlist.add('42');" data-original-title="Add to Wish List"><i class="fa fa-heart"></i></a></li>
-                                                <li class="icon-exchange"><a class="compare"   data-toggle="tooltip" title="" onclick="compare.add('42');" data-original-title="Compare this Product"><i class="fa fa-exchange"></i></a></li>
-                                                <li class="icon-search"><a class="quickview iframe-link " data-fancybox-type="iframe" href="${root}/front/quickview.html">  <i class="fa fa-search" aria-hidden="true"></i></a></li>
+                                                <li class="icon-heart"><a class="wishlist" data-toggle="tooltip"
+                                                                          title="" onclick="wishlist.add('42');"
+                                                                          data-original-title="Add to Wish List"><i
+                                                        class="fa fa-heart"></i></a></li>
+                                                <li class="icon-exchange"><a class="compare" data-toggle="tooltip"
+                                                                             title="" onclick="compare.add('42');"
+                                                                             data-original-title="Compare this Product"><i
+                                                        class="fa fa-exchange"></i></a></li>
+                                                <li class="icon-search"><a class="quickview iframe-link "
+                                                                           data-fancybox-type="iframe"
+                                                                           href="${root}/front/quickview.html"> <i
+                                                        class="fa fa-search" aria-hidden="true"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -656,7 +360,8 @@
                                     <div class="caption">
                                         <h4><a href="${root}/front/product.html">Dummy product #1</a></h4>
                                         <div class="description item-desc">
-                                            <p>Lorem ipsum dolor sit amet, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. </p>
+                                            <p>Lorem ipsum dolor sit amet, sed diam nonumy eirmod tempor invidunt ut
+                                                labore et dolore magna aliquyam erat. </p>
                                         </div>
                                         <div class="ratings">
                                             <div class="rating-box">
@@ -676,7 +381,9 @@
                                     </div>
 
                                     <div class="button-group">
-                                        <button class="addToCart btn btn-default "   data-toggle="tooltip" title="" onclick="cart.add('42', '1');" data-original-title="Add to Cart"> <span class="">Add to Cart</span></button>
+                                        <button class="addToCart btn btn-default " data-toggle="tooltip" title=""
+                                                onclick="cart.add('42', '1');" data-original-title="Add to Cart"><span
+                                                class="">Add to Cart</span></button>
                                     </div>
                                 </div><!-- right block -->
                             </div>
@@ -686,15 +393,25 @@
                             <div class="product-item-container ">
                                 <div class=" left-block col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                     <div class="product-image-container  second_img ">
-                                        <a href="${root}/front/product.html" class="product-img"><img src="${root}/front/img/demo/shop/product/product-2.jpg" alt=""></a>
+                                        <a href="${root}/front/product.html" class="product-img"><img
+                                                src="${root}/front/img/demo/shop/product/product-2.jpg" alt=""></a>
                                         <!--Sale Label-->
                                         <span class="sale">-15%</span>
 
                                         <div class="hover">
                                             <ul>
-                                                <li class="icon-heart"><a class="wishlist"   data-toggle="tooltip" title="" onclick="wishlist.add('42');" data-original-title="Add to Wish List"><i class="fa fa-heart"></i></a></li>
-                                                <li class="icon-exchange"><a class="compare"   data-toggle="tooltip" title="" onclick="compare.add('42');" data-original-title="Compare this Product"><i class="fa fa-exchange"></i></a></li>
-                                                <li class="icon-search"><a class="quickview iframe-link " data-fancybox-type="iframe" href="${root}/front/quickview.html">  <i class="fa fa-search" aria-hidden="true"></i></a></li>
+                                                <li class="icon-heart"><a class="wishlist" data-toggle="tooltip"
+                                                                          title="" onclick="wishlist.add('42');"
+                                                                          data-original-title="Add to Wish List"><i
+                                                        class="fa fa-heart"></i></a></li>
+                                                <li class="icon-exchange"><a class="compare" data-toggle="tooltip"
+                                                                             title="" onclick="compare.add('42');"
+                                                                             data-original-title="Compare this Product"><i
+                                                        class="fa fa-exchange"></i></a></li>
+                                                <li class="icon-search"><a class="quickview iframe-link "
+                                                                           data-fancybox-type="iframe"
+                                                                           href="${root}/front/quickview.html"> <i
+                                                        class="fa fa-search" aria-hidden="true"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -710,7 +427,8 @@
                                     <div class="caption">
                                         <h4><a href="${root}/front/product.html">Dummy product #2</a></h4>
                                         <div class="description item-desc">
-                                            <p>Lorem ipsum dolor sit amet, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat . </p>
+                                            <p>Lorem ipsum dolor sit amet, sed diam nonumy eirmod tempor invidunt ut
+                                                labore et dolore magna aliquyam erat . </p>
                                         </div>
                                         <div class="ratings">
                                             <div class="rating-box">
@@ -730,7 +448,9 @@
                                     </div>
 
                                     <div class="button-group">
-                                        <button class="addToCart btn btn-default "   data-toggle="tooltip" title="" onclick="cart.add('42', '1');" data-original-title="Add to Cart"> <span class="">Add to Cart</span></button>
+                                        <button class="addToCart btn btn-default " data-toggle="tooltip" title=""
+                                                onclick="cart.add('42', '1');" data-original-title="Add to Cart"><span
+                                                class="">Add to Cart</span></button>
                                     </div>
                                 </div><!-- right block -->
                             </div>
@@ -740,15 +460,25 @@
                             <div class="product-item-container ">
                                 <div class=" left-block col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                     <div class="product-image-container  second_img ">
-                                        <a href="${root}/front/product.html" class="product-img"><img src="${root}/front/img/demo/shop/product/product-3.jpg" alt=""></a>
+                                        <a href="${root}/front/product.html" class="product-img"><img
+                                                src="${root}/front/img/demo/shop/product/product-3.jpg" alt=""></a>
                                         <!--Sale Label-->
                                         <span class="sale">-25%</span>
 
                                         <div class="hover">
                                             <ul>
-                                                <li class="icon-heart"><a class="wishlist"   data-toggle="tooltip" title="" onclick="wishlist.add('42');" data-original-title="Add to Wish List"><i class="fa fa-heart"></i></a></li>
-                                                <li class="icon-exchange"><a class="compare"   data-toggle="tooltip" title="" onclick="compare.add('42');" data-original-title="Compare this Product"><i class="fa fa-exchange"></i></a></li>
-                                                <li class="icon-search"><a class="quickview iframe-link " data-fancybox-type="iframe" href="${root}/front/quickview.html">  <i class="fa fa-search" aria-hidden="true"></i></a></li>
+                                                <li class="icon-heart"><a class="wishlist" data-toggle="tooltip"
+                                                                          title="" onclick="wishlist.add('42');"
+                                                                          data-original-title="Add to Wish List"><i
+                                                        class="fa fa-heart"></i></a></li>
+                                                <li class="icon-exchange"><a class="compare" data-toggle="tooltip"
+                                                                             title="" onclick="compare.add('42');"
+                                                                             data-original-title="Compare this Product"><i
+                                                        class="fa fa-exchange"></i></a></li>
+                                                <li class="icon-search"><a class="quickview iframe-link "
+                                                                           data-fancybox-type="iframe"
+                                                                           href="${root}/front/quickview.html"> <i
+                                                        class="fa fa-search" aria-hidden="true"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -779,7 +509,8 @@
                                     <div class="caption">
                                         <h4><a href="${root}/front/product.html">Dummy product #01</a></h4>
                                         <div class="description item-desc">
-                                            <p>Lorem ipsum dolor sit amet, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. </p>
+                                            <p>Lorem ipsum dolor sit amet, sed diam nonumy eirmod tempor invidunt ut
+                                                labore et dolore magna aliquyam erat. </p>
                                         </div>
                                         <div class="ratings">
                                             <div class="rating-box">
@@ -799,7 +530,9 @@
                                     </div>
 
                                     <div class="button-group">
-                                        <button class="addToCart btn btn-default "   data-toggle="tooltip" title="" onclick="cart.add('42', '1');" data-original-title="Add to Cart"> <span class="">Add to Cart</span></button>
+                                        <button class="addToCart btn btn-default " data-toggle="tooltip" title=""
+                                                onclick="cart.add('42', '1');" data-original-title="Add to Cart"><span
+                                                class="">Add to Cart</span></button>
                                     </div>
                                 </div><!-- right block -->
                             </div>
@@ -815,29 +548,34 @@
                             <div class="banners htmlconten1 row">
                                 <div class="banners banner1-1 col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <div>
-                                        <a href="#"><img src="${root}/front/img/demo/banner/banner1-1.jpg" alt="banner1"></a>
+                                        <a href="#"><img src="${root}/front/img/demo/banner/banner1-1.jpg"
+                                                         alt="banner1"></a>
                                     </div>
                                 </div>
                                 <div class=" banners banner1-2 col-sm-6 col-xs-12">
                                     <div>
-                                        <a href="#"><img src="${root}/front/img/demo/banner/banner1-2.jpg" alt="banner1"></a>
+                                        <a href="#"><img src="${root}/front/img/demo/banner/banner1-2.jpg"
+                                                         alt="banner1"></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="htmlconten2 row">
                                 <div class="banners banner2-1 col-sm-3 col-xs-12">
                                     <div>
-                                        <a href="#"><img src="${root}/front/img/demo/banner/banner2-1.jpg" alt="banner1"></a>
+                                        <a href="#"><img src="${root}/front/img/demo/banner/banner2-1.jpg"
+                                                         alt="banner1"></a>
                                     </div>
                                 </div>
                                 <div class="banners banner2-2 col-sm-6 col-xs-12">
                                     <div>
-                                        <a href="#"><img src="${root}/front/img/demo/banner/banner2-2.jpg" alt="banner1"></a>
+                                        <a href="#"><img src="${root}/front/img/demo/banner/banner2-2.jpg"
+                                                         alt="banner1"></a>
                                     </div>
                                 </div>
                                 <div class="banners banner2-3 col-sm-3 col-xs-12">
                                     <div>
-                                        <a href="#"><img src="${root}/front/img/demo/banner/banner2-3.jpg" alt="banner1"></a>
+                                        <a href="#"><img src="${root}/front/img/demo/banner/banner2-3.jpg"
+                                                         alt="banner1"></a>
                                     </div>
                                 </div>
                             </div>
@@ -847,25 +585,36 @@
             </div>
 
             <div class="smartphone-tablet col-sm-12">
-                <h3 class="modtitle">手机平板  </h3>
+                <h3 class="modtitle">手机平板 </h3>
                 <hr>
                 <hr>
                 <hr>
                 <div class="smartphone-tablet-owl">
-                    <div class=" owl-carousel related-owl " data-dots="yes" data-nav="yes" data-loop="yes" data-items_xs="1" data-items_sm="3" data-items_md="5" data-margin="10" >
+                    <div class=" owl-carousel related-owl " data-dots="yes" data-nav="yes" data-loop="yes"
+                         data-items_xs="1" data-items_sm="3" data-items_md="5" data-margin="10">
                         <div class="product-layout">
                             <div class="product-item-container">
                                 <div class="left-block">
                                     <div class="product-image-container  second_img ">
-                                        <a href="${root}/front/product.html" class="product-img"><img src="${root}/front/img/demo/shop/product/product-1.jpg" alt=""></a>
+                                        <a href="${root}/front/product.html" class="product-img"><img
+                                                src="${root}/front/img/demo/shop/product/product-1.jpg" alt=""></a>
                                         <!--Sale Label-->
                                         <span class="new">New</span>
 
                                         <div class="hover">
                                             <ul>
-                                                <li class="icon-heart"><a class="wishlist"   data-toggle="tooltip" title="" onclick="wishlist.add('42');" data-original-title="Add to Wish List"><i class="fa fa-heart"></i></a></li>
-                                                <li class="icon-exchange"><a class="compare"   data-toggle="tooltip" title="" onclick="compare.add('42');" data-original-title="Compare this Product"><i class="fa fa-exchange"></i></a></li>
-                                                <li class="icon-search"><a class="quickview iframe-link " data-fancybox-type="iframe" href="${root}/front/quickview.html">  <i class="fa fa-search" aria-hidden="true"></i></a></li>
+                                                <li class="icon-heart"><a class="wishlist" data-toggle="tooltip"
+                                                                          title="" onclick="wishlist.add('42');"
+                                                                          data-original-title="Add to Wish List"><i
+                                                        class="fa fa-heart"></i></a></li>
+                                                <li class="icon-exchange"><a class="compare" data-toggle="tooltip"
+                                                                             title="" onclick="compare.add('42');"
+                                                                             data-original-title="Compare this Product"><i
+                                                        class="fa fa-exchange"></i></a></li>
+                                                <li class="icon-search"><a class="quickview iframe-link "
+                                                                           data-fancybox-type="iframe"
+                                                                           href="${root}/front/quickview.html"> <i
+                                                        class="fa fa-search" aria-hidden="true"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -888,12 +637,17 @@
                                             <span class="price-old">$122.00</span>
                                         </div>
                                         <div class="description item-desc hidden">
-                                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est . </p>
+                                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                                                eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+                                                voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                                                clita kasd gubergren, no sea takimata sanctus est . </p>
                                         </div>
                                     </div>
 
                                     <div class="button-group">
-                                        <button class="addToCart btn btn-default "   data-toggle="tooltip" title="" onclick="cart.add('42', '1');" data-original-title="Add to Cart"> <span class="">Add to Cart</span></button>
+                                        <button class="addToCart btn btn-default " data-toggle="tooltip" title=""
+                                                onclick="cart.add('42', '1');" data-original-title="Add to Cart"><span
+                                                class="">Add to Cart</span></button>
                                     </div>
                                 </div><!-- right block -->
                             </div>
@@ -904,15 +658,25 @@
                             <div class="product-item-container">
                                 <div class="left-block">
                                     <div class="product-image-container  second_img ">
-                                        <a href="${root}/front/product.html" class="product-img"><img src="${root}/front/img/demo/shop/product/product-3.jpg" alt=""></a>
+                                        <a href="${root}/front/product.html" class="product-img"><img
+                                                src="${root}/front/img/demo/shop/product/product-3.jpg" alt=""></a>
                                         <!--Sale Label-->
                                         <span class="new">New</span>
 
                                         <div class="hover">
                                             <ul>
-                                                <li class="icon-heart"><a class="wishlist"   data-toggle="tooltip" title="" onclick="wishlist.add('42');" data-original-title="Add to Wish List"><i class="fa fa-heart"></i></a></li>
-                                                <li class="icon-exchange"><a class="compare"   data-toggle="tooltip" title="" onclick="compare.add('42');" data-original-title="Compare this Product"><i class="fa fa-exchange"></i></a></li>
-                                                <li class="icon-search"><a class="quickview iframe-link " data-fancybox-type="iframe" href="${root}/front/quickview.html">  <i class="fa fa-search" aria-hidden="true"></i></a></li>
+                                                <li class="icon-heart"><a class="wishlist" data-toggle="tooltip"
+                                                                          title="" onclick="wishlist.add('42');"
+                                                                          data-original-title="Add to Wish List"><i
+                                                        class="fa fa-heart"></i></a></li>
+                                                <li class="icon-exchange"><a class="compare" data-toggle="tooltip"
+                                                                             title="" onclick="compare.add('42');"
+                                                                             data-original-title="Compare this Product"><i
+                                                        class="fa fa-exchange"></i></a></li>
+                                                <li class="icon-search"><a class="quickview iframe-link "
+                                                                           data-fancybox-type="iframe"
+                                                                           href="${root}/front/quickview.html"> <i
+                                                        class="fa fa-search" aria-hidden="true"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -935,12 +699,17 @@
                                             <span class="price-old">$122.00</span>
                                         </div>
                                         <div class="description item-desc hidden">
-                                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est . </p>
+                                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                                                eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+                                                voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                                                clita kasd gubergren, no sea takimata sanctus est . </p>
                                         </div>
                                     </div>
 
                                     <div class="button-group">
-                                        <button class="addToCart btn btn-default "   data-toggle="tooltip" title="" onclick="cart.add('42', '1');" data-original-title="Add to Cart"> <span class="">Add to Cart</span></button>
+                                        <button class="addToCart btn btn-default " data-toggle="tooltip" title=""
+                                                onclick="cart.add('42', '1');" data-original-title="Add to Cart"><span
+                                                class="">Add to Cart</span></button>
                                     </div>
                                 </div><!-- right block -->
                             </div>
@@ -951,15 +720,25 @@
                             <div class="product-item-container">
                                 <div class="left-block">
                                     <div class="product-image-container  second_img ">
-                                        <a href="${root}/front/product.html" class="product-img"><img src="${root}/front/img/demo/shop/product/product-2.jpg" alt=""></a>
+                                        <a href="${root}/front/product.html" class="product-img"><img
+                                                src="${root}/front/img/demo/shop/product/product-2.jpg" alt=""></a>
                                         <!--Sale Label-->
                                         <span class="new">New</span>
 
                                         <div class="hover">
                                             <ul>
-                                                <li class="icon-heart"><a class="wishlist"   data-toggle="tooltip" title="" onclick="wishlist.add('42');" data-original-title="Add to Wish List"><i class="fa fa-heart"></i></a></li>
-                                                <li class="icon-exchange"><a class="compare"   data-toggle="tooltip" title="" onclick="compare.add('42');" data-original-title="Compare this Product"><i class="fa fa-exchange"></i></a></li>
-                                                <li class="icon-search"><a class="quickview iframe-link " data-fancybox-type="iframe" href="${root}/front/quickview.html">  <i class="fa fa-search" aria-hidden="true"></i></a></li>
+                                                <li class="icon-heart"><a class="wishlist" data-toggle="tooltip"
+                                                                          title="" onclick="wishlist.add('42');"
+                                                                          data-original-title="Add to Wish List"><i
+                                                        class="fa fa-heart"></i></a></li>
+                                                <li class="icon-exchange"><a class="compare" data-toggle="tooltip"
+                                                                             title="" onclick="compare.add('42');"
+                                                                             data-original-title="Compare this Product"><i
+                                                        class="fa fa-exchange"></i></a></li>
+                                                <li class="icon-search"><a class="quickview iframe-link "
+                                                                           data-fancybox-type="iframe"
+                                                                           href="${root}/front/quickview.html"> <i
+                                                        class="fa fa-search" aria-hidden="true"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -982,12 +761,17 @@
                                             <span class="price-old">$122.00</span>
                                         </div>
                                         <div class="description item-desc hidden">
-                                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est . </p>
+                                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                                                eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+                                                voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                                                clita kasd gubergren, no sea takimata sanctus est . </p>
                                         </div>
                                     </div>
 
                                     <div class="button-group">
-                                        <button class="addToCart btn btn-default "   data-toggle="tooltip" title="" onclick="cart.add('42', '1');" data-original-title="Add to Cart"> <span class="">Add to Cart</span></button>
+                                        <button class="addToCart btn btn-default " data-toggle="tooltip" title=""
+                                                onclick="cart.add('42', '1');" data-original-title="Add to Cart"><span
+                                                class="">Add to Cart</span></button>
                                     </div>
                                 </div><!-- right block -->
                             </div>
@@ -998,14 +782,24 @@
                             <div class="product-item-container">
                                 <div class="left-block">
                                     <div class="product-image-container  second_img ">
-                                        <a href="${root}/front/product.html" class="product-img"><img src="${root}/front/img/demo/shop/product/product-5.jpg" alt=""></a>
+                                        <a href="${root}/front/product.html" class="product-img"><img
+                                                src="${root}/front/img/demo/shop/product/product-5.jpg" alt=""></a>
                                         <!--Sale Label-->
 
                                         <div class="hover">
                                             <ul>
-                                                <li class="icon-heart"><a class="wishlist"   data-toggle="tooltip" title="" onclick="wishlist.add('42');" data-original-title="Add to Wish List"><i class="fa fa-heart"></i></a></li>
-                                                <li class="icon-exchange"><a class="compare"   data-toggle="tooltip" title="" onclick="compare.add('42');" data-original-title="Compare this Product"><i class="fa fa-exchange"></i></a></li>
-                                                <li class="icon-search"><a class="quickview iframe-link " data-fancybox-type="iframe" href="${root}/front/quickview.html">  <i class="fa fa-search" aria-hidden="true"></i></a></li>
+                                                <li class="icon-heart"><a class="wishlist" data-toggle="tooltip"
+                                                                          title="" onclick="wishlist.add('42');"
+                                                                          data-original-title="Add to Wish List"><i
+                                                        class="fa fa-heart"></i></a></li>
+                                                <li class="icon-exchange"><a class="compare" data-toggle="tooltip"
+                                                                             title="" onclick="compare.add('42');"
+                                                                             data-original-title="Compare this Product"><i
+                                                        class="fa fa-exchange"></i></a></li>
+                                                <li class="icon-search"><a class="quickview iframe-link "
+                                                                           data-fancybox-type="iframe"
+                                                                           href="${root}/front/quickview.html"> <i
+                                                        class="fa fa-search" aria-hidden="true"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -1028,12 +822,17 @@
                                             <span class="price-old">$122.00</span>
                                         </div>
                                         <div class="description item-desc hidden">
-                                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est . </p>
+                                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                                                eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+                                                voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                                                clita kasd gubergren, no sea takimata sanctus est . </p>
                                         </div>
                                     </div>
 
                                     <div class="button-group">
-                                        <button class="addToCart btn btn-default "   data-toggle="tooltip" title="" onclick="cart.add('42', '1');" data-original-title="Add to Cart"> <span class="">Add to Cart</span></button>
+                                        <button class="addToCart btn btn-default " data-toggle="tooltip" title=""
+                                                onclick="cart.add('42', '1');" data-original-title="Add to Cart"><span
+                                                class="">Add to Cart</span></button>
                                     </div>
                                 </div><!-- right block -->
                             </div>
@@ -1043,14 +842,24 @@
                             <div class="product-item-container">
                                 <div class="left-block">
                                     <div class="product-image-container  second_img ">
-                                        <a href="${root}/front/product.html" class="product-img"><img src="${root}/front/img/demo/shop/product/product-4.jpg" alt=""></a>
+                                        <a href="${root}/front/product.html" class="product-img"><img
+                                                src="${root}/front/img/demo/shop/product/product-4.jpg" alt=""></a>
                                         <!--Sale Label-->
 
                                         <div class="hover">
                                             <ul>
-                                                <li class="icon-heart"><a class="wishlist"   data-toggle="tooltip" title="" onclick="wishlist.add('42');" data-original-title="Add to Wish List"><i class="fa fa-heart"></i></a></li>
-                                                <li class="icon-exchange"><a class="compare"   data-toggle="tooltip" title="" onclick="compare.add('42');" data-original-title="Compare this Product"><i class="fa fa-exchange"></i></a></li>
-                                                <li class="icon-search"><a class="quickview iframe-link " data-fancybox-type="iframe" href="${root}/front/quickview.html">  <i class="fa fa-search" aria-hidden="true"></i></a></li>
+                                                <li class="icon-heart"><a class="wishlist" data-toggle="tooltip"
+                                                                          title="" onclick="wishlist.add('42');"
+                                                                          data-original-title="Add to Wish List"><i
+                                                        class="fa fa-heart"></i></a></li>
+                                                <li class="icon-exchange"><a class="compare" data-toggle="tooltip"
+                                                                             title="" onclick="compare.add('42');"
+                                                                             data-original-title="Compare this Product"><i
+                                                        class="fa fa-exchange"></i></a></li>
+                                                <li class="icon-search"><a class="quickview iframe-link "
+                                                                           data-fancybox-type="iframe"
+                                                                           href="${root}/front/quickview.html"> <i
+                                                        class="fa fa-search" aria-hidden="true"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -1073,12 +882,17 @@
                                             <span class="price-old">$122.00</span>
                                         </div>
                                         <div class="description item-desc hidden">
-                                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est . </p>
+                                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                                                eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+                                                voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                                                clita kasd gubergren, no sea takimata sanctus est . </p>
                                         </div>
                                     </div>
 
                                     <div class="button-group">
-                                        <button class="addToCart btn btn-default "   data-toggle="tooltip" title="" onclick="cart.add('42', '1');" data-original-title="Add to Cart"> <span class="">Add to Cart</span></button>
+                                        <button class="addToCart btn btn-default " data-toggle="tooltip" title=""
+                                                onclick="cart.add('42', '1');" data-original-title="Add to Cart"><span
+                                                class="">Add to Cart</span></button>
                                     </div>
                                 </div><!-- right block -->
                             </div>
@@ -1089,14 +903,24 @@
                             <div class="product-item-container">
                                 <div class="left-block">
                                     <div class="product-image-container  second_img ">
-                                        <a href="${root}/front/product.html" class="product-img"><img src="${root}/front/img/demo/shop/product/product-7.jpg" alt=""></a>
+                                        <a href="${root}/front/product.html" class="product-img"><img
+                                                src="${root}/front/img/demo/shop/product/product-7.jpg" alt=""></a>
                                         <!--Sale Label-->
 
                                         <div class="hover">
                                             <ul>
-                                                <li class="icon-heart"><a class="wishlist"   data-toggle="tooltip" title="" onclick="wishlist.add('42');" data-original-title="Add to Wish List"><i class="fa fa-heart"></i></a></li>
-                                                <li class="icon-exchange"><a class="compare"   data-toggle="tooltip" title="" onclick="compare.add('42');" data-original-title="Compare this Product"><i class="fa fa-exchange"></i></a></li>
-                                                <li class="icon-search"><a class="quickview iframe-link " data-fancybox-type="iframe" href="quickview.html">  <i class="fa fa-search" aria-hidden="true"></i></a></li>
+                                                <li class="icon-heart"><a class="wishlist" data-toggle="tooltip"
+                                                                          title="" onclick="wishlist.add('42');"
+                                                                          data-original-title="Add to Wish List"><i
+                                                        class="fa fa-heart"></i></a></li>
+                                                <li class="icon-exchange"><a class="compare" data-toggle="tooltip"
+                                                                             title="" onclick="compare.add('42');"
+                                                                             data-original-title="Compare this Product"><i
+                                                        class="fa fa-exchange"></i></a></li>
+                                                <li class="icon-search"><a class="quickview iframe-link "
+                                                                           data-fancybox-type="iframe"
+                                                                           href="quickview.html"> <i
+                                                        class="fa fa-search" aria-hidden="true"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -1119,12 +943,17 @@
                                             <span class="price-old">$122.00</span>
                                         </div>
                                         <div class="description item-desc hidden">
-                                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est . </p>
+                                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                                                eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+                                                voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                                                clita kasd gubergren, no sea takimata sanctus est . </p>
                                         </div>
                                     </div>
 
                                     <div class="button-group">
-                                        <button class="addToCart btn btn-default "   data-toggle="tooltip" title="" onclick="cart.add('42', '1');" data-original-title="Add to Cart"> <span class="">Add to Cart</span></button>
+                                        <button class="addToCart btn btn-default " data-toggle="tooltip" title=""
+                                                onclick="cart.add('42', '1');" data-original-title="Add to Cart"><span
+                                                class="">Add to Cart</span></button>
                                     </div>
                                 </div><!-- right block -->
                             </div>
@@ -1135,15 +964,25 @@
                             <div class="product-item-container">
                                 <div class="left-block">
                                     <div class="product-image-container  second_img ">
-                                        <a href="${root}/front/product.html" class="product-img"><img src="${root}/front/img/demo/shop/product/product-6.jpg" alt=""></a>
+                                        <a href="${root}/front/product.html" class="product-img"><img
+                                                src="${root}/front/img/demo/shop/product/product-6.jpg" alt=""></a>
                                         <!--Sale Label-->
 
                                         <span class="sale">-25%</span>
                                         <div class="hover">
                                             <ul>
-                                                <li class="icon-heart"><a class="wishlist"   data-toggle="tooltip" title="" onclick="wishlist.add('42');" data-original-title="Add to Wish List"><i class="fa fa-heart"></i></a></li>
-                                                <li class="icon-exchange"><a class="compare"   data-toggle="tooltip" title="" onclick="compare.add('42');" data-original-title="Compare this Product"><i class="fa fa-exchange"></i></a></li>
-                                                <li class="icon-search"><a class="quickview iframe-link " data-fancybox-type="iframe" href="${root}/front/quickview.html">  <i class="fa fa-search" aria-hidden="true"></i></a></li>
+                                                <li class="icon-heart"><a class="wishlist" data-toggle="tooltip"
+                                                                          title="" onclick="wishlist.add('42');"
+                                                                          data-original-title="Add to Wish List"><i
+                                                        class="fa fa-heart"></i></a></li>
+                                                <li class="icon-exchange"><a class="compare" data-toggle="tooltip"
+                                                                             title="" onclick="compare.add('42');"
+                                                                             data-original-title="Compare this Product"><i
+                                                        class="fa fa-exchange"></i></a></li>
+                                                <li class="icon-search"><a class="quickview iframe-link "
+                                                                           data-fancybox-type="iframe"
+                                                                           href="${root}/front/quickview.html"> <i
+                                                        class="fa fa-search" aria-hidden="true"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -1166,12 +1005,17 @@
                                             <span class="price-old">$122.00</span>
                                         </div>
                                         <div class="description item-desc hidden">
-                                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est . </p>
+                                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                                                eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+                                                voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                                                clita kasd gubergren, no sea takimata sanctus est . </p>
                                         </div>
                                     </div>
 
                                     <div class="button-group">
-                                        <button class="addToCart btn btn-default "   data-toggle="tooltip" title="" onclick="cart.add('42', '1');" data-original-title="Add to Cart"> <span class="">Add to Cart</span></button>
+                                        <button class="addToCart btn btn-default " data-toggle="tooltip" title=""
+                                                onclick="cart.add('42', '1');" data-original-title="Add to Cart"><span
+                                                class="">Add to Cart</span></button>
                                     </div>
                                 </div><!-- right block -->
                             </div>
@@ -1182,15 +1026,25 @@
                             <div class="product-item-container">
                                 <div class="left-block">
                                     <div class="product-image-container  second_img ">
-                                        <a href="${root}/front/product.html" class="product-img"><img src="${root}/front/img/demo/shop/product/product-6.jpg" alt=""></a>
+                                        <a href="${root}/front/product.html" class="product-img"><img
+                                                src="${root}/front/img/demo/shop/product/product-6.jpg" alt=""></a>
                                         <!--Sale Label-->
 
                                         <span class="sale">-25%</span>
                                         <div class="hover">
                                             <ul>
-                                                <li class="icon-heart"><a class="wishlist"   data-toggle="tooltip" title="" onclick="wishlist.add('42');" data-original-title="Add to Wish List"><i class="fa fa-heart"></i></a></li>
-                                                <li class="icon-exchange"><a class="compare"   data-toggle="tooltip" title="" onclick="compare.add('42');" data-original-title="Compare this Product"><i class="fa fa-exchange"></i></a></li>
-                                                <li class="icon-search"><a class="quickview iframe-link " data-fancybox-type="iframe" href="${root}/front/quickview.html">  <i class="fa fa-search" aria-hidden="true"></i></a></li>
+                                                <li class="icon-heart"><a class="wishlist" data-toggle="tooltip"
+                                                                          title="" onclick="wishlist.add('42');"
+                                                                          data-original-title="Add to Wish List"><i
+                                                        class="fa fa-heart"></i></a></li>
+                                                <li class="icon-exchange"><a class="compare" data-toggle="tooltip"
+                                                                             title="" onclick="compare.add('42');"
+                                                                             data-original-title="Compare this Product"><i
+                                                        class="fa fa-exchange"></i></a></li>
+                                                <li class="icon-search"><a class="quickview iframe-link "
+                                                                           data-fancybox-type="iframe"
+                                                                           href="${root}/front/quickview.html"> <i
+                                                        class="fa fa-search" aria-hidden="true"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -1213,12 +1067,17 @@
                                             <span class="price-old">$122.00</span>
                                         </div>
                                         <div class="description item-desc hidden">
-                                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est . </p>
+                                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                                                eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+                                                voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                                                clita kasd gubergren, no sea takimata sanctus est . </p>
                                         </div>
                                     </div>
 
                                     <div class="button-group">
-                                        <button class="addToCart btn btn-default "   data-toggle="tooltip" title="" onclick="cart.add('42', '1');" data-original-title="Add to Cart"> <span class="">Add to Cart</span></button>
+                                        <button class="addToCart btn btn-default " data-toggle="tooltip" title=""
+                                                onclick="cart.add('42', '1');" data-original-title="Add to Cart"><span
+                                                class="">Add to Cart</span></button>
                                     </div>
                                 </div><!-- right block -->
                             </div>
@@ -1230,9 +1089,12 @@
 
             <div class="module no-margin titleLine col-sm-12 latest-blog">
                 <h3 class="modtitle">新品推荐</h3>
-                <hr><hr><hr>
+                <hr>
+                <hr>
+                <hr>
                 <div class="latest-blog-owl">
-                    <div class="owl-carousel latest-owl" data-dots="yes" data-nav="yes" data-loop="yes" data-items_xs="1" data-items_sm="3" data-items_md="4" data-margin="10" >
+                    <div class="owl-carousel latest-owl" data-dots="yes" data-nav="yes" data-loop="yes"
+                         data-items_xs="1" data-items_sm="3" data-items_md="4" data-margin="10">
                         <div class="itemBlogImg">
                             <div class="article-image ">
                                 <div>
@@ -1241,7 +1103,9 @@
                                         <p>Dec</p>
                                     </div>
 
-                                    <a class="popup-gallery" href="${root}/front/blog-detail.html"><img src="${root}/front/img/demo/blog/blog-1.jpg" alt="Kire tuma demonstraverunt lector">
+                                    <a class="popup-gallery" href="${root}/front/blog-detail.html"><img
+                                            src="${root}/front/img/demo/blog/blog-1.jpg"
+                                            alt="Kire tuma demonstraverunt lector">
                                         <p class="text">Lorem Ipsum is simply dummy text of the printing.</p></a>
                                 </div>
                             </div>
@@ -1254,7 +1118,9 @@
                                         <p>Dec</p>
                                     </div>
 
-                                    <a class="popup-gallery" href="${root}/front/blog-detail.html"><img src="${root}/front/img/demo/blog/blog-2.jpg" alt="Kire tuma demonstraverunt lector">
+                                    <a class="popup-gallery" href="${root}/front/blog-detail.html"><img
+                                            src="${root}/front/img/demo/blog/blog-2.jpg"
+                                            alt="Kire tuma demonstraverunt lector">
                                         <p class="text">Lorem Ipsum is simply dummy text of the printing.</p></a>
                                 </div>
                             </div>
@@ -1267,7 +1133,9 @@
                                         <p>Dec</p>
                                     </div>
 
-                                    <a class="popup-gallery" href="${root}/front/blog-detail.html"><img src="${root}/front/img/demo/blog/blog-3.jpg" alt="Kire tuma demonstraverunt lector">
+                                    <a class="popup-gallery" href="${root}/front/blog-detail.html"><img
+                                            src="${root}/front/img/demo/blog/blog-3.jpg"
+                                            alt="Kire tuma demonstraverunt lector">
                                         <p class="text">Lorem Ipsum is simply dummy text of the printing.</p></a>
                                 </div>
                             </div>
@@ -1280,7 +1148,9 @@
                                         <p>Dec</p>
                                     </div>
 
-                                    <a class="popup-gallery" href="${root}/front/blog-detail.html"><img src="${root}/front/img/demo/blog/blog-4.jpg" alt="Kire tuma demonstraverunt lector">
+                                    <a class="popup-gallery" href="${root}/front/blog-detail.html"><img
+                                            src="${root}/front/img/demo/blog/blog-4.jpg"
+                                            alt="Kire tuma demonstraverunt lector">
                                         <p class="text">Lorem Ipsum is simply dummy text of the printing.</p></a>
                                 </div>
                             </div>
@@ -1293,7 +1163,9 @@
                                         <p>Dec</p>
                                     </div>
 
-                                    <a class="popup-gallery" href="${root}/front/blog-detail.html"><img src="${root}/front/img/demo/blog/blog-5.jpg" alt="Kire tuma demonstraverunt lector">
+                                    <a class="popup-gallery" href="${root}/front/blog-detail.html"><img
+                                            src="${root}/front/img/demo/blog/blog-5.jpg"
+                                            alt="Kire tuma demonstraverunt lector">
                                         <p class="text">Lorem Ipsum is simply dummy text of the printing.</p></a>
                                 </div>
                             </div>
@@ -1306,7 +1178,9 @@
                                         <p>Dec</p>
                                     </div>
 
-                                    <a class="popup-gallery" href="${root}/front/blog-detail.html"><img src="${root}/front/img/demo/blog/blog-6.jpg" alt="Kire tuma demonstraverunt lector">
+                                    <a class="popup-gallery" href="${root}/front/blog-detail.html"><img
+                                            src="${root}/front/img/demo/blog/blog-6.jpg"
+                                            alt="Kire tuma demonstraverunt lector">
                                         <p class="text">Lorem Ipsum is simply dummy text of the printing.</p></a>
                                 </div>
                             </div>
@@ -1323,7 +1197,8 @@
 <section class="so-spotlight3">
     <div class="container">
         <div class="row">
-            <div id="so_categories_173761471880018" class="so-categories module titleLine preset01-4 preset02-3 preset03-3 preset04-1 preset05-1">
+            <div id="so_categories_173761471880018"
+                 class="so-categories module titleLine preset01-4 preset02-3 preset03-3 preset04-1 preset05-1">
                 <div class="wrap-categories">
                     <div class="col-xs-12 col-sm-6  col-md-3 col-lg-3 new-arrivals ">
                         <div class="module latest-product titleLine">
@@ -1331,11 +1206,15 @@
                             <hr>
                             <hr>
                             <hr>
-                            <div class="modcontent owl-carousel owl-new-arrivals " data-dots="yes" data-nav="yes" data-loop="yes" data-items_xs="1" data-items_sm="1" data-items_md="1" data-margin="10">
+                            <div class="modcontent owl-carousel owl-new-arrivals " data-dots="yes" data-nav="yes"
+                                 data-loop="yes" data-items_xs="1" data-items_sm="1" data-items_md="1" data-margin="10">
                                 <div class="product-latest-item">
                                     <div class="media">
                                         <div class="media-left">
-                                            <a href="${root}/front/product.html"><img src="${root}/front/img/demo/shop/product/product-2.jpg" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 78px; height: 104px;"></a>
+                                            <a href="${root}/front/product.html"><img
+                                                    src="${root}/front/img/demo/shop/product/product-2.jpg"
+                                                    alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive"
+                                                    style="width: 78px; height: 104px;"></a>
                                         </div>
                                         <div class="media-body">
                                             <div class="caption">
@@ -1361,7 +1240,10 @@
 
                                     <div class="media">
                                         <div class="media-left">
-                                            <a href="${root}/front/product.html"><img src="${root}/front/img/demo/shop/product/product-3.jpg" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 78px; height: 104px;"></a>
+                                            <a href="${root}/front/product.html"><img
+                                                    src="${root}/front/img/demo/shop/product/product-3.jpg"
+                                                    alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive"
+                                                    style="width: 78px; height: 104px;"></a>
                                         </div>
                                         <div class="media-body">
                                             <div class="caption">
@@ -1387,7 +1269,10 @@
 
                                     <div class="media">
                                         <div class="media-left">
-                                            <a href="${root}/front/product.html"><img src="${root}/front/img/demo/shop/product/product-4.jpg" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 78px; height: 104px;"></a>
+                                            <a href="${root}/front/product.html"><img
+                                                    src="${root}/front/img/demo/shop/product/product-4.jpg"
+                                                    alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive"
+                                                    style="width: 78px; height: 104px;"></a>
                                         </div>
                                         <div class="media-body">
                                             <div class="caption">
@@ -1414,7 +1299,10 @@
                                 <div class="product-latest-item">
                                     <div class="media">
                                         <div class="media-left">
-                                            <a href="${root}/front/product.html"><img src="${root}/front/img/demo/shop/product/product-5.jpg" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 78px; height: 104px;"></a>
+                                            <a href="${root}/front/product.html"><img
+                                                    src="${root}/front/img/demo/shop/product/product-5.jpg"
+                                                    alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive"
+                                                    style="width: 78px; height: 104px;"></a>
                                         </div>
                                         <div class="media-body">
                                             <div class="caption">
@@ -1440,7 +1328,10 @@
 
                                     <div class="media">
                                         <div class="media-left">
-                                            <a href="${root}/front/product.html"><img src="${root}/front/img/demo/shop/product/product-6.jpg" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 78px; height: 104px;"></a>
+                                            <a href="${root}/front/product.html"><img
+                                                    src="${root}/front/img/demo/shop/product/product-6.jpg"
+                                                    alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive"
+                                                    style="width: 78px; height: 104px;"></a>
                                         </div>
                                         <div class="media-body">
                                             <div class="caption">
@@ -1466,7 +1357,10 @@
 
                                     <div class="media">
                                         <div class="media-left">
-                                            <a href="${root}/front/product.html"><img src="${root}/front/img/demo/shop/product/product-7.jpg" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 78px; height: 104px;"></a>
+                                            <a href="${root}/front/product.html"><img
+                                                    src="${root}/front/img/demo/shop/product/product-7.jpg"
+                                                    alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive"
+                                                    style="width: 78px; height: 104px;"></a>
                                         </div>
                                         <div class="media-body">
                                             <div class="caption">
@@ -1493,7 +1387,10 @@
                                 <div class="product-latest-item">
                                     <div class="media">
                                         <div class="media-left">
-                                            <a href="product.html"><img src="${root}/front/img/demo/shop/product/product-8.jpg" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 78px; height: 104px;"></a>
+                                            <a href="product.html"><img
+                                                    src="${root}/front/img/demo/shop/product/product-8.jpg"
+                                                    alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive"
+                                                    style="width: 78px; height: 104px;"></a>
                                         </div>
                                         <div class="media-body">
                                             <div class="caption">
@@ -1520,7 +1417,10 @@
 
                                     <div class="media">
                                         <div class="media-left">
-                                            <a href="${root}/front/product.html"><img src="${root}/front/img/demo/shop/product/product-1.jpg" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 78px; height: 104px;"></a>
+                                            <a href="${root}/front/product.html"><img
+                                                    src="${root}/front/img/demo/shop/product/product-1.jpg"
+                                                    alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive"
+                                                    style="width: 78px; height: 104px;"></a>
                                         </div>
                                         <div class="media-body">
                                             <div class="caption">
@@ -1547,7 +1447,10 @@
 
                                     <div class="media">
                                         <div class="media-left">
-                                            <a href="${root}/front/product.html"><img src="${root}/front/img/demo/shop/product/product-2.jpg" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 78px; height: 104px;"></a>
+                                            <a href="${root}/front/product.html"><img
+                                                    src="${root}/front/img/demo/shop/product/product-2.jpg"
+                                                    alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive"
+                                                    style="width: 78px; height: 104px;"></a>
                                         </div>
                                         <div class="media-body">
                                             <div class="caption">
@@ -1581,11 +1484,15 @@
                             <hr>
                             <hr>
                             <div class="modcontent">
-                                <div class="owl-carousel owl-bestsellers" data-nav="yes" data-loop="yes" data-margin="0" data-items_xs="1" data-items_sm="1" data-items_md="1">
+                                <div class="owl-carousel owl-bestsellers" data-nav="yes" data-loop="yes" data-margin="0"
+                                     data-items_xs="1" data-items_sm="1" data-items_md="1">
                                     <div class="product-latest-item">
                                         <div class="media">
                                             <div class="media-left">
-                                                <a href="${root}/front/product.html"><img src="${root}/front/img/demo/shop/product/product-3.jpg" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 78px; height: 104px;"></a>
+                                                <a href="${root}/front/product.html"><img
+                                                        src="${root}/front/img/demo/shop/product/product-3.jpg"
+                                                        alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive"
+                                                        style="width: 78px; height: 104px;"></a>
                                             </div>
                                             <div class="media-body">
                                                 <div class="caption">
@@ -1611,7 +1518,10 @@
 
                                         <div class="media">
                                             <div class="media-left">
-                                                <a href="${root}/front/product.html"><img src="${root}/front/img/demo/shop/product/product-1.jpg" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 78px; height: 104px;"></a>
+                                                <a href="${root}/front/product.html"><img
+                                                        src="${root}/front/img/demo/shop/product/product-1.jpg"
+                                                        alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive"
+                                                        style="width: 78px; height: 104px;"></a>
                                             </div>
                                             <div class="media-body">
                                                 <div class="caption">
@@ -1637,7 +1547,10 @@
 
                                         <div class="media">
                                             <div class="media-left">
-                                                <a href="${root}/front/product.html"><img src="${root}/front/img/demo/shop/product/product-2.jpg" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 78px; height: 104px;"></a>
+                                                <a href="${root}/front/product.html"><img
+                                                        src="${root}/front/img/demo/shop/product/product-2.jpg"
+                                                        alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive"
+                                                        style="width: 78px; height: 104px;"></a>
                                             </div>
                                             <div class="media-body">
                                                 <div class="caption">
@@ -1664,7 +1577,10 @@
                                     <div class="product-latest-item">
                                         <div class="media">
                                             <div class="media-left">
-                                                <a href="${root}/front/product.html"><img src="${root}/front/img/demo/shop/product/product-3.jpg" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 78px; height: 104px;"></a>
+                                                <a href="${root}/front/product.html"><img
+                                                        src="${root}/front/img/demo/shop/product/product-3.jpg"
+                                                        alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive"
+                                                        style="width: 78px; height: 104px;"></a>
                                             </div>
                                             <div class="media-body">
                                                 <div class="caption">
@@ -1690,7 +1606,10 @@
 
                                         <div class="media">
                                             <div class="media-left">
-                                                <a href="${root}/front/product.html"><img src="${root}/front/img/demo/shop/product/product-1.jpg" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 78px; height: 104px;"></a>
+                                                <a href="${root}/front/product.html"><img
+                                                        src="${root}/front/img/demo/shop/product/product-1.jpg"
+                                                        alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive"
+                                                        style="width: 78px; height: 104px;"></a>
                                             </div>
                                             <div class="media-body">
                                                 <div class="caption">
@@ -1716,7 +1635,10 @@
 
                                         <div class="media">
                                             <div class="media-left">
-                                                <a href="${root}/front/product.html"><img src="${root}/front/img/demo/shop/product/product-2.jpg" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 78px; height: 104px;"></a>
+                                                <a href="${root}/front/product.html"><img
+                                                        src="${root}/front/img/demo/shop/product/product-2.jpg"
+                                                        alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive"
+                                                        style="width: 78px; height: 104px;"></a>
                                             </div>
                                             <div class="media-body">
                                                 <div class="caption">
@@ -1752,11 +1674,15 @@
                             <hr>
                             <hr>
                             <div class="modcontent">
-                                <div class="owl-carousel owl-featured" data-nav="yes" data-loop="yes" data-margin="0" data-items_xs="1" data-items_sm="1" data-items_md="1">
+                                <div class="owl-carousel owl-featured" data-nav="yes" data-loop="yes" data-margin="0"
+                                     data-items_xs="1" data-items_sm="1" data-items_md="1">
                                     <div class="product-latest-item">
                                         <div class="media">
                                             <div class="media-left">
-                                                <a href="${root}/front/product.html"><img src="${root}/front/img/demo/shop/product/product-3.jpg" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 78px; height: 104px;"></a>
+                                                <a href="${root}/front/product.html"><img
+                                                        src="${root}/front/img/demo/shop/product/product-3.jpg"
+                                                        alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive"
+                                                        style="width: 78px; height: 104px;"></a>
                                             </div>
                                             <div class="media-body">
                                                 <div class="caption">
@@ -1783,7 +1709,10 @@
 
                                         <div class="media">
                                             <div class="media-left">
-                                                <a href="${root}/front/product.html"><img src="${root}/front/img/demo/shop/product/product-4.jpg" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 78px; height: 104px;"></a>
+                                                <a href="${root}/front/product.html"><img
+                                                        src="${root}/front/img/demo/shop/product/product-4.jpg"
+                                                        alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive"
+                                                        style="width: 78px; height: 104px;"></a>
                                             </div>
                                             <div class="media-body">
                                                 <div class="caption">
@@ -1809,7 +1738,10 @@
 
                                         <div class="media">
                                             <div class="media-left">
-                                                <a href="${root}/front/product.html"><img src="${root}/front/img/demo/shop/product/product-5.jpg" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 78px; height: 104px;"></a>
+                                                <a href="${root}/front/product.html"><img
+                                                        src="${root}/front/img/demo/shop/product/product-5.jpg"
+                                                        alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive"
+                                                        style="width: 78px; height: 104px;"></a>
                                             </div>
                                             <div class="media-body">
                                                 <div class="caption">
@@ -1836,7 +1768,10 @@
                                     <div class="product-latest-item">
                                         <div class="media">
                                             <div class="media-left">
-                                                <a href="${root}/front/product.html"><img src="${root}/front/img/demo/shop/product/product-3.jpg" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 78px; height: 104px;"></a>
+                                                <a href="${root}/front/product.html"><img
+                                                        src="${root}/front/img/demo/shop/product/product-3.jpg"
+                                                        alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive"
+                                                        style="width: 78px; height: 104px;"></a>
                                             </div>
                                             <div class="media-body">
                                                 <div class="caption">
@@ -1863,7 +1798,10 @@
 
                                         <div class="media">
                                             <div class="media-left">
-                                                <a href="${root}/front/product.html"><img src="${root}/front/img/demo/shop/product/product-4.jpg" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 78px; height: 104px;"></a>
+                                                <a href="${root}/front/product.html"><img
+                                                        src="${root}/front/img/demo/shop/product/product-4.jpg"
+                                                        alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive"
+                                                        style="width: 78px; height: 104px;"></a>
                                             </div>
                                             <div class="media-body">
                                                 <div class="caption">
@@ -1889,7 +1827,10 @@
 
                                         <div class="media">
                                             <div class="media-left">
-                                                <a href="${root}/front/product.html"><img src="${root}/front/img/demo/shop/product/product-5.jpg" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 78px; height: 104px;"></a>
+                                                <a href="${root}/front/product.html"><img
+                                                        src="${root}/front/img/demo/shop/product/product-5.jpg"
+                                                        alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive"
+                                                        style="width: 78px; height: 104px;"></a>
                                             </div>
                                             <div class="media-body">
                                                 <div class="caption">
@@ -1925,11 +1866,15 @@
                             <hr>
                             <hr>
                             <div class="modcontent">
-                                <div class="owl-carousel owl-hot-sale" data-nav="yes" data-loop="yes" data-margin="0" data-items_xs="1" data-items_sm="1" data-items_md="1">
+                                <div class="owl-carousel owl-hot-sale" data-nav="yes" data-loop="yes" data-margin="0"
+                                     data-items_xs="1" data-items_sm="1" data-items_md="1">
                                     <div class="product-latest-item">
                                         <div class="media">
                                             <div class="media-left">
-                                                <a href="${root}/front/product.html"><img src="${root}/front/img/demo/shop/product/product-6.jpg" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 78px; height: 104px;"></a>
+                                                <a href="${root}/front/product.html"><img
+                                                        src="${root}/front/img/demo/shop/product/product-6.jpg"
+                                                        alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive"
+                                                        style="width: 78px; height: 104px;"></a>
                                             </div>
                                             <div class="media-body">
                                                 <div class="caption">
@@ -1955,7 +1900,10 @@
 
                                         <div class="media">
                                             <div class="media-left">
-                                                <a href="${root}/front/product.html"><img src="${root}/front/img/demo/shop/product/product-7.jpg" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 78px; height: 104px;"></a>
+                                                <a href="${root}/front/product.html"><img
+                                                        src="${root}/front/img/demo/shop/product/product-7.jpg"
+                                                        alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive"
+                                                        style="width: 78px; height: 104px;"></a>
                                             </div>
                                             <div class="media-body">
                                                 <div class="caption">
@@ -1981,7 +1929,10 @@
 
                                         <div class="media">
                                             <div class="media-left">
-                                                <a href="${root}/front/product.html"><img src="${root}/front/img/demo/shop/product/product-8.jpg" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 78px; height: 104px;"></a>
+                                                <a href="${root}/front/product.html"><img
+                                                        src="${root}/front/img/demo/shop/product/product-8.jpg"
+                                                        alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive"
+                                                        style="width: 78px; height: 104px;"></a>
                                             </div>
                                             <div class="media-body">
                                                 <div class="caption">
@@ -2009,7 +1960,10 @@
                                     <div class="product-latest-item">
                                         <div class="media">
                                             <div class="media-left">
-                                                <a href="${root}/front/product.html"><img src="${root}/front/img/demo/shop/product/product-6.jpg" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 78px; height: 104px;"></a>
+                                                <a href="${root}/front/product.html"><img
+                                                        src="${root}/front/img/demo/shop/product/product-6.jpg"
+                                                        alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive"
+                                                        style="width: 78px; height: 104px;"></a>
                                             </div>
                                             <div class="media-body">
                                                 <div class="caption">
@@ -2035,7 +1989,10 @@
 
                                         <div class="media">
                                             <div class="media-left">
-                                                <a href="${root}/front/product.html"><img src="${root}/front/img/demo/shop/product/product-7.jpg" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 78px; height: 104px;"></a>
+                                                <a href="${root}/front/product.html"><img
+                                                        src="${root}/front/img/demo/shop/product/product-7.jpg"
+                                                        alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive"
+                                                        style="width: 78px; height: 104px;"></a>
                                             </div>
                                             <div class="media-body">
                                                 <div class="caption">
@@ -2061,7 +2018,10 @@
 
                                         <div class="media">
                                             <div class="media-left">
-                                                <a href="${root}/front/product.html"><img src="${root}/front/img/demo/shop/product/product-8.jpg" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 78px; height: 104px;"></a>
+                                                <a href="${root}/front/product.html"><img
+                                                        src="${root}/front/img/demo/shop/product/product-8.jpg"
+                                                        alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive"
+                                                        style="width: 78px; height: 104px;"></a>
                                             </div>
                                             <div class="media-body">
                                                 <div class="caption">
@@ -2092,21 +2052,21 @@
                         </div>
                     </div>
                 </div>
-<%--暂时不使用登录窗口，内容改好了再打开使用--%>
+                <%--暂时不使用登录窗口，内容改好了再打开使用--%>
                 <%--<div id="container-module-newletter" class="hidden-md hidden-sm hidden-xs">--%>
-                    <%--<div class="so_newletter_custom_popup_bg popup_bg"></div>--%>
-                    <%--<div class="module main-newsleter-popup so_newletter_custom_popup so_newletter_oca_popup" id="so_newletter_custom_popup"> <div class="so-custom-popup so-custom-oca-popup" style="width: 850px; background: url('img/demo/cms/newletter-bg.jpg') no-repeat white;  ">--%>
-                        <%--<div class="modcontent">--%>
-                            <%--<div class="oca_popup" id="test-popup"> <div class="popup-content"> <p class="newsletter_promo">每日促销</p>--%>
-                                <%--<div class="popup-title">订阅更多信息					</div>--%>
-                                <%--<form method="post" name="signup" class="form-group signup">--%>
-                                    <%--<div class="input-control"> <div class="email"> <input type="email" placeholder="你的邮件地址..." value="" class="form-control" id="txtemail" name="txtemail"> </div> <button class="btn btn-default" type="submit" onclick="return subscribe_newsletter();" name="submit">信息订阅	</button> </div>--%>
-                                <%--</form>--%>
-                                <%--<label class="hidden-popup"> <input type="checkbox" value="1" name="hidden-popup"> <span class="inline">&nbsp;&nbsp;关闭此窗口后不再显示</span> </label> </div>--%>
-                            <%--</div>--%>
-                        <%--</div> <!--/.modcontent-->--%>
-                        <%--<button title="Close"   class="popup-close">×</button> </div>--%>
-                    <%--</div>--%>
+                <%--<div class="so_newletter_custom_popup_bg popup_bg"></div>--%>
+                <%--<div class="module main-newsleter-popup so_newletter_custom_popup so_newletter_oca_popup" id="so_newletter_custom_popup"> <div class="so-custom-popup so-custom-oca-popup" style="width: 850px; background: url('img/demo/cms/newletter-bg.jpg') no-repeat white;  ">--%>
+                <%--<div class="modcontent">--%>
+                <%--<div class="oca_popup" id="test-popup"> <div class="popup-content"> <p class="newsletter_promo">每日促销</p>--%>
+                <%--<div class="popup-title">订阅更多信息					</div>--%>
+                <%--<form method="post" name="signup" class="form-group signup">--%>
+                <%--<div class="input-control"> <div class="email"> <input type="email" placeholder="你的邮件地址..." value="" class="form-control" id="txtemail" name="txtemail"> </div> <button class="btn btn-default" type="submit" onclick="return subscribe_newsletter();" name="submit">信息订阅	</button> </div>--%>
+                <%--</form>--%>
+                <%--<label class="hidden-popup"> <input type="checkbox" value="1" name="hidden-popup"> <span class="inline">&nbsp;&nbsp;关闭此窗口后不再显示</span> </label> </div>--%>
+                <%--</div>--%>
+                <%--</div> <!--/.modcontent-->--%>
+                <%--<button title="Close"   class="popup-close">×</button> </div>--%>
+                <%--</div>--%>
                 <%--</div>--%>
             </div>
         </div>
@@ -2114,8 +2074,11 @@
             <div class="col-sm-12">
                 <div class="brands">
                     <h3>合作品牌</h3>
-                    <hr><hr><hr>
-                    <div class="owl-carousel owl-fetured-brand" data-dots="yes" data-nav="yes" data-loop="yes" data-items_xs="2" data-items_sm="4" data-items_md="6" data-margin="10" >
+                    <hr>
+                    <hr>
+                    <hr>
+                    <div class="owl-carousel owl-fetured-brand" data-dots="yes" data-nav="yes" data-loop="yes"
+                         data-items_xs="2" data-items_sm="4" data-items_md="6" data-margin="10">
                         <div class="img-brand">
                             <a href="#"><img src="${root}/front/img/demo/brands/brand-1.jpg" alt=""></a>
                         </div>
@@ -2151,8 +2114,8 @@ var $typeheader = 'header-home1';
 
 <!-- Footer Container -->
 
-    <!-- /Footer Top Container -->
-  <%@include file="/front/footer/footer.jsp"%>
+<!-- /Footer Top Container -->
+<%@include file="/front/footer/footer.jsp" %>
 <!-- //end Footer Container -->
 
 

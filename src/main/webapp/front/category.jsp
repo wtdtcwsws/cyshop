@@ -951,7 +951,7 @@
                     <!--changed listings-->
                     <div class="products-list grid ">
                         <c:forEach var="spu" items="${spus}">
-                            <c:if test="${spu.catalog_3_id==45}">
+                            <c:if test="${spu.catalog_3_id==navi3}">
                                 <div class="product-layout">
                                     <div class="product-item-container">
                                         <div class="left-block">
