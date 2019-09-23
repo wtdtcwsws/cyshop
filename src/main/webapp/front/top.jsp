@@ -71,8 +71,8 @@
                                 <%
                                     if(member == null){
                                 %>
-                                <li class="signin"><a href="login.html" class="top-link-checkout" title="Sign In"><span>登录</span></a></li>
-                                <li class="register"><a href="register.html" title="Register"><span>注册</span></a></li>
+                                <li class="signin"><a href="login.jsp" class="top-link-checkout" title="Sign In"><span>登录</span></a></li>
+                                <li class="register"><a href="register.jsp" title="Register"><span>注册</span></a></li>
                                <%
                                    }else{
                                %>
