@@ -12,7 +12,7 @@
             url: '/product?method=buy',
             data:{
                 count:$quantity,
-                skuId:$sku,
+                sku_id:$sku,
                 price:$price,
                 stock:$stock
             },
