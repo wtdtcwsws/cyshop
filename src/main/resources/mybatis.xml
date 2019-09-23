@@ -15,18 +15,24 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="catalog.xml"/>
-        <mapper resource="skumodel.xml"/>
-        <mapper resource="skuAttriGroup.xml"/>
-        <mapper resource="skuAttriValue.xml"/>
-        <mapper resource="skuAttri.xml"/>
         <mapper resource="AddGoods.xml"/>
-        <mapper resource="spuList.xml"/>
         <mapper resource="addOrder.xml"/>
-        <mapper resource="sku.xml"/>
+        <mapper resource="address.xml"/>
+        <mapper resource="catalog.xml"/>
+        <mapper resource="comment.xml"/>
+        <mapper resource="createOrder.xml"/>
+        <mapper resource="frontOrderItem.xml"/>
         <mapper resource="member.xml"/>
         <mapper resource="order.xml"/>
         <mapper resource="orderDetail.xml"/>
         <mapper resource="refundOrReturnOrder.xml"/>
+        <mapper resource="refundOrReturnItem.xml"/>
+        <mapper resource="sku.xml"/>
+        <mapper resource="skuAttri.xml"/>
+        <mapper resource="skuAttriGroup.xml"/>
+        <mapper resource="skuAttriValue.xml"/>
+        <mapper resource="skumodel.xml"/>
+        <mapper resource="spuList.xml"/>
+
     </mappers>
 </configuration>
