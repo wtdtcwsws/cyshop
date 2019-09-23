@@ -6,16 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
 
-    String account = request.getParameter("account");
-    String password = request.getParameter("password");
-
-    if (account.equals("admin") && password.equals("123456")){
-        request.getRequestDispatcher("/views/index.jsp").forward(request,response);
-    }
-
-%>
 <html>
 <head>
 
@@ -34,11 +25,11 @@
 </style>
 <body class="luohai">
 
-    <div class="card" style="height: 391px;width: 500px;margin: auto;margin-top: 80px;background-color: rgba(255 255 255 0)">
+    <div class="card" style="height: 391px;width: 500px;margin: auto;margin-top: 80px;background-color: rgba(255,255,255,0.5);">
         <div class="card-header">
             登录
         </div>
-        <form id="form" action="index-main.jsp">
+        <form id="form" action="/index.jsp" method="post">
             <div class="card-body">
 
                 <div class="form-group">
@@ -57,7 +48,7 @@
             </div>
             <div class="card-footer">
 
-                <button type="button" class="btn btn-primary btn-block mt-2">登录</button>
+                <input type="submit" class="btn btn-primary btn-block mt-2" value="登录" />
                 <div class="mt-3">
                     <a href="#" class="ml-4">
                     忘记密码？
