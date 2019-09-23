@@ -170,11 +170,11 @@
 										</li>
 									
 										<li class="nav-item ">
-											<a class="nav-link" href="lz/z-comment-list.jsp"><i class="nav-icon icon-puzzle"></i>评论列表
+											<a class="nav-link" href="lz/z-comment-list.jsp"><i class="nav-icon icon-puzzle"></i>评论管理
 											</a>
 										</li>
 										<li class="nav-item ">
-											<a class="nav-link" href="lz/z-comment-list2.jsp"><i class="nav-icon icon-puzzle"></i>评论列表2
+											<a class="nav-link" href="lz/z-comment-list2.jsp"><i class="nav-icon icon-puzzle"></i>评论列表
 											</a>
 										</li>
 										
@@ -214,75 +214,13 @@
 											<a class="nav-link" href="lh/member.jsp"><i class="nav-icon icon-puzzle"></i>会员列表
 											</a>
 										</li>
-										<li class="nav-item nav-dropdown">
-											<a class="nav-link" href="Lz_VipLevel.jsp"><i class="nav-icon icon-puzzle"></i>会员等级
-											</a>
-										</li>
 									</ul>
 								</li>
-								<li class="nav-item nav-dropdown">
-									<a class="nav-link nav-dropdown-toggle" href="#">
-										<i class="nav-icon icon-pie-chart"></i> 充值提现
-									</a>
-									<ul class="nav-dropdown-items">
-										<li class="nav-item nav-dropdown">
-											<a class="nav-link" href="Lz_Vip_top-up-record.jsp"><i class="nav-icon icon-puzzle"></i>充值记录
-											</a>
-										</li>
-										<li class="nav-item nav-dropdown">
-											<a class="nav-link" href="Lz_Vip_WithdrawalApplication.jsp"><i class="nav-icon icon-puzzle"></i>提现申请
-											</a>
-										</li>
-										<li class="nav-item nav-dropdown">
-											<a class="nav-link" href="Lz_Vip_WithdrawalSetUpThe.jsp"><i class="nav-icon icon-puzzle"></i>提现设置
-											</a>
-										</li>
-									</ul>
-								</li>
+
 							</ul>
 						</li>
 						
-						<!-- 模板 -->
-						<li class="nav-item nav-dropdown">
-									<a class="nav-link nav-dropdown-toggle" href="#">
-										<i class="nav-icon cui-people"></i> 模板</a>
-									<ul class="nav-dropdown-items">
-										<li class="nav-item nav-dropdown">
-											<a class="nav-link nav-dropdown-toggle" href="#">
-												<i class="nav-icon icon-pie-chart"></i> 表格、表单
-											</a>
-											<ul class="nav-dropdown-items">
-												<li class="nav-item nav-dropdown">
-													<a class="nav-link" href="表格模板.jsp"><i class="nav-icon icon-puzzle"></i>表格
-													</a>
-												</li>
-												<li class="nav-item nav-dropdown">
-													<a class="nav-link" href="表单模板.jsp"><i class="nav-icon icon-puzzle"></i>表单
-													</a>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-						<!-- 模板 -->
-						<li class="nav-item nav-dropdown">
-									<a class="nav-link nav-dropdown-toggle" href="#">
-										<i class="nav-icon cui-people"></i> 测试</a>
-									<ul class="nav-dropdown-items">
-										<li class="nav-item nav-dropdown">
-											<a class="nav-link nav-dropdown-toggle" href="#">
-												<i class="nav-icon icon-pie-chart"></i> 模板的使用
-											</a>
-											<ul class="nav-dropdown-items">
-												<li class="nav-item nav-dropdown">
-													<a class="nav-link" href="test/test.jsp"><i class="nav-icon icon-puzzle"></i>测试
-													</a>
-												</li>
-												
-											</ul>
-										</li>
-									</ul>
-								</li>
+
 					</ul>
 				</nav>
 				<!-- 导航栏结束 -->
