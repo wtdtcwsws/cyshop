@@ -107,10 +107,11 @@
                             </td>
                             <td class="text-center">
                                 <select class="custom-select" data-id="${status.index}">
-                                    <option value="-1">退款</option>
-                                    <option selected value="0">详情</option>
-                                    <option value="1">备注</option>
-                                    <option value="2">删除</option>
+                                    <option selected>选择操作</option>
+                                    <a><option value="-1">退款</option></a>
+                                    <a href="/front/OrderInfo&id=${orderItemVO.getId()}"><option value="0">详情</option></a>
+                                    <a><option value="1">备注</option></a>
+                                    <a><option value="2">删除</option></a>
                                 </select>
                             </td>
                         </tr>

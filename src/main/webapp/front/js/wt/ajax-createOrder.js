@@ -19,9 +19,10 @@
 
             },
             success:function (result) {
-                if (result) {
-                    alert("success!");
-                }
+                // if (result) {
+                //     alert("success!");
+                // }
+                window.location.href = result;
 
             }
 

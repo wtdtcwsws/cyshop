@@ -12,10 +12,19 @@ import java.util.Date;
  * @remarks TODO
  */
 public class OrderItemVO {
+    private String id;
     private String spu_name;
     private Date creat_time;
     private BigDecimal payment;
     private String status;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getSpu_name() {
         return spu_name;
@@ -52,7 +61,8 @@ public class OrderItemVO {
     @Override
     public String toString() {
         return "OrderItemVO{" +
-                "spu_name='" + spu_name + '\'' +
+                "id='" + id + '\'' +
+                ", spu_name='" + spu_name + '\'' +
                 ", creat_time=" + creat_time +
                 ", payment=" + payment +
                 ", status='" + status + '\'' +

@@ -1,6 +1,7 @@
 package com.cyxz.cyshop.web.servlet.zhy.front;
 
 import com.cyxz.cyshop.domain.*;
+import com.cyxz.cyshop.service.AddSkuService;
 import com.cyxz.cyshop.service.CheckoutService;
 import com.cyxz.cyshop.service.impl.CheckoutServiceImpl;
 import com.cyxz.cyshop.viewobject.ConfirmOrderVO;
@@ -40,14 +41,14 @@ public class CheckoutServlet extends BaseServlet {
         HttpSession session = request.getSession();
 
 //        ---------------暂时没融合好项目，创建的假登陆数据---------------
-        Member member1 = new Member();
-        member1.setId("5");
-        member1.setAccount("123");
-        member1.setPassword("123");
-        member1.setName("小桐桐");
-        member1.setStatus("1");
-        member1.setPhone("110");
-        session.setAttribute("login-info",member1);
+//        Member member1 = new Member();
+//        member1.setId("5");
+//        member1.setAccount("123");
+//        member1.setPassword("123");
+//        member1.setName("小桐桐");
+//        member1.setStatus("1");
+//        member1.setPhone("110");
+//        session.setAttribute("login-info",member1);
 //        ----------------------------------------------------------------
 
 //        接收session中的登陆信息
@@ -72,13 +73,15 @@ public class CheckoutServlet extends BaseServlet {
 //        --------------------项目未融合，创建测试用的数据-------------------
         ConfirmOrderVO confirmOrderVO = new ConfirmOrderVO();
         confirmOrderVO.setSpu_img("/front/img/demo/shop/product/E4.jpg");
-        confirmOrderVO.setSpu_name("Emasa rumas gacem");
+        String setId = (String)request.getParameter("$sku");
+        AddSkuService addSkuService = new AddSkuService();
+        Sku sku= addSkuService.getSkuById(setId);
+        confirmOrderVO.setSpu_name(sku.getId());
         List<String> sku_name = new ArrayList<String>();
-        sku_name.add("颜色：红色");
-        sku_name.add("内存：256G");
+        sku_name.add(request.getParameter("cosku"));
         confirmOrderVO.setSku_name(sku_name);
-        confirmOrderVO.setNums(new BigDecimal("2"));
-        confirmOrderVO.setUnitPrice(new BigDecimal("114.52"));
+        confirmOrderVO.setNums(new BigDecimal(request.getParameter("count")));
+        confirmOrderVO.setUnitPrice(new BigDecimal(request.getParameter("price")));
 //        计算商品总价
         BigDecimal price = confirmOrderVO.getUnitPrice().multiply(confirmOrderVO.getNums());
         confirmOrderVO.setPrice(price);
@@ -99,11 +102,34 @@ public class CheckoutServlet extends BaseServlet {
     public void showConfirmOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         List<MemberAddress> memberAddressess = this.findAlladdress(request,response);
-//        ConfirmOrderVO confirmOrderVO = (ConfirmOrderVO)session.getAttribute("confirmOrderVO");
-        ConfirmOrderVO confirmOrderVO = this.receiveOrderMessage(request,response);
-        request.setAttribute("memberAddressess",memberAddressess);
+//        购物车进入的方式
+//        ConfirmOrderVO confirmOrderVO = this.receiveOrderMessage(request,response);
+
+//        直接点击购买进入的方式
+        ConfirmOrderVO confirmOrderVO = new ConfirmOrderVO();
+        confirmOrderVO.setSpu_img("/front/img/demo/shop/product/E4.jpg");
+        String setId = request.getParameter("sku_id");
+        AddSkuService addSkuService = new AddSkuService();
+        Sku sku= addSkuService.getSkuById(setId);
+        confirmOrderVO.setSpu_name(sku.getName());
+        List<String> sku_name = new ArrayList<String>();
+        sku_name.add(sku.getDescription());
+        confirmOrderVO.setSku_name(sku_name);
+        confirmOrderVO.setNums(new BigDecimal(request.getParameter("count")));
+        confirmOrderVO.setUnitPrice(new BigDecimal(request.getParameter("price")));
+//        计算商品总价
+        BigDecimal price = confirmOrderVO.getUnitPrice().multiply(confirmOrderVO.getNums());
+        confirmOrderVO.setPrice(price);
+//        confirmOrderVO.setOrderPrice(price.add(new BigDecimal("10")));
+        confirmOrderVO.setOrderPrice(price);
+
+
+//        request.setAttribute("memberAddressess",memberAddressess);
+        session.setAttribute("memberAddressess",memberAddressess);
         session.setAttribute("confirmOrderVO",confirmOrderVO);
-        request.getRequestDispatcher("/front/checkout.jsp").forward(request, response);
+//        request.getRequestDispatcher("/front/checkout.jsp").forward(request, response);
+        response.getWriter().write(request.getContextPath()+"/front/checkout.jsp");
+//        response.sendRedirect(request.getContextPath()+"/front/checkout.jsp");
     }
 
     /**
