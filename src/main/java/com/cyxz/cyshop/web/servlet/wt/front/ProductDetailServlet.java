@@ -53,8 +53,8 @@ public class ProductDetailServlet extends BaseServlet {
 
     }
     public void buy(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-        String skuId = request.getParameter("sku");
-        String skuPirce = request.getParameter("skuPirce");
+        String skuId = request.getParameter("sku_id");
+        String skuPirce = request.getParameter("price");
         String stock = request.getParameter("stock");
 
         BigDecimal price = new BigDecimal(skuPirce);
