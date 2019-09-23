@@ -17,7 +17,14 @@
                 stock:$stock
             },
             success:function (result) {
-                alert(result);
+
+                if (result.length >= 15) {
+                    window.location.href = result;
+                } else {
+                    alert(result);
+                }
+
+
             }
 
         })
