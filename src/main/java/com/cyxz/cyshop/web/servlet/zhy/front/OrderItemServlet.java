@@ -66,6 +66,7 @@ public class OrderItemServlet extends BaseServlet {
         PaymentService paymentService = new PaymentServiceImpl();
         String payId =(String)session.getAttribute("payId");
         int row = paymentService.updateOrderStatus2(payId);
+        session.removeAttribute("payId");
         this.findAllOrder(request,response);
     }
 }
