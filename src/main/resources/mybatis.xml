@@ -26,6 +26,7 @@
         <mapper resource="order.xml"/>
         <mapper resource="orderDetail.xml"/>
         <mapper resource="refundOrReturnOrder.xml"/>
+        <mapper resource="payment.xml"/>
         <mapper resource="refundOrReturnItem.xml"/>
         <mapper resource="sku.xml"/>
         <mapper resource="skuAttri.xml"/>

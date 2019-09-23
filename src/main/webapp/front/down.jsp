@@ -25,11 +25,11 @@
 
     <!-- Favicon
     ============================================ -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="${root}/front/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="${root}/front/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="${root}/front/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="${root}/front/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="${root}/front/ico/favicon.png">
 
     <!-- Google web fonts
     ============================================ -->
@@ -38,20 +38,20 @@
     <!-- Libs CSS
     ============================================ -->
     <link rel="stylesheet" href="http://cdn.bootstrapmb.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="js/datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet">
-    <link href="js/owl-carousel/owl.carousel.css" rel="stylesheet">
-    <link href="css/themecss/lib.css" rel="stylesheet">
-    <link href="js/jquery-ui/jquery-ui.min.css" rel="stylesheet">
+    <link href="${root}/front/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="${root}/front/js/datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <link href="${root}/front/js/owl-carousel/owl.carousel.css" rel="stylesheet">
+    <link href="${root}/front/css/themecss/lib.css" rel="stylesheet">
+    <link href="${root}/front/js/jquery-ui/jquery-ui.min.css" rel="stylesheet">
 
     <!-- Theme CSS
     ============================================ -->
-    <link href="css/themecss/so_megamenu.css" rel="stylesheet">
-    <link href="css/themecss/so-categories.css" rel="stylesheet">
-    <link href="css/themecss/so-listing-tabs.css" rel="stylesheet">
-    <link href="css/footer1.css" rel="stylesheet">
-    <link href="css/header1.css" rel="stylesheet">
-    <link id="color_scheme" href="css/theme.css" rel="stylesheet">
+    <link href="${root}/front/css/themecss/so_megamenu.css" rel="stylesheet">
+    <link href="${root}/front/css/themecss/so-categories.css" rel="stylesheet">
+    <link href="${root}/front/css/themecss/so-listing-tabs.css" rel="stylesheet">
+    <link href="${root}/front/css/footer1.css" rel="stylesheet">
+    <link href="${root}/front/css/header1.css" rel="stylesheet">
+    <link id="color_scheme" href="${root}/front/css/theme.css" rel="stylesheet">
 
     <!-- <link href="css/responsive.css" rel="stylesheet"> -->
 
@@ -168,17 +168,17 @@
             <div class="footer-bottom-header">
                 <div class="col-xs-12 col-sm-12 col-md-5 download">
                     <h3>APP下载</h3>
-                    <a href=""><img src="img/demo/download/app.jpg" alt=""></a>
-                    <a href=""><img src="img/demo/download/ggplay.jpg" alt=""></a>
+                    <a href=""><img src="${root}/front/img/demo/download/app.jpg" alt=""></a>
+                    <a href=""><img src="${root}/front/img/demo/download/ggplay.jpg" alt=""></a>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-7 pay">
                     <ul>
-                        <li><img src="img/demo/payment/visa.jpg" alt=""></li>
-                        <li><img src="img/demo/payment/meastro.jpg" alt=""></li>
-                        <li><img src="img/demo/payment/paypal.jpg" alt=""></li>
-                        <li><img src="img/demo/payment/union.jpg" alt=""></li>
-                        <li><img src="img/demo/payment/cirrus.jpg" alt=""></li>
-                        <li><img src="img/demo/payment/ebay.jpg" alt=""></li>
+                        <li><img src="${root}/front/img/demo/payment/visa.jpg" alt=""></li>
+                        <li><img src="${root}/front/img/demo/payment/meastro.jpg" alt=""></li>
+                        <li><img src="${root}/front/img/demo/payment/paypal.jpg" alt=""></li>
+                        <li><img src="${root}/front/img/demo/payment/union.jpg" alt=""></li>
+                        <li><img src="${root}/front/img/demo/payment/cirrus.jpg" alt=""></li>
+                        <li><img src="${root}/front/img/demo/payment/ebay.jpg" alt=""></li>
                     </ul>
                 </div>
             </div>
@@ -193,17 +193,17 @@
 <!-- Include Libs & Plugins
 	============================================ -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="${root}/front/js/jquery-2.2.4.min.js"></script>
 <script type="text/javascript" src="http://cdn.bootstrapmb.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/owl-carousel/owl.carousel.js"></script>
-<script type="text/javascript" src="js/themejs/libs.js"></script>
-<script type="text/javascript" src="js/unveil/jquery.unveil.js"></script>
-<script type="text/javascript" src="js/countdown/jquery.countdown.min.js"></script>
-<script type="text/javascript" src="js/dcjqaccordion/jquery.dcjqaccordion.2.8.min.js"></script>
-<script type="text/javascript" src="js/datetimepicker/moment.js"></script>
-<script type="text/javascript" src="js/datetimepicker/bootstrap-datetimepicker.min.js"></script>
-<script type="text/javascript" src="js/jquery-ui/jquery-ui.min.js"></script>
-<script type="text/javascript" src="js/jquery-valdation/jquery.validate.js"></script>
+<script type="text/javascript" src="${root}/front/js/owl-carousel/owl.carousel.js"></script>
+<script type="text/javascript" src="${root}/front/js/themejs/libs.js"></script>
+<script type="text/javascript" src="${root}/front/js/unveil/jquery.unveil.js"></script>
+<script type="text/javascript" src="${root}/front/js/countdown/jquery.countdown.min.js"></script>
+<script type="text/javascript" src="${root}/front/js/dcjqaccordion/jquery.dcjqaccordion.2.8.min.js"></script>
+<script type="text/javascript" src="${root}/front/js/datetimepicker/moment.js"></script>
+<script type="text/javascript" src="${root}/front/js/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="${root}/front/js/jquery-ui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="${root}/front/js/jquery-valdation/jquery.validate.js"></script>
 
 <%--个人添加的js--%>
 <script type="text/javascript" src="${root}/front/js/lh/lh-register.js"></script>
@@ -212,9 +212,9 @@
 ============================================ -->
 
 
-<script type="text/javascript" src="js/themejs/so_megamenu.js"></script>
-<script type="text/javascript" src="js/themejs/addtocart.js"></script>
-<script type="text/javascript" src="js/themejs/application.js"></script>
+<script type="text/javascript" src="${root}/front/js/themejs/so_megamenu.js"></script>
+<script type="text/javascript" src="${root}/front/js/themejs/addtocart.js"></script>
+<script type="text/javascript" src="${root}/front/js/themejs/application.js"></script>
 
 </body>
 </html>

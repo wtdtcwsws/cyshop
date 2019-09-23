@@ -38,6 +38,8 @@ public class CheckoutServlet extends BaseServlet {
      */
     public List<MemberAddress> findAlladdress(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
+
+//        ---------------暂时没融合好项目，创建的假登陆数据---------------
         Member member1 = new Member();
         member1.setId("5");
         member1.setAccount("123");
@@ -46,6 +48,7 @@ public class CheckoutServlet extends BaseServlet {
         member1.setStatus("1");
         member1.setPhone("110");
         session.setAttribute("login-info",member1);
+//        ----------------------------------------------------------------
 
 //        接收session中的登陆信息
         Member member = (Member)session.getAttribute("login-info");
@@ -55,8 +58,18 @@ public class CheckoutServlet extends BaseServlet {
         return memberAddressess;
     }
 
+    /**
+     * 接收点击购买的商品信息
+     * @param request
+     * @param response
+     * @return
+     * @throws ServletException
+     * @throws IOException
+     */
     public ConfirmOrderVO receiveOrderMessage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         HttpSession session = request.getSession();
+
+//        --------------------项目未融合，创建测试用的数据-------------------
         ConfirmOrderVO confirmOrderVO = new ConfirmOrderVO();
         confirmOrderVO.setSpu_img("/front/img/demo/shop/product/E4.jpg");
         confirmOrderVO.setSpu_name("Emasa rumas gacem");
@@ -71,6 +84,8 @@ public class CheckoutServlet extends BaseServlet {
         confirmOrderVO.setPrice(price);
 //        confirmOrderVO.setOrderPrice(price.add(new BigDecimal("10")));
         confirmOrderVO.setOrderPrice(price);
+//        -----------------------------------------------------------------
+
         return confirmOrderVO;
     }
 
@@ -150,17 +165,37 @@ public class CheckoutServlet extends BaseServlet {
         return "/front/checkout-Form.jsp";
     }
 
+    /**
+     * 确认地址
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void confirmAdress(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         HttpSession session = request.getSession();
         session.setAttribute("orderAddressId",request.getParameter("addressId"));
     }
 
+    /**
+     * 默认地址
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void defaultAdress(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         HttpSession session = request.getSession();
         session.setAttribute("addressDefaule",request.getParameter("addressDefaule"));
     }
 
-
+    /**
+     * 创建订单
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void createOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         ConfirmOrderVO confirmOrderVO = (ConfirmOrderVO)session.getAttribute("confirmOrderVO");
