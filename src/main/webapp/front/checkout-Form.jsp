@@ -14,13 +14,29 @@
                         <p>请选择订单使用的运送方式</p>
                         <div class="radio">
                             <label>
-                                <input type="radio" checked="checked" name="Delivery" value="0">
-                                平邮快递 - ￥0.00</label>
+                                <c:choose>
+                                    <c:when test="${postPrice eq '0' || postPrice eq null}">
+                                        <input id="expressId" type="radio" checked data-expressRadio name="Delivery" value="0">
+                                    </c:when>
+                                    <c:otherwise>
+                                        <input id="expressId" type="radio" data-expressRadio name="Delivery" value="0">
+                                    </c:otherwise>
+                                </c:choose>
+                                平邮快递 - ￥0.00
+                            </label>
                         </div>
                         <div class="radio">
                             <label>
-                                <input type="radio" name="Delivery" value="1">
-                                顺丰速运 - ￥10.00</label>
+                                <c:choose>
+                                    <c:when test="${postPrice eq '10'}">
+                                        <input type="radio" checked data-expressRadio name="Delivery" value="10">
+                                    </c:when>
+                                    <c:otherwise>
+                                        <input type="radio" data-expressRadio name="Delivery" value="10">
+                                    </c:otherwise>
+                                </c:choose>
+                                顺丰速运 - ￥10.00
+                            </label>
                         </div>
 
                     </div>
@@ -97,8 +113,8 @@
                     <%--此处应为根据用户查询数据库收货地址表的信息--%>
                     <c:forEach var="memberAddress" items="${memberAddressess}" varStatus="status">
                         <div class="radio">
-                            <label>
-                                <input type="radio" checked="checked" name="address" data-addressId="${status.index}" value="${memberAddresses.getId()}">
+                            <label id="addressRadio">
+                                <input id="radio${status.index}" type="radio" name="address" data-checkedRadio value="${memberAddress.getId()}">
                                     <%--数据库查出来的地址和名字--%>
                                 <i class="fa fa-street-view">&nbsp;&nbsp;</i>${memberAddress.getSpecific_address()} ${memberAddress.getConsignee_name()} 收</label>
                             <a class="pull-right" data-toggle="modal" data-target="#exampleModal${memberAddress.getId()}">修改本地址</a>
@@ -200,7 +216,7 @@
                             <tr>
                                 <td class="text-right" colspan="2" style="border-right: none"><strong>运费险:</strong></td>
                                 <td class="text-left" colspan="3" style="border-left: none;border-right: none">卖家赠送，退换货可赔</td>
-                                <td class="text-right" colspan="1" style="border-left: none">￥0.00</td>
+                                <td class="text-right" colspan="1" style="border-left: none">￥${postPrice}</td>
                             </tr>
                             <tr>
                                 <td class="text-right" colspan="6"><strong>订单合计:${confirmOrderVO.getOrderPrice()}</strong>
