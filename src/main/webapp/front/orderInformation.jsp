@@ -170,7 +170,8 @@
                     <table class="table table-bordered table-hover">
                         <thead>
                         <tr>
-                            <td class="text-left">宝贝名称</td>
+                            <td class="text-left">商品图片</td>
+                            <td class="text-left">商品名称</td>
                             <td class="text-left">型号</td>
                             <td class="text-right">数量</td>
                             <td class="text-right">单价</td>
@@ -181,6 +182,7 @@
                         <tbody>
                         <c:forEach var="ov" items="${vos}">
                             <tr>
+                                <td class="text-center"><a href="${root}/product?method=detail&spu_id ="${ov.spu_id }"><img src="${ov.url}" width="60px" alt="Xitefun Causal Wear Fancy Shoes" title="Xitefun Causal Wear Fancy Shoes" class="img-thumbnail"></a></td>
                                 <td class="text-left">${ov.name} </td>
                                 <td class="text-left">${ov.model}</td>
                                 <td class="text-right">${ov.num}</td>
@@ -226,7 +228,7 @@
                             <%--<td></td>--%>
                         <%--</tr>--%>
                         <tr>
-                            <td colspan="2"></td>
+                            <td colspan="3"></td>
                             <td class="text-right"><b>合计</b>
                             </td>
                             <td class="text-right">￥${map.money}</td>

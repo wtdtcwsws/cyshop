@@ -16,6 +16,24 @@ public class OrderInformationVO implements Serializable {
     private String num;
     private String price;
     private String total;
+    private String url;
+    private String spu_id;
+
+    public String getSpu_id() {
+        return spu_id;
+    }
+
+    public void setSpu_id(String spu_id) {
+        this.spu_id = spu_id;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     public String getName() {
         return name;
