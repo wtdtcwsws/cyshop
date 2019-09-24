@@ -91,10 +91,11 @@
                         <tbody>
                         <c:forEach var="orderItemVO" items="${orderItemVOs}" varStatus="status">
                         <tr>
-                            <td class="text-center"><a href="product.html"><img width="60px" src="${root}${orderItemVO.getUrl()}" alt="Xitefun Causal Wear Fancy Shoes" title="Xitefun Causal Wear Fancy Shoes" class="img-thumbnail"></a></td>
+                            <%----------------------此处跳转商品详情页面----------------------%>
+                            <td class="text-center"><a href="javascript:;"><img width="60px" src="${root}${orderItemVO.getUrl()}" alt="Xitefun Causal Wear Fancy Shoes" title="Xitefun Causal Wear Fancy Shoes" class="img-thumbnail"></a></td>
                             <td class="text-center">
                                 <%--<a href="product.html"></a>--%>
-                                ${orderItemVO.getName()}
+                                    <a href="javascript:;">${orderItemVO.getName()}</a>
                             </td>
                             <td class="text-center">
                                 <%--<a href="product.html">Emasa rumas gacem</a>--%>
