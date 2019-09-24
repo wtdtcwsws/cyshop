@@ -67,7 +67,7 @@ public class GoodsServlet extends BaseServlet {
             values[i++] = value;
         }
         //执行排列组合
-        List<String[]> cos = ConSkuUtils.coSkus(values);
+        List<String[]> cos = ConSkuUtils.coSkus(attriNames,values);
 
 
         response.getWriter().write(mapper.writeValueAsString(cos));
@@ -107,6 +107,7 @@ public class GoodsServlet extends BaseServlet {
         String spu_id = addSkuService.insertSpu(spu);
         if (spu_id == null) {
             response.getWriter().write("spu添加失败");
+            return;
         }
         List<Spu> spus = spuListService.getAllSpu();
         //更新数据到application中
@@ -119,9 +120,15 @@ public class GoodsServlet extends BaseServlet {
             k.setModel_id(model_id);
             k.setName(spu_name);
             k.setSpu_id(spu_id);
+            // 数据库中插入sku
             addSkuService.insertSku(k);
+//            取插入数据库后的主键
+            String sku_id = k.getId();
+            System.out.println("已经sku插入数据库,主键为："+sku_id);
+            //按主键将图片路径添加到sku_img表中
+            //TODO
             System.out.println(k);
-//            数据库中插入sku
+
 
         }
 

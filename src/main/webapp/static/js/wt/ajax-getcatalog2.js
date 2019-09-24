@@ -15,6 +15,7 @@
                     let obj = JSON.parse( result );
                     console.log(obj);
                     $c3.empty();
+                    $c3.append("<option>-----</option>");
                     for (let variable of obj) {
                         console.log(variable["id"]);
                         $c3.append(`<option value="${variable['id']}">${variable['name']}</option>`);

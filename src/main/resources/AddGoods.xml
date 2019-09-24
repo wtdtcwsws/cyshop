@@ -12,7 +12,7 @@
     <insert id="insertSpu" parameterType="com.cyxz.cyshop.domain.Spu" useGeneratedKeys="true" keyProperty="id">
       insert into spu (`catalog_1_id`,`catalog_2_id`,`catalog_3_id`,`spu_name`,`spu_description`,`hot`)values (#{catalog_1_id},#{catalog_2_id},#{catalog_3_id},#{spu_name},#{spu_description},0)
     </insert>
-    <insert id="insertSku" parameterType="com.cyxz.cyshop.domain.Sku">
+    <insert id="insertSku" parameterType="com.cyxz.cyshop.domain.Sku" useGeneratedKeys="true"  keyProperty="id">
       insert into sku (`name`,`price`,`stock`,`model_id`,`spu_id`,`description`)values (#{name},#{price},#{stock},#{model_id},#{spu_id},#{description})
     </insert>
     <select id="getAllSkus" resultType="com.cyxz.cyshop.domain.Sku">

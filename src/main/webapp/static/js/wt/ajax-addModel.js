@@ -42,7 +42,7 @@
                 },
                 success:function (result) {
                     if (result == 'true') {
-                        window.location.href = "http://localhost:8080/#wt/goods_model.jsp";
+                        window.location.reload();
                     }
                 }
             })

@@ -74,6 +74,7 @@
 										<div class="col-md-4">
 											<select class="form-control form-control-sm col-4 " id="c1-2" name="catalog1Id">
 												<!-- 循环一级分类 -->
+												<option>请选择</option>
 												<c:forEach items="${catalog1}" var="c1">
 												<option value="${c1.id}">${c1.name}</option>
 												</c:forEach>
@@ -116,6 +117,7 @@
 										<div class="col-md-4">
 											<select class="form-control form-control-sm col-4 " id="c1-3" name="catalog1id">
 												<!-- 循环一级分类 -->
+												<option>请选择</option>
 												<c:forEach items="${catalog1}" var="c1">
 													<option value="${c1.id}">${c1.name}</option>
 												</c:forEach>

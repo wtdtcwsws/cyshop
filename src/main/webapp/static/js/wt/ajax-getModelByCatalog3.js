@@ -15,7 +15,9 @@
 
                     let obj = JSON.parse( result );
                     console.log(obj);
+
                     $model.empty();
+                    $model.append("<option>-----</option>");
                     for (let variable of obj) {
                         console.log(variable["id"]);
                         $model.append(`<option value="${variable['id']}">${variable['name']}</option>`);

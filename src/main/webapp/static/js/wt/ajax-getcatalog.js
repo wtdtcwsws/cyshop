@@ -17,6 +17,7 @@
                     let obj = JSON.parse( result );
                     console.log(obj);
                     $c2.empty();
+                    $c2.append("<option>-----</option>");
                     for (let variable of obj) {
                         console.log(variable["id"]);
                         $c2.append(`<option value="${variable['id']}">${variable['name']}</option>`);
@@ -44,6 +45,7 @@
                     let obj = JSON.parse( result );
                     console.log(obj);
                     $c3.empty();
+                    $c3.append("<option>-----</option>");
                     for (let variable of obj) {
                         console.log(variable["id"]);
                         $c3.append(`<option value="${variable['id']}">${variable['name']}</option>`);
