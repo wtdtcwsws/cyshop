@@ -78,4 +78,67 @@ public class ConSkuUtils {
 
         return coSkus;
     }
+
+    public static List<String[]> coSkus(List<String> attriNames, List<String>[] values) {
+        List<String[]> coSkus = new ArrayList<>();
+        int layer = values.length;
+        switch (layer) {
+            case 1:
+
+                for (String str : values[0]) {
+                    String[] coSku = {attriNames.get(0)+":"+str};
+                    coSkus.add(coSku);
+                }
+
+                break;
+            case 2:
+                for (String str1 : values[0]) {
+                    for (String str2 : values[1]) {
+                        String[] coSku = {attriNames.get(0)+":"+str1,attriNames.get(1)+":"+str2};
+                        coSkus.add(coSku);
+                    }
+                }
+                break;
+            case 3:
+                for (String str1 : values[0]) {
+                    for (String str2 : values[1]) {
+                        for (String str3 : values[2]) {
+                            String[] coSku = {attriNames.get(0)+":"+str1,attriNames.get(1)+":"+str2,attriNames.get(2)+":"+str3};
+                            coSkus.add(coSku);
+                        }
+                    }
+                }
+                break;
+            case 4:
+                for (String str1 : values[0]) {
+                    for (String str2 : values[1]) {
+                        for (String str3 : values[2]) {
+                            for (String str4 : values[3]) {
+                                String[] coSku = {attriNames.get(0)+":"+str1,attriNames.get(1)+":"+str2,attriNames.get(2)+":"+str3,attriNames.get(3)+":"+str4};
+                                coSkus.add(coSku);
+                            }
+                        }
+                    }
+                }
+                break;
+            case 5:
+                for (String str1 : values[0]) {
+                    for (String str2 : values[1]) {
+                        for (String str3 : values[2]) {
+                            for (String str4 : values[3]) {
+                                for (String str5 : values[4]) {
+                                    String[] coSku = {attriNames.get(0)+":"+str1,attriNames.get(1)+":"+str2,attriNames.get(2)+":"+str3,attriNames.get(3)+":"+str4,attriNames.get(4)+":"+str5};
+                                    coSkus.add(coSku);
+                                }
+                            }
+                        }
+                    }
+                }
+                break;
+
+        }
+
+
+        return coSkus;
+    }
 }

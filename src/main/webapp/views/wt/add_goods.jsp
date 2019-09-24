@@ -40,6 +40,7 @@
 									一级分类 </label>
 								<select class="form-control form-control-sm col" id="c1" name="catalog1">
 									<!-- 循环一级分类 -->
+									<option>请选择</option>
 									<c:forEach items="${catalog1}" var="c1">
 										<option value="${c1.id}">${c1.name}</option>
 									</c:forEach>
@@ -57,6 +58,7 @@
 									三级分类 </label>
 								<select class="form-control form-control-sm col" id="c3" name="catalog3">
 									<!-- 根据选择的二级分类循环三级分类 -->
+
 								</select>
 							</div>
 						</div>
@@ -81,6 +83,7 @@
 										<th>sku描述</th>
 										<th>库存</th>
 										<th>价格</th>
+										<th>图片</th>
 										<th>操作</th>
 									</tr>
 								</thead>
@@ -106,3 +109,4 @@
 <script type="text/javascript" src="${root}/static/js/wt/ajax-getModelByCatalog3.js"></script>
 <script type="text/javascript" src="${root}/static/js/wt/ajax-getSkusLIstByModelId.js"></script>
 <script type="text/javascript" src="${root}/static/js/wt/ajax-addGoods.js"></script>
+<script type="text/javascript" src="${root}/static/js/wt/ajax-submitImg.js"></script>

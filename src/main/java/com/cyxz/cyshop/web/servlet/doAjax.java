@@ -18,6 +18,8 @@ import javax.servlet.http.HttpServletResponse;
 public class doAjax extends BaseServlet{
     public void sendGoods(HttpServletRequest req, HttpServletResponse resp)  throws Exception {
         System.out.println("发货确认");
+        String num = req.getParameter("num");//获得快递单号待用
+        System.out.println("快递单号是："+num);
         String id = req.getParameter("id");
         String status = req.getParameter("status");
         SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();

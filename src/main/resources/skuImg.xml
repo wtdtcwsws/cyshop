@@ -2,8 +2,8 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="">
-
-
-
+<mapper namespace="com.cyxz.cyshop.dao.SkuImageMapper">
+    <select id="findUrlBySkuId" parameterType="String" resultType="com.cyxz.cyshop.domain.SkuImg">
+      select * from sku_img where `sku_id`=#{sku_id}
+    </select>
 </mapper>

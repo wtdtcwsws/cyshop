@@ -84,7 +84,6 @@ public class orderServlet extends HttpServlet {
             orderView.setStatus(Integer.parseInt(order.getStatus()));
             orderView.setTotal_price(order.getTotal_price());
             orderViews.add(orderView);
-            System.out.println(orderView.getId()+"编号/状态"+orderView.getStatus());
         }
         req.setAttribute("orderViews",orderViews);
         req.setAttribute("orders",orders);

@@ -113,7 +113,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
+                    <tr id="addressInfo">
                         <%--备份呢      --%>
                         <td class="text-left">四川省
                             <br>成都市
@@ -122,7 +122,47 @@
                             </td>
                         <td class="text-left">
                             姓名：${add.consignee_name}
-                            <br>手机：${add.phone}</td>
+                            <br>手机：${add.phone}<br>
+                            <%--未付款状态显示修改地址按钮，否则不显示--%>
+                            <c:if test="${map.status==1}">
+                            <button type="button" class="btn btn-primary pull-left" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">修改收货信息</button>
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">修改收货信息</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form>
+                                                <div class="form-group">
+                                                    <label for="recipient-add" class="col-form-label">新收货地址</label>
+                                                    <input type="text" class="form-control" id="recipient-add">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="message-name" class="col-form-label">收货人</label>
+                                                    <input type="text" class="form-control" id="message-name">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="message-phone" class="col-form-label">电话</label>
+                                                    <input type="text" class="form-control" id="message-phone">
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                                            <button type="button" class="btn btn-primary editadd" data-dismiss="modal" data-addId="${add.id}" data-orderId="${map.id}" >确定</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </c:if>
+
+
+
+                        </td>
                     </tr>
                     </tbody>
                 </table>
@@ -130,7 +170,8 @@
                     <table class="table table-bordered table-hover">
                         <thead>
                         <tr>
-                            <td class="text-left">宝贝名称</td>
+                            <td class="text-left">商品图片</td>
+                            <td class="text-left">商品名称</td>
                             <td class="text-left">型号</td>
                             <td class="text-right">数量</td>
                             <td class="text-right">单价</td>
@@ -141,6 +182,7 @@
                         <tbody>
                         <c:forEach var="ov" items="${vos}">
                             <tr>
+                                <td class="text-center"><a href="${root}/product?method=detail&spu_id ="${ov.spu_id }"><img src="${ov.url}" width="60px" alt="Xitefun Causal Wear Fancy Shoes" title="Xitefun Causal Wear Fancy Shoes" class="img-thumbnail"></a></td>
                                 <td class="text-left">${ov.name} </td>
                                 <td class="text-left">${ov.model}</td>
                                 <td class="text-right">${ov.num}</td>
@@ -149,7 +191,7 @@
                                 <td style="white-space: nowrap;" class="text-right">
                                     <%--<a class="btn btn-primary" title="" data-toggle="tooltip" href="#" data-original-title="付款"><i class="fa fa-money"></i></a>--%>
                                     <a class="btn btn-primary" title="" data-toggle="tooltip" href="#" data-original-title="再次购买"><i class="fa fa-shopping-cart"></i></a>
-                                    <a class="btn btn-danger" title="" data-toggle="tooltip" href="return.html" data-original-title="退货"><i class="fa fa-reply"></i></a>
+                                    <a class="btn btn-danger" title="" data-toggle="tooltip" href="#" data-original-title="退货"><i class="fa fa-reply"></i></a>
                                 </td>
                             </tr>
                         </c:forEach>
@@ -186,12 +228,19 @@
                             <%--<td></td>--%>
                         <%--</tr>--%>
                         <tr>
-                            <td colspan="2"></td>
+                            <td colspan="3"></td>
                             <td class="text-right"><b>合计</b>
                             </td>
                             <td class="text-right">￥${map.money}</td>
                             <td class="text-left">
-                                <a class="btn btn-primary" title="" data-toggle="tooltip" href="/front/payment2.jsp" data-original-title="付款"><i class="fa fa-money"></i></a>
+                                <c:choose>
+                                    <c:when test="${map.status==1}">
+                                        <a class="btn btn-primary" title="" data-toggle="tooltip" href="/front/payment2.jsp" data-original-title="付款"><i class="fa fa-money"></i></a>
+                                    </c:when>
+                                    <c:when test="${map.status==4}">
+                                        <a class="btn btn-primary" title="" data-toggle="tooltip" href="#" data-original-title="评价"><i class="fa fa-comment"></i></a>
+                                    </c:when>
+                                </c:choose>
                             </td>
                         </tr>
                         </tfoot>
@@ -222,6 +271,8 @@
                 <%--</table>--%>
                 <div class="buttons clearfix">
                     <div class="pull-right"><a class="btn btn-primary" href="${root}/front/index.jsp">继续购买</a>
+                    </div>
+                    <div class="pull-right m-3"><a class="btn btn-primary" href="${root}/views/frontOrderItem?method=findAllOrder">返回订单列表</a>
                     </div>
                 </div>
 
@@ -271,6 +322,7 @@
 <script type="text/javascript" src="js/themejs/application.js"></script>
 
 
+<script type="text/javascript" src="js/gy/ForModal.js"></script>
 
 </body>
 </html>

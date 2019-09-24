@@ -5,7 +5,6 @@ import com.cyxz.cyshop.domain.*;
 import com.cyxz.cyshop.util.MyBatisUtil;
 import com.cyxz.cyshop.viewobject.OrderInformationVO;
 import org.apache.ibatis.session.SqlSession;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,6 +39,7 @@ public class ForOrderInformation extends HttpServlet {
         orderDetailMapper orderItem_mapper = sqlSession.getMapper(orderDetailMapper.class);//订单详细列表mapper
         SkuMapper sku_mapper = sqlSession.getMapper(SkuMapper.class);//sku的mapper
         SpuMapper spu_mapper = sqlSession.getMapper(SpuMapper.class);//sku的mapper
+        SkuImageMapper skuimg_mapper = sqlSession.getMapper(SkuImageMapper.class);//sku_img的mapper
         Order order = order_mapper.getOrderByOrderId(orderId);//找到对应的order
         map.put("id", order.getId());
         String date = formatDate.format(order.getCreat_time());//格式化得到的时间
@@ -55,11 +55,15 @@ public class ForOrderInformation extends HttpServlet {
             OrderInformationVO vo = new OrderInformationVO();
             Sku sku = sku_mapper.findBySkuId(s.getSku_id());//根据订单详细中的skuid找到sku
             Spu spu = spu_mapper.findById(sku.getSpu_id());//查找到sku对应的spu
+            SkuImg skuImg = skuimg_mapper.findUrlBySkuId(s.getSku_id());//获得img实例
+            vo.setUrl(skuImg.getUrl());//sku图片地址
+            System.out.println(vo.getUrl());
             vo.setName(spu.getSpu_name());//设置名称，也即是spu名称
             vo.setModel(sku.getName());//设置型号也就是sku名字
             vo.setNum(s.getNums().toString());//设置数量
             vo.setPrice(sku.getPrice().toString());//设置单价
             vo.setTotal(order.getPayment().toString());//设置合计
+            vo.setSpu_id(spu.getId());
             vos.add(vo);
 
 

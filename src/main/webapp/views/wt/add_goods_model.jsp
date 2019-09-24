@@ -46,6 +46,7 @@
                                     一级分类 </label>
                                 <select class="form-control form-control-sm col" id="c1" name="catalog1">
                                     <!-- 循环一级分类 -->
+                                    <option>请选择</option>
                                     <c:forEach items="${catalog1}" var="c1">
                                         <option value="${c1.id}">${c1.name}</option>
                                     </c:forEach>
