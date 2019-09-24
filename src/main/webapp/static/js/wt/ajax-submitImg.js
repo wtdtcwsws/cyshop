@@ -13,12 +13,6 @@ function upload(event) {
         data: formdata,
         processData: false,  // 告诉jquery不转换数据
         contentType: false,  // 告诉jquery不设置内容格式
-
-
-        success: function (arg) {
-            console.log(arg);
-
-        }
     })
 
 

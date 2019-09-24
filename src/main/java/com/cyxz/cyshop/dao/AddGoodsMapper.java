@@ -1,6 +1,7 @@
 package com.cyxz.cyshop.dao;
 
 import com.cyxz.cyshop.domain.Sku;
+import com.cyxz.cyshop.domain.SkuImg;
 import com.cyxz.cyshop.domain.Spu;
 
 import java.util.List;
@@ -43,4 +44,6 @@ public interface AddGoodsMapper {
     Sku getSkuById(String skuId);
 
     int subtractStock(String count,String skuId);
+
+    int insertSkuImg(SkuImg skuImg);
 }

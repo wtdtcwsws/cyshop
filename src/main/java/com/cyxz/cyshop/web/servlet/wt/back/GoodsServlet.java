@@ -2,6 +2,7 @@ package com.cyxz.cyshop.web.servlet.wt.back;
 
 import com.cyxz.cyshop.dao.SpuListMapper;
 import com.cyxz.cyshop.domain.Sku;
+import com.cyxz.cyshop.domain.SkuImg;
 import com.cyxz.cyshop.domain.SkuModel;
 import com.cyxz.cyshop.domain.Spu;
 import com.cyxz.cyshop.json.AttriValue;
@@ -10,9 +11,11 @@ import com.cyxz.cyshop.service.SkuModelService;
 import com.cyxz.cyshop.service.SpuListService;
 import com.cyxz.cyshop.web.servlet.BaseServlet;
 import com.cyxz.cyshop.web.util.ConSkuUtils;
+import com.cyxz.cyshop.web.util.PathSubUtils;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -82,7 +85,10 @@ public class GoodsServlet extends BaseServlet {
      * @throws IOException
      */
     public void addSkus(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        获取json
+        ServletContext application = request.getServletContext();
+        String rootPath = application.getInitParameter("upload");
+
+        //     获取json
         String spu_name = request.getParameter("spu_name");
         String c1_id = request.getParameter("c1_id");
         String c2_id = request.getParameter("c2_id");
@@ -90,6 +96,8 @@ public class GoodsServlet extends BaseServlet {
         String c3_name = request.getParameter("c3_name");
         String model_id = request.getParameter("model_id");
         String datas = request.getParameter("datas");
+        String fileNames = request.getParameter("fileName");
+
 
         //创建jackson工具对象
         ObjectMapper objectMapper = new ObjectMapper();
@@ -115,7 +123,15 @@ public class GoodsServlet extends BaseServlet {
         //将json数据转化为对象集合
         List<Sku> skus = objectMapper.readValue(datas, new TypeReference<List<Sku>>() {
         });
+        List<SkuImg> skuImgs = objectMapper.readValue(fileNames, new TypeReference<List<SkuImg>>() {
+        });
+        for (SkuImg s : skuImgs) {
+            System.out.println(s);
+        }
+        //将绝对路径转为相对路径
+        String path = PathSubUtils.getImgPath(rootPath);
         //循环添加相同属性值：名字，模型id，spu_id
+        int i = 0;
         for (Sku k : skus) {
             k.setModel_id(model_id);
             k.setName(spu_name);
@@ -125,8 +141,17 @@ public class GoodsServlet extends BaseServlet {
 //            取插入数据库后的主键
             String sku_id = k.getId();
             System.out.println("已经sku插入数据库,主键为："+sku_id);
+
+            SkuImg skuImg = skuImgs.get(i++);
+            String temp = skuImg.getUrl();
+            temp = rootPath + temp;
+            String url = "\\"+PathSubUtils.getImgPath(temp);
+            skuImg.setUrl(url);
+            skuImg.setSku_id(sku_id);
+            addSkuService.insertSkuImg(skuImg);
             //按主键将图片路径添加到sku_img表中
             //TODO
+
             System.out.println(k);
 
 

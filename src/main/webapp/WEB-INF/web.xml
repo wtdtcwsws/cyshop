@@ -32,5 +32,12 @@
     <listener>
         <listener-class>com.cyxz.cyshop.web.listener.LoadSkuListener</listener-class>
     </listener>
-
+    <context-param>
+        <param-name>upload</param-name>
+        <param-value>E:\ideaproject\cyshop\src\main\webapp\front\img\sku-img\</param-value>
+    </context-param>
+    <context-param>
+        <param-name>temp</param-name>
+        <param-value>E:\ideaproject\cyshop\src\main\webapp\front\img\sku-img\temp\</param-value>
+    </context-param>
 </web-app>
