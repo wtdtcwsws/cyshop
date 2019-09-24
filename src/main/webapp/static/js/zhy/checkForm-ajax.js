@@ -1,4 +1,66 @@
 (function () {
+    $(document).ready(function () {
+        // 获取默认快递方式
+        let $expressRadio = $('#expressId');
+        // $expressRadio.attr("checked",true);
+        let $expressVal = $expressRadio.val();
+        $.ajax({
+            url:"/views/checkout?method=confirmExpress",
+            data:{
+                expressVal : $expressVal
+            }
+        })
+
+        // 获取默认地址id
+        let $addressRadio = $('#radio0');
+        $addressRadio.attr("checked",true);
+        let $addressId = $addressRadio.val();
+        $.ajax({
+            url:"/views/checkout?method=confirmAddress",
+            data:{
+                addressId : $addressId
+            },
+            success:function (v) {
+                let $r = $('[data-checkedRadio]');
+                $r.each(function (k,v) {
+
+                })
+            }
+        })
+    });
+
+    // 当快递方式选择发生改变
+    $(document).on('change','[data-expressRadio]',function () {
+        console.log($('input[name="Delivery"]:checked'))
+        let $expressVal = $('input[name="Delivery"]:checked').val();
+        // 执行ajax之前先获取地址栏的单选按钮的id
+        let $checked = $('input[data-checkedRadio]:checked')[0];
+        var $val = $($checked).attr('id');
+        $.ajax({
+            url:"/views/checkout?method=confirmExpress",
+            data:{
+                expressVal : $expressVal
+            },
+            success:function (result) {
+                $('#confirmOrder').html(result);
+                // 重新加载页面后，再将地址栏的按钮重新赋予激活状态
+                let $old = $(`#${$val}`);
+                $old.attr('checked',true);
+            }
+        })
+    })
+
+    // 当地址按钮选择发生改变
+    $(document).on('change','[data-checkedRadio]',function () {
+        let $addressId = $('input[name="address"]:checked').val();
+        $.ajax({
+            url:"/views/checkout?method=confirmAddress",
+            data:{
+                addressId : $addressId
+            }
+        })
+    })
+
     // 新增地址
     $(document).on('click','[data-Aaddress]',function () {
         var address = $('[data-AAmessage]').val();
@@ -97,26 +159,8 @@
         })
     })
 
-    // $(document).on('click','#button-confirm',function () {
-    //     $.ajax({
-    //         url:$('#form').attr("action"),
-    //         data:{
-    //             value1:$('#selectStatus').val()
-    //         },
-    //         success: function (result) {
-    //             $('#ui-view').html(result);
-    //         }
-    //     })
-    // })
 
-    var addressDefault = $('[data-addressId]').val();
-    $.ajax({
-        url:"/views/checkout?method=defaultAdress",
-        data:{
-            // addressId : addressId,
-            addressDefaule : addressDefault
-        }
-    })
+
 
     // 修改地址
     $(document).on('click','[data-addressId]',function () {
