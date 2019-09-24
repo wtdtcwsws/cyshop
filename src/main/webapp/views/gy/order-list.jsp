@@ -29,6 +29,7 @@
                 <thead>
                 <tr>
                     <th></th>
+                    <th>订单号</th>
                     <th>宝贝</th>
                     <th>原价格</th>
                     <th>邮费</th>
@@ -41,6 +42,9 @@
                     <tr>
                         <td>
                             <input class="btn  btn-outline-primary btn-sm" type="checkbox" value="">
+                        </td>
+                        <td>
+                                ${view.id}
                         </td>
                         <td>
                             <img/>

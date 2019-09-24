@@ -80,8 +80,9 @@
                     <table class="table table-bordered">
                         <thead>
                         <tr>
+                            <td class="text-center">商品图片</td>
                             <td class="text-center">商品名称</td>
-                           z <td class="text-center">下单时间</td>
+                            <td class="text-center">下单时间</td>
                             <td class="text-center">金额</td>
                             <td class="text-center">状态</td>
                             <td class="text-center">操作</td>
@@ -90,9 +91,11 @@
                         <tbody>
                         <c:forEach var="orderItemVO" items="${orderItemVOs}" varStatus="status">
                         <tr>
+                            <%----------------------此处跳转商品详情页面----------------------%>
+                            <td class="text-center"><a href="javascript:;"><img width="60px" src="${root}${orderItemVO.getUrl()}" alt="Xitefun Causal Wear Fancy Shoes" title="Xitefun Causal Wear Fancy Shoes" class="img-thumbnail"></a></td>
                             <td class="text-center">
                                 <%--<a href="product.html"></a>--%>
-                                ${orderItemVO.getName()}
+                                    <a href="javascript:;">${orderItemVO.getName()}</a>
                             </td>
                             <td class="text-center">
                                 <%--<a href="product.html">Emasa rumas gacem</a>--%>

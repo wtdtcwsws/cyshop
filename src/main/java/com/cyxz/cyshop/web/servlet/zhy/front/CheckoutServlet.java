@@ -39,18 +39,6 @@ public class CheckoutServlet extends BaseServlet {
      */
     public List<MemberAddress> findAlladdress(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-
-//        ---------------暂时没融合好项目，创建的假登陆数据---------------
-//        Member member1 = new Member();
-//        member1.setId("5");
-//        member1.setAccount("123");
-//        member1.setPassword("123");
-//        member1.setName("小桐桐");
-//        member1.setStatus("1");
-//        member1.setPhone("110");
-//        session.setAttribute("login-info",member1);
-//        ----------------------------------------------------------------
-
 //        接收session中的登陆信息
         Member member = (Member)session.getAttribute("login-info");
         String id = member.getId();

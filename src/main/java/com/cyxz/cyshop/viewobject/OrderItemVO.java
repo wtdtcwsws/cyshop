@@ -13,6 +13,7 @@ import java.util.Date;
  */
 public class OrderItemVO {
     private String id;
+    private String url;
     private String name;
     private Date creat_time;
     private BigDecimal payment;
@@ -24,6 +25,14 @@ public class OrderItemVO {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public String getName() {
@@ -62,6 +71,7 @@ public class OrderItemVO {
     public String toString() {
         return "OrderItemVO{" +
                 "id='" + id + '\'' +
+                ", url='" + url + '\'' +
                 ", name='" + name + '\'' +
                 ", creat_time=" + creat_time +
                 ", payment=" + payment +

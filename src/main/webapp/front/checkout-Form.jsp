@@ -169,9 +169,9 @@
                             <tbody>
                             <tr>
                                 <%--商品查出来的商品图片--%>
-                                <td class="text-center"><a href="product.html"><img width="60px" src="${root}${confirmOrderVO.getSpu_img()}" alt="Xitefun Causal Wear Fancy Shoes" title="Xitefun Causal Wear Fancy Shoes" class="img-thumbnail"></a></td>
+                                <td class="text-center"><a href="javascript:;"><img width="60px" src="${root}${confirmOrderVO.getSpu_img()}" alt="Xitefun Causal Wear Fancy Shoes" title="Xitefun Causal Wear Fancy Shoes" class="img-thumbnail"></a></td>
                                 <%--数据库查出来的商品名称--%>
-                                <td class="text-left"><a href="product.html">${confirmOrderVO.getSpu_name()}</a></td>
+                                <td class="text-left"><a href="javascript:;">${confirmOrderVO.getSpu_name()}</a></td>
                                 <%--数据库查出的sku值--%>
                                 <td>
                                     <c:forEach var="sku_name" items="${confirmOrderVO.getSku_name()}">
@@ -213,6 +213,8 @@
                             <div class="pull-right">
                                 <%--<input type="button" class="btn btn-primary" id="button-confirm" value="提交订单">--%>
                                 <input type="submit" class="btn btn-primary" id="button-confirm" value="提交订单">
+                                <%-------------------此处跳转会商品详细页面-------------------%>
+                                <a href="javascript" type="button" class="btn btn-primary" >取消订单</a>
                             </div>
                         </div>
                     </div>
