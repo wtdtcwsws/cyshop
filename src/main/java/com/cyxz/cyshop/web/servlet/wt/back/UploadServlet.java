@@ -1,12 +1,9 @@
 package com.cyxz.cyshop.web.servlet.wt.back;
 
 import com.cyxz.cyshop.web.servlet.BaseServlet;
-import com.cyxz.cyshop.web.util.PathSubUtils;
 import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.omg.PortableInterceptor.RequestInfo;
 
 import javax.servlet.ServletContext;
 import javax.servlet.annotation.WebServlet;
@@ -53,11 +50,6 @@ public class UploadServlet extends BaseServlet {
                     // 保存文件
                     File file = new File(rootPath + item.getName());
                     item.write(file);
-                String abPath = rootPath + item.getName();
-                String imgUrl = PathSubUtils.getImgPath(abPath);
-                System.out.println(imgUrl);
-                System.out.println("根据对应的sku_id写入sku_img数据库");
-                response.getWriter().write(imgUrl);
 
             }
 

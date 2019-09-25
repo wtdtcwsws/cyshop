@@ -2,6 +2,7 @@ package com.cyxz.cyshop.service;
 
 import com.cyxz.cyshop.dao.AddGoodsMapper;
 import com.cyxz.cyshop.domain.Sku;
+import com.cyxz.cyshop.domain.SkuImg;
 import com.cyxz.cyshop.domain.Spu;
 import com.cyxz.cyshop.util.MyBatisUtil;
 import org.apache.ibatis.session.SqlSession;
@@ -22,7 +23,7 @@ public class AddSkuService {
     static AddGoodsMapper addGoodsMapper = null;
 
     public static AddGoodsMapper getMapper() {
-        if (sqlSession == null || catalog1Mapper == null) {
+        if (sqlSession == null || addGoodsMapper == null) {
             sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
             AddGoodsMapper addGoodsMapper = sqlSession.getMapper(AddGoodsMapper.class);
             return addGoodsMapper;
@@ -127,5 +128,15 @@ public class AddSkuService {
         sqlSession.close();
 
         return success;
+    }
+
+    public int insertSkuImg(SkuImg skuImg) {
+        int success = getMapper().insertSkuImg(skuImg);
+        if (success == 1) {
+            sqlSession.commit();
+            System.out.println("图片上传成功!");
+        }
+        sqlSession.close();
+        return 0;
     }
 }

@@ -13,7 +13,7 @@
 
     <!-- Basic page needs
     ============================================ -->
-    <title>Destino - Advanced & High Customizable eCommerce HTML5/CSS3 Theme</title>
+    <title>我的订单</title>
     <meta charset="utf-8">
     <meta name="keywords" content="boostrap, responsive, html5, css3, jquery, theme, multicolor, parallax, retina, business" />
     <meta name="author" content="Magentech">
@@ -131,7 +131,7 @@
                                     </button>
                                     <ul class="dropdown-menu" role="menu">
                                         <li><a href="/front/OrderInfo?id=${orderItemVO.getId()}">详情</a></li>
-                                        <li><a href="/indect/return?id=${orderItemVO.getId()}">退货/款</a></li>
+                                        <%--<li><a href="/indect/return?id=${orderItemVO.getId()}">退货/款</a></li>--%>
                                         <li><a href="#">删除</a></li>
                                     </ul>
                                 </div>

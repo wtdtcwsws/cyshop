@@ -5,6 +5,7 @@
         $submit.click(function (event) {
             let $upload = $('[data-upload]');
             let $dataimg = $('[data-img]');
+
             let $this = $(event);
             //找到需要遍历的数据
             let spu_name = $('[name=goods_name]').val();
@@ -15,47 +16,54 @@
             let model_id = $('[name="goods_model"]').val();
             let $tr=$('tr[data-id]');
             console.log($upload);
-            console.log($dataimg);
+
+
 
             $upload.each(function (k,v) {
                 let $v = $(v);
                 $v.trigger('click');
             })
             let datas =[];
+            let fileNames =[];
             $tr.each(function (k,v) {
                 let data ={};
+                let fileName = {};
                 let $v=$(v);
                 let description = $v.find('[data-name=description]').val();
                 let stock = $v.find('[data-name=stock]').val();
                 let price = $v.find('[data-name=price]').val();
+                let $fileName = $dataimg[k].files[0].name;
                 data['description'] = description;
                 data['stock'] = stock;
                 data['price'] = price;
                 datas.push(data);
+                fileName['url'] = $fileName;
+                fileNames.push(fileName);
             })
-            console.log(datas);
+            let list1 = JSON.stringify(fileNames);
             let list = JSON.stringify(datas);
-            // $.ajax({
-            //     url: '/add/goods?method=addSkus',
-            //     data:{
-            //         spu_name:spu_name,
-            //         c1_id:c1_id,
-            //         c2_id:c2_id,
-            //         c3_id:c3_id,
-            //         c3_name:c3_name,
-            //         model_id:model_id,
-            //         datas:list
-            //
-            //     },
-            //     success:function (result) {
-            //
-            //             window.alert(result);
-            //         if (result) {
-            //             window.location.reload();
-            //         }
-            //
-            //     }
-            // })
+            $.ajax({
+                url: '/add/goods?method=addSkus',
+                data:{
+                    spu_name:spu_name,
+                    c1_id:c1_id,
+                    c2_id:c2_id,
+                    c3_id:c3_id,
+                    c3_name:c3_name,
+                    model_id:model_id,
+                    fileName:list1,
+                    datas:list
+
+                },
+                success:function (result) {
+
+                        window.alert(result);
+                    if (result) {
+                        window.location.reload();
+                    }
+
+                }
+            })
         })
     }
 )();
