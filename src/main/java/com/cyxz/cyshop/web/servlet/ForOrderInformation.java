@@ -28,7 +28,6 @@ import java.util.Map;
 public class ForOrderInformation extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String memberId = "5";//这里要捞到member的id
         SimpleDateFormat formatDate = new SimpleDateFormat("yyyy年MM月dd日 HH时mm分ss秒");//得到一个格式化实体
         Map map = new HashMap();
         String orderId = req.getParameter("id");//订单id也要捞出来，由前端的页面扔过来
@@ -47,7 +46,6 @@ public class ForOrderInformation extends HttpServlet {
         map.put("status", order.getStatus());
         map.put("money", order.getPayment());
         MemberAddress add = add_mapper.findById(order.getMember_address_id());//根据order的地址编码找到对应的地址
-        System.out.println(add);
         req.setAttribute("add", add);
         List<OrderItem> orderItems = orderItem_mapper.findByOderID(order.getId());//根据order的id找到所有的item
         List<OrderInformationVO> vos = new ArrayList<>();
@@ -57,7 +55,6 @@ public class ForOrderInformation extends HttpServlet {
             Spu spu = spu_mapper.findById(sku.getSpu_id());//查找到sku对应的spu
             SkuImg skuImg = skuimg_mapper.findUrlBySkuId(s.getSku_id());//获得img实例
             vo.setUrl(skuImg.getUrl());//sku图片地址
-            System.out.println(vo.getUrl());
             vo.setName(spu.getSpu_name());//设置名称，也即是spu名称
             vo.setModel(sku.getName());//设置型号也就是sku名字
             vo.setNum(s.getNums().toString());//设置数量
