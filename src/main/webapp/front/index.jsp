@@ -2027,7 +2027,7 @@ var $typeheader = 'header-home1';
 <!-- Footer Container -->
 
 <!-- /Footer Top Container -->
-<%@include file="/front/footer/footer.jsp" %>
+<%@include file="/front/down.jsp" %>
 <!-- //end Footer Container -->
 
 

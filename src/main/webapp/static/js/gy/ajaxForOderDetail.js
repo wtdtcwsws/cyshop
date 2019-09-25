@@ -1,16 +1,15 @@
-(function () {
+﻿(function () {
     $(".sure").click(function () {
         // event.preventDefault();//关闭默认时间响应
-        console.log('确认发货');
+        console.log('send');
         // $(this).hide();//隐藏元素
         $.ajax({
             "url": "/views/do-ajaxAll?method=sendGoods",
             "method":"POST",
             "data": {"id":$(this).data('totol'),"num":$("#recipient-name").val()},//传递参数id和输入的参数
             "success": function (data) {
-                console.log("ajax success");
                 $('#ui-view').html(data);
-
+                alert("发货成功");
             }
         })
     })

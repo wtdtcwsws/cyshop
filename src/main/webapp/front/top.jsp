@@ -123,7 +123,7 @@
                                     <span class="handle pull-left"></span>
                                     <span class="number-shopping-cart">2</span>
                                     <span class="title">我的订单</span>
-                                    <p class="text-shopping-cart cart-total-full"> $0.00 </p>
+                                    <p class="text-shopping-cart cart-total-full"> ￥1080 </p>
                                 </div>
                             </a>
 
