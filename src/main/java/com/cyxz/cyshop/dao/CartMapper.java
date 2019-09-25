@@ -1,6 +1,7 @@
 package com.cyxz.cyshop.dao;
 
 import com.cyxz.cyshop.domain.CartDomain;
+import com.cyxz.cyshop.domain.ShoppingCartItem;
 
 import java.util.List;
 
@@ -15,5 +16,6 @@ public interface CartMapper {
     // 通过购物车id删除购物车信息
     Integer deleteCartById(String CartId);
 
+    int addCartItem(ShoppingCartItem shoppingCartItem);
 
 }
