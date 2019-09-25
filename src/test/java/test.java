@@ -1,14 +1,15 @@
-import com.cyxz.cyshop.common.PageBean;
-import com.cyxz.cyshop.dao.*;
-import com.cyxz.cyshop.domain.Order;
-import com.cyxz.cyshop.util.MyBatisUtil;
-import org.apache.ibatis.session.SqlSession;
+import com.cyxz.cyshop.domain.CartDomain;
+import com.cyxz.cyshop.service.CartServie;
 
-import java.util.*;
+import java.util.List;
 
 public class test{
 
     public static void main(String[] args) {
-
+//        CartServie cartServie = new CartServie();
+//        List<CartDomain> cartDomains = cartServie.selectCartById("2");
+//        for (CartDomain cartDomain : cartDomains){
+//            System.out.println(cartDomain);
+//        }
     }
 }

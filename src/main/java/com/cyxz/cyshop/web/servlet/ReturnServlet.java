@@ -49,10 +49,7 @@ public class ReturnServlet extends HttpServlet {
         orderMapper orderMappers = sqlSession.getMapper(orderMapper.class);
         List<Order> orderAll = orderMappers.getOrderByMemberId(member.getId());
 
-
         // 用来使用的对象或者集合
-
-
         System.out.println("罗海");
         Order orders = orderAll.get(0);
         System.out.println(orders);
@@ -87,6 +84,6 @@ public class ReturnServlet extends HttpServlet {
         session.setAttribute("skus",skus);
         session.setAttribute("dateForMat",dateForMat);
 
-        response.sendRedirect(request.getContextPath() + "/views/frontOrderItem?method=findAllOrder");
+        response.sendRedirect(request.getContextPath() + "/front/return.jsp");
     }
 }
