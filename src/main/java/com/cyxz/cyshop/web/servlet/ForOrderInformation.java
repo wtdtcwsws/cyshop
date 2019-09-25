@@ -63,7 +63,9 @@ public class ForOrderInformation extends HttpServlet {
             vo.setNum(s.getNums().toString());//设置数量
             vo.setPrice(sku.getPrice().toString());//设置单价
             vo.setTotal(order.getPayment().toString());//设置合计
-            vo.setSpu_id(spu.getId());
+            vo.setSpu_id(spu.getId());//设置spuid
+
+            System.out.println("spu内容id："+vo.getSpu_id());
             vos.add(vo);
 
 

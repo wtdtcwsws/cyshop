@@ -45,13 +45,12 @@ public class ReturnAddServlet extends HttpServlet {
         RefundOrReturnOrdersService refundOrReturnOrderService = new RefundOrReturnOrdersService();
         Integer num = refundOrReturnOrderService.Add(refundOrReturnOrder);
 
+        System.out.println(num);
+
         if(num > 0){
-            response.getWriter().write("yes");
+            response.getWriter().write(request.getContextPath()+ "/views/frontOrderItem?method=findAllOrder");
         }else {
             response.getWriter().write("no");
         }
-
-
-
     }
 }

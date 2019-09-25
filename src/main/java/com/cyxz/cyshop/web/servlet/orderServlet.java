@@ -73,7 +73,7 @@ public class orderServlet extends HttpServlet {
             String productName = "商品：";
             for (OrderItem  item:items) {
                 Sku sku = skulMapper.findBySkuId(item.getSku_id());
-                productName+="/"+sku.getName();
+                productName+=sku.getName();
             }
 
             OrderView orderView = new OrderView();//创建一个对象用来接收属性
@@ -89,8 +89,6 @@ public class orderServlet extends HttpServlet {
         req.setAttribute("orders",orders);
         req.getRequestDispatcher("/views/gy/order-list.jsp").forward(req,resp);//因为框架默认拼接了views文件夹所以这里要写上
         sqlSession.close();//记得关闭sqlSession
-
-        System.out.println("执行到此");
     }
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

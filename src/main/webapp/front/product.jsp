@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
 
+
     <!-- Basic page needs
     ============================================ -->
     <title>Destino - Advanced & High Customizable eCommerce HTML5/CSS3 Theme</title>
@@ -75,9 +76,15 @@
 <body class="res layout-subpage banners-effect-7">
 <div id="wrapper" class="wrapper-full ">
     <!-- Header Container  -->
+    <style type="text/css">
+        div[data-skus]:hover {
+            border: 2px solid red;
+        }
+    </style>
     <%@include file="top.jsp" %>
     <!-- //Header Container  -->
     <!-- Main Container  -->
+
     <div class="main-container container">
         <ul class="header-main type-1">
             <li class="home"><a href="/front/index.jsp">首页<i class="fa fa-angle-right" aria-hidden="true"></i></a>
@@ -96,39 +103,20 @@
                         <div class="row">
                             <div class="content-product-left class-honizol col-md-6 col-sm-12 col-xs-12 ">
                                 <div class="large-image  ">
-                                    <img itemprop="image" class="product-image-zoom"
-                                         src="img/demo/shop/product/resize/product-1.jpg"
-                                         data-zoom-image="img/demo/shop/product/resize/product-1.jpg" title="Bint Beef"
-                                         alt="Bint Beef">
+                                    <img itemprop="image" class="product-image-zoom" src="${skuImgs.get(0).url}"
+                                         data-zoom-image="${skuImgs.get(0).url}" title="Bint Beef" alt="Bint Beef">
                                 </div>
                                 <div id="thumb-slider" class="owl-theme owl-loaded owl-drag full_slider owl-carousel "
                                      data-nav='yes' data-loop="yes" data-margin="10" data-items_xs="2" data-items_sm="3"
                                      data-items_md="4">
-                                    <a data-index="0" class="img thumbnail "
-                                       data-image="img/demo/shop/product/resize/product-1.jpg" title="Bint Beef">
-                                        <img src="img/demo/shop/product/product-1.jpg" title="Bint Beef"
-                                             alt="Bint Beef">
+                                    <c:forEach var="skuImg" items="${skuImgs}" varStatus="status">
+
+                                        <a data-index="${status.index}" class="img thumbnail "
+                                           data-image="${skuImg.url}" title="Bint Beef">
+                                            <img src="${skuImg.url}" title="Bint Beef" alt="Bint Beef">
                                     </a>
-                                    <a data-index="1" class="img thumbnail "
-                                       data-image="img/demo/shop/product/resize/product-2.jpg" title="Bint Beef">
-                                        <img src="img/demo/shop/product/product-2.jpg" title="Bint Beef"
-                                             alt="Bint Beef">
-                                    </a>
-                                    <a data-index="2" class="img thumbnail "
-                                       data-image="img/demo/shop/product/resize/product-3.jpg" title="Bint Beef">
-                                        <img src="img/demo/shop/product/product-3.jpg" title="Bint Beef"
-                                             alt="Bint Beef">
-                                    </a>
-                                    <a data-index="3" class="img thumbnail "
-                                       data-image="img/demo/shop/product/resize/product-4.jpg" title="Bint Beef">
-                                        <img src="img/demo/shop/product/product-4.jpg" title="Bint Beef"
-                                             alt="Bint Beef">
-                                    </a>
-                                    <a data-index="3" class="img thumbnail "
-                                       data-image="img/demo/shop/product/resize/product-4.jpg" title="Bint Beef">
-                                        <img src="img/demo/shop/product/product-4.jpg" title="Bint Beef"
-                                             alt="Bint Beef">
-                                    </a>
+                                    </c:forEach>
+
                                 </div>
 
                             </div>
@@ -150,21 +138,53 @@
                                     </div>
 
                                 </div>
+                                <lable>
+                                    <strong>选择规格：</strong>
+
+                                </lable>
                                 <div class="product-box-desc">
-                                    <select data-sku class="form-control form-control-sm col">
-                                        <c:forEach var="sku" items="${spu_skus}">
-                                            <option  value="${sku.id}">${sku.description}</option>
+                                    <div class="row">
+                                        <%--<select data-sku class="form-control form-control-sm col">--%>
+                                        <c:forEach var="sku" items="${spu_skus}" varStatus="statuds">
+
+                                            <div data-skuselect class="col inline"
+                                                 style="width: 100px;margin-top: 10px;">
+                                                <a href="javaScript:;">
+                                                    <label for="${statuds.index}"
+                                                           style="line-height: 24px">${sku.description}
+
+
+                                                        <input type="radio" class="radio" data-sku name="sku"
+                                                               id="${statuds.index}" value="${sku.id}"
+                                                               style="display:none"/>
+
+                                                    </label>
+
+                                                </a>
+                                            </div>
+
+                                            <%--<option  value="${sku.id}">${sku.description}</option>--%>
                                         </c:forEach>
-                                    </select>
+                                    </div>
+                                    <%--</select>--%>
                                 </div>
                                 <div class="product-label form-group">
-                                    <div class="stock">
+                                    <div class="stock" style="font-size: 18px;margin-top: 5px">
                                         <span>库存:</span> <span data-stock class="instock">10</span>
                                     </div>
-                                    <div class="product_page_price price " STYLE="margin: 50px" itemprop="offerDetails"
+                                    <div class="product_page_price price row" STYLE="margin: 50px"
+                                         itemprop="offerDetails"
                                          itemscope="" itemtype="http://data-vocabulary.org/Offer">
-                                        <label class="price-new">价格：</label><span data-price class="price-new" itemprop="price">114</span>
+                                        <div class="col-lg-6">
+                                            <label class="price">价格：</label><span class="price-new"
+                                                                                  itemprop="price">￥</span><span
+                                                data-price class="price-new" itemprop="price">2799</span>
                                         <%--<span data-price class="price-old">$122.00</span>--%>
+                                        </div>
+                                        <div class="col-lg-6" style="margin-top: 10px">
+                                            <a data-cart href="javaScript:;" class="btn btn-shopping-cart btn-danger"
+                                               title="添加至购物车"> <span>加入购物车<i class="fa fa-shopping-cart"></i></span></a>
+                                        </div>
                                     </div>
 
                                 </div>
@@ -182,7 +202,9 @@
                                                 <span class="input-group-addon product_quantity_up"><i
                                                         class="fa fa-angle-up" aria-hidden="true"></i></span>
 
+
                                             </div>
+
                                         </div>
 
                                     </div>
@@ -328,126 +350,47 @@
 
                     <section class="col-lg-3 hidden-sm hidden-md hidden-xs slider-products">
                         <div class="module latest-product titleLine">
-                            <h3 class="modtitle">推荐：猜你喜欢</h3>
+                            <h3 class="modtitle">推荐：同类热卖</h3>
                             <hr>
                             <hr>
                             <hr>
                             <div class="modcontent ">
-                                <div class="product-latest-item">
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <a href="product.html"><img src="img/demo/shop/product/product-3.jpg"
-                                                                        alt="Cisi Chicken" title="Cisi Chicken"
-                                                                        class="img-responsive"
-                                                                        style="width: 78px; height: 104px;"></a>
-                                        </div>
-                                        <div class="media-body">
-                                            <div class="caption">
-                                                <h4><a href="product.html">Sunt Molup</a></h4>
-
-                                                <div class="price">
-                                                    <span class="price-new">$100.00</span>
+                                <c:forEach var="hot" items="${spus}" varStatus="i">
+                                    <c:if test="${ spu_detail.catalog_3_id == hot.catalog_3_id}">
+                                        <div class="product-latest-item">
+                                            <div class="media">
+                                                <div class="media-left">
+                                                    <a href="/product?method=detail&spu_id=${hot.id}"><img
+                                                            src="${skuImgs.get(i.index).url}"
+                                                            alt="Cisi Chicken" title="Cisi Chicken"
+                                                            class="img-responsive"
+                                                            style="width: 78px; height: 104px;"></a>
                                                 </div>
-                                                <div class="ratings">
-                                                    <div class="rating-box">
-                                                        <span class=""><i class="fa fa-star "></i></span>
-                                                        <span class=""><i class="fa fa-star "></i></span>
-                                                        <span class=""><i class="fa fa-star "></i></span>
-                                                        <span class=""><i class="fa fa-star "></i></span>
-                                                        <span class=""><i class="fa fa-star "></i></span>
+                                                <div class="media-body">
+                                                    <div class="caption">
+                                                        <h4>
+                                                            <a href="/product?method=detail&spu_id=${hot.id}">${hot.spu_name}</a>
+                                                        </h4>
+
+                                                        <div class="price">
+                                                            <span class="price-new">￥${skus.get(i.index).price}</span>
+                                                        </div>
+                                                        <div class="ratings">
+                                                            <div class="rating-box">
+                                                                <span class=""><i class="fa fa-star "></i></span>
+                                                                <span class=""><i class="fa fa-star "></i></span>
+                                                                <span class=""><i class="fa fa-star "></i></span>
+                                                                <span class=""><i class="fa fa-star "></i></span>
+                                                                <span class=""><i class="fa fa-star "></i></span>
+                                                            </div>
+                                                        </div>
                                                     </div>
+
                                                 </div>
                                             </div>
-
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="product-latest-item">
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <a href="product.html"><img src="img/demo/shop/product/product-1.jpg"
-                                                                        alt="Cisi Chicken" title="Cisi Chicken"
-                                                                        class="img-responsive"
-                                                                        style="width: 78px; height: 104px;"></a>
-                                        </div>
-                                        <div class="media-body">
-                                            <div class="caption">
-                                                <h4><a href="product.html">Et Spare</a></h4>
-
-                                                <div class="price">
-                                                    <span class="price-new">$99.00</span>
-                                                </div>
-                                                <div class="ratings">
-                                                    <div class="rating-box">
-                                                        <span class=""><i class="fa fa-star "></i></span>
-                                                        <span class=""><i class="fa fa-star "></i></span>
-                                                        <span class=""><i class="fa fa-star "></i></span>
-                                                        <span class=""><i class="fa fa-star "></i></span>
-                                                        <span class="gray"><i class="fa fa-star "></i></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-latest-item">
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <a href="product.html"><img src="img/demo/shop/product/product-2.jpg"
-                                                                        alt="Cisi Chicken" title="Cisi Chicken"
-                                                                        class="img-responsive"
-                                                                        style="width: 78px; height: 104px;"></a>
-                                        </div>
-                                        <div class="media-body">
-                                            <div class="caption">
-                                                <h4><a href="product.html">Cisi Chicken</a></h4>
-
-                                                <div class="price">
-                                                    <span class="price-new">$59.00</span>
-                                                </div>
-                                                <div class="ratings">
-                                                    <div class="rating-box">
-                                                        <span class=""><i class="fa fa-star "></i></span>
-                                                        <span class=""><i class="fa fa-star "></i></span>
-                                                        <span class=""><i class="fa fa-star "></i></span>
-                                                        <span class=""><i class="fa fa-star "></i></span>
-                                                        <span class="gray"><i class="fa fa-star"></i></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-latest-item transition">
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <a href="product.html"><img src="img/demo/shop/product/product-4.jpg"
-                                                                        alt="Cisi Chicken" title="Cisi Chicken"
-                                                                        class="img-responsive"
-                                                                        style="width: 78px; height:104px;"></a>
-                                        </div>
-                                        <div class="media-body">
-                                            <div class="caption">
-                                                <h4><a href="product.html">Kevin Labor</a></h4>
-                                                <div class="price">
-                                                    <span class="price-new">$245.00</span>
-                                                </div>
-                                                <div class="ratings">
-                                                    <div class="rating-box">
-                                                        <span class=""><i class="fa fa-star "></i></span>
-                                                        <span class=""><i class="fa fa-star "></i></span>
-                                                        <span class=""><i class="fa fa-star "></i></span>
-                                                        <span class=""><i class="fa fa-star "></i></span>
-                                                        <span class="gray"><i class="fa fa-star"></i></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
+                                    </c:if>
+                                </c:forEach>
 
 
                             </div>
@@ -1016,10 +959,13 @@
     <%@include file="down.jsp" %>
     <!-- //end Footer Container -->
 
+
 </div>
 
 <script src="js/wt/ajax-selectSku.js"></script>
 <script src="js/wt/ajax-buySku.js"></script>
 <script src="js/wt/ajax-createOrder.js"></script>
+<script type="text/javascript" src="${root}/front/js/wt/checked.js"></script>
+<script type="text/javascript" src="${root}/front/js/wt/ajax-addCartItem.js"></script>
 </body>
 </html>

@@ -9,4 +9,7 @@
     <delete id="deleteCartById" parameterType="String">
         delete from shopping_cart_item where `id` = #{id}
     </delete>
+    <insert id="addCartItem" parameterType="com.cyxz.cyshop.domain.ShoppingCartItem">
+        insert into shopping_cart_item (`cart_id`,`sku_id`,`nums`)values (#{cart_id},#{sku_id},#{nums})
+    </insert>
 </mapper>

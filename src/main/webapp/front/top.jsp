@@ -6,7 +6,7 @@
 <head>
     <!-- Basic page needs
     ============================================ -->
-    <title>网页上半部分</title>
+
     <meta charset="utf-8">
     <meta name="keywords" content="boostrap, responsive, html5, css3, jquery, theme, multicolor, parallax, retina, business" />
     <meta name="author" content="Magentech">
@@ -123,7 +123,7 @@
                                     <span class="handle pull-left"></span>
                                     <span class="number-shopping-cart">2</span>
                                     <span class="title">我的订单</span>
-                                    <p class="text-shopping-cart cart-total-full"> $0.00 </p>
+                                    <p class="text-shopping-cart cart-total-full"> ￥1080 </p>
                                 </div>
                             </a>
 
@@ -140,24 +140,24 @@
     <!-- //Header Container  -->
 </div>
 <!-- Placed at the end of the document so the pages load faster -->
-<script type="text/javascript" src="${root}/front/js/jquery-2.2.4.min.js"></script>
-<script type="text/javascript" src="http://cdn.bootstrapmb.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="${root}/front/js/owl-carousel/owl.carousel.js"></script>
-<script type="text/javascript" src="${root}/front/js/themejs/libs.js"></script>
-<script type="text/javascript" src="${root}/front/js/unveil/jquery.unveil.js"></script>
-<script type="text/javascript" src="${root}/front/js/countdown/jquery.countdown.min.js"></script>
-<script type="text/javascript" src="${root}/front/js/dcjqaccordion/jquery.dcjqaccordion.2.8.min.js"></script>
-<script type="text/javascript" src="${root}/front/js/datetimepicker/moment.js"></script>
-<script type="text/javascript" src="${root}/front/js/datetimepicker/bootstrap-datetimepicker.min.js"></script>
-<script type="text/javascript" src="${root}/front/js/jquery-ui/jquery-ui.min.js"></script>
+<%--<script type="text/javascript" src="${root}/front/js/jquery-2.2.4.min.js"></script>--%>
+<%--<script type="text/javascript" src="http://cdn.bootstrapmb.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>--%>
+<%--<script type="text/javascript" src="${root}/front/js/owl-carousel/owl.carousel.js"></script>--%>
+<%--<script type="text/javascript" src="${root}/front/js/themejs/libs.js"></script>--%>
+<%--<script type="text/javascript" src="${root}/front/js/unveil/jquery.unveil.js"></script>--%>
+<%--<script type="text/javascript" src="${root}/front/js/countdown/jquery.countdown.min.js"></script>--%>
+<%--<script type="text/javascript" src="${root}/front/js/dcjqaccordion/jquery.dcjqaccordion.2.8.min.js"></script>--%>
+<%--<script type="text/javascript" src="${root}/front/js/datetimepicker/moment.js"></script>--%>
+<%--<script type="text/javascript" src="${root}/front/js/datetimepicker/bootstrap-datetimepicker.min.js"></script>--%>
+<%--<script type="text/javascript" src="${root}/front/js/jquery-ui/jquery-ui.min.js"></script>--%>
 
 
-<!-- Theme files ============================================ -->
+<%--<!-- Theme files ============================================ -->--%>
 
 
-<script type="text/javascript" src="${root}/front/js/themejs/so_megamenu.js"></script>
-<script type="text/javascript" src="${root}/front/js/themejs/addtocart.js"></script>
-<script type="text/javascript" src="${root}/front/js/themejs/application.js"></script>
+<%--<script type="text/javascript" src="${root}/front/js/themejs/so_megamenu.js"></script>--%>
+<%--<script type="text/javascript" src="${root}/front/js/themejs/addtocart.js"></script>--%>
+<%--<script type="text/javascript" src="${root}/front/js/themejs/application.js"></script>--%>
 
 </body>
 </html>

@@ -1,6 +1,6 @@
 // 选择sku下拉框商品价格，库存发生变化
 (function () {
-    let $selectSku = $('select[data-sku]');
+    let $selectSku = $('input[data-sku]');
     $selectSku.change(function () {
         let $skuId = $(this).val();
         let $stock = $('span[data-stock]');

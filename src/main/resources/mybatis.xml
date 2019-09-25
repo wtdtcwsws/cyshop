@@ -37,5 +37,6 @@
         <mapper resource="spu.xml"/>
         <mapper resource="cart.xml"/>
         <mapper resource="skuImg.xml"/>
+        <mapper resource="addSkuImg.xml"/>
     </mappers>
 </configuration>
