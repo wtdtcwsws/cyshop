@@ -115,9 +115,10 @@ function tijiao(jiao) {
             shuliangs:shuliangs
         },
         success: function (retult) {
-            if (retult == "no"){
-
-            }
+            // if (retult == "no"){
+            //
+            // }
+            window.location = retult;
         }
     })
 

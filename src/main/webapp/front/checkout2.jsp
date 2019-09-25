@@ -83,7 +83,7 @@
             <div id="content" class="col-sm-12">
                 <h2 class="title">订单确认页面</h2>
                 <div class="so-onepagecheckout ">
-                    <div id="confirmOrder" class="col-right col-sm-12">
+                    <div id="confirmOrder2" class="col-right col-sm-12">
 
                         <%--此处为半截页面--%>
                         <%@ include file="checkout-Form2.jsp" %>
@@ -126,7 +126,7 @@
 <script type="text/javascript" src="${root}/front/js/themejs/so_megamenu.js"></script>
 <script type="text/javascript" src="${root}/front/js/themejs/addtocart.js"></script>
 <script type="text/javascript" src="${root}/front/themejs/application.js"></script>
-<script type="text/javascript" src="${root}/static/js/zhy/checkForm-ajax.js"></script>
+<script type="text/javascript" src="${root}/static/js/zhy/checkForm2-ajax.js"></script>
 
 </body>
 </html>

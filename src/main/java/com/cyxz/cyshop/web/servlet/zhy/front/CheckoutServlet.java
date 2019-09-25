@@ -141,6 +141,7 @@ public class CheckoutServlet extends BaseServlet {
      * @throws IOException
      */
     public void showConfirmOrder2(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("罗嗨进来了");
         HttpSession session = request.getSession();
         Member member = (Member)session.getAttribute("login-info");
         if(member == null){
@@ -150,34 +151,66 @@ public class CheckoutServlet extends BaseServlet {
         List<MemberAddress> memberAddressess = this.findAlladdress(request,response);
         session.setAttribute("memberAddressess",memberAddressess);
         List<ConfirmOrderVO> confirmOrderVOs = new ArrayList<ConfirmOrderVO>();
-        ConfirmOrderVO confirmOrderVO = new ConfirmOrderVO();
         AddSkuService addSkuService = new AddSkuService();
-        SkuImageMapper skuImageMapper = sqlSession.getMapper(SkuImageMapper.class);
+        SkuImageMapper skuImageMapper = MyBatisUtil.getSqlSessionFactory().openSession().getMapper(SkuImageMapper.class);
         // 获取session购物车传过来的对象集合
-//        List<购物车商品对象> 购物车商品对象s = session.getAttributeNames("购物车对象的集合");
+        List<CartDomain> cartDomains = (List<CartDomain>)session.getAttribute("zhyJJ");
+        System.out.println("购物车传过来的对象："+cartDomains);
+        // 默认订单价格为零
         BigDecimal orderPrice = new BigDecimal("0");
-//        for(购物车商品对象(单个):购物车商品对象s){
-//            String setId = 购物车商品对象.getId(); //sku_id
-//            Sku sku= addSkuService.getSkuById(setId);
-//            String imgUrl = skuImageMapper.findUrlBySkuId(setId).getUrl();
-//            confirmOrderVO.setSpu_img(imgUrl);
-//            confirmOrderVO.setSpu_name(sku.getName());
-//            List<String> sku_name = new ArrayList<String>();
-//            sku_name.add(sku.getDescription());
-//            confirmOrderVO.setSku_name(sku_name);
-//            confirmOrderVO.setNums(new BigDecimal(购物车商品对象.get数量()));
-//            confirmOrderVO.setUnitPrice(new BigDecimal(购物车商品对象.get单价()));
-//            //        计算商品总价
-//            BigDecimal price = confirmOrderVO.getUnitPrice().multiply(confirmOrderVO.getNums());
-//            confirmOrderVO.setPrice(price);
-//            confirmOrderVO.setPostPrice(new BigDecimal("0"));
-//            confirmOrderVO.setOrderPrice(price.add(orderPrice));
-//            confirmOrderVOs.add(confirmOrderVO);
-//            orderPrice = confirmOrderVO.getOrderPrice();
-//            session.setAttribute("orderPrice",orderPrice);
-//        }
+        int i = 1;
+        for(CartDomain cartDomain:cartDomains){
+            ConfirmOrderVO confirmOrderVO = new ConfirmOrderVO();
+            System.out.println("----------------------------------------");
+            System.out.println("1.购物车第"+i+"对象"+cartDomain);
+            // 获取购物车对象的sku_id
+            String setId = cartDomain.getSku_id(); //sku_id
+            // 根据购物车对象的sku_id获取图片地址
+            String imgUrl = skuImageMapper.findUrlBySkuId(setId).getUrl();
+            // 将图片地址塞到订单页面的展示类的图片地址中
+            confirmOrderVO.setSpu_img(imgUrl);
+            // 通过购物车对象的sku_id找到sku对象
+            Sku sku= addSkuService.getSkuById(setId);
+            // 通过购物车对象的sku_id找到sku名字塞到订单页面的展示类的商品名称中
+            confirmOrderVO.setSpu_name(sku.getName());
+            // 声明一个展示类的sku属性的集合的变量
+            List<String> sku_name = new ArrayList<String>();
+            // 将shu属性添加到集合中
+            sku_name.add(sku.getDescription());
+            // 设置展示类的sku属性集合
+            confirmOrderVO.setSku_name(sku_name);
+            // 将购物车对象的数量赋予订单页面展示类的数量
+            confirmOrderVO.setNums(new BigDecimal(cartDomain.getDescription()));
+            // 单价
+            confirmOrderVO.setUnitPrice(new BigDecimal(cartDomain.getPrice()));
+            BigDecimal A = confirmOrderVO.getUnitPrice();
+            System.out.println("2.商品单价"+A);
+            // 计算商品总价：单价*数量
+            BigDecimal price = A.multiply(confirmOrderVO.getNums());
+            // 设置商品的总价
+            confirmOrderVO.setPrice(price);
+            System.out.println("3.商品总价"+confirmOrderVO.getPrice());
+            // 设置邮费价格为零（包邮）
+            confirmOrderVO.setPostPrice(new BigDecimal("0"));
+            // 计算订单的支付价格：商品总价+订单总价
+            confirmOrderVO.setOrderPrice(price.add(orderPrice));
+            confirmOrderVO.setSkuId(cartDomain.getSku_id());
+            System.out.println("4.订单总价"+confirmOrderVO.getOrderPrice());
+            System.out.println("5.第"+i+"件商品展示:"+confirmOrderVO);
+            System.out.println("----------------------------------------");
+            // 将组装好的对象放进订单展示对象的集合中
+            confirmOrderVOs.add(confirmOrderVO);
+            // 重新定义订单总价
+            orderPrice = confirmOrderVO.getOrderPrice();
+            i++;
+        }
+        session.setAttribute("orderPrice",orderPrice);
         session.setAttribute("confirmOrderVOs",confirmOrderVOs);
+        System.out.println("打印集合："+confirmOrderVOs);
         response.getWriter().write(request.getContextPath()+"/front/checkout2.jsp");
+//        response.sendRedirect("/front/checkout2.jsp");
+//        request.getRequestDispatcher(request.getContextPath()+"/front/checkout2.jsp").forward(request,response);
+
     }
 
     /**
@@ -219,9 +252,9 @@ public class CheckoutServlet extends BaseServlet {
         Member member = (Member)session.getAttribute("login-info");
         MemberAddress memberAddress = new MemberAddress();
         memberAddress.setMember_id(member.getId());
-        memberAddress.setSpecific_address(request.getParameter("address"));
-        memberAddress.setConsignee_name(request.getParameter("name"));
-        memberAddress.setPhone(request.getParameter("phone"));
+        memberAddress.setSpecific_address(request.getParameter("address2"));
+        memberAddress.setConsignee_name(request.getParameter("name2"));
+        memberAddress.setPhone(request.getParameter("phone2"));
         CheckoutService checkoutService = new CheckoutServiceImpl();
         int valid = checkoutService.addAddress(memberAddress);
         if(valid > 0){
@@ -272,11 +305,11 @@ public class CheckoutServlet extends BaseServlet {
         HttpSession session = request.getSession();
         Member member = (Member)session.getAttribute("login-info");
         MemberAddress memberAddress = new MemberAddress();
-        memberAddress.setId(request.getParameter("id"));
+        memberAddress.setId(request.getParameter("id2"));
         memberAddress.setMember_id(member.getId());
-        memberAddress.setSpecific_address(request.getParameter("address"));
-        memberAddress.setConsignee_name(request.getParameter("name"));
-        memberAddress.setPhone(request.getParameter("phone"));
+        memberAddress.setSpecific_address(request.getParameter("address2"));
+        memberAddress.setConsignee_name(request.getParameter("name2"));
+        memberAddress.setPhone(request.getParameter("phone2"));
         CheckoutService checkoutService = new CheckoutServiceImpl();
         int valid = checkoutService.updateAddress(memberAddress);
         System.out.println(valid);
@@ -299,6 +332,19 @@ public class CheckoutServlet extends BaseServlet {
         HttpSession session = request.getSession();
         String addressId = request.getParameter("addressId");
         session.setAttribute("addressId",addressId);
+    }
+
+    /**
+     * 获取收货地址
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
+    public void confirmAddress2(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        HttpSession session = request.getSession();
+        String addressId2 = request.getParameter("addressId2");
+        session.setAttribute("addressId2",addressId2);
     }
 
     /**
@@ -328,7 +374,7 @@ public class CheckoutServlet extends BaseServlet {
      */
     public String confirmExpress2(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         HttpSession session = request.getSession();
-        String postPrice = request.getParameter("expressVal");
+        String postPrice = request.getParameter("expressVal1");
         session.setAttribute("postPrice",postPrice);
         ConfirmOrderVO confirmOrderVO = (ConfirmOrderVO)session.getAttribute("confirmOrderVO");
         System.out.println(!"0".equals(postPrice));
@@ -394,43 +440,46 @@ public class CheckoutServlet extends BaseServlet {
         List<ConfirmOrderVO> confirmOrderVOs = (List<ConfirmOrderVO>)session.getAttribute("confirmOrderVOs");
 //        ConfirmOrderVO confirmOrderVO = (ConfirmOrderVO)session.getAttribute("confirmOrderVO");
         CheckoutService checkoutService = new CheckoutServiceImpl();
-        Order order = new Order();
+
         Member member = (Member)session.getAttribute("login-info");
-        String addressId = (String)session.getAttribute("addressId");
+        String addressId = (String)session.getAttribute("addressId2");
         OrderItem orderItem = new OrderItem();
+        Order order = new Order();
+
+        order.setMember_id(member.getId());
+        order.setMember_address_id(addressId);
+        order.setCreat_time(new Date());
+        BigDecimal orderPrice = (BigDecimal)session.getAttribute("orderPrice");
+        order.setTotal_price(orderPrice);
+        String postPrice = (String)session.getAttribute("postPrice");
+        order.setPost_price(new BigDecimal("0"));
+        order.setPayment(orderPrice);
+        session.removeAttribute("postPrice");
+
+        String paymentayWayId = request.getParameter("Payment");
+        if("1".equals(paymentayWayId)){
+            order.setPayment_way_id("1");
+        }else if("2".equals(paymentayWayId)){
+            order.setPayment_way_id("2");
+        }else{
+            order.setPayment_way_id("3");
+        }
+
+        order.setStatus("1");
+        System.out.println(order);
+        int OrderCreatevalid = checkoutService.insertOrder(order);
+
         for(ConfirmOrderVO confirmOrderVO:confirmOrderVOs){
-            order.setMember_id(member.getId());
 
-            order.setMember_address_id(addressId);
-
-            order.setCreat_time(new Date());
-            order.setTotal_price(confirmOrderVO.getPrice());
-            String postPrice = (String)session.getAttribute("postPrice");
-            order.setPost_price(new BigDecimal(postPrice));
-            order.setPayment(confirmOrderVO.getOrderPrice());
-            session.removeAttribute("postPrice");
-
-
-            String paymentayWayId = request.getParameter("Payment");
-            if("1".equals(paymentayWayId)){
-                order.setPayment_way_id("1");
-            }else if("2".equals(paymentayWayId)){
-                order.setPayment_way_id("2");
-            }else{
-                order.setPayment_way_id("3");
-            }
-
-            order.setStatus("1");
-            int OrderCreatevalid = checkoutService.insertOrder(order);
             orderItem.setOrder_id(order.getId());
 //        此处Sku_id需要前面页面给的数据
-            String setId = (String)session.getAttribute("setId");
-            orderItem.setSku_id(setId);
+
+            orderItem.setSku_id(confirmOrderVO.getSkuId());
             orderItem.setNums(confirmOrderVO.getNums());
+            int OrderItemCreatevalid = checkoutService.insertOrderItem(orderItem);
         }
 
         session.removeAttribute("addressId");
-        int OrderItemCreatevalid = checkoutService.insertOrderItem(orderItem);
         response.sendRedirect("/front/payment.jsp");
     }
 

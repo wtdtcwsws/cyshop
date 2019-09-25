@@ -23,6 +23,7 @@ public class ConfirmOrderVO implements Serializable {
     private BigDecimal price;
     private BigDecimal postPrice;
     private BigDecimal orderPrice;
+    private String skuId;
 
     public String getSpu_img() {
         return spu_img;
@@ -88,6 +89,14 @@ public class ConfirmOrderVO implements Serializable {
         this.orderPrice = orderPrice;
     }
 
+    public String getSkuId() {
+        return skuId;
+    }
+
+    public void setSkuId(String skuId) {
+        this.skuId = skuId;
+    }
+
     @Override
     public String toString() {
         return "ConfirmOrderVO{" +
@@ -99,6 +108,7 @@ public class ConfirmOrderVO implements Serializable {
                 ", price=" + price +
                 ", postPrice=" + postPrice +
                 ", orderPrice=" + orderPrice +
+                ", skuId='" + skuId + '\'' +
                 '}';
     }
 }
