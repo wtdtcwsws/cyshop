@@ -41,8 +41,10 @@ public class CheckoutServlet extends BaseServlet {
         HttpSession session = request.getSession();
 //        接收session中的登陆信息
         Member member = (Member)session.getAttribute("login-info");
+//        取得登陆信息的id
         String id = member.getId();
         CheckoutService checkoutService = new CheckoutServiceImpl();
+//        通过登陆信息的id获取所有该id的收获地址
         List<MemberAddress> memberAddressess = checkoutService.findAderessByMemberId(id);
         return memberAddressess;
     }
@@ -57,17 +59,21 @@ public class CheckoutServlet extends BaseServlet {
      */
     public ConfirmOrderVO receiveOrderMessage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         HttpSession session = request.getSession();
-
-//        --------------------项目未融合，创建测试用的数据-------------------
+//        构建展示的对象
         ConfirmOrderVO confirmOrderVO = new ConfirmOrderVO();
-        confirmOrderVO.setSpu_img("/front/img/demo/shop/product/E4.jpg");
         String setId = (String)request.getParameter("$sku");
         AddSkuService addSkuService = new AddSkuService();
         Sku sku= addSkuService.getSkuById(setId);
+
+        confirmOrderVO.setSpu_img("/front/img/demo/shop/product/E4.jpg");
         confirmOrderVO.setSpu_name(sku.getId());
+
+//        此处如果传的是shu属性及属性值
         List<String> sku_name = new ArrayList<String>();
         sku_name.add(request.getParameter("cosku"));
         confirmOrderVO.setSku_name(sku_name);
+
+
         confirmOrderVO.setNums(new BigDecimal(request.getParameter("count")));
         confirmOrderVO.setUnitPrice(new BigDecimal(request.getParameter("price")));
 //        计算商品总价
@@ -75,8 +81,6 @@ public class CheckoutServlet extends BaseServlet {
         confirmOrderVO.setPrice(price);
 //        confirmOrderVO.setOrderPrice(price.add(new BigDecimal("10")));
         confirmOrderVO.setOrderPrice(price);
-//        -----------------------------------------------------------------
-
         return confirmOrderVO;
     }
 

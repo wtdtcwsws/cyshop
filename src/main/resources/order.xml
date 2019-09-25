@@ -10,7 +10,7 @@
         select * from `order` where `id` = #{id}
     </select>
     <select id="selectAll" resultType="com.cyxz.cyshop.domain.Order">
-        select  * from `order`
+        select  * from `order` order by `id` DESC
     </select>
     <!--翻页语句-->
     <select id="selectView" resultType="com.cyxz.cyshop.domain.Order">

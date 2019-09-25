@@ -185,9 +185,9 @@
                             <tbody>
                             <tr>
                                 <%--商品查出来的商品图片--%>
-                                <td class="text-center"><a href="javascript:;"><img width="60px" src="${root}${confirmOrderVO.getSpu_img()}" alt="Xitefun Causal Wear Fancy Shoes" title="Xitefun Causal Wear Fancy Shoes" class="img-thumbnail"></a></td>
+                                <td class="text-center"><a href="${root}/product?method=detail&spu_id=${spu_detail}"><img width="60px" src="${root}${confirmOrderVO.getSpu_img()}" alt="Xitefun Causal Wear Fancy Shoes" title="Xitefun Causal Wear Fancy Shoes" class="img-thumbnail"></a></td>
                                 <%--数据库查出来的商品名称--%>
-                                <td class="text-left"><a href="javascript:;">${confirmOrderVO.getSpu_name()}</a></td>
+                                <td class="text-left"><a href="${root}/product?method=detail&spu_id=${spu_detail}">${confirmOrderVO.getSpu_name()}</a></td>
                                 <%--数据库查出的sku值--%>
                                 <td>
                                     <c:forEach var="sku_name" items="${confirmOrderVO.getSku_name()}">

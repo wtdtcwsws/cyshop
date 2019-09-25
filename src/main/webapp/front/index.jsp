@@ -54,7 +54,7 @@
 
 <body class="common-home res layout-home1">
 
-
+<a href="${root}/operate/cart">跳转购物车</a>
 <div id="wrapper" class="wrapper-full banners-effect-7">
 
 
@@ -2027,7 +2027,7 @@ var $typeheader = 'header-home1';
 <!-- Footer Container -->
 
 <!-- /Footer Top Container -->
-<%@include file="/front/footer/footer.jsp" %>
+<%@include file="/front/down.jsp" %>
 <!-- //end Footer Container -->
 
 
