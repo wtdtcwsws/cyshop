@@ -24,6 +24,7 @@
             "success": function (data) {
                 console.log("ajax success");
                 $('#ui-view').html(data);
+                alert("删除成功");
 
             }
         })
@@ -39,6 +40,7 @@
             "success": function (data) {
                 console.log("ajax success");
                 $('#ui-view').html(data);
+                alert("取消成功");
 
             }
         })

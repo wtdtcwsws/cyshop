@@ -33,7 +33,7 @@
 
     <!-- Google web fonts
     ============================================ -->
-    <%--<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">--%>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
 
     <!-- Libs CSS
     ============================================ -->
@@ -182,7 +182,7 @@
                         <tbody>
                         <c:forEach var="ov" items="${vos}">
                             <tr>
-                                <td class="text-center"><a href="${root}/product?method=detail&spu_id=${ov.spu_id}"><img src="${ov.url}" width="60px" alt="Xitefun Causal Wear Fancy Shoes" title="Xitefun Causal Wear Fancy Shoes" class="img-thumbnail"></a></td>
+                                <td class="text-center"><a href="${root}/product?method=detail&spu_id=${ov.spu_id}"><img src="${ov.url}" width="60px" alt="Xitefun Causal Wear Fancy Shoes" title="点击浏览商品" class="img-thumbnail"></a></td>
                                 <td class="text-left">${ov.name} </td>
                                 <td class="text-left">${ov.model}</td>
                                 <td class="text-right">${ov.num}</td>
@@ -208,34 +208,6 @@
 
                         </tbody>
                         <tfoot>
-                        <%--<tr>--%>
-                            <%--<td colspan="3"></td>--%>
-                            <%--<td class="text-right"><b>Sub-Total</b>--%>
-                            <%--</td>--%>
-                            <%--<td class="text-right">$101.00</td>--%>
-                            <%--<td></td>--%>
-                        <%--</tr>--%>
-                        <%--<tr>--%>
-                            <%--<td colspan="3"></td>--%>
-                            <%--<td class="text-right"><b>Flat Shipping Rate</b>--%>
-                            <%--</td>--%>
-                            <%--<td class="text-right">$5.00</td>--%>
-                            <%--<td></td>--%>
-                        <%--</tr>--%>
-                        <%--<tr>--%>
-                            <%--<td colspan="3"></td>--%>
-                            <%--<td class="text-right"><b>Eco Tax (-2.00)</b>--%>
-                            <%--</td>--%>
-                            <%--<td class="text-right">$6.00</td>--%>
-                            <%--<td></td>--%>
-                        <%--</tr>--%>
-                        <%--<tr>--%>
-                            <%--<td colspan="3"></td>--%>
-                            <%--<td class="text-right"><b>VAT (20%)</b>--%>
-                            <%--</td>--%>
-                            <%--<td class="text-right">$21.20</td>--%>
-                            <%--<td></td>--%>
-                        <%--</tr>--%>
                         <tr>
                             <td colspan="3"></td>
                             <td class="text-right"><b>合计</b>
@@ -255,29 +227,6 @@
                         </tfoot>
                     </table>
                 </div>
-                <%--<h3>Order History</h3>--%>
-                <%--<table class="table table-bordered table-hover">--%>
-                    <%--<thead>--%>
-                    <%--<tr>--%>
-                        <%--<td class="text-left">Date Added</td>--%>
-                        <%--<td class="text-left">Status</td>--%>
-                    <%--</tr>--%>
-                    <%--</thead>--%>
-                    <%--<tbody>--%>
-                    <%--<tr>--%>
-                        <%--<td class="text-left">20/06/2016</td>--%>
-                        <%--<td class="text-left">Processing</td>--%>
-                    <%--</tr>--%>
-                    <%--<tr>--%>
-                        <%--<td class="text-left">21/06/2016</td>--%>
-                        <%--<td class="text-left">Shipped</td>--%>
-                    <%--</tr>--%>
-                    <%--<tr>--%>
-                        <%--<td class="text-left">24/06/2016</td>--%>
-                        <%--<td class="text-left">Complete</td>--%>
-                    <%--</tr>--%>
-                    <%--</tbody>--%>
-                <%--</table>--%>
                 <div class="buttons clearfix">
                     <div class="pull-right"><a class="btn btn-primary" href="${root}/front/index.jsp">继续购买</a>
                     </div>
@@ -329,9 +278,8 @@
 <script type="text/javascript" src="js/themejs/so_megamenu.js"></script>
 <script type="text/javascript" src="js/themejs/addtocart.js"></script>
 <script type="text/javascript" src="js/themejs/application.js"></script>
-
-
 <script type="text/javascript" src="js/gy/ForModal.js"></script>
+
 
 </body>
 </html>

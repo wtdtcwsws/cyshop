@@ -1,5 +1,4 @@
-﻿jQuery.noConflict();//设置让渡$使用权限，其他脚本可以使用$
-(function ($) {
+﻿(function ($) {
     var $sure = $(".editadd");
     $(".editadd").click(function () {
         console.log("in js");
