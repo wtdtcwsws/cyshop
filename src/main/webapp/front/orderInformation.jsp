@@ -33,7 +33,7 @@
 
     <!-- Google web fonts
     ============================================ -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <%--<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">--%>
 
     <!-- Libs CSS
     ============================================ -->
@@ -182,16 +182,25 @@
                         <tbody>
                         <c:forEach var="ov" items="${vos}">
                             <tr>
-                                <td class="text-center"><a href="${root}/product?method=detail&spu_id =${ov.spu_id }"><img src="${ov.url}" width="60px" alt="Xitefun Causal Wear Fancy Shoes" title="Xitefun Causal Wear Fancy Shoes" class="img-thumbnail"></a></td>
+                                <td class="text-center"><a href="${root}/product?method=detail&spu_id=${ov.spu_id}"><img src="${ov.url}" width="60px" alt="Xitefun Causal Wear Fancy Shoes" title="Xitefun Causal Wear Fancy Shoes" class="img-thumbnail"></a></td>
                                 <td class="text-left">${ov.name} </td>
                                 <td class="text-left">${ov.model}</td>
                                 <td class="text-right">${ov.num}</td>
                                 <td class="text-right">￥${ov.price}</td>
                                     <%--<td class="text-right">￥9600</td>--%>
                                 <td style="white-space: nowrap;" class="text-right">
+                                    <c:choose>
+                                        <c:when test="${map.status>=2}">
+                                            <a class="btn btn-primary" title="" data-toggle="tooltip" href="${root}/product?method=detail&spu_id=${ov.spu_id }" data-original-title="再次购买"><i class="fa fa-shopping-cart"></i></a>
+                                            <a class="btn btn-danger" title="" data-toggle="tooltip" href="${root}/indect/return?id=${map.id}" data-original-title="退货/退款"><i class="fa fa-reply"></i></a>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <a class="btn btn-primary" title="" data-toggle="tooltip" href="${root}/product?method=detail&spu_id=${ov.spu_id }" data-original-title="再次购买"><i class="fa fa-shopping-cart"></i></a>
+                                        </c:otherwise>
+                                    </c:choose>
                                     <%--<a class="btn btn-primary" title="" data-toggle="tooltip" href="#" data-original-title="付款"><i class="fa fa-money"></i></a>--%>
-                                    <a class="btn btn-primary" title="" data-toggle="tooltip" href="${root}/product?method=detail&spu_id=${ov.spu_id }" data-original-title="再次购买"><i class="fa fa-shopping-cart"></i></a>
-                                    <a class="btn btn-danger" title="" data-toggle="tooltip" href="${root}/indect/return?id=${map.id}" data-original-title="退货"><i class="fa fa-reply"></i></a>
+
+
                                 </td>
                             </tr>
                         </c:forEach>
