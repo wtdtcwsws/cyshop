@@ -25,7 +25,6 @@ public class CharacterEncodingFilter implements Filter {
         //设置请求相应编码
         request.setCharacterEncoding(encoding);
         response.setCharacterEncoding(encoding);
-        System.out.println("字符编码过滤器启动");
         //执行后续操作
         chain.doFilter(request,response);
     }

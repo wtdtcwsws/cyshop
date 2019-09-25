@@ -1,7 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 
 <body class="res layout-subpage banners-effect-1">
@@ -12,7 +10,7 @@
     <!-- Main Container  -->
     <div class="main-container container">
         <ul class="header-main">
-            <li class="home"><a href="index.jsp">主页   </a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+            <li class="home"><a href="index.jsp">主页 </a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
             <li>${catalog3name}</li>
         </ul>
 
@@ -24,7 +22,8 @@
                     <div class="modcontent">
                         <div class="box-category">
                             <ul id="cat_accordion" class="list-group">
-                                <li class="hadchild"><a href="category.html" class="cutom-parent">Smartphone & Tablets</a>   <span class="button-view  fa fa-plus-square-o"></span>
+                                <li class="hadchild"><a href="category.html" class="cutom-parent">Smartphone &
+                                    Tablets</a> <span class="button-view  fa fa-plus-square-o"></span>
                                     <ul style="display: block;">
                                         <li><a href="category.html">Men's Watches</a></li>
                                         <li><a href="category.html">Women's Watches</a></li>
@@ -32,7 +31,8 @@
                                         <li><a href="category.html">Accessories</a></li>
                                     </ul>
                                 </li>
-                                <li class="hadchild"><a class="cutom-parent" href="category.html">Electronics</a>   <span class="button-view  fa fa-plus-square-o"></span>
+                                <li class="hadchild"><a class="cutom-parent" href="category.html">Electronics</a> <span
+                                        class="button-view  fa fa-plus-square-o"></span>
                                     <ul style="display: none;">
                                         <li><a href="category.html">Cycling</a></li>
                                         <li><a href="category.html">Running</a></li>
@@ -42,7 +42,8 @@
                                         <li><a href="category.html">Windsurfing</a></li>
                                     </ul>
                                 </li>
-                                <li class="hadchild"><a href="category.html" class="cutom-parent">Shoes</a>   <span class="button-view  fa fa-plus-square-o"></span>
+                                <li class="hadchild"><a href="category.html" class="cutom-parent">Shoes</a> <span
+                                        class="button-view  fa fa-plus-square-o"></span>
                                     <ul style="display: none;">
                                         <li><a href="category.html">Sub Categories</a></li>
                                         <li><a href="category.html">Sub Categories</a></li>
@@ -51,7 +52,8 @@
                                         <li><a href="category.html">Sub Categories</a></li>
                                     </ul>
                                 </li>
-                                <li class="hadchild"><a href="category.html" class="cutom-parent">Watches</a>  <span class="button-view  fa fa-plus-square-o"></span>
+                                <li class="hadchild"><a href="category.html" class="cutom-parent">Watches</a> <span
+                                        class="button-view  fa fa-plus-square-o"></span>
                                     <ul style="display: none;">
                                         <li><a href="category.html">Men's Watches</a></li>
                                         <li><a href="category.html">Women's Watches</a></li>
@@ -59,7 +61,8 @@
                                         <li><a href="category.html">Accessories</a></li>
                                     </ul>
                                 </li>
-                                <li class="hadchild"><a href="category.html" class="cutom-parent">Jewellery</a>    <span class="button-view  fa fa-plus-square-o"></span>
+                                <li class="hadchild"><a href="category.html" class="cutom-parent">Jewellery</a> <span
+                                        class="button-view  fa fa-plus-square-o"></span>
                                     <ul style="display: none;">
                                         <li><a href="category.html">Sub Categories</a></li>
                                         <li><a href="category.html">Sub Categories</a></li>
@@ -68,11 +71,16 @@
                                         <li><a href="category.html">Sub Categories</a></li>
                                     </ul>
                                 </li>
-                                <li class=""><a href="category.html" class="cutom-parent">Health &amp; Beauty</a>  <span class="dcjq-icon"></span></li>
-                                <li class=""><a href="category.html" class="cutom-parent">Kids &amp; Babies</a>    <span class="dcjq-icon"></span></li>
-                                <li class=""><a href="category.html" class="cutom-parent">Sports</a>  <span class="dcjq-icon"></span></li>
-                                <li class=""><a href="category.html" class="cutom-parent">Home &amp; Garden</a><span class="dcjq-icon"></span></li>
-                                <li class=""><a href="category.html" class="cutom-parent">Wines &amp; Spirits</a>  <span class="dcjq-icon"></span></li>
+                                <li class=""><a href="category.html" class="cutom-parent">Health &amp; Beauty</a> <span
+                                        class="dcjq-icon"></span></li>
+                                <li class=""><a href="category.html" class="cutom-parent">Kids &amp; Babies</a> <span
+                                        class="dcjq-icon"></span></li>
+                                <li class=""><a href="category.html" class="cutom-parent">Sports</a> <span
+                                        class="dcjq-icon"></span></li>
+                                <li class=""><a href="category.html" class="cutom-parent">Home &amp; Garden</a><span
+                                        class="dcjq-icon"></span></li>
+                                <li class=""><a href="category.html" class="cutom-parent">Wines &amp; Spirits</a> <span
+                                        class="dcjq-icon"></span></li>
                             </ul>
                         </div>
 
@@ -85,7 +93,9 @@
                         <div class="product-latest-item">
                             <div class="media">
                                 <div class="media-left">
-                                    <a href="#"><img src="img/demo/shop/product/m1.jpg" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 100px; height: 82px;"></a>
+                                    <a href="#"><img src="img/demo/shop/product/m1.jpg" alt="Cisi Chicken"
+                                                     title="Cisi Chicken" class="img-responsive"
+                                                     style="width: 100px; height: 82px;"></a>
                                 </div>
                                 <div class="media-body">
                                     <div class="caption">
@@ -111,7 +121,9 @@
                         <div class="product-latest-item">
                             <div class="media">
                                 <div class="media-left">
-                                    <a href="#"><img src="img/demo/shop/product/m2.jpg" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 100px; height: 82px;"></a>
+                                    <a href="#"><img src="img/demo/shop/product/m2.jpg" alt="Cisi Chicken"
+                                                     title="Cisi Chicken" class="img-responsive"
+                                                     style="width: 100px; height: 82px;"></a>
                                 </div>
                                 <div class="media-body">
                                     <div class="caption">
@@ -137,7 +149,9 @@
                         <div class="product-latest-item">
                             <div class="media">
                                 <div class="media-left">
-                                    <a href="#"><img src="img/demo/shop/product/18.jpg" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 100px; height: 82px;"></a>
+                                    <a href="#"><img src="img/demo/shop/product/18.jpg" alt="Cisi Chicken"
+                                                     title="Cisi Chicken" class="img-responsive"
+                                                     style="width: 100px; height: 82px;"></a>
                                 </div>
                                 <div class="media-body">
                                     <div class="caption">
@@ -163,7 +177,9 @@
                         <div class="product-latest-item transition">
                             <div class="media">
                                 <div class="media-left">
-                                    <a href="#"><img src="img/demo/shop/product/9.jpg" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 100px; height:82px;"></a>
+                                    <a href="#"><img src="img/demo/shop/product/9.jpg" alt="Cisi Chicken"
+                                                     title="Cisi Chicken" class="img-responsive"
+                                                     style="width: 100px; height:82px;"></a>
                                 </div>
                                 <div class="media-body">
                                     <div class="caption">
@@ -212,8 +228,11 @@
                             <div class="col-md-5 visible-lg">
                                 <div class="view-mode">
                                     <div class="list-view">
-                                        <button class="btn btn-default grid active" data-view="grid" data-toggle="tooltip" data-original-title="Grid"><i class="fa fa-th-large" aria-hidden="true"></i></button>
-                                        <button class="btn btn-default list" data-view="list" data-toggle="tooltip" data-original-title="List"><i class="fa fa-th-list"></i></button>
+                                        <button class="btn btn-default grid active" data-view="grid"
+                                                data-toggle="tooltip" data-original-title="Grid"><i
+                                                class="fa fa-th-large" aria-hidden="true"></i></button>
+                                        <button class="btn btn-default list" data-view="list" data-toggle="tooltip"
+                                                data-original-title="List"><i class="fa fa-th-list"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -225,7 +244,7 @@
                                     <label class="control-label" for="input-sort">Sort By:</label>
                                     <select id="input-sort" class="form-control" onchange="location = this.value;">
 
-                                        <option value="" selected="selected">Default </option>
+                                        <option value="" selected="selected">Default</option>
                                         <option value="">Name (A - Z)</option>
                                         <option value="">Name (Z - A)</option>
                                         <option value="">Price (Low &gt; High)</option>
@@ -257,8 +276,9 @@
                                     <div class="product-item-container">
                                         <div class="left-block">
                                             <div class="product-image-container  second_img ">
-                                                <a data-href="${spu.id}" href="javaScript:;" class="product-img"><img
-                                                        src="img/demo/shop/product/product-1.jpg" alt=""></a>
+                                                <a data-href="${spu.id}" href="/product?method=detail&spu_id=${spu.id}"
+                                                   class="product-img"><img
+                                                        src="/front/img/sku-img/xiaoMiBlue.jpg" alt=""></a>
                                                 <!--Sale Label-->
                                                 <span class="new">New</span>
 
@@ -266,7 +286,9 @@
                                         </div>
                                         <div class="right-block">
                                             <div class="caption">
-                                                <h4><a data-href="${spu.id}" href="/product?method=detail&spu_id=${spu.id}">${spu.spu_name}</a></h4>
+                                                <h4><a data-href="${spu.id}"
+                                                       href="/product?method=detail&spu_id=${spu.id}">${spu.spu_name}</a>
+                                                </h4>
                                                 <div class="ratings">
                                                     <div class="rating-box">
                                                         <span class=""><i class="fa fa-star "></i></span>
@@ -278,9 +300,16 @@
                                                 </div>
 
                                                 <div class="price">
+                                                    <select >
+                                                    <c:forEach var="sku" items="${skus}" >
+                                                        <c:if test="${sku.spu_id == spu.id}">
 
-                                                    <span class="price-new">￥1120.00</span>
 
+                                                        <option class="price-new">￥${sku.price}</option>
+
+                                                       </c:if>
+                                                    </c:forEach>
+                                                    </select>
                                                 </div>
 
                                                 <div class="description item-desc hidden">
@@ -295,15 +324,18 @@
                         </c:forEach>
 
                     </div>
-                        <!--// End Changed listings-->
+                    <!--// End Changed listings-->
                     <!-- Filters -->
                     <div class="product-filter filters-panel">
                         <div class="row">
                             <div class="col-md-5 visible-lg">
                                 <div class="view-mode">
                                     <div class="list-view">
-                                        <button class="btn btn-default grid active" data-view="grid" data-toggle="tooltip" data-original-title="Grid"><i class="fa fa-th-large" aria-hidden="true"></i></button>
-                                        <button class="btn btn-default list" data-view="list" data-toggle="tooltip" data-original-title="List"><i class="fa fa-th-list"></i></button>
+                                        <button class="btn btn-default grid active" data-view="grid"
+                                                data-toggle="tooltip" data-original-title="Grid"><i
+                                                class="fa fa-th-large" aria-hidden="true"></i></button>
+                                        <button class="btn btn-default list" data-view="list" data-toggle="tooltip"
+                                                data-original-title="List"><i class="fa fa-th-list"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -368,12 +400,12 @@
 <script type="text/javascript" src="js/themejs/application.js"></script>
 <script type="text/javascript"><!--
 // Check if Cookie exists
-if($.cookie('display')){
+if ($.cookie('display')) {
     view = $.cookie('display');
-}else{
+} else {
     view = 'grid';
 }
-if(view) display(view);
+if (view) display(view);
 //--></script>
 <%--<script type="text/javascript" src="js/wt/ajax-detail.js"></script>--%>
 </body>
