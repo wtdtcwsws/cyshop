@@ -19,12 +19,6 @@
             url:"/views/checkout?method=confirmAddress",
             data:{
                 addressId : $addressId
-            },
-            success:function (v) {
-                let $r = $('[data-checkedRadio]');
-                $r.each(function (k,v) {
-
-                })
             }
         })
     });
