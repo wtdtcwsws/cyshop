@@ -42,6 +42,7 @@
                 },
                 success:function (result) {
                     if (result == 'true') {
+                        alert("success!");
                         window.location.reload();
                     }
                 }

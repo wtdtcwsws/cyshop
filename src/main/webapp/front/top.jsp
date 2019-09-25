@@ -77,6 +77,7 @@
                                    }else{
                                %>
                                 <li class="signin"><span> <strong><%=member.getName()%></strong> 您好！</span></li>
+                                <li class="signin"><span><a class="top_cart dropdown-toggle"  href="/views/frontOrderItem?method=findAllOrder">我的订单</a></span></li>
                                 <li class="register"><a href="/out" >退出</a></li>
                                 <%}%>
 
@@ -117,17 +118,25 @@
                             <p><i class="fa fa-phone" aria-hidden="true"></i>	   客服热线: (888) 123456789</p>
                         </div>
                         <!--cart-->
-                        <div id="cart" class=" btn-group btn-shopping-cart">
-                            <a class="top_cart dropdown-toggle"  href="/views/frontOrderItem?method=findAllOrder">
-                                <div class="shopcart">
-                                    <span class="handle pull-left"></span>
-                                    <span class="number-shopping-cart">2</span>
-                                    <span class="title">我的订单</span>
-                                    <p class="text-shopping-cart cart-total-full"> ￥1080 </p>
-                                </div>
-                            </a>
 
+                        <%
+                            if(member != null){
+                        %>
+                        <div id="cart" class=" btn-group btn-shopping-cart">
+                            <a href="${root}/operate/cart">
+
+                                <div class="shopcart">
+                                    <%--<span class=""></span>--%>
+                                   <span class="handle pull-left"></span>
+                                    <span class="title">我的购物车</span>
+                                    <p class="text-shopping-cart cart-total-full">点击进入 </p>
+                                </div>
+
+                            </a>
                         </div>
+                        <%}else {%>
+
+                        <%}%>
                         <!--//cart-->
                     </div>
                 </div>
