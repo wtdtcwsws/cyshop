@@ -76,70 +76,9 @@
             <!--Middle Part Start-->
             <div id="content" class="col-sm-12">
                 <h2 class="title">我的订单</h2>
-                <div class="table-responsive form-group">
-                    <table class="table table-bordered">
-                        <thead>
-                        <tr>
-                            <td class="text-center">商品图片</td>
-                            <td class="text-center">商品名称</td>
-                            <td class="text-center">下单时间</td>
-                            <td class="text-center">金额</td>
-                            <td class="text-center">状态</td>
-                            <td class="text-center">操作</td>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <c:forEach var="orderItemVO" items="${orderItemVOs}" varStatus="status">
-                        <tr>
-                            <%----------------------此处跳转商品详情页面----------------------%>
-                            <td class="text-center"><a href="javascript:;"><img width="60px" src="${root}${orderItemVO.getUrl()}" alt="Xitefun Causal Wear Fancy Shoes" title="Xitefun Causal Wear Fancy Shoes" class="img-thumbnail"></a></td>
-                            <td class="text-center">
-                                <%--<a href="product.html"></a>--%>
-                                    <a href="javascript:;">${orderItemVO.getName()}</a>
-                            </td>
-                            <td class="text-center">
-                                <%--<a href="product.html">Emasa rumas gacem</a>--%>
-                                <f:formatDate value="${orderItemVO.getCreat_time()}" pattern="yyyy/MM/dd"/>
-                                <br />
-                            </td>
-                            <td class="text-center">
-                                    ${orderItemVO.getPayment()}
-                            </td>
-                            <td class="text-center" >
-                                <c:choose>
-                                    <c:when test="${orderItemVO.getStatus() eq '0'}">
-                                        已取消
-                                    </c:when>
-                                    <c:when test="${orderItemVO.getStatus() eq '1'}">
-                                        未付款
-                                    </c:when>
-                                    <c:when test="${orderItemVO.getStatus() eq '2'}">
-                                        已付款
-                                    </c:when>
-                                    <c:when test="${orderItemVO.getStatus() eq '3'}">
-                                        已发货
-                                    </c:when>
-                                    <c:otherwise>
-                                        已收货
-                                    </c:otherwise>
-                                </c:choose>
-                            </td>
-                            <td class="text-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">选择操作
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="/front/OrderInfo?id=${orderItemVO.getId()}">详情</a></li>
-                                        <%--<li><a href="/indect/return?id=${orderItemVO.getId()}">退货/款</a></li>--%>
-                                        <li><a href="#">删除</a></li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
-                        </c:forEach>
-                        </tbody>
-                    </table>
+                <div class="table-responsive form-group"  id="orderItemTbody">
+                    <%@include file="orderItemTable.jsp"%>
+
                     <nav aria-label="Page navigation example">
                         <ul class="pagination">
                             <li class="page-item disabled">
@@ -185,14 +124,14 @@
 <script type="text/javascript" src="js/datetimepicker/bootstrap-datetimepicker.min.js"></script>
 <script type="text/javascript" src="js/jquery-ui/jquery-ui.min.js"></script>
 
-
 <!-- Theme files
 ============================================ -->
-
 
 <script type="text/javascript" src="js/themejs/so_megamenu.js"></script>
 <script type="text/javascript" src="js/themejs/addtocart.js"></script>
 <script type="text/javascript" src="js/themejs/application.js"></script>
 
+
+<script type="text/javascript" src="${root}/static/js/zhy/orderItem-ajax.js"></script>
 </body>
 </html>

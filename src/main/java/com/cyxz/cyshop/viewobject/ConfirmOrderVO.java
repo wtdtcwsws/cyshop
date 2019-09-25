@@ -21,7 +21,9 @@ public class ConfirmOrderVO implements Serializable {
     private BigDecimal unitPrice;
 //    商品总价
     private BigDecimal price;
+    private BigDecimal postPrice;
     private BigDecimal orderPrice;
+    private String skuId;
 
     public String getSpu_img() {
         return spu_img;
@@ -71,12 +73,28 @@ public class ConfirmOrderVO implements Serializable {
         this.price = price;
     }
 
+    public BigDecimal getPostPrice() {
+        return postPrice;
+    }
+
+    public void setPostPrice(BigDecimal postPrice) {
+        this.postPrice = postPrice;
+    }
+
     public BigDecimal getOrderPrice() {
         return orderPrice;
     }
 
     public void setOrderPrice(BigDecimal orderPrice) {
         this.orderPrice = orderPrice;
+    }
+
+    public String getSkuId() {
+        return skuId;
+    }
+
+    public void setSkuId(String skuId) {
+        this.skuId = skuId;
     }
 
     @Override
@@ -88,7 +106,9 @@ public class ConfirmOrderVO implements Serializable {
                 ", nums=" + nums +
                 ", unitPrice=" + unitPrice +
                 ", price=" + price +
+                ", postPrice=" + postPrice +
                 ", orderPrice=" + orderPrice +
+                ", skuId='" + skuId + '\'' +
                 '}';
     }
 }

@@ -147,7 +147,7 @@
                             <div id="myTabContent" class="tab-content">
                                 <div class="tab-pane fade in active" id="home">
                                     <div style="margin-left: 300px">
-                                        <a href="/views/frontOrderItem?method=updateOrderStatus"><img src="${root}/front/img/xiaozhupeiqi.png"></a>
+                                        <a href="/views/frontOrderItem?method=updateOrderStatus2"><img src="${root}/front/img/xiaozhupeiqi.png"></a>
                                         <br>
                                         <label class="control-label">
                                             &nbsp;&nbsp;&nbsp;<input type="checkbox" checked="checked" value="1" required="" class="validate required"  name="confirm agree">

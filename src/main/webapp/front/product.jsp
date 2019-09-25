@@ -182,7 +182,7 @@
                                         <%--<span data-price class="price-old">$122.00</span>--%>
                                         </div>
                                         <div class="col-lg-6" style="margin-top: 10px">
-                                            <a href="javaScript:;" class="btn btn-shopping-cart btn-danger"
+                                            <a data-cart href="javaScript:;" class="btn btn-shopping-cart btn-danger"
                                                title="添加至购物车"> <span>加入购物车<i class="fa fa-shopping-cart"></i></span></a>
                                         </div>
                                     </div>
@@ -966,5 +966,6 @@
 <script src="js/wt/ajax-buySku.js"></script>
 <script src="js/wt/ajax-createOrder.js"></script>
 <script type="text/javascript" src="${root}/front/js/wt/checked.js"></script>
+<script type="text/javascript" src="${root}/front/js/wt/ajax-addCartItem.js"></script>
 </body>
 </html>

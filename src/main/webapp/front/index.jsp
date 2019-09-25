@@ -24,8 +24,6 @@
 
     <link rel="shortcut icon" href="${root}/front/ico/favicon.png">
 
-    <!-- Google web fonts
-    ============================================ -->
 
     <!-- Libs CSS
     ============================================ -->
@@ -55,6 +53,7 @@
 <body class="common-home res layout-home1">
 
 <a href="${root}/operate/cart">跳转购物车</a>
+
 <div id="wrapper" class="wrapper-full banners-effect-7">
 
 

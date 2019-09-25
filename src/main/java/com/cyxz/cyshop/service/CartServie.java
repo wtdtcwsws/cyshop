@@ -2,6 +2,7 @@ package com.cyxz.cyshop.service;
 
 import com.cyxz.cyshop.dao.CartMapper;
 import com.cyxz.cyshop.domain.CartDomain;
+import com.cyxz.cyshop.domain.ShoppingCartItem;
 import com.cyxz.cyshop.util.MyBatisUtil;
 import org.apache.ibatis.session.SqlSession;
 
@@ -38,4 +39,15 @@ public class CartServie {
         return  num;
     }
 
+    public int addCartItem(ShoppingCartItem shoppingCartItem) {
+        SqlSession sqlSession = null;
+        sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
+        CartMapper cartMapper = sqlSession.getMapper(CartMapper.class);
+        Integer success = cartMapper.addCartItem(shoppingCartItem);
+        if (success == 1) {
+            sqlSession.commit();
+        }
+        sqlSession.close();
+        return success;
+    }
 }

@@ -95,7 +95,7 @@
                                 <td class="text-left" style="width: 80px;">
                                     <div style="display: inline-block;">
                                     <a href="product.html">
-                                        <img width="70px" src="img/demo/shop/product/E3.jpg" alt="Aspire Ultrabook Laptop" title="查看商品详情" class="img-thumbnail" />
+                                        <img width="70px" src="${cartDomains.img_path}" alt="Aspire Ultrabook Laptop" title="查看商品详情" class="img-thumbnail" />
                                     </a>
                                     </div>
                                 </td>

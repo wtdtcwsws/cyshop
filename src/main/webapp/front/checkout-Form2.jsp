@@ -2,7 +2,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<form id="creatOrderForm" action="/views/checkout?method=createOrder" method="post">
+<%-------------------------------creatOrderForm--%>
+<form id="creatOrderForm2" action="/views/checkout?method=createOrder2" method="post">
     <div class="row">
         <div class="col-sm-12">
             <div class="panel panel-default no-padding">
@@ -16,10 +17,10 @@
                             <label>
                                 <c:choose>
                                     <c:when test="${postPrice eq '0' || postPrice eq null}">
-                                        <input id="expressId" type="radio" checked data-expressRadio name="Delivery" value="0">
+                                        <input id="expressId1" type="radio" checked data-expressRadio name="Delivery" value="0">
                                     </c:when>
                                     <c:otherwise>
-                                        <input id="expressId" type="radio" data-expressRadio name="Delivery" value="0">
+                                        <input id="expressId1" type="radio" data-expressRadio name="Delivery" value="0">
                                     </c:otherwise>
                                 </c:choose>
                                 平邮快递 - ￥0.00
@@ -73,36 +74,36 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <%--新增地址的表单--%>
-                                    <div class="modal-body">
-                                        <div class="panel panel-default" style="color: black">
-                                            <div class="panel-heading">
-                                                <h4 class="panel-title">
-                                                    <i class="fa fa-pencil"></i> 新增地址
-                                                </h4>
+                                <div class="modal-body">
+                                    <div class="panel panel-default" style="color: black">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <i class="fa fa-pencil"></i> 新增地址
+                                            </h4>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                <label class="col-form-label">地址信息(请填写包括省/市/区在内的详细信息):</label>
+                                                <%--data-AAmessage是新增收货人的地址--%>
+                                                <input class="form-control" data-AAmessage2/>
                                             </div>
-                                            <div class="panel-body">
-                                                <div class="form-group">
-                                                    <label class="col-form-label">地址信息(请填写包括省/市/区在内的详细信息):</label>
-                                                    <%--data-AAmessage是新增收货人的地址--%>
-                                                    <input class="form-control" data-AAmessage/>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-form-label">收货人名称:</label>
-                                                    <%--data-AAname是新增收货人的姓名--%>
-                                                    <input class="form-control" data-AAname/>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-form-label">收货人电话:</label>
-                                                    <%--data-AAphone是新增收货人的电话--%>
-                                                    <input class="form-control" data-AAphone/>
-                                                </div>
+                                            <div class="form-group">
+                                                <label class="col-form-label">收货人名称:</label>
+                                                <%--data-AAname是新增收货人的姓名--%>
+                                                <input class="form-control" data-AAname2/>
                                             </div>
-                                            <div class="pull-right">
-                                                <a type="button" class="btn btn-primary" data-Aaddress >保存</a>
-                                                <a type="button" class="btn btn-danger ml-3" data-dismiss="modal">取消</a>
+                                            <div class="form-group">
+                                                <label class="col-form-label">收货人电话:</label>
+                                                <%--data-AAphone是新增收货人的电话--%>
+                                                <input class="form-control" data-AAphone2/>
                                             </div>
                                         </div>
+                                        <div class="pull-right">
+                                            <a type="button" class="btn btn-primary" data-Aaddress2 >保存</a>
+                                            <a type="button" class="btn btn-danger ml-3" data-dismiss="modal">取消</a>
+                                        </div>
                                     </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -114,7 +115,7 @@
                     <c:forEach var="memberAddress" items="${memberAddressess}" varStatus="status">
                         <div class="radio">
                             <label id="addressRadio">
-                                <input id="radio${status.index}" type="radio" name="address" data-checkedRadio value="${memberAddress.getId()}">
+                                <input id="radio1${status.index}" type="radio" name="address2" data-checkedRadio2 value="${memberAddress.getId()}">
                                     <%--数据库查出来的地址和名字--%>
                                 <i class="fa fa-street-view">&nbsp;&nbsp;</i>${memberAddress.getSpecific_address()} ${memberAddress.getConsignee_name()} 收</label>
                             <a class="pull-right" data-toggle="modal" data-target="#exampleModal${memberAddress.getId()}">修改本地址</a>
@@ -135,21 +136,21 @@
                                                     <div class="form-group">
                                                             <%--数据库查出来的收货地址--%>
                                                         <label class="col-form-label">地址信息(请填写包括省/市/区在内的详细信息):</label>
-                                                        <input class="form-control" placeholder="${memberAddress.getSpecific_address()}" data-DAmessage />
+                                                        <input class="form-control" placeholder="${memberAddress.getSpecific_address()}" data-DAmessage2 />
                                                     </div>
                                                     <div class="form-group">
                                                             <%--数据库查出来的收货人名字--%>
                                                         <label class="col-form-label">收货人名称:</label>
-                                                        <input class="form-control" placeholder="${memberAddress.getConsignee_name()}" data-DAname/>
+                                                        <input class="form-control" placeholder="${memberAddress.getConsignee_name()}" data-DAname2/>
                                                     </div>
                                                     <div class="form-group">
                                                             <%--数据库查出来的收货人电话--%>
                                                         <label class="col-form-label">收货人电话:</label>
-                                                        <input class="form-control" placeholder="${memberAddress.getPhone()}" data-DAphone/>
+                                                        <input class="form-control" placeholder="${memberAddress.getPhone()}" data-DAphone2/>
                                                     </div>
                                                 </div>
                                                 <div class="pull-right">
-                                                    <a id="${status.index}" type="button" class="btn btn-primary" data-Daddress data-UAid="${memberAddress.getId()}">保存</a>
+                                                    <a id="${status.index}" type="button" class="btn btn-primary" data-Daddress2 data-UAid="${memberAddress.getId()}">保存</a>
                                                     <a type="button" class="btn btn-danger ml-3" data-dismiss="modal">取消</a>
                                                 </div>
                                             </div>
@@ -183,44 +184,46 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <%--商品查出来的商品图片--%>
-                                <td class="text-center"><a href="${root}/product?method=detail&spu_id=${spu_detail.id}"><img width="60px" src="${root}${confirmOrderVO.getSpu_img()}" alt="Xitefun Causal Wear Fancy Shoes" title="Xitefun Causal Wear Fancy Shoes" class="img-thumbnail"></a></td>
-                                <%--数据库查出来的商品名称--%>
-                                <td class="text-left"><a href="${root}/product?method=detail&spu_id=${spu_detail.id}">${confirmOrderVO.getSpu_name()}</a></td>
-                                <%--数据库查出的sku值--%>
-                                <td>
-                                    <c:forEach var="sku_name" items="${confirmOrderVO.getSku_name()}">
-                                        <span>${sku_name}</span><br>
-                                    </c:forEach>
-                                    <%--<span>颜色:红色</span><br>--%>
-                                    <%--<span>内存:256G</span>--%>
-                                </td>
-                                <td class="text-left" >
+                            <c:forEach var="confirmOrderVO" items="${confirmOrderVOs}">
+                                <tr>
+                                    <%--商品查出来的商品图片--%>
+                                    <td class="text-center"><a href="javascript:;"><img width="60px" src="${root}${confirmOrderVO.getSpu_img()}" alt="Xitefun Causal Wear Fancy Shoes" title="Xitefun Causal Wear Fancy Shoes" class="img-thumbnail"></a></td>
+                                    <%--数据库查出来的商品名称--%>
+                                    <td class="text-left"><a href="javascript:;">${confirmOrderVO.getSpu_name()}</a></td>
+                                    <%--数据库查出的sku值--%>
+                                    <td>
+                                        <c:forEach var="sku_name" items="${confirmOrderVO.getSku_name()}">
+                                            <span>${sku_name}</span><br>
+                                        </c:forEach>
+                                        <%--<span>颜色:红色</span><br>--%>
+                                        <%--<span>内存:256G</span>--%>
+                                    </td>
+                                    <td class="text-left" >
 
-                                    <div class="option quantity">
-                                        <div class="input-group quantity-control" unselectable="on" style="-webkit-user-select: none;width: 60px">
-                                            <input class="form-control" type="text" name="quantity" value="${confirmOrderVO.getNums()}" disabled />
+                                        <div class="option quantity">
+                                            <div class="input-group quantity-control" unselectable="on" style="-webkit-user-select: none;width: 60px">
+                                                <input class="form-control" type="text" name="quantity" value="${confirmOrderVO.getNums()}" disabled />
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td class="text-right">${confirmOrderVO.getUnitPrice()}</td>
-                                <td class="text-right">${confirmOrderVO.getPrice()}</td>
-                            </tr>
+                                    </td>
+                                    <td class="text-right">${confirmOrderVO.getUnitPrice()}</td>
+                                    <td class="text-right">${confirmOrderVO.getPrice()}</td>
+                                </tr>
+                            </c:forEach>
                             </tbody>
                             <tfoot>
                             <tr>
-                                <td class="text-right" colspan="2" style="border-right: none"><strong>发货时间:</strong></td>
-                                <td class="text-left" colspan="4" style="border-left: none">卖家承诺订单在买家付款后, 5天内发货</td>
+                                <td class="text-right" colspan="3" style="border-right: none"><strong>发货时间:</strong></td>
+                                <td class="text-left" colspan="3" style="border-left: none">卖家承诺订单在买家付款后, 5天内发货</td>
                             </tr>
                             <tr>
-                                <td class="text-right" colspan="2" style="border-right: none"><strong>运费:</strong></td>
-                                <td class="text-left" colspan="3" style="border-left: none;border-right: none">购买多件商品包邮</td>
-                                <td class="text-right" colspan="1" style="border-left: none">￥${postPrice}</td>
+                                <td class="text-right" colspan="3" style="border-right: none"><strong>运费:</strong></td>
+                                <td class="text-left" colspan="2" style="border-left: none;border-right: none">购买多件商品包邮</td>
+                                <td class="text-right" colspan="1" style="border-left: none">￥0.00</td>
                                 <%--<td class="text-right" colspan="1" style="border-left: none">￥${confirmOrderVO.getPostPrice()}</td>--%>
                             </tr>
                             <tr>
-                                <td class="text-right" colspan="6"><strong>订单合计:${confirmOrderVO.getOrderPrice()}</strong>
+                                <td class="text-right" colspan="6"><strong>订单合计:${orderPrice}</strong>
                                     <%--${confirmOrderVO.getOrderPrice()}--%>
                                 </td>
                             </tr>
@@ -231,7 +234,7 @@
                                 <%--<input type="button" class="btn btn-primary" id="button-confirm" value="提交订单">--%>
                                 <input type="submit" class="btn btn-primary" id="button-confirm" value="提交订单">
                                 <%-------------------此处跳转会商品详细页面-------------------%>
-                                <a href="javascript" type="button" class="btn btn-primary" >取消</a>
+                                <a href="javascript:;" type="button" class="btn btn-primary" >取消</a>
                             </div>
                         </div>
                     </div>
