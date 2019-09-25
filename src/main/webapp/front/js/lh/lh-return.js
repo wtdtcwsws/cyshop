@@ -20,10 +20,12 @@ $('[data-js="submits"]').click(function () {
             cause: cause
         },
         success: function (result) {
-            if (result == "yes"){
-                alert("提交成功！")
-            } else{
+
+            if (result == "no"){
                 alert("提交失败！")
+            }else{
+                alert("提交成功！")
+                window.location = result;
             }
 
         }
