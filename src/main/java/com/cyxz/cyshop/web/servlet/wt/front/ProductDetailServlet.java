@@ -1,6 +1,7 @@
 package com.cyxz.cyshop.web.servlet.wt.front;
 
 import com.cyxz.cyshop.domain.*;
+import com.cyxz.cyshop.service.AddSkuImgService;
 import com.cyxz.cyshop.service.AddSkuService;
 import com.cyxz.cyshop.service.OrderService;
 import com.cyxz.cyshop.service.SpuListService;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpSession;
 import java.io.Console;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -35,12 +37,20 @@ public class ProductDetailServlet extends BaseServlet {
         HttpSession session = request.getSession();
         SpuListService spuListService = new SpuListService();
         AddSkuService addSkuService = new AddSkuService();
+        AddSkuImgService addSkuImgService = new AddSkuImgService();
         Spu spu = spuListService.getSpuById(spu_id);
         System.out.println(spu);
         List<Sku> skus = addSkuService.getSkusBySpuId(spu_id);
+        List<SkuImg> skuImgs = new ArrayList<>();
+        for (Sku sku : skus) {
+            skuImgs.add(addSkuImgService.getSkuImg(sku.getId()));
+        }
+        System.out.println("sku与sku图片");
         System.out.println(skus);
+        System.out.println(skuImgs);
         session.setAttribute("spu_detail",spu);
         session.setAttribute("spu_skus", skus);
+        session.setAttribute("skuImgs", skuImgs);
         response.sendRedirect(request.getContextPath()+"/front/product.jsp");
 
     }

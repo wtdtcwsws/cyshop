@@ -214,6 +214,10 @@
 											<a class="nav-link" href="lh/member.jsp"><i class="nav-icon icon-puzzle"></i>会员列表
 											</a>
 										</li>
+										<li class="nav-item nav-dropdown">
+											<a class="nav-link" href="wt/checked.jsp"><i class="nav-icon icon-puzzle"></i>测试
+											</a>
+										</li>
 									</ul>
 								</li>
 

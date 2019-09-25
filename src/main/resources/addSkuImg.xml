@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cyxz.cyshop.dao.AddSkuImgMapper">
+    <select id="getSkuImgUrl" parameterType="String" resultType="String">
+      select url from sku_img where sku_id = #{sku_id}
+    </select>
+    <select id="getSkuImg" parameterType="String" resultType="com.cyxz.cyshop.domain.SkuImg">
+      select * from sku_img where sku_id = #{sku_id}
+    </select>
+</mapper>

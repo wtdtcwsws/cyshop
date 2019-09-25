@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 罗海
-  Date: 2019/9/19
-  Time: 9:46
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>
@@ -13,7 +7,7 @@
 
     <!-- Basic page needs
     ============================================ -->
-    <title>网页底部</title>
+
     <meta charset="utf-8">
     <meta name="keywords" content="boostrap, responsive, html5, css3, jquery, theme, multicolor, parallax, retina, business" />
     <meta name="author" content="Magentech">
@@ -23,37 +17,6 @@
     ============================================ -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <!-- Favicon
-    ============================================ -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="${root}/front/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="${root}/front/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="${root}/front/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="${root}/front/ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="${root}/front/ico/favicon.png">
-
-    <!-- Google web fonts
-    ============================================ -->
-    <%--<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">--%>
-
-    <!-- Libs CSS
-    ============================================ -->
-    <link rel="stylesheet" href="http://cdn.bootstrapmb.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link href="${root}/front/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="${root}/front/js/datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet">
-    <link href="${root}/front/js/owl-carousel/owl.carousel.css" rel="stylesheet">
-    <link href="${root}/front/css/themecss/lib.css" rel="stylesheet">
-    <link href="${root}/front/js/jquery-ui/jquery-ui.min.css" rel="stylesheet">
-
-    <!-- Theme CSS
-    ============================================ -->
-    <link href="${root}/front/css/themecss/so_megamenu.css" rel="stylesheet">
-    <link href="${root}/front/css/themecss/so-categories.css" rel="stylesheet">
-    <link href="${root}/front/css/themecss/so-listing-tabs.css" rel="stylesheet">
-    <link href="${root}/front/css/footer1.css" rel="stylesheet">
-    <link href="${root}/front/css/header1.css" rel="stylesheet">
-    <link id="color_scheme" href="${root}/front/css/theme.css" rel="stylesheet">
-
-    <!-- <link href="css/responsive.css" rel="stylesheet"> -->
 
     <style>
         .error{
@@ -190,20 +153,6 @@
 </div>	<!-- End Social widgets -->
 
 
-<!-- Include Libs & Plugins
-	============================================ -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script type="text/javascript" src="${root}/front/js/jquery-2.2.4.min.js"></script>
-<script type="text/javascript" src="http://cdn.bootstrapmb.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="${root}/front/js/owl-carousel/owl.carousel.js"></script>
-<script type="text/javascript" src="${root}/front/js/themejs/libs.js"></script>
-<script type="text/javascript" src="${root}/front/js/unveil/jquery.unveil.js"></script>
-<script type="text/javascript" src="${root}/front/js/countdown/jquery.countdown.min.js"></script>
-<script type="text/javascript" src="${root}/front/js/dcjqaccordion/jquery.dcjqaccordion.2.8.min.js"></script>
-<script type="text/javascript" src="${root}/front/js/datetimepicker/moment.js"></script>
-<script type="text/javascript" src="${root}/front/js/datetimepicker/bootstrap-datetimepicker.min.js"></script>
-<script type="text/javascript" src="${root}/front/js/jquery-ui/jquery-ui.min.js"></script>
-<script type="text/javascript" src="${root}/front/js/jquery-valdation/jquery.validate.js"></script>
 
 <%--个人添加的js--%>
 <script type="text/javascript" src="${root}/front/js/lh/lh-register.js"></script>
@@ -212,9 +161,6 @@
 ============================================ -->
 
 
-<script type="text/javascript" src="${root}/front/js/themejs/so_megamenu.js"></script>
-<script type="text/javascript" src="${root}/front/js/themejs/addtocart.js"></script>
-<script type="text/javascript" src="${root}/front/js/themejs/application.js"></script>
 
 </body>
 </html>
