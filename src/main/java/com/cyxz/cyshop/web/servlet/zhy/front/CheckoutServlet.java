@@ -1,11 +1,15 @@
 package com.cyxz.cyshop.web.servlet.zhy.front;
 
+import com.cyxz.cyshop.dao.FrontOrderItemMapper;
+import com.cyxz.cyshop.dao.SkuImageMapper;
 import com.cyxz.cyshop.domain.*;
 import com.cyxz.cyshop.service.AddSkuService;
 import com.cyxz.cyshop.service.CheckoutService;
 import com.cyxz.cyshop.service.impl.CheckoutServiceImpl;
+import com.cyxz.cyshop.util.MyBatisUtil;
 import com.cyxz.cyshop.viewobject.ConfirmOrderVO;
 import com.cyxz.cyshop.web.servlet.BaseServlet;
+import org.apache.ibatis.session.SqlSession;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,6 +32,8 @@ import java.util.List;
  */
 @WebServlet("/views/checkout")
 public class CheckoutServlet extends BaseServlet {
+
+    private SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
 
     /**
      * 查找所有的收获地址
@@ -72,8 +78,6 @@ public class CheckoutServlet extends BaseServlet {
         List<String> sku_name = new ArrayList<String>();
         sku_name.add(request.getParameter("cosku"));
         confirmOrderVO.setSku_name(sku_name);
-
-
         confirmOrderVO.setNums(new BigDecimal(request.getParameter("count")));
         confirmOrderVO.setUnitPrice(new BigDecimal(request.getParameter("price")));
 //        计算商品总价
@@ -99,15 +103,16 @@ public class CheckoutServlet extends BaseServlet {
             return;
         }
         List<MemberAddress> memberAddressess = this.findAlladdress(request,response);
-//        购物车进入的方式
-//        ConfirmOrderVO confirmOrderVO = this.receiveOrderMessage(request,response);
 
 //        直接点击购买进入的方式
         ConfirmOrderVO confirmOrderVO = new ConfirmOrderVO();
-        confirmOrderVO.setSpu_img("/front/img/demo/shop/product/E4.jpg");
         String setId = request.getParameter("sku_id");
         AddSkuService addSkuService = new AddSkuService();
         Sku sku= addSkuService.getSkuById(setId);
+        SkuImageMapper skuImageMapper = sqlSession.getMapper(SkuImageMapper.class);
+        SkuImg skuImg = skuImageMapper.findUrlBySkuId(setId);
+        String imgUrl = skuImg.getUrl();
+        confirmOrderVO.setSpu_img(imgUrl);
         session.setAttribute("setId",setId);
         confirmOrderVO.setSpu_name(sku.getName());
         List<String> sku_name = new ArrayList<String>();
@@ -119,14 +124,60 @@ public class CheckoutServlet extends BaseServlet {
         BigDecimal price = confirmOrderVO.getUnitPrice().multiply(confirmOrderVO.getNums());
         confirmOrderVO.setPrice(price);
 //        查看session中是否存在运费信息
-        String postPrice = (String)session.getAttribute("postPrice");
-        System.out.println("postPrice:"+ postPrice);
+        confirmOrderVO.setPostPrice(new BigDecimal("0"));
         confirmOrderVO.setOrderPrice(price);
         session.setAttribute("memberAddressess",memberAddressess);
         session.setAttribute("confirmOrderVO",confirmOrderVO);
 //        request.getRequestDispatcher("/front/checkout.jsp").forward(request, response);
         response.getWriter().write(request.getContextPath()+"/front/checkout.jsp");
 //        response.sendRedirect(request.getContextPath()+"/front/checkout.jsp");
+    }
+
+    /**
+     * 从购物车进入确认订单页面
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
+    public void showConfirmOrder2(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        Member member = (Member)session.getAttribute("login-info");
+        if(member == null){
+            response.getWriter().write(request.getContextPath()+"/front/login.jsp");
+            return;
+        }
+        List<MemberAddress> memberAddressess = this.findAlladdress(request,response);
+        session.setAttribute("memberAddressess",memberAddressess);
+        List<ConfirmOrderVO> confirmOrderVOs = new ArrayList<ConfirmOrderVO>();
+        ConfirmOrderVO confirmOrderVO = new ConfirmOrderVO();
+        AddSkuService addSkuService = new AddSkuService();
+        SkuImageMapper skuImageMapper = sqlSession.getMapper(SkuImageMapper.class);
+        // 获取session购物车传过来的对象集合
+//        List<购物车商品对象> 购物车商品对象s = session.getAttributeNames("购物车对象的集合");
+        BigDecimal orderPrice = new BigDecimal("0");
+//        for(购物车商品对象(单个):购物车商品对象s){
+//            String setId = 购物车商品对象.getId(); //sku_id
+//            Sku sku= addSkuService.getSkuById(setId);
+//            String imgUrl = skuImageMapper.findUrlBySkuId(setId).getUrl();
+//            confirmOrderVO.setSpu_img(imgUrl);
+//            confirmOrderVO.setSpu_name(sku.getName());
+//            List<String> sku_name = new ArrayList<String>();
+//            sku_name.add(sku.getDescription());
+//            confirmOrderVO.setSku_name(sku_name);
+//            confirmOrderVO.setNums(new BigDecimal(购物车商品对象.get数量()));
+//            confirmOrderVO.setUnitPrice(new BigDecimal(购物车商品对象.get单价()));
+//            //        计算商品总价
+//            BigDecimal price = confirmOrderVO.getUnitPrice().multiply(confirmOrderVO.getNums());
+//            confirmOrderVO.setPrice(price);
+//            confirmOrderVO.setPostPrice(new BigDecimal("0"));
+//            confirmOrderVO.setOrderPrice(price.add(orderPrice));
+//            confirmOrderVOs.add(confirmOrderVO);
+//            orderPrice = confirmOrderVO.getOrderPrice();
+//            session.setAttribute("orderPrice",orderPrice);
+//        }
+        session.setAttribute("confirmOrderVOs",confirmOrderVOs);
+        response.getWriter().write(request.getContextPath()+"/front/checkout2.jsp");
     }
 
     /**
@@ -156,6 +207,32 @@ public class CheckoutServlet extends BaseServlet {
     }
 
     /**
+     * 新增收货地址（购物车）
+     * @param request
+     * @param response
+     * @return 返回数据更新的页面
+     * @throws ServletException
+     * @throws IOException
+     */
+    public String addAddress2(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        HttpSession session = request.getSession();
+        Member member = (Member)session.getAttribute("login-info");
+        MemberAddress memberAddress = new MemberAddress();
+        memberAddress.setMember_id(member.getId());
+        memberAddress.setSpecific_address(request.getParameter("address"));
+        memberAddress.setConsignee_name(request.getParameter("name"));
+        memberAddress.setPhone(request.getParameter("phone"));
+        CheckoutService checkoutService = new CheckoutServiceImpl();
+        int valid = checkoutService.addAddress(memberAddress);
+        if(valid > 0){
+            List<MemberAddress> memberAddressess = this.findAlladdress(request,response);
+            request.setAttribute("memberAddressess",memberAddressess);
+            return "/front/checkout-Form2.jsp";
+        }
+        return "/front/checkout-Form2.jsp";
+    }
+
+    /**
      * 修改收货地址
      * @param request
      * @param response
@@ -181,6 +258,34 @@ public class CheckoutServlet extends BaseServlet {
             return "/front/checkout-Form.jsp";
         }
         return "/front/checkout-Form.jsp";
+    }
+
+    /**
+     * 修改收货地址（购物车）
+     * @param request
+     * @param response
+     * @return 返回更新数据后的页面
+     * @throws ServletException
+     * @throws IOException
+     */
+    public String updateAddress2(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        HttpSession session = request.getSession();
+        Member member = (Member)session.getAttribute("login-info");
+        MemberAddress memberAddress = new MemberAddress();
+        memberAddress.setId(request.getParameter("id"));
+        memberAddress.setMember_id(member.getId());
+        memberAddress.setSpecific_address(request.getParameter("address"));
+        memberAddress.setConsignee_name(request.getParameter("name"));
+        memberAddress.setPhone(request.getParameter("phone"));
+        CheckoutService checkoutService = new CheckoutServiceImpl();
+        int valid = checkoutService.updateAddress(memberAddress);
+        System.out.println(valid);
+        if(valid > 0){
+            List<MemberAddress> memberAddressess = this.findAlladdress(request,response);
+            request.setAttribute("memberAddressess",memberAddressess);
+            return "/front/checkout-Form2.jsp";
+        }
+        return "/front/checkout-Form2.jsp";
     }
 
     /**
@@ -215,6 +320,24 @@ public class CheckoutServlet extends BaseServlet {
     }
 
     /**
+     * 获取快递方式（购物车）
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
+    public String confirmExpress2(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        HttpSession session = request.getSession();
+        String postPrice = request.getParameter("expressVal");
+        session.setAttribute("postPrice",postPrice);
+        ConfirmOrderVO confirmOrderVO = (ConfirmOrderVO)session.getAttribute("confirmOrderVO");
+        System.out.println(!"0".equals(postPrice));
+        confirmOrderVO.setOrderPrice(confirmOrderVO.getPrice().add(new BigDecimal(postPrice)));
+        session.setAttribute("confirmOrderVO",confirmOrderVO);
+        return "/front/checkout-Form2.jsp";
+    }
+
+    /**
      * 创建订单
      * @param request
      * @param response
@@ -238,7 +361,6 @@ public class CheckoutServlet extends BaseServlet {
         order.setPayment(confirmOrderVO.getOrderPrice());
         session.removeAttribute("postPrice");
 
-
         String paymentayWayId = request.getParameter("Payment");
         if("1".equals(paymentayWayId)){
             order.setPayment_way_id("1");
@@ -247,7 +369,6 @@ public class CheckoutServlet extends BaseServlet {
         }else{
             order.setPayment_way_id("3");
         }
-
 
         order.setStatus("1");
         int OrderCreatevalid = checkoutService.insertOrder(order);
@@ -260,4 +381,58 @@ public class CheckoutServlet extends BaseServlet {
         int OrderItemCreatevalid = checkoutService.insertOrderItem(orderItem);
         response.sendRedirect("/front/payment.jsp");
     }
+
+    /**
+     * 购物车创建订单
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
+    public void createOrder2(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        List<ConfirmOrderVO> confirmOrderVOs = (List<ConfirmOrderVO>)session.getAttribute("confirmOrderVOs");
+//        ConfirmOrderVO confirmOrderVO = (ConfirmOrderVO)session.getAttribute("confirmOrderVO");
+        CheckoutService checkoutService = new CheckoutServiceImpl();
+        Order order = new Order();
+        Member member = (Member)session.getAttribute("login-info");
+        String addressId = (String)session.getAttribute("addressId");
+        OrderItem orderItem = new OrderItem();
+        for(ConfirmOrderVO confirmOrderVO:confirmOrderVOs){
+            order.setMember_id(member.getId());
+
+            order.setMember_address_id(addressId);
+
+            order.setCreat_time(new Date());
+            order.setTotal_price(confirmOrderVO.getPrice());
+            String postPrice = (String)session.getAttribute("postPrice");
+            order.setPost_price(new BigDecimal(postPrice));
+            order.setPayment(confirmOrderVO.getOrderPrice());
+            session.removeAttribute("postPrice");
+
+
+            String paymentayWayId = request.getParameter("Payment");
+            if("1".equals(paymentayWayId)){
+                order.setPayment_way_id("1");
+            }else if("2".equals(paymentayWayId)){
+                order.setPayment_way_id("2");
+            }else{
+                order.setPayment_way_id("3");
+            }
+
+            order.setStatus("1");
+            int OrderCreatevalid = checkoutService.insertOrder(order);
+            orderItem.setOrder_id(order.getId());
+//        此处Sku_id需要前面页面给的数据
+            String setId = (String)session.getAttribute("setId");
+            orderItem.setSku_id(setId);
+            orderItem.setNums(confirmOrderVO.getNums());
+        }
+
+        session.removeAttribute("addressId");
+        int OrderItemCreatevalid = checkoutService.insertOrderItem(orderItem);
+        response.sendRedirect("/front/payment.jsp");
+    }
+
+
 }

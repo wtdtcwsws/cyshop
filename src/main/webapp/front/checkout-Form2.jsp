@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<form id="creatOrderForm" action="/views/checkout?method=createOrder" method="post">
+<form id="creatOrderForm" action="/views/checkout?method=createOrder2" method="post">
     <div class="row">
         <div class="col-sm-12">
             <div class="panel panel-default no-padding">
@@ -73,36 +73,36 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <%--新增地址的表单--%>
-                                    <div class="modal-body">
-                                        <div class="panel panel-default" style="color: black">
-                                            <div class="panel-heading">
-                                                <h4 class="panel-title">
-                                                    <i class="fa fa-pencil"></i> 新增地址
-                                                </h4>
+                                <div class="modal-body">
+                                    <div class="panel panel-default" style="color: black">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <i class="fa fa-pencil"></i> 新增地址
+                                            </h4>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                <label class="col-form-label">地址信息(请填写包括省/市/区在内的详细信息):</label>
+                                                <%--data-AAmessage是新增收货人的地址--%>
+                                                <input class="form-control" data-AAmessage/>
                                             </div>
-                                            <div class="panel-body">
-                                                <div class="form-group">
-                                                    <label class="col-form-label">地址信息(请填写包括省/市/区在内的详细信息):</label>
-                                                    <%--data-AAmessage是新增收货人的地址--%>
-                                                    <input class="form-control" data-AAmessage/>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-form-label">收货人名称:</label>
-                                                    <%--data-AAname是新增收货人的姓名--%>
-                                                    <input class="form-control" data-AAname/>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-form-label">收货人电话:</label>
-                                                    <%--data-AAphone是新增收货人的电话--%>
-                                                    <input class="form-control" data-AAphone/>
-                                                </div>
+                                            <div class="form-group">
+                                                <label class="col-form-label">收货人名称:</label>
+                                                <%--data-AAname是新增收货人的姓名--%>
+                                                <input class="form-control" data-AAname/>
                                             </div>
-                                            <div class="pull-right">
-                                                <a type="button" class="btn btn-primary" data-Aaddress >保存</a>
-                                                <a type="button" class="btn btn-danger ml-3" data-dismiss="modal">取消</a>
+                                            <div class="form-group">
+                                                <label class="col-form-label">收货人电话:</label>
+                                                <%--data-AAphone是新增收货人的电话--%>
+                                                <input class="form-control" data-AAphone/>
                                             </div>
                                         </div>
+                                        <div class="pull-right">
+                                            <a type="button" class="btn btn-primary" data-Aaddress >保存</a>
+                                            <a type="button" class="btn btn-danger ml-3" data-dismiss="modal">取消</a>
+                                        </div>
                                     </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -183,30 +183,32 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <%--商品查出来的商品图片--%>
-                                <td class="text-center"><a href="${root}/product?method=detail&spu_id=${spu_detail.id}"><img width="60px" src="${root}${confirmOrderVO.getSpu_img()}" alt="Xitefun Causal Wear Fancy Shoes" title="Xitefun Causal Wear Fancy Shoes" class="img-thumbnail"></a></td>
-                                <%--数据库查出来的商品名称--%>
-                                <td class="text-left"><a href="${root}/product?method=detail&spu_id=${spu_detail.id}">${confirmOrderVO.getSpu_name()}</a></td>
-                                <%--数据库查出的sku值--%>
-                                <td>
-                                    <c:forEach var="sku_name" items="${confirmOrderVO.getSku_name()}">
-                                        <span>${sku_name}</span><br>
-                                    </c:forEach>
-                                    <%--<span>颜色:红色</span><br>--%>
-                                    <%--<span>内存:256G</span>--%>
-                                </td>
-                                <td class="text-left" >
+                            <c:forEach var="confirmOrderVO" items="${confirmOrderVOs}">
+                                <tr>
+                                    <%--商品查出来的商品图片--%>
+                                    <td class="text-center"><a href="javascript:;"><img width="60px" src="${root}${confirmOrderVO.getSpu_img()}" alt="Xitefun Causal Wear Fancy Shoes" title="Xitefun Causal Wear Fancy Shoes" class="img-thumbnail"></a></td>
+                                    <%--数据库查出来的商品名称--%>
+                                    <td class="text-left"><a href="javascript:;">${confirmOrderVO.getSpu_name()}</a></td>
+                                    <%--数据库查出的sku值--%>
+                                    <td>
+                                        <c:forEach var="sku_name" items="${confirmOrderVO.getSku_name()}">
+                                            <span>${sku_name}</span><br>
+                                        </c:forEach>
+                                        <%--<span>颜色:红色</span><br>--%>
+                                        <%--<span>内存:256G</span>--%>
+                                    </td>
+                                    <td class="text-left" >
 
-                                    <div class="option quantity">
-                                        <div class="input-group quantity-control" unselectable="on" style="-webkit-user-select: none;width: 60px">
-                                            <input class="form-control" type="text" name="quantity" value="${confirmOrderVO.getNums()}" disabled />
+                                        <div class="option quantity">
+                                            <div class="input-group quantity-control" unselectable="on" style="-webkit-user-select: none;width: 60px">
+                                                <input class="form-control" type="text" name="quantity" value="${confirmOrderVO.getNums()}" disabled />
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td class="text-right">${confirmOrderVO.getUnitPrice()}</td>
-                                <td class="text-right">${confirmOrderVO.getPrice()}</td>
-                            </tr>
+                                    </td>
+                                    <td class="text-right">${confirmOrderVO.getUnitPrice()}</td>
+                                    <td class="text-right">${confirmOrderVO.getPrice()}</td>
+                                </tr>
+                            </c:forEach>
                             </tbody>
                             <tfoot>
                             <tr>
@@ -220,7 +222,7 @@
                                 <%--<td class="text-right" colspan="1" style="border-left: none">￥${confirmOrderVO.getPostPrice()}</td>--%>
                             </tr>
                             <tr>
-                                <td class="text-right" colspan="6"><strong>订单合计:${confirmOrderVO.getOrderPrice()}</strong>
+                                <td class="text-right" colspan="6"><strong>订单合计:${orderPrice}</strong>
                                     <%--${confirmOrderVO.getOrderPrice()}--%>
                                 </td>
                             </tr>
@@ -231,7 +233,7 @@
                                 <%--<input type="button" class="btn btn-primary" id="button-confirm" value="提交订单">--%>
                                 <input type="submit" class="btn btn-primary" id="button-confirm" value="提交订单">
                                 <%-------------------此处跳转会商品详细页面-------------------%>
-                                <a href="javascript" type="button" class="btn btn-primary" >取消</a>
+                                <a href="javascript:;" type="button" class="btn btn-primary" >取消</a>
                             </div>
                         </div>
                     </div>

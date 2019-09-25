@@ -39,11 +39,13 @@ public class OrderItemServlet extends BaseServlet {
         Member member = (Member)session.getAttribute("login-info");
         if(member == null){
             response.sendRedirect(request.getContextPath()+"/front/login.jsp");
+//            return null;
             return;
         }
         List<OrderItemVO> orderItemVOs = frontOrderItemService.findAllOrder(member.getId());
         session.setAttribute("orderItemVOs",orderItemVOs);
-        System.out.println(orderItemVOs);
+//        return "/front/orderItem.jsp";
+//        response.getWriter().write(request.getContextPath()+"/front/orderItem.jsp");
         response.sendRedirect(request.getContextPath()+"/front/orderItem.jsp");
     }
 
@@ -61,6 +63,13 @@ public class OrderItemServlet extends BaseServlet {
         this.findAllOrder(request,response);
     }
 
+    /**
+     * 修改订单状态（订单详情进入）
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void updateOrderStatus2(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         PaymentService paymentService = new PaymentServiceImpl();
@@ -68,5 +77,28 @@ public class OrderItemServlet extends BaseServlet {
         int row = paymentService.updateOrderStatus2(payId);
         session.removeAttribute("payId");
         this.findAllOrder(request,response);
+    }
+
+    /**
+     * 删除订单
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
+    public String deleteOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        FrontOrderItemService frontOrderItemService = new FrontOrderItemServiceImpl();
+        Member member = (Member)session.getAttribute("login-info");
+        String orderId = request.getParameter("orderId");
+        int deleteValid = frontOrderItemService.deleteOrder(orderId);
+        System.out.println(deleteValid);
+        List<OrderItemVO> orderItemVOs = frontOrderItemService.findAllOrder(member.getId());
+        System.out.println(orderItemVOs);
+        session.setAttribute("orderItemVOs",orderItemVOs);
+//        request.setAttribute("orderItemVOs",orderItemVOs);
+//        response.getWriter().write(request.getContextPath()+"/front/orderItem.jsp");
+        return "/front/orderItemTable.jsp";
+//        request.getRequestDispatcher("/front/orderItemTable.jsp").forward(request,response);
     }
 }

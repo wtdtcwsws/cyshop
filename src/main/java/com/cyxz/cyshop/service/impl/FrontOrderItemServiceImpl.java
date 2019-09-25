@@ -29,4 +29,19 @@ public class FrontOrderItemServiceImpl implements FrontOrderItemService {
         sqlSession.close();
         return orderItemVOs;
     }
+
+    @Override
+    public int deleteOrder(String orderId) {
+        SqlSession sqlSession = null;
+        sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
+        FrontOrderItemMapper frontOrderItemMapper = sqlSession.getMapper(FrontOrderItemMapper.class);
+        int deleteItemOrder = frontOrderItemMapper.deleteItemOrder(orderId);
+//        if (deleteItemOrder>0){
+            int deleteOrederValid = frontOrderItemMapper.deleteOrder(orderId);
+            sqlSession.commit();
+            sqlSession.close();
+            return deleteOrederValid;
+//        }
+//        return 0;
+    }
 }

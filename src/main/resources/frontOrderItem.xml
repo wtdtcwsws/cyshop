@@ -6,5 +6,10 @@
     <select id="findAllOrder" parameterType="String" resultType="com.cyxz.cyshop.viewobject.OrderItemVO">
         select o.id,o.creat_time,o.payment,o.`status`,sku.`name`,si.`url` from `order` o inner join (`order_item` oi,`sku`,`sku_img` si) on (o.id = oi.order_id and sku.id = oi.sku_id and sku.id = si.sku_id) where o.member_id = #{member_id} order by o.id desc
     </select>
-
+    <delete id="deleteItemOrder" parameterType="String">
+        delete from `order_item` where order_id = #{order_id}
+    </delete>
+    <delete id="deleteOrder" parameterType="String">
+        delete from `order` where id = #{id}
+    </delete>
 </mapper>

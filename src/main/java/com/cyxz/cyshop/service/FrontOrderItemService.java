@@ -12,4 +12,6 @@ public interface FrontOrderItemService {
      * @return
      */
     List<OrderItemVO> findAllOrder(String member_id);
+
+    int deleteOrder(String orderId);
 }
