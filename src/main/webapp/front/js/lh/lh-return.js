@@ -9,29 +9,25 @@ $('[data-js="ck"]').click(function () {
     }
 })
 
-    $('[data-js="submits"]').click(function () {
+$('[data-js="submits"]').click(function () {
 
-        var cause= $('[name="cause"]').val();
-        console.log(cause)
+    var cause= $('[name="cause"]').val();
+    console.log(cause)
 
-        $.ajax({
-            url:"/submit/return",
-            data:{
-                cause: cause
-            },
-            success: function (result) {
-                if (result == "yes"){
-                    alert("提交成功！")
-                } else{
-                    alert("提交失败！")
-                }
-
+    $.ajax({
+        url:"/submit/return",
+        data:{
+            cause: cause
+        },
+        success: function (result) {
+            if (result == "yes"){
+                alert("提交成功！")
+            } else{
+                alert("提交失败！")
             }
 
-        })
+        }
+
     })
-
-
-
-
+})
 })();
