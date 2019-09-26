@@ -71,6 +71,7 @@ public class ForOrderInformation extends HttpServlet {
         req.setAttribute("vos", vos);//扔到req里面转发到页面
         System.out.println("运行到这里");
         req.getRequestDispatcher("orderInformation.jsp").forward(req,resp);
+        sqlSession.close();//关闭sqsessionl
     }
 
     @Override
