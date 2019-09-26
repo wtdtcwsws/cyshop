@@ -91,6 +91,7 @@ public class OrderItemServlet extends BaseServlet {
         FrontOrderItemService frontOrderItemService = new FrontOrderItemServiceImpl();
         Member member = (Member)session.getAttribute("login-info");
         String orderId = request.getParameter("orderId");
+        System.out.println("删除的数据编号："+orderId);
         int deleteValid = frontOrderItemService.deleteOrder(orderId);
         System.out.println(deleteValid);
         List<OrderItemVO> orderItemVOs = frontOrderItemService.findAllOrder(member.getId());
