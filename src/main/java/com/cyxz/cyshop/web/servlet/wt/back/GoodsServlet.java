@@ -160,6 +160,9 @@ public class GoodsServlet extends BaseServlet {
         System.out.println(spu_name);
         System.out.println(datas);
         System.out.println(c3_name);
+        //更新skus
+        List<Sku> skusUpdate = addSkuService.selectSkus();
+        request.getServletContext().setAttribute("skus",skusUpdate);
 
         response.getWriter().write("添加成功！");
     }
