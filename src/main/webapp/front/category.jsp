@@ -270,7 +270,7 @@
                     <!-- //end Filters -->
                     <!--changed listings-->
                     <div class="products-list grid ">
-                        <c:forEach var="spu" items="${spus}">
+                        <c:forEach var="spu" items="${spus}" varStatus="status">
                             <c:if test="${spu.catalog_3_id==navi3}">
                                 <div class="product-layout">
                                     <div class="product-item-container">
@@ -278,7 +278,7 @@
                                             <div class="product-image-container  second_img ">
                                                 <a data-href="${spu.id}" href="/product?method=detail&spu_id=${spu.id}"
                                                    class="product-img"><img
-                                                        src="/front/img/sku-img/xiaoMiBlue.jpg" alt=""></a>
+                                                        src="/front/img/sku-img/${status.index}.jpg" alt=""></a>
                                                 <!--Sale Label-->
                                                 <span class="new">New</span>
 
