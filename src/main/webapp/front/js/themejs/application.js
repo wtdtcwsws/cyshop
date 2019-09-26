@@ -787,7 +787,7 @@ $(document).ready(function() {
 		items: [
 			{src: 'img/demo/shop/product/resize/product-1.jpg' },
 			{src: 'img/demo/shop/product/resize/product-2.jpg' },
-			{src: 'img/demo/shop/product/resize/product-3.jpg' },
+			{src: 'img/demo/shop/product/resize/product-4.jpg' },
 			{src: 'img/demo/shop/product/resize/product-4.jpg' },
 		],
 		gallery: { enabled: true, preload: [0,2] },

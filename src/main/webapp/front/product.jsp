@@ -76,11 +76,7 @@
 <body class="res layout-subpage banners-effect-7">
 <div id="wrapper" class="wrapper-full ">
     <!-- Header Container  -->
-    <style type="text/css">
-        div[data-skus]:hover {
-            border: 2px solid red;
-        }
-    </style>
+
     <%@include file="top.jsp" %>
     <!-- //Header Container  -->
     <!-- Main Container  -->
@@ -146,16 +142,16 @@
                                         <%--<select data-sku class="form-control form-control-sm col">--%>
                                         <c:forEach var="sku" items="${spu_skus}" varStatus="statuds">
 
-                                            <div data-skuselect class="col inline"
-                                                 style="width: 100px;margin-top: 10px;">
+                                            <div data-skuselect class="col-8 inline"
+                                                 style="width: 300px;margin-top: 10px;">
                                                 <a href="javaScript:;">
                                                     <label for="${statuds.index}"
                                                            style="line-height: 24px">${sku.description}
 
 
                                                         <input type="radio" class="radio" data-sku name="sku"
-                                                               id="${statuds.index}" value="${sku.id}"
-                                                               style="display:none"/>
+                                                               id="${statuds.index}" value="${sku.id}" style="display: none"
+                                                               />
 
                                                     </label>
 
@@ -957,16 +953,17 @@
 
 
     <!-- Footer Container -->
-    <%@include file="down.jsp" %>
+
     <!-- //end Footer Container -->
 
 
 </div>
 
-<script src="js/wt/ajax-selectSku.js"></script>
-<script src="js/wt/ajax-buySku.js"></script>
-<script src="js/wt/ajax-createOrder.js"></script>
+<script src="${root}/front/js/wt/ajax-selectSku.js"></script>
+<script src="${root}/front/js/wt/ajax-buySku.js"></script>
+<script src="${root}/front/js/wt/ajax-createOrder.js"></script>
 <script type="text/javascript" src="${root}/front/js/wt/checked.js"></script>
 <script type="text/javascript" src="${root}/front/js/wt/ajax-addCartItem.js"></script>
 </body>
+<%@include file="down.jsp" %>
 </html>
