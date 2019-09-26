@@ -85,7 +85,7 @@
                         <div class="row">
                             <div class="col-sm-6 new-customer">
                                 <div class="well">
-                                    <h2><i class="fa fa-file-o" aria-hidden="true"></i>新客户您好！</h2>
+                                    <h2><i class="fa fa-user-plus" aria-hidden="true"></i>新客户您好！</h2>
                                     <p>通过创建一个帐户，您将能够更快地购物，了解订单的最新状态，并跟踪您以前的订单。</p>
                                 </div>
                                 <div class="bottom-form">
@@ -97,7 +97,7 @@
 
                                 <div class="col-sm-6 customer-login">
                                     <div class="well">
-                                        <h2><i class="fa fa-file-text-o" aria-hidden="true"></i>用户登录</h2>
+                                        <h2><i class="fa fa-user" aria-hidden="true"></i>用户登录</h2>
                                         <p><strong>我是一名回头客</strong></p>
                                         <div class="form-group">
                                             <label class="control-label " for="input-account">账号</label>
