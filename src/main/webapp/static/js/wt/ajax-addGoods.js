@@ -59,7 +59,7 @@
 
                         window.alert(result);
                     if (result) {
-                        window.location.reload();
+                        window.location.href="http://localhost:8080/index.jsp#wt/goods-list.jsp";
                     }
 
                 }

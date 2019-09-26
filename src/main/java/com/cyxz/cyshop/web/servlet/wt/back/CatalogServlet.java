@@ -55,7 +55,7 @@ public class CatalogServlet extends BaseServlet {
         }else {
             request.setAttribute("error","该分类已存在！");
         }
-        response.sendRedirect(request.getContextPath() + "/#wt/catalog.jsp");
+        response.sendRedirect(request.getContextPath() + "/index.jsp#wt/catalog.jsp");
     }
 
     /**
@@ -91,7 +91,7 @@ public class CatalogServlet extends BaseServlet {
         }else {
             request.setAttribute("error","该分类已存在！");
         }
-        response.sendRedirect(request.getContextPath() + "/#wt/catalog.jsp");
+        response.sendRedirect(request.getContextPath() + "/index.jsp#wt/catalog.jsp");
     }
 
     /**
@@ -129,7 +129,7 @@ public class CatalogServlet extends BaseServlet {
         }else {
             request.setAttribute("error","该分类已存在！");
         }
-        response.sendRedirect(request.getContextPath() + "/#wt/catalog.jsp");
+        response.sendRedirect(request.getContextPath() + "/index.jsp#wt/catalog.jsp");
     }
 
     /**

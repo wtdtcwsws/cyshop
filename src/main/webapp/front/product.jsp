@@ -125,15 +125,14 @@
                                 <div class="title-product">
                                     <h1 data-spu-name>${spu_detail.spu_name}</h1>
                                 </div>
+                                <hr>
                                 <!-- Review -->
                                 <div class="box-review form-group">
                                     <div class="ratings">
                                         <div class="rating-box">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star gray"></i>
+                                           <p style="color: red"><strong>${spu_detail.spu_description}</strong></p>
+                                           <p style="color: #f5761b;font-size: 14px">购机赠移动电源+数据线 </p>
+                                            <hr>
                                         </div>
                                     </div>
 
@@ -166,12 +165,14 @@
                                             <%--<option  value="${sku.id}">${sku.description}</option>--%>
                                         </c:forEach>
                                     </div>
+                                    <hr>
                                     <%--</select>--%>
                                 </div>
                                 <div class="product-label form-group">
                                     <div class="stock" style="font-size: 18px;margin-top: 5px">
                                         <span>库存:</span> <span data-stock class="instock">10</span>
                                     </div>
+                                    <hr>
                                     <div class="product_page_price price row" STYLE="margin: 50px"
                                          itemprop="offerDetails"
                                          itemscope="" itemtype="http://data-vocabulary.org/Offer">
@@ -182,7 +183,7 @@
                                         <%--<span data-price class="price-old">$122.00</span>--%>
                                         </div>
                                         <div class="col-lg-6" style="margin-top: 10px">
-                                            <a data-cart href="javaScript:;" class="btn btn-shopping-cart btn-danger"
+                                            <a data-cart href="javaScript:;" data-original-title="加入购物车" class="btn btn-shopping-cart btn-danger"
                                                title="添加至购物车"> <span>加入购物车<i class="fa fa-shopping-cart"></i></span></a>
                                         </div>
                                     </div>

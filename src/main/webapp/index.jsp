@@ -134,7 +134,7 @@
 				<nav class="sidebar-nav">
 					<ul class="nav ">
 						<li class="nav-item">
-							<a class="nav-link" href="main.jsp">
+							<a class="nav-link" href="/main.jsp">
 								<i class="nav-icon cui-home"></i> TP主页
 								<span class="badge badge-primary">NEW</span>
 							</a>

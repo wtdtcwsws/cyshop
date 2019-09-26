@@ -52,7 +52,7 @@
 
 <body class="common-home res layout-home1">
 
-<a href="${root}/operate/cart">跳转购物车</a>
+
 
 <div id="wrapper" class="wrapper-full banners-effect-7">
 
@@ -191,7 +191,7 @@
                                     <a href="#">
                                         <span class="ico-policy"></span>
                                         <div class="service-info">
-                                            <span class="title">Free Shipping & Return</span> <br> <span>Free shipping on orders over $49</span>
+                                            <span class="title">购物返积分</span> <br> <span>购物满49返购物积分</span>
                                         </div>
                                     </a>
                                 </div>
@@ -199,7 +199,7 @@
                                     <a href="#">
                                         <span class="ico-policy"></span>
                                         <div class="service-info">
-                                            <span class="title">Money Guarantee</span> <br><span>30 days money back guarantee</span>
+                                            <span class="title">购物无忧</span> <br><span>7 天无理由退换货</span>
                                         </div>
                                     </a>
                                 </div>
@@ -207,7 +207,7 @@
                                     <a href="#">
                                         <span class="ico-policy"></span>
                                         <div class="service-info">
-                                            <span class="title">Online Support</span> <br><span>We support online 24/24 on day</span>
+                                            <span class="title">24小时发货</span> <br><span>全国24小时内发货</span>
                                         </div>
                                     </a></div>
                             </div>
