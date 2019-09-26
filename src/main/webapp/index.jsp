@@ -17,7 +17,7 @@
 		<link href="static/vendors/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
 		<!-- Main styles for this application-->
 		<link href="static/css/style.css" rel="stylesheet">
-		<link href="static/ven                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  dors/pace-progress/css/pace.min.css" rel="stylesheet">
+		<link href="static/vendors/pace-progress/css/pace.min.css" rel="stylesheet">
 		<style>
 			 main{
             background-image: url("static/image/背景图.jpg");

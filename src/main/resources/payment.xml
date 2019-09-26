@@ -7,7 +7,7 @@
         select max(id) from `order`
     </select>
     <update id="updateOrderStatus" parameterType="String">
-        update `order` set `status` = 2 where `id` = #{id}
+        update `order` set `status` = 2 ,`pay_time` = now() where `id` = #{id}
     </update>
 
 </mapper>
