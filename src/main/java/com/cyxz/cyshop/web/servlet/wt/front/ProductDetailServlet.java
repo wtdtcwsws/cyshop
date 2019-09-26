@@ -56,6 +56,9 @@ public class ProductDetailServlet extends BaseServlet {
     }
     public void selectSku(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         String skuId = request.getParameter("skuId");
+        System.out.println("!!!!!!!!!!");
+        System.out.println(skuId);
+        System.out.println("!!!!!!!!!!");
         AddSkuService addSkuService = new AddSkuService();
         Sku sku = addSkuService.getSkuById(skuId);
         ObjectMapper mapper = new ObjectMapper();
